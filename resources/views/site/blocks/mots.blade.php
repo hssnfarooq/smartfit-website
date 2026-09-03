@@ -1,0 +1,1 @@
+<livewire:components.mot.ispis-mota />

@@ -1,0 +1,67 @@
+/* 2.13 Progressbar - Start
+================================================== */
+.progress_item {
+  position: relative;
+}
+.progress_item:not(:last-child) {
+  margin-bottom: 28px;
+}
+
+.progress_item .item_title,
+.progress_item .progress_bar span {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 23px;
+  margin-bottom: 16px;
+  text-transform: capitalize;
+}
+.progress_item .progress {
+  height: auto;
+  padding: 3px;
+  border-radius: 0;
+  overflow: visible;
+  background-color: #343434;
+}
+.progress_item .progress_bar {
+  height: 15px;
+  position: relative;
+  background-color: var(--bs-primary);
+}
+.progress_item .progress_bar span {
+  right: 0;
+  top: -42px;
+  z-index: 1;
+  position: absolute;
+}
+
+@keyframes rx_width_90 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+.rx_width_90 {
+  -webkit-animation-name: rx_width_90;
+  animation-name: rx_width_90;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rx_width_98 {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 98%;
+  }
+}
+.rx_width_98 {
+  -webkit-animation-name: rx_width_98;
+  animation-name: rx_width_98;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+/* 2.13 Progressbar - End
+================================================== */

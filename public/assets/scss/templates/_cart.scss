@@ -1,0 +1,116 @@
+/* 5.3 - Cart Template - Start
+================================================== */
+.cart_table {
+	>ul:not(.table_head) {
+		margin: -15px;
+		.title_text {
+			display: none;
+		}
+	}
+	>ul {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+		>li {
+			flex: 1;
+			padding: 15px;
+			&:first-child {
+				flex: 0 0 30%;
+			}
+			&:last-child {
+				flex: 0 0 10%;
+			}
+		}
+	}
+	.table_head {
+		padding: 5px 15px;
+		background-color: var(--bs-gray-dark);
+	}
+	.cart_product_item {
+		display: flex;
+		max-width: 240px;
+		align-items: center;
+		.item_image {
+			width: 100px;
+			height: 100px;
+			display: flex;
+			flex: 0 0 100px;
+			margin: 0 20px 0 0;
+			align-items: center;
+			justify-content: center;
+			background-color: var(--bs-gray-dark);
+			img {
+				max-width: 70px;
+			}
+		}
+		.item_title {
+			font-size: 15px;
+			font-weight: 600;
+			margin-bottom: 10px;
+		}
+		.item_brand {
+			font-size: 14px;
+			line-height: 18px;
+			color: var(--bs-body-color);
+			font-family: var(--bs-font-body);
+			&:hover {
+				color: var(--bs-primary);
+			}
+		}
+	}
+	.quantity_form {
+		height: 50px;
+		display: inline-flex;
+	}
+	.remove_btn {
+		&:hover {
+			color: var(--bs-primary);
+		}
+	}
+}
+
+.order_summary {
+	padding: 30px;
+	max-width: 370px;
+	background-color: var(--bs-gray-dark);
+	.area_title {
+		color: #EDEDED;
+		font-size: 23px;
+		line-height: 32px;
+		margin-bottom: 20px;
+	}
+	>ul {
+		>li {
+			display: flex;
+			font-size: 15px;
+			line-height: 18px;
+			justify-content: space-between;
+			&:not(:last-child) {
+				margin-bottom: 15px;
+				padding-bottom: 15px;
+				border-bottom: 1px solid var(--bs-border-color-translucent);
+			}
+			span {
+				&:last-child {
+					font-weight: 600;
+				}
+			}
+			&:last-child {
+				font-size: 18px;
+				font-weight: 700;
+				text-transform: uppercase;
+				font-family: var(--bs-font-heading);
+			}
+		}
+	}
+	.btn {
+		margin: 30px 0 20px;
+	}
+	p {
+		color: #979797;
+		font-size: 14px;
+		line-height: 18px;
+	}
+}
+/* 5.3 - Cart Template - End
+================================================== */

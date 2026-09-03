@@ -1,0 +1,136 @@
+/* Table Of Content - start
+================================================== */
+/* 
+* Project Name   :  ProMotors – Car Service & Detailing Template
+* File           :  CSS Base
+* Version        :  1.0.0
+* Last change    :  06 July 2023, Thursday
+* Author         :  Merkulove (https://themeforest.net/user/merkulove)
+* Developer			 :	webrok (https://www.fiverr.com/webrok?up_rollout=true)
+
+==================================================
+
+1 - Template Global Settings
+	1.1 - Template Fonts
+	1.2 - Template Reset
+
+2 - Template Elements
+* - 2.1 - Colors
+* - 2.2 - CSS Animation
+* - 2.3 - Backtotop
+* - 2.4 - Spaces or Gaps
+* - 2.5 - Button
+* - 2.6 - Order & Unorder List
+* - 2.7 - Typography
+* - 2.8 - Badge
+* - 2.9 - Carousel or Slider
+* - 2.10 - Image
+* - 2.11 - Video
+* - 2.12 - Form
+* - 2.13 - Progressbar
+* - 2.14 - Calendar
+* - 2.15 - Tab
+* - 2.16 - Table
+* - 2.17 - Social Icons
+* - 2.18 - Counter
+* - 2.19 - Rating Star
+* - 2.20 - Price Range Slide
+* - 2.21 - Iconbox
+* - 2.22 - Accordion
+* - 2.23 - Pagination Nav
+* - 2.24 - Countdown Timer
+
+3 - Template Components
+* - 3.1 - Hero
+* - 3.2 - Service
+* - 3.3 - Pricing
+* - 3.4 - Work Process
+* - 3.5 - Category
+* - 3.6 - Product
+* - 3.7 - Blog
+* - 3.8 - Brands Logo
+* - 3.9 - Testimonial
+* - 3.10 - Calltoaction
+* - 3.11 - Expert Team
+
+4 - Template Parts
+* - 4.1 - Site Header
+* - 4.2 - Site Footer
+* - 4.3 - Breadcrumb
+* - 4.4 - Sidebar
+
+5 - Template Pages
+* - 5.1 - Details Templates
+* - 5.2 - Contact Template
+* - 5.3 - Cart Template
+* - 5.4 - 404 Error Template
+
+6 - Light Theme
+
+*/
+/* Table Of Content - end
+================================================== */
+
+// Template Global Settings
+@import 'variable';
+@import 'fonts';
+@import 'mixin';
+@import 'reset';
+
+// Template Elements
+@import 'elements/color';
+@import 'elements/animation';
+@import 'elements/backtotop';
+@import 'elements/space';
+@import 'elements/button';
+@import 'elements/list';
+@import 'elements/typography';
+@import 'elements/badge';
+@import 'elements/carousel';
+@import 'elements/image';
+@import 'elements/video';
+@import 'elements/form';
+@import 'elements/progressbar';
+@import 'elements/calendar';
+@import 'elements/tab';
+@import 'elements/table';
+@import 'elements/social';
+@import 'elements/counter';
+@import 'elements/rating';
+@import 'elements/range';
+@import 'elements/iconbox';
+@import 'elements/accordion';
+@import 'elements/pagination';
+@import 'elements/countdown';
+
+// Template Components
+@import 'components/hero';
+@import 'components/service';
+@import 'components/pricing';
+@import 'components/workProcess';
+@import 'components/category';
+@import 'components/product';
+@import 'components/blog';
+@import 'components/brands';
+@import 'components/testimonial';
+@import 'components/calltoaction';
+@import 'components/team';
+
+// Template Parts
+@import 'template-parts/header';
+@import 'template-parts/footer';
+@import 'template-parts/breadcrumb';
+@import 'template-parts/sidebar';
+
+// Template Pages
+@import 'templates/details';
+@import 'templates/contact';
+@import 'templates/cart';
+@import 'templates/error';
+
+
+// Light Theme
+@import 'lightTheme';
+
+// Template Responsive For Small Devices
+@import 'responsive';

@@ -1,0 +1,172 @@
+/* 2.12 - Form - Start
+================================================== */
+
+// Input 
+.form-group {
+	margin-bottom: 50px;
+	label {
+		display: block;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 21px;
+		margin-bottom: 14px;
+		text-transform: uppercase;
+		font-family: var(--bs-font-heading);
+	}
+	.form-control {
+		font-size: 16px;
+		border-radius: 0;
+		line-height: 18px;
+		padding: 0 0 10px;
+		border-style: solid;
+		color: var(--bs-white);
+		border-width: 0 0 1px 0;
+		background-color: transparent;
+		caret-color: var(--bs-primary);
+		border-color: var(--bs-border-color-translucent);
+		&:hover,
+		&:focus {
+			box-shadow: none;
+			border-color: var(--bs-primary);
+		}
+
+		&::placeholder {
+			opacity: 0.6;
+			color: var(--bs-body-color);
+		}
+		&:-ms-input-placeholder {
+			opacity: 0.6;
+			color: var(--bs-body-color);
+		}
+		&::-ms-input-placeholder {
+			opacity: 0.6;
+			color: var(--bs-body-color);
+		}
+	}
+}
+
+// Select Option
+[data-bs-theme=light] .form-select {
+	--bs-form-select-bg-img: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e);
+}
+
+.form-select {
+	height: 60px;
+	cursor: pointer;
+	padding: 0 20px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 0;
+	line-height: 21px;
+	text-transform: uppercase;
+	background-color: var(--bs-body-bg);
+	background-position: right 20px center;
+	border: 1px solid var(--bs-border-color-translucent);
+	&:hover,
+	&:focus {
+		outline: none;
+		box-shadow: none;
+		border-color: var(--bs-primary);
+	}
+}
+
+// Map 
+.gmap_canvas {
+	background-color: var(--bs-gray-dark);
+	iframe {
+		width: 100%;
+		height: 580px;
+		mix-blend-mode: luminosity;
+	}
+}
+
+// Form Wrap
+.form_wrap {
+	&.row {
+		margin: -23px;
+		>[class*="col-"] {
+			padding: 23px;
+		}
+	}
+}
+
+// Subscribe Form
+.footer_subscribe_form {
+	.form-group {
+		margin-bottom: 30px;
+	}
+	.btn {
+		width: 100%;
+		display: block;
+		padding: 18px 40px;
+	}
+}
+
+.subscribe_form_inline {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	input {
+		height: 60px;
+		width: 310px;
+		padding: 0 25px;
+		margin: 0 20px 0 0;
+		color: var(--bs-white);
+		transition: var(--bs-transition);
+		background-color: var(--bs-body-bg);
+		border: 1px solid var(--bs-body-bg);
+		&:focus {
+			border-color: var(--bs-primary);
+		}
+	}
+}
+
+// Quantity Form
+.quantity_form {
+	height: 60px;
+	display: flex;
+	padding: 0 5px;
+	align-items: center;
+	border: 1px solid var(--bs-border-color-translucent);
+	button {
+		width: 40px;
+		height: 40px;
+		line-height: 42px;
+		&:hover {
+			color: var(--bs-primary);
+		}
+	}
+	input {
+		width: 60px;
+		height: 40px;
+		border: none;
+		text-align: center;
+		background-color: transparent;
+	}
+}
+
+// Review Form
+.review_form {
+	.form-group {
+		textarea {
+			min-height: 80px;
+		}
+	}
+	.rating_star {
+		>li {
+			line-height: 1;
+			font-size: 14px;
+			&:not(:last-child) {
+				margin-right: 6px;
+			}
+		}
+		i {
+			color: var(--bs-body-color);
+			&:hover {
+				color: #ECCD39;
+			}
+		}
+	}
+}
+/* 2.12 - Form - End
+================================================== */

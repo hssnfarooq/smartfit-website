@@ -1,0 +1,81 @@
+/* 2.14 - Calendar - Start
+================================================== */
+.vanilla-calendar {
+	padding: 0;
+	width: 100%;
+	background-color: transparent;
+}
+.vanilla-calendar-header {
+	padding: 10px;
+	color: var(--bs-white);
+	background-color: var(--bs-gray-dark);
+	button {
+		font-weight: 500;
+		color: var(--bs-white);
+		&:hover {
+			color: var(--bs-primary);
+		}
+	}
+}
+.vanilla-calendar-arrow {
+	&:before,
+	&:after {
+		background-color: var(--bs-body-color);
+	}
+	&:hover {
+		&:before,
+		&:after {
+			background-color: var(--bs-primary);
+		}
+	}
+}
+.vanilla-calendar-header__content {
+	padding: 8px 15px;
+}
+
+.vanilla-calendar-header__content button {
+	font-size: 16px;
+	line-height: 18px;
+	text-transform: uppercase;
+}
+
+.vanilla-calendar-day__btn {
+	width: 100%;
+	height: 46px;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 400;
+	border-radius: 0;
+	color: var(--bs-body-color);
+	background-color: transparent;
+}
+.vanilla-calendar-week__day {
+	width: 100%;
+	height: 20px;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 18px;
+	color: var(--bs-white);
+	text-transform: uppercase;
+}
+.vanilla-calendar-day__btn_today,
+.vanilla-calendar-day__btn:hover {
+	color: var(--bs-white);
+	background-color: var(--bs-primary);
+}
+.vanilla-calendar-day__btn_weekend,
+.vanilla-calendar-day__btn_holiday {
+	color: var(--bs-primary);
+}
+.vanilla-calendar-days {
+	gap: 1px;
+}
+.vanilla-calendar-day__btn_weekend.vanilla-calendar-day__btn_prev,
+.vanilla-calendar-day__btn_weekend.vanilla-calendar-day__btn_next,
+.vanilla-calendar-day__btn_holiday.vanilla-calendar-day__btn_prev,
+.vanilla-calendar-day__btn_holiday.vanilla-calendar-day__btn_next {
+	opacity: .6;
+	color: var(--bs-primary);
+}
+/* 2.14 - Calendar - End
+================================================== */

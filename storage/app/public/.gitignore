@@ -1,0 +1,14 @@
+*
+!.gitignore
+!mot/
+!mot/**
+!Fleet/
+!Fleet/**
+!fleet/
+!fleet/**
+!repair/
+!repair/**
+!service/
+!service/**
+!home/
+!home/**

@@ -1,0 +1,28 @@
+/* 2.3 - Backtotop - Start
+================================================== */
+.backtotop {
+  right: 15px;
+  z-index: 999;
+  bottom: 96px;
+  display: none;
+  position: fixed;
+  .scroll {
+    z-index: 1;
+    width: 40px;
+    height: 48px;
+    display: flex;
+    font-size: 16px;
+    position: relative;
+    padding-bottom: 13px;
+    align-items: flex-end;
+    color: var(--bs-white);
+    justify-content: center;
+    background-color: var(--bs-primary);
+    clip-path: polygon(50% 0, 100% 14px, 100% calc(100% - 14px), 50% 100%, 0 calc(100% - 14px), 0 14px);
+    i {
+      animation: bttIconMover 1s infinite  alternate;
+    }
+  }
+}
+/* 2.3 - Backtotop - End
+================================================== */

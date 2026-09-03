@@ -1,0 +1,158 @@
+/* 2.6 - Order & Unorder List - Start
+================================================== */
+
+// List Default Style - Start
+.unordered_list,
+.unordered_list_end,
+.unordered_list_center {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  >li {
+    float: left;
+    list-style: none;
+    display: inline-block;
+  }
+}
+
+.unordered_list {
+  justify-content: flex-start;
+}
+.unordered_list_center {
+  justify-content: center;
+}
+.unordered_list_end {
+  justify-content: flex-end;
+}
+
+.unordered_list_block {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  >li {
+    display: block;
+    list-style: none;
+  }
+}
+// List Default Style - End
+
+// List Default Style - Start
+.list_title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 23px;
+  margin-bottom: 39px;
+}
+// List Default Style - End
+
+// Icon List - Start
+.info_list {
+  li {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    &:not(:last-child) {
+      margin-bottom: 11px;
+    }
+  }
+  .info_icon {
+    float: left;
+    margin: -1px 10px 0 0;
+    i {
+      color: var(--bs-primary);
+    }
+  }
+  .info_text {
+    display: table;
+  }
+  a {
+    color: var(--bs-body-color);
+    &:hover {
+      color: var(--bs-primary);
+    }
+  }
+}
+// Icon List - End
+
+// Page List - Start
+.page_list {}
+// Page List - End
+
+// Tags List - Start
+.tags_list {
+  margin: -8px;
+  li {
+    padding: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    text-transform: uppercase;
+    font-family: var(--bs-font-heading);
+  }
+  a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--bs-body-color);
+    background-color: var(--bs-gray-dark);
+    &:hover {
+      background-color: var(--bs-primary);
+    }
+  }
+}
+// Tags List - End
+
+// Item Category List - Start
+.category_list {}
+// Item Category List - End
+
+// Post Meta - Start
+.post_meta {
+  >li {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--bs-white);
+    &:not(:last-child) {
+      margin: 0 22px 0 0;
+      position: relative;
+      &:after {
+        top: 7px;
+        width: 5px;
+        height: 5px;
+        content: '';
+        right: -13px;
+        position: absolute;
+        border-radius: 2px 0 2px 0;
+        background-color: var(--bs-primary);
+      }
+    }
+  }
+  a {
+    color: var(--bs-white);
+    font-family: var(--bs-font-body);
+    &:hover {
+      color: var(--bs-primary);
+    }
+  }
+}
+// Post Meta - End
+
+// Policy Info List - Start
+.policy_small {
+  >li {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 23px;
+    padding-top: 16px;
+    font-family: var(--bs-font-heading);
+    border-top: 2px solid var(--bs-primary);
+    &:not(:last-child) {
+      margin: 0 100px 0 0;
+    }
+  }
+}
+// Policy Info List - End
+
+/* 2.6 - Order & Unorder List - End
+================================================== */

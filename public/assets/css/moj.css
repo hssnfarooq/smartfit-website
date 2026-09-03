@@ -1,0 +1,1656 @@
+.hero_title.span {
+    color: var(--bs-primary);
+}
+
+.service_tab {
+    padding: 0px !important;
+}
+
+.tab_tekst {
+    padding: 15px;
+    width: 300px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: #161616b8;
+    color: #EDEDED;
+    border-radius: 15px;
+}
+
+.details_content h2 {
+    font-size: 42px;
+    line-height: 55px;
+    margin-bottom: 20px;
+}
+
+.details_content h3 {
+    font-size: 29px;
+    line-height: 38px;
+    margin-bottom: 20px;
+}
+
+.details_content ul {
+    margin: 0px;
+    padding: 0px;
+    display: block;
+}
+
+.details_content ul li {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+}
+
+.hero_video_bg {
+    background-color: #00000082;
+}
+
+[data-bs-theme=light] .hero_video_bg {
+    /*background-color: rgb(249 249 249 / 39%);*/
+    background-color: #00000082;
+}
+
+.bijeli {
+    color: #fff !important;
+}
+
+.site_header+main>.page_banner {
+    margin-top: 160px;
+}
+
+/*****************************************
+TABOVI GUMBI */
+.autoPoi {
+    position: absolute;
+    z-index: 2;
+    width: 65px;
+    height: 65px;
+}
+
+.autoPoi1 {
+    left: 613px;
+    top: 285px;
+    background-image: url(../images/services_tabs/btn_1_1.png);
+}
+
+.autoPoi1:hover {
+    background-image: url(../images/services_tabs/btn_1_2.png);
+}
+
+.autoPoi2 {
+    left: 588px;
+    bottom: 304px;
+    background-image: url(../images/services_tabs/btn_2_1.png);
+}
+
+.autoPoi2:hover {
+    background-image: url(../images/services_tabs/btn_2_2.png);
+}
+
+.autoPoi3 {
+    left: 525px;
+    bottom: 260px;
+    background-image: url(../images/services_tabs/btn_3_1.png);
+}
+
+.autoPoi3:hover {
+    background-image: url(../images/services_tabs/btn_3_2.png);
+}
+
+.autoPoi4 {
+    right: 476px;
+    bottom: 240px;
+    background-image: url(../images/services_tabs/btn_4_1.png);
+}
+
+.autoPoi4:hover {
+    background-image: url(../images/services_tabs/btn_4_2.png);
+}
+
+.autoPoi5 {
+    left: 680px;
+    top: 395px;
+    background-image: url(../images/services_tabs/btn_5_1.png);
+}
+
+.autoPoi5:hover {
+    background-image: url(../images/services_tabs/btn_5_2.png);
+}
+
+.autoPoi6 {
+    left: 658px;
+    bottom: 222px;
+    background-image: url(../images/services_tabs/btn_6_1.png);
+}
+
+.autoPoi6:hover {
+    background-image: url(../images/services_tabs/btn_6_2.png);
+}
+
+#castrol_right {
+    display: block;
+}
+
+
+.harmonika_bodi {
+    border-top: 1px solid rgba(237, 30, 36, 0.27);
+    padding-top: 30px !important;
+}
+
+
+label {
+    width: 100%;
+}
+
+.card-input-element {
+    display: none;
+}
+
+.card-input {
+    margin: 10px;
+    padding: 0px;
+}
+
+.card-input:hover {
+    cursor: pointer;
+}
+
+.card-input-element:checked+.card-input {
+    box-shadow: 0 0 1px 1px #2ecc71;
+    background: #2ecc7129;
+}
+
+
+.txt_f_modal {
+    height: 60px;
+    cursor: pointer;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 0;
+    line-height: 21px;
+    text-transform: uppercase;
+    background-color: #ffffff;
+    background-position: right 20px center;
+    border: 1px solid #dadbdd;
+}
+
+/*
+.main_menu_list > li > a {
+    color:#fff;
+}
+*/
+
+a.bijelo {
+    color: #fff !important;
+}
+
+a.bijelo:hover {
+    color: var(--bs-white);
+}
+
+
+.kemija_font {
+    color: white;
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;*/
+    text-shadow: 0 0 20px rgba(0, 0, .9);
+
+}
+
+.kemija_font h1 {
+    /*transform: skew(-15deg);*/
+    font-size: 4rem;
+    /*font-weight: 900;*/
+    line-height: 1;
+    color: #fff !important;
+}
+
+.kemija_font p {
+    font-size: 1.5rem;
+    /*font-weight: 900;*/
+}
+
+.mar_bot_30 {
+    margin-bottom: 30px;
+}
+
+.castrol_top {
+    background-color: #666;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0) 90%, rgba(0, 0, 0, 0.5) 100%);
+    display: flex;
+    min-height: 88px;
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;*/
+}
+
+.castrol_top .ct-left {
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+}
+
+.castrol_top .ct-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    margin: 0 1rem;
+    padding: .5rem 0;
+}
+
+.castrol_top .ct-right h1 {
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+        transform: skew(-15deg);*/
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+.castrol_top .ct-right .contact-cta {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    background-color: var(--smartfit-red);
+
+    color: #fff;
+    font-weight: 900;
+
+    border-radius: 4px;
+    padding: 0 30px;
+
+    /* transform: skew(-15deg);*/
+    position: relative;
+    border: 2px solid #dfdfdf;
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;*/
+
+    background-image: none;
+
+}
+
+.castrol_top .ct-right .contact-cta strong {
+    padding-left: 10px;
+    font-size: 28px;
+}
+
+.castrol_top .ct-right h1,
+.castrol_top .ct-right .h1,
+.castrol_top .ct-right span {
+    display: flex;
+    margin: 0;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 1;
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;*/
+}
+
+
+.site_header .bijelo {
+    color: #fff !important;
+}
+
+
+.site_header.sticky .bijelo {
+    color: var(--bs-dark) !important;
+}
+
+.zeleni_bg {
+    padding: 40px;
+    background: #0000004f;
+    border-radius: 32px;
+}
+
+.service_item .item_icon {
+    width: 60%;
+    height: auto;
+    margin-bottom: 30px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+.service_item .item_icon svg {
+    max-height:
+        /*120*/
+        50px;
+}
+
+.service_item .item_icon svg path {
+    fill:
+        /*var(--bs-primary)*/
+        #000 !important;
+}
+
+.our_services_section .service_item,
+.our_services_section .service_item .item_content,
+.our_services_section .service_item .novi_zeleni_box,
+.service_section .service_item,
+.service_section .service_item .item_content,
+.service_section .service_item .novi_zeleni_box {
+    background: #f4f5f7 !important;
+    background-color: #f4f5f7 !important;
+    background-image: none !important;
+    border-color: transparent !important;
+}
+
+.our_services_section .service_item,
+.service_section .service_item {
+    border-top: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 30px !important;
+}
+
+.our_services_section .service_item:before,
+.our_services_section .service_item:after,
+.our_services_section .service_item .item_content:before,
+.our_services_section .service_item .item_content:after,
+.our_services_section .service_item .novi_zeleni_box:before,
+.our_services_section .service_item .novi_zeleni_box:after,
+.our_services_section .service_item .item_image:before,
+.our_services_section .service_item .item_image:after,
+.our_services_section .service_item .item_title:before,
+.service_section .service_item:before,
+.service_section .service_item:after,
+.service_section .service_item .item_content:before,
+.service_section .service_item .item_content:after,
+.service_section .service_item .novi_zeleni_box:before,
+.service_section .service_item .novi_zeleni_box:after,
+.service_section .service_item .item_image:before,
+.service_section .service_item .item_image:after,
+.service_section .service_item .item_title:before {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+.our_services_section .service_item:hover:before,
+.service_section .service_item:hover:before {
+    width: 0 !important;
+}
+
+.our_services_section .service_item h3,
+.our_services_section .service_item p,
+.our_services_section .service_item .item_title,
+.our_services_section .service_item .btn_text,
+.service_section .service_item h3,
+.service_section .service_item p,
+.service_section .service_item .item_title,
+.service_section .service_item .btn_text {
+    color: var(--smartfit-dark) !important;
+}
+
+.our_services_section .service_item .item_icon,
+.service_section .service_item .item_icon {
+    color: var(--smartfit-red) !important;
+}
+
+.our_services_section .service_item .item_icon svg path,
+.service_section .service_item .item_icon svg path {
+    fill: var(--smartfit-red) !important;
+}
+
+.our_services_section .service_item>img,
+.service_section .service_item>img {
+    display: block;
+    width: calc(100% + 60px);
+    max-width: none;
+    margin: -30px -30px 24px;
+}
+
+.our_services_section .our_service_card,
+.our_services_section .our_service_card:hover,
+.our_services_section .our_service_card .item_content,
+.our_services_section .our_service_card .novi_zeleni_box {
+    background: #f4f5f7 !important;
+    background-color: #f4f5f7 !important;
+    background-image: none !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.our_services_section .our_service_card:before,
+.our_services_section .our_service_card::before,
+.our_services_section .our_service_card:after,
+.our_services_section .our_service_card::after,
+.our_services_section .our_service_card .item_content:before,
+.our_services_section .our_service_card .item_content::before,
+.our_services_section .our_service_card .item_content:after,
+.our_services_section .our_service_card .item_content::after,
+.our_services_section .our_service_card .item_title:before,
+.our_services_section .our_service_card .item_title::before {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-image: none !important;
+    border: 0 !important;
+}
+
+.our_services_section .our_service_card .box_ispis_ikona_novo,
+.our_services_section .our_service_card .item_icon {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.our_services_section .our_service_card .our_service_card_image {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.crvena {
+    color: var(--smartfit-red) !important;
+}
+
+.site_link {
+    padding: 0 40px 0 0;
+}
+
+.site_header.sticky .light_theme_logo {
+    display: none;
+}
+
+.site_header.sticky .dark_theme_logo {
+    display: block;
+}
+
+@media only screen and (max-width: 1340px) {
+
+    .castrol_top .ct-right .contact-cta {
+        padding: 0 15px;
+        margin-left: 15px;
+    }
+
+    .castrol_top .ct-right .contact-cta strong {
+        font-size: 18px;
+    }
+
+    .fa-2x {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 1350px) {
+    .castrol_top .ct-right .contact-cta strong {
+        font-size: 18px;
+    }
+
+    .fa-2x {
+        font-size: 18px;
+    }
+}
+
+
+@media only screen and (max-width: 1269px) {
+    .main-slider {
+        height: 700px;
+    }
+
+    #castrol_right {
+        display: none;
+    }
+}
+
+/* Smartfit brand refresh */
+:root {
+    --smartfit-red: #ED1E24;
+    --smartfit-dark: #161616;
+    --smartfit-nav-border: rgba(22, 22, 22, 0.08);
+    --smartfit-nav-shadow: 0 10px 30px rgba(16, 18, 19, 0.08);
+}
+
+:root,
+[data-bs-theme=dark],
+[data-bs-theme=light] {
+    --bs-primary: var(--smartfit-red);
+    --bs-primary-rgb: 237, 30, 36;
+    --bs-primary-border-subtle: var(--smartfit-red);
+}
+
+.site_header,
+.site_header.sticky,
+.site_header .header_bottom,
+.site_header.sticky .header_bottom,
+[data-bs-theme=light] .site_header.sticky .header_bottom {
+    background: #fff !important;
+    background-color: #fff !important;
+    background-image: none !important;
+    border-color: var(--smartfit-nav-border) !important;
+    box-shadow: var(--smartfit-nav-shadow) !important;
+    backdrop-filter: none !important;
+}
+
+.site_header:before,
+.site_header:after,
+.site_header .header_bottom:before,
+.site_header .header_bottom:after,
+.meni_bg:before,
+.meni_bg:after,
+.main_menu:before,
+.main_menu:after,
+.main_menu_inner:before,
+.main_menu_inner:after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+.site_header .light_theme_logo,
+.site_header.sticky .light_theme_logo {
+    display: none !important;
+}
+
+.site_header .dark_theme_logo,
+.site_header.sticky .dark_theme_logo {
+    display: block !important;
+}
+
+.main_menu_inner,
+.meni_bg,
+.main_menu,
+.main_menu_list,
+.main_menu_list .dropdown-menu {
+    background: #fff !important;
+    background-color: #fff !important;
+    background-image: none !important;
+}
+
+.main_menu_list>li>a,
+.main_menu_list>li>a.bijelo,
+.site_header .bijelo,
+.site_header.sticky .bijelo,
+a.bijelo,
+.mobile_menu_btn {
+    color: var(--smartfit-dark) !important;
+}
+
+.main_menu_list>li:hover>a,
+.main_menu_list>li.active>a,
+.main_menu_list>li>a:hover,
+.main_menu_list>li>a.bijelo:hover,
+.site_header .icon_list a:hover,
+.mobile_menu_btn:hover {
+    color: var(--smartfit-red) !important;
+}
+
+.main_menu_list .dropdown-menu {
+    border: 1px solid var(--smartfit-nav-border);
+    box-shadow: var(--smartfit-nav-shadow);
+}
+
+.main_menu_list .dropdown-menu:before {
+    background-color: var(--smartfit-red) !important;
+}
+
+.main_menu_list .dropdown-menu>li>a {
+    color: var(--smartfit-dark) !important;
+}
+
+.main_menu_list .dropdown-menu>li:hover>a,
+.main_menu_list .dropdown-menu>li.active>a,
+[data-bs-theme=light] .main_menu_list .dropdown-menu>li:hover>a,
+[data-bs-theme=light] .main_menu_list .dropdown-menu>li.active>a {
+    color: var(--smartfit-red) !important;
+    background-color: rgba(237, 30, 36, 0.08) !important;
+}
+
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.disabled,
+.btn-primary:disabled {
+    background-color: var(--smartfit-red) !important;
+    border-color: var(--smartfit-red) !important;
+    --bs-btn-bg: var(--smartfit-red);
+    --bs-btn-border-color: var(--smartfit-red);
+    --bs-btn-hover-bg: var(--smartfit-red);
+    --bs-btn-hover-border-color: var(--smartfit-red);
+    --bs-btn-active-bg: var(--smartfit-red);
+    --bs-btn-active-border-color: var(--smartfit-red);
+}
+
+.btn-primary:before {
+    background-color: var(--smartfit-dark);
+}
+
+.btn-primary:hover {
+    color: #fff !important;
+}
+
+.gumb_header,
+.subscribe_form_inline .btn-primary,
+.contact-cta {
+    background-color: var(--smartfit-red) !important;
+    border-color: var(--smartfit-red) !important;
+}
+
+.site_header .header_btns_group .gumb_header,
+.site_header .header_btns_group .gumb_header:focus,
+.site_header .header_btns_group .gumb_header:active,
+.site_header .header_btns_group .gumb_header:hover {
+    background-color: #ED1E24 !important;
+    border-color: #ED1E24 !important;
+    color: #fff !important;
+    --bs-btn-bg: #ED1E24;
+    --bs-btn-border-color: #ED1E24;
+    --bs-btn-hover-bg: #ED1E24;
+    --bs-btn-hover-border-color: #ED1E24;
+    --bs-btn-active-bg: #ED1E24;
+    --bs-btn-active-border-color: #ED1E24;
+}
+
+.site_header .header_btns_group .gumb_header:before,
+.site_header .header_btns_group .gumb_header:hover:before,
+.site_header .header_btns_group .gumb_header:focus:before,
+.site_header .header_btns_group .gumb_header:active:before {
+    background-color: #ED1E24 !important;
+    transform: skewY(-10deg) scale(1, 0) !important;
+}
+
+.site_header .header_btns_group .gumb_header .btn_text {
+    color: inherit !important;
+}
+
+.castrol_top .ct-right .contact-cta {
+    background-color: var(--smartfit-red);
+    background-image: none;
+}
+
+.harmonika_bodi {
+    border-top-color: rgba(237, 30, 36, 0.27) !important;
+}
+
+.footer_garages {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer_garages .list_title {
+    margin-bottom: 18px;
+}
+
+.footer_garages_grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.footer_garage_item {
+    margin: 0;
+    padding: 14px 16px;
+    border-left: 3px solid var(--smartfit-red);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.footer_garage_item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.footer_garage_item span {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.service_packages_section {
+    background: #f4f5f7 !important;
+    background-color: #f4f5f7 !important;
+    background-image: none !important;
+}
+
+.service_packages_section .pricing_item,
+.service_packages_section .pricing_item.style_2,
+.service_packages_section .pricing_item .siljak,
+.service_packages_section .pricing_item .image_widget,
+.service_packages_section .pricing_item .icon_list,
+.service_packages_section .pricing_item .price_value {
+    background: #fff !important;
+    background-color: #fff !important;
+    background-image: none !important;
+}
+
+.service_packages_section .pricing_item {
+    border: 1px solid rgba(22, 22, 22, 0.08);
+    box-shadow: 0 14px 34px rgba(16, 18, 19, 0.08);
+}
+
+.service_packages_section .pricing_item:before,
+.service_packages_section .pricing_item::before,
+.service_packages_section .pricing_item:after,
+.service_packages_section .pricing_item::after,
+.service_packages_section .pricing_item .siljak:before,
+.service_packages_section .pricing_item .siljak::before,
+.service_packages_section .pricing_item .siljak:after,
+.service_packages_section .pricing_item .siljak::after,
+.service_packages_section .pricing_item .image_widget:before,
+.service_packages_section .pricing_item .image_widget::before,
+.service_packages_section .pricing_item .image_widget:after,
+.service_packages_section .pricing_item .image_widget::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+.service_packages_section .pricing_item .js-tilt-glare,
+.service_packages_section .pricing_item .js-tilt-glare-inner {
+    display: none !important;
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+.service_packages_section .heading_text,
+.service_packages_section .pricing_item h2,
+.service_packages_section .pricing_item h3,
+.service_packages_section .pricing_item h4,
+.service_packages_section .pricing_item p,
+.service_packages_section .pricing_item li {
+    color: var(--smartfit-dark) !important;
+}
+
+.service_packages_section .pricing_item .sale_price,
+.service_packages_section .pricing_item .price_value {
+    color: var(--smartfit-red) !important;
+}
+
+.service_packages_section .pricing_item .remove_price {
+    color: rgba(22, 22, 22, 0.55) !important;
+}
+
+.service_packages_section .pricing_item.style_2 {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible;
+}
+
+.service_packages_section .pricing_item.style_2 .image_widget {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+.service_packages_section .pricing_item.style_2 .siljak {
+    display: block;
+    position: relative;
+    margin: 0 -50px -50px;
+    padding: 30px 50px 90px;
+    background: #fff !important;
+    background-color: #fff !important;
+    background-image: linear-gradient(#fff, #fff) !important;
+    background-blend-mode: normal !important;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 78px), 50% 100%, 0 calc(100% - 78px));
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 78px), 50% 100%, 0 calc(100% - 78px));
+}
+
+.service_packages_section .pricing_item.style_2~.text-center {
+    margin-top: 24px;
+}
+
+.testimonial_section .carousel_arrow button {
+    color: var(--smartfit-dark) !important;
+    background: transparent !important;
+}
+
+.testimonial_section .carousel_arrow>li>button:before,
+.testimonial_section .carousel_arrow>li>button::before,
+.testimonial_section .carousel_arrow>li:nth-child(1)>button:before,
+.testimonial_section .carousel_arrow>li:nth-child(1)>button::before,
+.testimonial_section .carousel_arrow>li:nth-child(2)>button:before,
+.testimonial_section .carousel_arrow>li:nth-child(2)>button::before {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.testimonial_section .carousel_arrow button i:nth-child(2),
+.testimonial_section .testimonial_item .quote_icon,
+.testimonial_section .testimonial_item .quote_icon i {
+    color: var(--smartfit-red) !important;
+}
+
+.workprocess_section .novo_nabrajanje_s_ikonom {
+    background: #f4f5f7 !important;
+    background-color: #f4f5f7 !important;
+    background-image: none !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.logo_slide .brand_logo_carousel {
+    --bs-gutter-x: 0;
+}
+
+.logo_slide .brand_logo_carousel .slick-slide {
+    width: 230px !important;
+    padding: 0 2px;
+}
+
+.logo_slide .slick-list,
+.logo_slide .slick-slide {
+    overflow: visible;
+}
+
+.logo_slide .brand_logo_item {
+    padding: 0;
+    width: 226px;
+    height: 155px;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+}
+
+.logo_slide .brand_logo_item:hover {
+    background: transparent;
+}
+
+.logo_slide .brand_logo_item img,
+.logo_slide .brand_logo_item .brand-logo-img {
+    display: block !important;
+    width: 226px !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: 145px !important;
+    object-fit: contain;
+    transform: scale(1.35);
+    transform-origin: center;
+}
+
+@media only screen and (max-width: 1199px) {
+    .logo_slide .brand_logo_carousel .slick-slide {
+        width: 205px !important;
+    }
+
+    .logo_slide .brand_logo_item {
+        width: 201px;
+        height: 140px;
+    }
+
+    .logo_slide .brand_logo_item img,
+    .logo_slide .brand_logo_item .brand-logo-img {
+        width: 201px !important;
+        max-width: none !important;
+        max-height: 130px !important;
+        transform: scale(1.3);
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .footer_garages_grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .footer_garages_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logo_slide .brand_logo_carousel .slick-slide {
+        width: 175px !important;
+    }
+
+    .logo_slide .brand_logo_item {
+        width: 171px;
+        height: 120px;
+    }
+
+    .logo_slide .brand_logo_item img,
+    .logo_slide .brand_logo_item .brand-logo-img {
+        width: 171px !important;
+        max-width: none !important;
+        max-height: 110px !important;
+        transform: scale(1.2);
+    }
+}
+
+/* Global SVG & Icon Size Fixes */
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.rating_star {
+    display: flex !important;
+    gap: 4px !important;
+    align-items: center !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 8px 0 0 0 !important;
+}
+
+.rating_star li {
+    display: inline-block !important;
+}
+
+.rating_star i,
+.rating_star li i {
+    font-size: 14px !important;
+    color: #ffb400 !important;
+    line-height: 1 !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.carousel_arrow {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.carousel_arrow button,
+.c3c_arrow_left,
+.c3c_arrow_right {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    border: 1px solid #e0e0e0 !important;
+    background: #ffffff !important;
+    color: #161616 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.c3c_arrow_left:hover,
+.c3c_arrow_right:hover {
+    background: #ED1E24 !important;
+    color: #ffffff !important;
+    border-color: #ED1E24 !important;
+}
+
+.c3c_arrow_left i,
+.c3c_arrow_right i {
+    font-size: 16px !important;
+    line-height: 1 !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.quote_icon {
+    font-size: 24px !important;
+    color: #ED1E24 !important;
+    display: inline-block !important;
+}
+
+.quote_icon i {
+    font-size: 24px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.item_icon,
+.box_ispis_ikona_novo {
+    width: 60px !important;
+    height: 60px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+}
+
+.item_icon svg,
+.box_ispis_ikona_novo svg,
+.service_tab .btn_icon svg {
+    max-width: 50px !important;
+    max-height: 50px !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* ==========================================================================
+   FLEET, SERVICES & MOT MEGA-MENU STYLING — EXACT FIGMA MATCH
+   ========================================================================== */
+
+/* ==========================================================================
+   FLEET, SERVICES, MOT, TYRES & REPAIRS MEGA-MENU STYLING — EXACT FIGMA MATCH
+   ========================================================================== */
+
+/* Active / Hover red underline on triggers */
+.main_menu_list > li.dropdown_fleet_item > a,
+.main_menu_list > li.dropdown_services_item > a,
+.main_menu_list > li.dropdown_mot_item > a,
+.main_menu_list > li.dropdown_tyres_item > a,
+.main_menu_list > li.dropdown_repairs_item > a {
+    position: relative !important;
+}
+
+.main_menu_list > li.dropdown_fleet_item > a:after,
+.main_menu_list > li.dropdown_services_item > a:after,
+.main_menu_list > li.dropdown_mot_item > a:after,
+.main_menu_list > li.dropdown_tyres_item > a:after,
+.main_menu_list > li.dropdown_repairs_item > a:after {
+    display: none !important;
+    content: none !important;
+}
+
+.main_menu_list > li.dropdown_fleet_item > a::before,
+.main_menu_list > li.dropdown_services_item > a::before,
+.main_menu_list > li.dropdown_mot_item > a::before,
+.main_menu_list > li.dropdown_tyres_item > a::before,
+.main_menu_list > li.dropdown_repairs_item > a::before {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -2px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 2px !important;
+    background-color: var(--smartfit-red, #ED1E24) !important;
+    transform: scaleX(0) !important;
+    transform-origin: center !important;
+    transition: transform 0.25s ease !important;
+}
+
+.main_menu_list > li.dropdown_fleet_item:hover > a::before,
+.main_menu_list > li.dropdown_fleet_item.show > a::before,
+.main_menu_list > li.dropdown_fleet_item > a:focus::before,
+.main_menu_list > li.dropdown_services_item:hover > a::before,
+.main_menu_list > li.dropdown_services_item.show > a::before,
+.main_menu_list > li.dropdown_services_item > a:focus::before,
+.main_menu_list > li.dropdown_mot_item:hover > a::before,
+.main_menu_list > li.dropdown_mot_item.show > a::before,
+.main_menu_list > li.dropdown_mot_item > a:focus::before,
+.main_menu_list > li.dropdown_tyres_item:hover > a::before,
+.main_menu_list > li.dropdown_tyres_item.show > a::before,
+.main_menu_list > li.dropdown_tyres_item > a:focus::before,
+.main_menu_list > li.dropdown_repairs_item:hover > a::before,
+.main_menu_list > li.dropdown_repairs_item.show > a::before,
+.main_menu_list > li.dropdown_repairs_item > a:focus::before {
+    transform: scaleX(1) !important;
+}
+
+.main_menu_list > li.dropdown_fleet_item:hover > a,
+.main_menu_list > li.dropdown_fleet_item.show > a,
+.main_menu_list > li.dropdown_fleet_item > a:focus,
+.main_menu_list > li.dropdown_services_item:hover > a,
+.main_menu_list > li.dropdown_services_item.show > a,
+.main_menu_list > li.dropdown_services_item > a:focus,
+.main_menu_list > li.dropdown_mot_item:hover > a,
+.main_menu_list > li.dropdown_mot_item.show > a,
+.main_menu_list > li.dropdown_mot_item > a:focus,
+.main_menu_list > li.dropdown_tyres_item:hover > a,
+.main_menu_list > li.dropdown_tyres_item.show > a,
+.main_menu_list > li.dropdown_tyres_item > a:focus,
+.main_menu_list > li.dropdown_repairs_item:hover > a,
+.main_menu_list > li.dropdown_repairs_item.show > a,
+.main_menu_list > li.dropdown_repairs_item > a:focus {
+    color: var(--smartfit-red, #ED1E24) !important;
+}
+
+/* Desktop Full-Width Mega-Menu Container */
+@media (min-width: 992px) {
+    .site_header {
+        position: sticky !important;
+        top: 0 !important;
+        width: 100% !important;
+        z-index: 1030 !important;
+    }
+
+    .site_header .header_bottom,
+    .site_header .header_bottom > .container,
+    .site_header .header_bottom .row,
+    .site_header .header_bottom .col-lg-8,
+    .site_header .meni_bg,
+    .site_header .main_menu,
+    .site_header .main_menu_inner,
+    .site_header .main_menu_list,
+    .site_header .dropdown_fleet_item,
+    .site_header .dropdown_services_item,
+    .site_header .dropdown_mot_item,
+    .site_header .dropdown_tyres_item,
+    .site_header .dropdown_repairs_item {
+        position: static !important;
+    }
+
+    .site_header .main_menu_list > li:not(.dropdown_fleet_item):not(.dropdown_services_item):not(.dropdown_mot_item):not(.dropdown_tyres_item):not(.dropdown_repairs_item) {
+        position: relative !important;
+    }
+
+    .dropdown_fleet_item .fleet_mega_menu,
+    .dropdown_services_item .services_mega_menu,
+    .dropdown_mot_item .mot_mega_menu,
+    .dropdown_tyres_item .tyres_mega_menu,
+    .dropdown_repairs_item .repairs_mega_menu {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        min-width: 100% !important;
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        border: none !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 25px 45px -10px rgba(0, 0, 0, 0.08) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 1050 !important;
+        border-radius: 0 !important;
+        box-sizing: border-box !important;
+        display: block !important;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(4px);
+        transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s ease;
+    }
+
+    /* Invisible hover bridge to prevent menu closure during cursor movement */
+    .dropdown_fleet_item .fleet_mega_menu::before,
+    .dropdown_services_item .services_mega_menu::before,
+    .dropdown_mot_item .mot_mega_menu::before,
+    .dropdown_tyres_item .tyres_mega_menu::before,
+    .dropdown_repairs_item .repairs_mega_menu::before {
+        content: '' !important;
+        position: absolute !important;
+        top: -20px !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 20px !important;
+        background: transparent !important;
+        border: none !important;
+        display: block !important;
+        pointer-events: auto !important;
+    }
+
+    .dropdown_fleet_item:hover > .fleet_mega_menu,
+    .dropdown_fleet_item:focus-within > .fleet_mega_menu,
+    .dropdown_fleet_item .fleet_mega_menu.show,
+    .dropdown_services_item:hover > .services_mega_menu,
+    .dropdown_services_item:focus-within > .services_mega_menu,
+    .dropdown_services_item .services_mega_menu.show,
+    .dropdown_mot_item:hover > .mot_mega_menu,
+    .dropdown_mot_item:focus-within > .mot_mega_menu,
+    .dropdown_mot_item .mot_mega_menu.show,
+    .dropdown_tyres_item:hover > .tyres_mega_menu,
+    .dropdown_tyres_item:focus-within > .tyres_mega_menu,
+    .dropdown_tyres_item .tyres_mega_menu.show,
+    .dropdown_repairs_item:hover > .repairs_mega_menu,
+    .dropdown_repairs_item:focus-within > .repairs_mega_menu,
+    .dropdown_repairs_item .repairs_mega_menu.show {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+}
+
+/* Services ROW 1: Existing Services dropdown content */
+.services_row_existing {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background: #fafafa;
+    padding: 12px clamp(24px, 4vw, 80px);
+    box-sizing: border-box;
+}
+
+.services_existing_list {
+    max-width: 1720px;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+    list-style: none !important;
+}
+
+.services_existing_list li {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block;
+}
+
+.services_existing_list li a {
+    font-family: var(--bs-font-heading, "Montserrat", sans-serif);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #333333 !important;
+    text-decoration: none !important;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: all 0.2s ease;
+    text-transform: capitalize;
+}
+
+.services_existing_list li a:hover {
+    color: var(--smartfit-red, #ED1E24) !important;
+    background: rgba(237, 30, 36, 0.08);
+}
+
+/* Inner Mega Menu Layout */
+.fleet_mega_menu_inner {
+    width: 100%;
+    max-width: 1720px;
+    margin: 0 auto;
+    padding: 44px clamp(24px, 4vw, 80px) 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+/* Mega Menu Grids to completely prevent overlapping */
+.services_mega_menu_inner,
+.mot_mega_menu_inner,
+.tyres_mega_menu_inner,
+.repairs_mega_menu_inner {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: clamp(24px, 3.5vw, 60px) !important;
+    align-items: start !important;
+}
+
+.tyres_mega_menu_inner,
+.repairs_mega_menu_inner {
+    padding: 36px clamp(24px, 4vw, 80px) 40px !important;
+    gap: clamp(20px, 3.8vw, 70px) !important;
+}
+
+.tyres_mega_menu_inner .fleet_col_title,
+.repairs_mega_menu_inner .fleet_col_title {
+    font-size: 18px !important;
+    margin-bottom: 14px !important;
+}
+
+.tyres_mega_menu_inner .fleet_item,
+.tyres_mega_menu_inner .services_menu_link,
+.repairs_mega_menu_inner .fleet_item,
+.repairs_mega_menu_inner .services_menu_link {
+    font-size: 14.5px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+}
+
+.services_mega_menu_inner .fleet_col,
+.mot_mega_menu_inner .fleet_col,
+.tyres_mega_menu_inner .fleet_col,
+.repairs_mega_menu_inner .fleet_col {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+}
+
+/* Column 1: Fleet Services / Vehicle Servicing / MOT / Tyre Services / Engine & Mechanical */
+.fleet_col_1 {
+    width: 280px;
+    flex: 0 0 280px;
+    max-width: 280px;
+    margin-right: clamp(20px, 3.5vw, 65px);
+}
+
+/* Column 2: Business Support / Maintenance / MOT & Service / Wheel & Alignment / Brakes */
+.fleet_col_2 {
+    width: 280px;
+    flex: 0 0 280px;
+    max-width: 280px;
+    margin-right: clamp(20px, 3.5vw, 65px);
+}
+
+/* Column 3: Commercial Vehicles / Additional Services / Tyre Information / Electrical & Diagnostics */
+.fleet_col_3 {
+    width: 353px;
+    flex: 0 0 353px;
+    max-width: 353px;
+    margin-right: clamp(20px, 3.5vw, 65px);
+}
+
+/* Column 4: Promotional Text / Fleet & Commercial / Exhaust & General Repairs */
+.fleet_promo_col {
+    width: 521px;
+    flex: 0 0 521px;
+    max-width: 521px;
+    margin-left: auto;
+}
+
+/* Typography & Titles */
+.fleet_col_title {
+    font-family: var(--bs-font-heading, "Montserrat", sans-serif) !important;
+    font-size: 19px !important;
+    font-weight: 700 !important;
+    color: #111111 !important;
+    margin: 0 0 18px 0 !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.2px !important;
+    text-transform: none !important;
+}
+
+.fleet_mega_menu ul,
+.services_mega_menu ul,
+.mot_mega_menu ul,
+.tyres_mega_menu ul,
+.repairs_mega_menu ul,
+.fleet_mega_menu_inner ul,
+.fleet_list,
+.services_nav_list {
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.fleet_mega_menu li,
+.services_mega_menu li,
+.mot_mega_menu li,
+.tyres_mega_menu li,
+.repairs_mega_menu li,
+.fleet_mega_menu_inner li,
+.fleet_item {
+    list-style: none !important;
+    list-style-type: none !important;
+    font-family: var(--bs-font-body, "Mulish", sans-serif) !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    color: #2b2b2b !important;
+    line-height: 1.5 !important;
+    margin-bottom: 11px !important;
+    padding: 0 !important;
+    text-transform: none !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+}
+
+.services_nav_list .fleet_item {
+    pointer-events: auto !important;
+    cursor: default !important;
+}
+
+.services_menu_link {
+    font-family: var(--bs-font-body, "Mulish", sans-serif) !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    color: #2b2b2b !important;
+    line-height: 1.5 !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: color 0.18s ease, transform 0.18s ease !important;
+    text-transform: none !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+}
+
+.services_menu_link:hover,
+.services_menu_link:focus {
+    color: var(--smartfit-red, #ED1E24) !important;
+    transform: translateX(3px) !important;
+    text-decoration: none !important;
+}
+
+.fleet_item:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Promotional text block */
+.fleet_promo_content {
+    padding-top: 18px;
+    text-align: center;
+}
+
+.fleet_promo_heading {
+    font-family: var(--bs-font-heading, "Montserrat", sans-serif);
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    color: #111111;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+    text-transform: none;
+}
+
+.fleet_promo_desc {
+    font-family: var(--bs-font-body, "Mulish", sans-serif);
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    color: #4a4a4a;
+    line-height: 1.55;
+    margin: 0;
+    text-transform: none;
+}
+
+/* Repairs Promotional Text Box */
+.repairs_promo_content {
+    margin-top: 24px;
+    text-align: right;
+}
+
+.repairs_promo_content .fleet_promo_heading {
+    font-family: var(--bs-font-heading, "Montserrat", sans-serif) !important;
+    font-size: 15.5px !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+    color: #111111 !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.3 !important;
+}
+
+.repairs_promo_content .fleet_promo_desc {
+    font-family: var(--bs-font-body, "Mulish", sans-serif) !important;
+    font-size: 12.5px !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    color: #4a4a4a !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+}
+
+/* Medium Desktop / Laptop Responsiveness (992px - 1399px) */
+@media (min-width: 992px) and (max-width: 1399.98px) {
+    .fleet_mega_menu_inner {
+        padding: 35px 30px;
+        gap: 20px;
+    }
+
+    .fleet_col_1,
+    .fleet_col_2 {
+        width: auto;
+        flex: 1 1 200px;
+        max-width: 250px;
+        margin-right: 0;
+    }
+
+    .fleet_col_3 {
+        width: auto;
+        flex: 1 1 240px;
+        max-width: 280px;
+        margin-right: 0;
+    }
+
+    .fleet_promo_col {
+        width: auto;
+        flex: 1.2 1 300px;
+        max-width: 400px;
+    }
+
+    .fleet_item {
+        white-space: normal;
+    }
+
+    .fleet_promo_heading {
+        font-size: 20px;
+    }
+}
+
+/* Tablet (768px - 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .dropdown_fleet_item,
+    .dropdown_services_item,
+    .dropdown_mot_item,
+    .dropdown_tyres_item,
+    .dropdown_repairs_item {
+        position: relative !important;
+        width: 100% !important;
+    }
+
+    .dropdown_fleet_item .fleet_mega_menu,
+    .dropdown_services_item .services_mega_menu,
+    .dropdown_mot_item .mot_mega_menu,
+    .dropdown_tyres_item .tyres_mega_menu,
+    .dropdown_repairs_item .repairs_mega_menu {
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border: 1px solid #e5e5e5 !important;
+        border-radius: 8px !important;
+        padding: 24px !important;
+        margin: 12px 0 !important;
+        display: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .dropdown_fleet_item .fleet_mega_menu.show,
+    .dropdown_services_item .services_mega_menu.show,
+    .dropdown_mot_item .mot_mega_menu.show,
+    .dropdown_tyres_item .tyres_mega_menu.show,
+    .dropdown_repairs_item .repairs_mega_menu.show {
+        display: block !important;
+    }
+
+    .fleet_mega_menu_inner {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px 30px !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .fleet_col {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+        margin: 0 !important;
+    }
+
+    .fleet_promo_content {
+        text-align: left !important;
+        padding-top: 0 !important;
+    }
+
+    .fleet_item {
+        white-space: normal !important;
+    }
+
+    .services_row_existing {
+        padding: 12px 0 16px 0;
+    }
+}
+
+/* Mobile (< 768px, 430px, 375px) */
+@media (max-width: 767.98px) {
+    .dropdown_fleet_item,
+    .dropdown_services_item,
+    .dropdown_mot_item,
+    .dropdown_tyres_item,
+    .dropdown_repairs_item {
+        position: relative !important;
+        width: 100% !important;
+    }
+
+    .dropdown_fleet_item .fleet_mega_menu,
+    .dropdown_services_item .services_mega_menu,
+    .dropdown_mot_item .mot_mega_menu,
+    .dropdown_tyres_item .tyres_mega_menu,
+    .dropdown_repairs_item .repairs_mega_menu {
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border: 1px solid #e5e5e5 !important;
+        border-radius: 6px !important;
+        padding: 16px 14px !important;
+        margin: 10px 0 !important;
+        display: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .dropdown_fleet_item .fleet_mega_menu.show,
+    .dropdown_services_item .services_mega_menu.show,
+    .dropdown_mot_item .mot_mega_menu.show,
+    .dropdown_tyres_item .tyres_mega_menu.show,
+    .dropdown_repairs_item .repairs_mega_menu.show {
+        display: block !important;
+    }
+
+    .fleet_mega_menu_inner {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .fleet_col {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+        margin: 0 !important;
+    }
+
+    .fleet_col_title {
+        font-size: 17px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .fleet_item {
+        font-size: 14px !important;
+        margin-bottom: 9px !important;
+        white-space: normal !important;
+    }
+
+    .fleet_promo_content {
+        text-align: left !important;
+        padding-top: 5px !important;
+    }
+
+    .fleet_promo_heading {
+        font-size: 18px !important;
+    }
+
+    .fleet_promo_desc {
+        font-size: 13px !important;
+    }
+
+    .services_row_existing {
+        padding: 10px 0 14px 0;
+    }
+}

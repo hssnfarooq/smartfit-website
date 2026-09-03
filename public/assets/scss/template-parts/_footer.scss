@@ -1,0 +1,51 @@
+/* 4.2 - Site Footer - Start
+================================================== */
+.site_footer {
+	p {
+		margin-bottom: 25px;
+	}
+	.site_logo {
+		margin-bottom: 24px;
+	}
+	.info_list li {
+		font-size: 15px;
+		line-height: 20px;
+	}
+}
+
+.footer_hotline {
+	>span {
+		display: block;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 18px;
+		margin-bottom: 5px;
+		color: var(--bs-white);
+	}
+	.hotline_number {
+		font-size: 21px;
+		font-weight: 700;
+		line-height: 30px;
+		text-transform: uppercase;
+		color: var(--bs-body-color);
+		font-family: var(--bs-font-heading);
+		&:hover {
+			color: var(--bs-primary);
+			text-decoration: underline;
+		}
+	}
+}
+
+.copyright_widget {
+	padding: 46px 0;
+	.copyright_text {
+		a {
+			color: var(--bs-body-color);
+			&:hover {
+				color: var(--bs-primary);
+			}
+		}
+	}
+}
+/* 4.2 - Site Footer - End
+================================================== */

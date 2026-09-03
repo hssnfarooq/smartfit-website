@@ -1,0 +1,1 @@
+<livewire:show-brands :sectionTitle="$block->input('title')" />

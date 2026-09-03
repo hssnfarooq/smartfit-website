@@ -1,0 +1,24 @@
+/* 2.19 - Rating Star - Start
+================================================== */
+.rating_wrap {
+  display: flex;
+  align-items: center;
+  .review_counter {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+}
+.rating_star {
+  li {
+    line-height: 1;
+    font-size: 12px;
+    &:not(:last-child) {
+      margin-right: 3px;
+    }
+    i {
+      color: #ECCD39;
+    }
+  }
+}
+/* 2.19 - Rating Star - End
+================================================== */

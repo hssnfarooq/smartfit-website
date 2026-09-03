@@ -1,0 +1,133 @@
+<section class="product_section section_space_lg pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="row">
+                    @foreach ($this->proizvodi as $item) 
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <x-proizvod-box :proizvod="$item" />                               
+                    </div>
+                    @endforeach  
+                </div>
+                <!--
+                <div class="pagination_wrap">
+                    <ul class="pagination_nav unordered_list">
+                    <li><a href="#!"><i class="fa-regular fa-angle-left"></i></a></li>
+                    <li class="active"><a href="#!">1</a></li>
+                    <li><a href="#!">2</a></li>
+                    <li><a href="#!">3</a></li>
+                    <li><a href="#!"><i class="fa-regular fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+                -->
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <aside class="sidebar style_2">
+                    <form action="/tyres" method="GET">
+                        <!-- 
+                        <div class="widget">
+                            <h3 class="widget_title">Search</h3>
+                            <div class="form-group mb-0">
+                            <input type="search" name="search" class="form-control" placeholder="Search…">
+                            </div>
+                        </div>
+                        'season', 'width', 'ratio', 'dia', 'manufacturer', 'rolling_res', 'wet_grip', 'noise_performance', 'load_spd'
+                        -->
+                        
+                        <div class="widget">
+                            <h3 class="widget_title">CONDITIONS</h3>
+                            <div class="form-group mb-0">
+                                <livewire:components.filter.product-type :name="'product_type'" />
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <h3 class="widget_title">Width</h3>
+                            <div class="form-group mb-0">
+                                <livewire:components.filter.width :name="'width'" />
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <h3 class="widget_title">Profile</h3>
+                            <div class="form-group mb-0">
+                                <livewire:components.filter.aspect-ratio :name="'aspect_ratio'" />
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <h3 class="widget_title">Rim</h3>
+                            <div class="form-group mb-0">
+                                <livewire:components.filter.rim :name="'rim'" />
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <h3 class="widget_title">Manufacturer</h3>
+                            <div class="form-group mb-0">
+                                <livewire:components.filter.brend :name="'brand_name'" />
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="widget">
+                            <h3 class="widget_title">FUEL EFFICIENCY</h3>
+                            <div class="form-group mb-0">
+                                <livewire:components.filter.rolling-resistance :name="'rolling_resistance'" />
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <h3 class="widget_title">WET GRIP</h3>
+                            <div class="form-group mb-0">
+                                <livewire:components.filter.wet-grip :name="'wet_grip'" />
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <h3 class="widget_title">NOISE EMISSION</h3>
+                            <div class="form-group mb-0">
+                                <livewire:components.filter.noise-performance :name="'noise_performance'" />
+                            </div>
+                        </div>
+
+
+                        <div class="widget">
+                            <h3 class="widget_title">Load index</h3>
+                            <div class="form-group mb-0">
+                                <livewire:components.filter.load-index :name="'load_index'" />
+                            </div>
+                        </div>
+          
+                        <!--
+                        <div class="widget">
+                            <h3 class="widget_title">Price</h3>
+                            <div class="price-range-area clearfix">
+                            <div id="slider-range" class="slider-range"></div>
+                            <div class="price-text">
+                                <span>Price:</span>
+                                <input type="text" id="amount" name="price" readonly>
+                            </div>
+                            </div>
+                        </div>
+                    -->
+                        <div class="widget"> 
+                            <button type="submit" class="btn btn-primary">
+                                <span class="btn_text">Search</span>
+                              </button>
+                        </div>
+                  
+                    </form>
+                </aside>
+
+              </div>
+
+
+
+        </div>
+    </div>
+</section>

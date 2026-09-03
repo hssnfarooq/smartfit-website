@@ -1,0 +1,16 @@
+// Background Image Mixin
+@mixin bg_image_property($bg_repeat: no-repeat, $bg_size: cover, $bg_position: center center) {
+	background-size: $bg_size;
+	background-repeat: $bg_repeat;
+	background-position: $bg_position;
+}
+
+// Clip Path Shapes
+@mixin polygon {
+	background-color: var(--bs-primary);
+	clip-path: polygon(0 14px,14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px,2px  calc(14px + 0.80px),2px calc(100% - 2px),calc(100% - 14px - 0.80px) calc(100% - 2px),calc(100% - 2px) calc(100% - 14px - 0.80px),calc(100% - 2px) 2px,calc(14px + 0.80px) 2px,2px calc(14px + 0.80px));
+}
+@mixin polygon2 {
+	background-color: var(--bs-primary);
+  clip-path: polygon(0 0,calc(100% - 14px) 0,100% 15px,100% 100%,14px 100%,0 calc(100% - 14px),0 0,2px  2px ,2px calc(100% - 14px - 0.80px),calc(14px + 1px) calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) calc(14px + 2px),calc(100% - 14px - 0.80px) 2px,2px 2px);
+}

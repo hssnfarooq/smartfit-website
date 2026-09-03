@@ -1,0 +1,17 @@
+/* 2.8 - Badge - Start
+================================================== */
+.badge {
+  font-size: 12px;
+  border-radius: 0;
+  font-weight: 500;
+  padding: 2px 6px;
+  line-height: 18px;
+  letter-spacing: .5px;
+  color: var(--bs-white);
+  background-color: var(--bs-primary);
+}
+.badge-primary {
+  background-color: #136ED1;
+}
+/* 2.8 - Badge - End
+================================================== */

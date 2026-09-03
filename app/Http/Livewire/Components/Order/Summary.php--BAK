@@ -1,0 +1,156 @@
+<?php
+
+namespace App\Http\Livewire\Components\Order;
+
+use Livewire\Component;
+use Lunar\Facades\CartSession;
+use Lunar\Stripe\Facades\StripeFacade;
+use Stripe\Stripe;
+
+class Summary extends Component
+{
+    public $total, $subtotal, $tax, $disabled = ' disabled', $ajmo = false, $cart;
+
+    protected $listeners = [
+        'add-to-cart' => 'total',
+        'obrisanRed' => 'total',
+        'infoDodan' => 'render',
+        'terminDodan' => 'render',
+        'lokacijaDodana' => 'render',
+        'autoDodan' => 'render',
+    ];
+
+    public function mount()
+    {
+        $this->total();
+
+        if($this->sveGotovo())
+            $this->disabled = '';
+    }
+
+    private function sveGotovo(){
+        //lokacija
+        if (!request()->session()->exists(env('LOKACIJA_KUKI')))
+            return false;
+        //auto
+        if (!request()->session()->exists(env('AUTO_KUKI')))
+            return false;
+        //user info
+        if (!request()->session()->exists(env('INFO_KUKI')))     
+            return false;
+        //termin
+        if (!request()->session()->exists(env('TERMIN_KUKI')))     
+            return false;
+            
+        return true;
+    }
+
+    public function total()
+    {
+        $this->total = CartSession::current() ? CartSession::current()->total->formatted() : ('£0.00');//
+        $this->subtotal = CartSession::current() ? CartSession::current()->subTotal->formatted() : ('£0.00');//
+        $this->tax = CartSession::current() ? CartSession::current()->taxTotal->formatted() : ('£0.00');//
+    }
+
+    public function ajmoo(){
+       
+        $cart = CartSession::current();
+        
+        //if ($type == 'billing') {
+        //    $this->cart->
+       //     $this->billing = $this->cart->billingAddress;
+
+            $address = [
+              
+                'title' => 'Mr',
+                'first_name' => 'sdsdsd',
+                'last_name' => 'aaaaa',
+                'company_name' => 'ccccc',
+                'line_one' => 'lll11111',
+                'line_two' => 'lll22222',
+                'line_three' => 'lllll3333',
+                'city' => 'Hull',
+                'state' => '',
+                'postcode' => 'aaaaaaa',
+                'delivery_instructions' => '',
+                'contact_email' => 'sdsdsd@dddd.dd',
+                'contact_phone' => 's12121212',
+                'meta' =>''
+            ];
+            $shippingAddress = [
+                'country_id' => null,
+                'title' => null,
+                'first_name' => null,
+                'last_name' => null,
+                'company_name' => null,
+                'line_one' => null,
+                'line_two' => null,
+                'line_three' => null,
+                'city' => null,
+                'state' => null,
+                'postcode' => 'H0H 0H0',
+                'delivery_instructions' => null,
+                'contact_email' => null,
+                'contact_phone' => null,
+                'meta' => null,
+            ];
+
+            CartSession::current()->setBillingAddress($address);
+
+            
+      //  }
+
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+        header('Content-Type: application/json');
+
+        $YOUR_DOMAIN = env('APP_URL');
+
+        $checkout_session = \Stripe\Checkout\Session::create([
+            'line_items'  => [
+                [
+                    'price_data' => [
+                        'currency'     => 'GBP',
+                        'product_data' => [
+                            "name" => 'Daj radi molim te',
+                        ],
+                        'unit_amount'  => 100,
+                    ],
+                    'quantity'   => 1,
+                ],
+                 
+            ],
+            'mode' => 'payment',
+            'success_url' => $YOUR_DOMAIN ,
+            'cancel_url' => $YOUR_DOMAIN,
+            'automatic_tax' => [
+                'enabled' => true,
+            ],
+        ]);
+       
+        //header("HTTP/1.1 303 See Other");
+        //header("Location: https://www.net.hr");
+       // header("Location: " . $checkout_session->url);
+        //echo($checkout_session->url);
+        //return redirect()->to('https://index.hr');
+        //request()->session()->put('checkout_session', $checkout_session);
+
+        return redirect()->to($checkout_session->url);
+
+/*die();
+
+
+
+        $test = StripeFacade::createIntent($cart, $options = [
+            'first_name' => 'Pero'
+        ]);
+        var_dump($test);
+        die('********************************');*/
+    }
+
+    public function render()
+    {
+        $this->ajmo = true;
+       
+        return view('livewire.components.order.summary', ['xxx' => CartSession::current()]);
+    }
+}

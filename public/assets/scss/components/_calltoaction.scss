@@ -1,0 +1,46 @@
+/* 3.10 - Calltosction - Start
+================================================== */
+.pocket_calltoaction {
+	z-index: 1;
+	padding: 40px;
+	overflow: hidden;
+	position: relative;
+	background-color: var(--bs-gray-dark);
+	// border: 1px solid var(--bs-border-color-translucent);
+	// animation: changeBorderColor 6s linear infinite;
+	.title_text {
+		font-size: 29px;
+		line-height: 38px;
+		margin-bottom: 15px;
+	}
+	p {
+		font-size: 18px;
+		line-height: 26px;
+		margin-bottom: 30px;
+	}
+	.btn {
+		width: 100%;
+	}
+	.image_widget {
+		margin: 40px -40px -100px;
+	}
+}
+
+.junior_calltoaction {
+	background-size: cover;
+	padding: 32px 40px 38px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: var(--bs-gray-dark);
+	background-blend-mode: overlay;
+	// border: 1px solid var(--bs-border-color-translucent);
+	// animation: changeBorderColor 6s linear infinite;
+	.item_title {
+		font-size: 23px;
+		line-height: 32px;
+		margin-bottom: 20px;
+		color: var(--bs-white);
+	}
+}
+/* 3.10 - Calltosction - End
+================================================== */

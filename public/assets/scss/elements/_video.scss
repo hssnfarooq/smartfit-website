@@ -1,0 +1,63 @@
+/* 2.11 - Video - Start
+================================================== */
+.mfp-iframe-holder .mfp-content {
+	width: 100%;
+	line-height: 0;
+	max-width: 70%;
+}
+.mfp-container {
+	padding: 0 15px;
+}
+.mfp-bg {
+	opacity: 0.9;
+	background-color: var(--bs-dark);
+}
+@media screen and (max-width: 1199px) {
+	.mfp-iframe-holder .mfp-content {
+		max-width: 100%;
+	}
+}
+
+// Video Play - Start
+.video_play_btn {
+	z-index: 2;
+	width: 115px;
+	height: 115px;
+	font-size: 40px;
+	position: relative;
+	align-items: center;
+	display: inline-flex;
+	color: var(--bs-white);
+	justify-content: center;
+	transition: var(--bs-transition);
+	background-color: var(--bs-primary);
+	clip-path: polygon(30px 0,100% 0,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%,0 30px);
+	i {
+		margin: 3px 0 0 5px;
+		transition: var(--bs-transition);
+		// text-shadow: 3px 4px 6px rgba(18, 18, 18, 0.2);
+	}
+	&:hover {
+		i {
+			transform: scale(.8);
+		}
+	}
+}
+// Video Play - End
+
+// Intro Video - Start
+.video_wrap {
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-blend-mode: overlay;
+	background-position: center center;
+	background-color: rgba(13, 13, 13, 0.7);
+}
+.video_section > .container > .video_wrap {
+	padding: 240px 0;
+}
+// Intro Video - End
+
+/* 2.11 - Video - End
+================================================== */

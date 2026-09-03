@@ -1,0 +1,42 @@
+/* 2.24 - Countdown Timer - Start
+================================================== */
+.countdown_timer {
+	padding: 9px 10px;
+	text-align: center;
+	display: inline-flex;
+	padding: 8px 10px 9px;
+	justify-content: center;
+	background-color: var(--bs-primary);
+	>li {
+		padding: 10px;
+		min-width: 80px;
+		position: relative;
+		color: var(--bs-white);
+		&:not(:last-child) {
+			&:after {
+				top: 2px;
+				right: -4px;
+				content: ':';
+				font-size: 29px;
+				font-weight: 700;
+				line-height: 38px;
+				position: absolute;
+				font-family: var(--bs-font-heading);
+			}
+		}
+	}
+	strong {
+		line-height: 1;
+		display: block;
+		font-size: 29px;
+		font-weight: 700;
+		font-family: var(--bs-font-heading);
+	}
+	span {
+		display: block;
+		line-height: 1;
+		font-size: 14px;
+	}
+}
+/* 2.24 - Countdown Timer - End
+================================================== */

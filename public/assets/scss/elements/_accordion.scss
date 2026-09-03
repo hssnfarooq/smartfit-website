@@ -1,0 +1,71 @@
+/* 2.22 - Accordion - Start
+================================================== */
+.accordion {
+	.accordion-item {
+		border: none;
+		border-radius: 0;
+		background-color: var(--bs-gray-dark);
+		&:not(:last-child) {
+			margin-bottom: 30px;
+		}
+	}
+
+	.accordion-button {
+		border: none;
+		font-size: 18px;
+		font-weight: 700;
+		border-radius: 0;
+		box-shadow: none;
+		line-height: 23px;
+		padding: 30px 40px;
+		color: var(--bs-white);
+		background: transparent;
+		text-transform: uppercase;
+		font-family: var(--bs-font-heading);
+		&:hover {
+			color: var(--bs-primary);
+		}
+		&:before {
+			top: 0;
+			left: 0;
+			width: 0;
+			content: '';
+			height: 2px;
+			position: absolute;
+			transition: var(--bs-transition);
+			background-color: var(--bs-primary);
+		}
+		&:after {
+			width: 40px;
+			height: 40px;
+			font-size: 16px;
+			content: '\f078';
+			font-weight: 600;
+			line-height: 40px;
+			text-align: center;
+			color: var(--bs-white);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			font-family: 'Font Awesome 5 Pro';
+			background-position: center center;
+			background-image: url(../images/shapes/shape_polygon_outline.svg);
+		}
+	}
+	.accordion-button:not(.collapsed) {
+		&:before {
+			width: 100%;
+		}
+		&:after {
+			content: '\f077';
+			transform: rotate(0);
+			background-image: url(../images/shapes/shape_polygon_fill.svg);
+		}
+	}
+	.accordion-body {
+		padding: 40px;
+		font-size: 18px;
+		line-height: 26px;
+	}
+}
+/* 2.22 - Accordion - End
+================================================== */

@@ -1,0 +1,81 @@
+/* 2.21 - IconBox - Start
+================================================== */
+
+// Iconbox item - Start
+.iconbox_item {
+	display: flex;
+	padding: 30px 40px 30px 30px;
+	transition: var(--bs-transition);
+	border: 1px solid var(--bs-border-color-translucent);
+	.item_icon {
+		width: 60px;
+		height: 60px;
+		flex: 0 0 60px;
+		margin: 0 20px 0 0;
+		align-items: center;
+		display: inline-flex;
+		justify-content: center;
+		svg,img,i {
+			transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+		}
+	}
+	.item_title {
+		font-size: 18px;
+		line-height: 23px;
+		margin-bottom: 10px;
+	}
+	p {
+		font-size: 14px;
+		line-height: 18px;
+	}
+
+	&:hover {
+		border-color: var(--bs-primary);
+		.item_icon {
+			svg,img,i {
+				transform: scaleX(-1);
+			}
+		}
+	}
+}
+// Iconbox item - End
+
+// Policy Section - Start
+.policy_section {
+	margin: 80px 0 0;
+}
+// Policy Section - End
+
+// IconBox Hotline - Start
+.iconbox_hotline {
+	display: flex;
+	align-items: center;
+	.item_icon {
+		font-size: 40px;
+		margin-right: 22px;
+		color: var(--bs-primary);
+	}
+	.item_title {
+		color: #C2C2C2;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 18px;
+		margin-bottom: 4px;
+		font-family: var(--bs-font-body);
+	}
+	.hotline_number {
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 23px;
+		color: var(--bs-body-color);
+		font-family: var(--bs-font-heading);
+		&:hover {
+			color: var(--bs-primary);
+			text-decoration: underline;
+		}
+	}
+}
+// IconBox Hotline - End
+
+/* 2.21 - IconBox - End
+================================================== */

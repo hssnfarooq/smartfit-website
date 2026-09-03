@@ -1,0 +1,19 @@
+<section class="brand_logo_section text-center">
+    <div class="container">
+      <div class="section_heading">
+        <h2 class="heading_text mb-0 wow" data-splitting>{!!html_entity_decode($this->sectionTitle)!!}</h2>
+      </div>
+    </div> 
+
+    <div class="brand_logo_carousel brand_logo_blur_effect row align-items-center" data-slick='{"dots":false, "arrows": false}'>
+
+        @foreach ($this->brands as $item) 
+            <div class="col-">
+                <a class="brand_logo_item" href="{{env('GUME_OPSIRNO_SLUG_PREFIX')}}?brand_name={{$item->name}}">
+                  {{$item->thumbnail}}
+                </a>
+            </div>  
+        @endforeach
+
+    </div>
+</section>

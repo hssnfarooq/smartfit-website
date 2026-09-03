@@ -1,0 +1,18 @@
+/* 2.10 - Image - Start
+================================================== */
+.image_widget {
+	overflow: hidden;
+	position: relative;
+	background-color: var(--bs-gray-dark);
+	img {
+		opacity: 0.7;
+	}
+}
+
+.image_before_after {
+	img {
+		max-width: inherit;
+	}
+}
+/* 2.10 - Image - End
+================================================== */

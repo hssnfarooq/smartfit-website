@@ -1,0 +1,225 @@
+/* 2.5 - Button - Start
+================================================== */
+.btn_wrap {
+	padding: 40px 0;
+}
+
+// Button Fill - Start
+.btn {
+	z-index: 1;
+	border: none;
+	line-height: 1;
+	font-size: 18px;
+	font-weight: 700;
+	border-radius: 0;
+	padding: 21px 40px;
+	text-align: center;
+	align-items: center;
+	position: relative;
+	display: inline-flex;
+	color: var(--bs-white);
+	justify-content: center;
+	text-transform: uppercase;
+	font-family: var(--bs-font-heading);
+	transition: var(--bs-transition);
+	clip-path: polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);
+}
+.btn-primary {
+	background-color: var(--bs-primary);
+	--bs-btn-hover-bg: var(--bs-primary);
+}
+// Button Fill - End
+
+// Button Fill Style 1 - Start
+
+.btn {
+	&:before {
+		top: 0;
+		left: -5%;
+		z-index: -1;
+		right: auto;
+		bottom: auto;
+		width: 110%;
+		height: 200%;
+		content: '';
+		position: absolute;
+		transition: transform 0.5s;
+		transform-origin: left bottom;
+		background-color: var(--bs-white);
+		transform: skewY(-10deg) scale(1, 0);
+	}
+
+	&:hover {
+		color: var(--bs-dark);
+		&:before {
+			transform-origin: left top;
+			transform: skewY(-10deg) scale(1, 1);
+		}
+	}
+}
+
+// Button Fill Style 1 - Start
+
+// Button Fill Style 2 - Start
+/* .btn {
+	&:after {
+		content: '';
+		top: -50px;
+		left: -75px;
+		width: 50px;
+		height: 155px;
+		opacity: .2;
+		z-index: -1;
+		position: absolute;
+		background: #FFFFFF;
+		transform: rotate(35deg);
+		transition: all .3s ease-in-out;
+	}
+	&:hover {
+		&:after {
+			left: 120%;
+		}
+	}
+} */
+// Button Fill Style 2 - End
+
+// Button Unfill - Start
+.btn-link {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 21px;
+	align-items: center;
+	display: inline-flex;
+	color: var(--bs-white);
+	text-decoration: none;
+	text-transform: uppercase;
+	&:hover {
+		color: var(--bs-white);
+	}
+	.btn_icon {
+		width: 22px;
+		height: 22px;
+		display: flex;
+		font-size: 14px;
+		margin-right: 8px;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--bs-primary);
+		--bs-btn-hover-bg: var(--bs-primary);
+		clip-path: polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);
+	}
+	.btn_text {
+		overflow: hidden;
+		position: relative;
+		small {
+			display: block;
+			transition: .3s cubic-bezier(.34, 0, .18, 1);
+			&:nth-child(2) {
+				left: 0;
+				bottom: -30px;
+				position: absolute;
+			}
+		}
+	}
+
+	&:hover {
+		.btn_text {
+			small {
+				&:nth-child(1) {
+					transform: translateY(-30px);
+				}
+				&:nth-child(2) {
+					bottom: 0;
+				}
+			}
+		}
+	}
+}
+// Button Unfill - End
+
+// Button Hot Line - Start
+.btn_hotline {
+	z-index: 1;
+	font-size: 16px;
+	font-weight: 600;
+	overflow: hidden;
+	padding: 7px 18px;
+	position: relative;
+	align-items: center;
+	display: inline-flex;
+	color: var(--bs-body-color);
+	&:before {
+		inset: 0;
+		z-index: -1;
+		content: '';
+		position: absolute;
+		@include polygon;
+	}
+
+	.btn_text {
+		position: relative;
+		white-space: nowrap;
+		transition: var(--bs-transition);
+		animation: textMarqueeX 4s linear infinite;
+		&:after {
+			top: 50%;
+			left: 100%;
+			position: absolute;
+			white-space: nowrap;
+			content: attr(data-text);
+			transform: translate(100%, -50%);
+		}
+	}
+	&:hover {
+		.btn_text {
+			animation-play-state: paused;
+		}
+	}
+}
+// Button Hot Line - End
+
+// Theme Color Mode Button - Start
+.mode-switch {
+	z-index: 1;
+	cursor: pointer;
+	position: relative;
+	display: inline-block;
+	&:before {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		line-height: 1;
+		font-size: 18px;
+		content: '\e0c9';
+		font-weight: 700;
+		position: absolute;
+		align-items: center;
+		justify-content: center;
+		transition: var(--bs-transition);
+		font-family: 'Font Awesome 5 Pro';
+	}
+	>input[type=checkbox] {
+		opacity: 0;
+		width: 25px;
+		height: 25px;
+		display: block;
+		cursor: pointer;
+		appearance: none;
+		position: relative;
+	}
+}
+
+[data-bs-theme=light] {
+	.mode-switch:has([type=checkbox]) {
+		&:before {
+			content: '\f186';
+			color: var(--bs-dark);
+		}
+	}
+}
+// Theme Color Mode Button - End
+
+/* 2.5 - Button - End
+================================================== */

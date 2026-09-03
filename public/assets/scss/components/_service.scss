@@ -1,0 +1,419 @@
+/* 3.2 - Service - Start
+================================================== */
+// Service Item - Start
+.service_item {
+	z-index: 1;
+	position: relative;
+	padding: 30px 80px 20px 0;
+	border-top: 1px solid var(--bs-border-color-translucent);
+	&:before {
+		top: 0;
+		left: 0;
+		width: 0%;
+		height: 1px;
+		content: '';
+		position: absolute;
+		background-color: var(--bs-primary);
+		transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+	}
+	.item_icon {
+		width: 80px;
+		height: 80px;
+		align-items: center;
+		display: inline-flex;
+		svg,img,i {
+			transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+		}
+	}
+	.item_title {
+		font-size: 23px;
+		line-height: 32px;
+		margin: 10px 0 16px;
+		a {
+			color: var(--bs-body-color);
+			&:hover {
+				color: var(--bs-primary);
+			}
+		}
+	}
+	p {
+		font-size: 16px;
+		line-height: 22px;
+		margin-bottom: 28px;
+	}
+	&:hover {
+		&:before {
+			width: 100%;
+		}
+		.item_icon {
+			svg,img,i {
+				transform: scaleX(-1);
+			}
+		}
+	}
+}
+.service_item:has(.item_image) {
+	padding: 0;
+	border: none;
+	position: relative;
+	&:before {
+		display: none;
+	}
+
+	.item_image {
+		overflow: hidden;
+		position: relative;
+		transition: transform .65s cubic-bezier(.23,1,.32,1);
+		&:after,
+		&:before {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 1;
+			content: '';
+			position: absolute;
+			transition: opacity .3s;
+		}
+		&:before {
+			background-image: linear-gradient(180deg, rgba(30, 30, 30, 0.4) 0%, var(--bs-gray-dark) 100%);
+		}
+		&:after {
+			opacity: 0;
+			background-image: linear-gradient(180deg, transparent 0%, var(--bs-primary) 100%);
+		}
+		img {
+			transform: scale(1.06, 1.06);
+			transition: transform .65s cubic-bezier(.23,1,.32,1);
+		}
+	}
+
+	.item_content {
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
+		position: absolute;
+		padding: 40px 70px 40px 40px;
+	}
+
+	.item_title {
+		font-size: 29px;
+		margin: 0 0 10px;
+		padding-top: 12px;
+		position: relative;
+		&:before {
+			top: 0;
+			left: 0;
+			height: 2px;
+			content: '';
+			width: 120px;
+			position: absolute;
+			background-color: var(--bs-primary);
+		}
+	}
+	p {
+		margin-bottom: 20px;
+	}
+	p,
+	.btn-link {
+		display: none;
+		.btn_icon {
+			color: var(--bs-primary);
+			background-color: var(--bs-white);
+			--bs-btn-hover-bg: var(--bs-white);
+		}
+	}
+
+	.serial_number {
+		top: 40px;
+		z-index: 3;
+		right: 40px;
+		opacity: 0.6;
+		font-size: 66px;
+		line-height: 73px;
+		position: absolute;
+		-webkit-text-stroke-color: var(--bs-body-color);
+	}
+
+	&:hover {
+		z-index: 2;
+		.item_image {
+			transform: scale(1.06, 1.06);
+			&:before {
+				opacity: 0;
+			}
+			&:after {
+				opacity: 1;
+			}
+			img {
+				transform: scale(1, 1);
+			}
+		}
+		.item_title {
+			&:before {
+				background-color: var(--bs-white);
+			}
+		}
+		p {
+			display: block;
+		}
+		.btn-link {
+			display: inline-flex;
+		}
+	}
+}
+
+[class*="carousel_"] {
+	.service_item:has(.item_image) {
+		margin: 40px 0;
+	}
+}
+// Service Item - End
+
+// Service Item 2 - Start
+.service_item_2 {
+	padding: 40px;
+	transition: var(--bs-transition);
+	border-top: 2px solid transparent;
+	background-color: var(--bs-gray-dark);
+	&:not(:last-child) {
+		margin-bottom: 40px;
+	}
+	&:hover {
+		border-color: var(--bs-primary);
+	}
+	.title_wrap {
+		display: flex;
+		align-items: center;
+		margin-bottom: 40px;
+		justify-content: space-between;
+	}
+	.item_title {
+		font-size: 23px;
+		line-height: 32px;
+	}
+	.price_value {
+		display: flex;
+		align-items: flex-end;
+		sub,
+		.remove_price {
+			bottom: 2px;
+			color: #606060;
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 23px;
+			position: relative;
+		}
+		.sale_price {
+			padding: 0 6px;
+			font-size: 23px;
+			font-weight: 700;
+			line-height: 32px;
+			font-family: var(--bs-font-heading);
+		}
+	}
+	.info_list {
+		>li {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+			}
+		}
+	}
+	.btn-link {
+		margin-top: 40px;
+	}
+}
+// Service Item 2 - End
+
+// Service Split - Start
+.service_split_item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	.item_image {
+		flex: 0 0 50%;
+		background-color: var(--bs-dark);
+		img {
+			opacity: .7;
+		}
+	}
+	.item_content {
+		padding: 80px;
+		max-width: 710px;
+	}
+	&:nth-child(even) {
+		justify-content: flex-end;
+		.item_image {
+			order: 13;
+		}
+	}
+}
+// Service Split - End
+
+// Service Lnfo List Box - Start
+.service_info_list_box {
+	padding: 30px;
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-color: var(--bs-dark);
+	border: 1px solid var(--bs-dark);
+	background-position: right -50px bottom -40px;
+	transition: var(--bs-transition);
+	&:hover {
+		border-color: var(--bs-primary);
+	}
+	.item_title {
+		font-size: 18px;
+		line-height: 23px;
+		margin-bottom: 16px;
+	}
+	.info_list {
+		li {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 18px;
+			&:not(:last-child) {
+				margin-bottom: 10px;
+			}
+		}
+		.info_icon {
+			margin: 4px 10px 0 0;
+		}
+	}
+}
+// Service Lnfo List Box - End
+
+// Service Pill Item - Start
+.service_pill_item {
+	display: flex;
+	align-items: center;
+	padding: 28px 30px 30px;
+	transition: var(--bs-transition);
+	border-top: 2px solid transparent;
+	background-color: var(--bs-gray-dark);
+	&:hover {
+		transform: translateY(-6px);
+		border-color: var(--bs-primary);
+	}
+	.item_icon {
+		width: 54px;
+		height: 54px;
+		flex: 0 0 54px;
+		margin-right: 20px;
+		align-items: center;
+		display: inline-flex;
+		justify-content: center;
+		svg path {
+			fill: var(--bs-primary);
+		}
+	}
+	.item_title {
+		font-size: 23px;
+		line-height: 32px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: var(--bs-secondary);
+	}
+}
+// Service Pill Item - End
+
+// Service Price List Item - Start
+.tab-content:has(.service_pricelist_item) {
+	padding: 40px;
+	border: 1px solid var(--bs-border-color-translucent);
+}
+
+.service_pricelist_item {
+	&:not(:last-child) {
+		margin-bottom: 32px;
+		padding-bottom: 32px;
+		border-bottom: 1px solid var(--bs-border-color-translucent);
+	}
+	.item_title {
+		font-size: 23px;
+		max-width: 350px;
+		line-height: 32px;
+	}
+	p {
+		padding: 0;
+		font-size: 16px;
+		max-width: 470px;
+		line-height: 22px;
+	}
+	.item_price {
+		.sale_price {
+			font-size: 29px;
+			font-weight: 700;
+			line-height: 38px;
+			color: var(--bs-primary);
+			font-family: var(--bs-font-heading);
+		}
+		sub,
+		.remove_price {
+			bottom: 0;
+			opacity: .8;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 22px;
+		}
+	}
+}
+// Service Price List Item - End
+
+// Service Duration Item - Start
+.service_duration_item {
+	z-index: 1;
+	padding: 40px;
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	&:before {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		content: '';
+		position: absolute;
+		transition: var(--bs-transition);
+		background-color: var(--bs-gray-dark);
+	}
+	&:hover {
+		&:before {
+			opacity: .9;
+		}
+	}
+	.item_title {
+		font-size: 23px;
+		line-height: 32px;
+		margin-bottom: 10px;
+	}
+	p {
+		color: #C2C2C2;
+		font-size: 16px;
+		line-height: 22px;
+	}
+	ul {
+		>li {
+			&:not(:last-child) {
+				margin: 0 40px 0 0;
+			}
+		}
+		span {
+			color: #C2C2C2;
+			font-size: 14px;
+			line-height: 18px;
+			margin-right: 4px;
+		}
+		b {
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 21px;
+		}
+	}
+}
+// Service Duration Item - End
+/* 3.2 - Service - End
+================================================== */

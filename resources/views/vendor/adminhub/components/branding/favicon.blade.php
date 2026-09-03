@@ -1,0 +1,1 @@
+<link rel="shortcut icon"  type="image/jpg" href="https://idea-innovations.co.uk/assets/img/favicon.jpg" />

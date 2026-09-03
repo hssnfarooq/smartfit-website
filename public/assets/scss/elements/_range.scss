@@ -1,0 +1,45 @@
+/* 2.20 - Price Range Slide - Start
+================================================== */
+.price-range-area {
+  padding-top: 7px;
+}
+.price-range-area .slider-range {
+  height: 4px;
+  border: none;
+  border-radius: 0;
+  background-color: var(--bs-gray-dark);
+}
+.price-range-area .ui-slider-range {
+  border: none;
+  border-radius: 0;
+  background-color: var(--bs-primary);
+}
+.price-range-area .ui-state-default {
+  margin: 0;
+  top: -4px;
+  width: 12px;
+  height: 12px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: var(--bs-primary);
+}
+.price-range-area .price-text {
+  display: flex;
+  font-size: 16px;
+  margin: 25px 0 0;
+  line-height: 18px;
+  align-items: center;
+}
+.price-range-area .price-text span {
+}
+.price-range-area .price-text input {
+  width: auto;
+  border: none;
+  padding: 0 20px;
+  display: inline-block;
+  background-color: transparent;
+}
+/* 2.20 - Price Range Slide - End
+================================================== */

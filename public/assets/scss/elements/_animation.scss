@@ -1,0 +1,78 @@
+/* 2.2 - CSS Animation - Start
+================================================== */
+@keyframes dropDown {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+// Text Marquee X Animation
+@keyframes textMarqueeX {
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+// Up Down Move Animation
+@keyframes upDownMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+.upDownMove {
+  animation: upDownMove 1s infinite alternate;
+}
+
+
+// Back To Top Button Icon Animation
+@keyframes bttIconMover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+.btt-btn-animation {
+  animation: bttIconMover 1s infinite  alternate;
+}
+
+// Spin Animation
+@keyframes spin {
+  0% {
+    transform:rotate(0deg);
+  }
+  100% {
+    transform:rotate(360deg);
+  }
+}
+.spin_animation {
+  animation: spin 5s infinite linear;
+}
+
+// Change Border Color Animation
+@keyframes changeBorderColor {
+  0%, 100% {
+    border-color: var(--bs-primary);
+  }
+  25% {
+    border-color: #0091EA;
+  }
+  50% {
+    border-color: #8b4513;
+  }
+  75% {
+    border-color: #9400d3;
+  }
+}
+.changeBorderColor {
+  animation: changeBorderColor 6s linear infinite;
+}
+/* 2.2 - CSS Animation - End
+================================================== */

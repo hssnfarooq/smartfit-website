@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Http\Livewire\Components\Home;
+
+use Livewire\Component;
+use App\Helpers\Dvsa;
+use Livewire\Attributes\Rule;
+
+class AutoSearch extends Component
+{
+
+    public $registration;
+    protected $auto_json = [];
+    public $naslov, $kratki;
+
+    protected $rules = [
+        'registration' => 'required',
+    ];
+
+    public function searchReg(){
+        $this->validate();
+        $dvsa = new Dvsa();
+        $this->auto_json = json_decode($dvsa->dohvatiAutoPodatke($this->registration));
+        request()->session()->put(env('AUTO_KUKI').'_tmp',  $this->auto_json);
+        //die($dvsa->dohvatiAutoPodatke($this->registracija));
+    }
+
+    public function ponovno(){
+        $this->auto_json = [];
+        //$this->reset();
+    }
+
+    public function selekt(){
+        request()->session()->put(env('AUTO_KUKI'),  request()->session()->pull(env('AUTO_KUKI').'_tmp'));
+        //$this->emit('autoDodan');
+        //$this->reset();
+        return redirect()->to('/booking/order');
+    }
+
+    public function render()
+    {
+        return view('livewire.components.home.auto-search');
+    }
+}

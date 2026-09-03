@@ -1,0 +1,75 @@
+/* 3.11 - Expert Team - Start
+================================================== */
+.team_expert_item {
+	overflow: hidden;
+	position: relative;
+	&:before {
+		left: 0;
+		right: 0;
+		bottom: -2px;
+		height: 0%;
+		z-index: 1;
+		content: '';
+		position: absolute;
+		backdrop-filter: blur(2px);
+		transition: var(--bs-transition);
+		background-color: rgba(13, 13, 13, 0.9);
+		border-top: 2px solid var(--bs-primary);
+	}
+	.team_expert_content {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
+		display: flex;
+		padding: 40px;
+		position: absolute;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.team_expert_name {
+		font-size: 18px;
+		line-height: 23px;
+		margin-bottom: 8px;
+	}
+	.team_expert_designation {
+		font-size: 14px;
+		line-height: 18px;
+	}
+
+	.team_expert_name,
+	.team_expert_designation,
+	.social_links,
+	.btn-link {
+		opacity: 0;
+		transform: translateY(20px);
+		transition: var(--bs-transition);
+	}
+
+	&:hover {
+		&:before {
+			bottom: 0;
+			height: 100%;
+		}
+		.team_expert_name,
+		.team_expert_designation,
+		.social_links,
+		.btn-link {
+			opacity: 1;
+			transform: translate(0px);
+		}
+		.team_expert_name {
+			transition-delay: .2s;
+		}
+		.team_expert_designation {
+			transition-delay: .3s;
+		}
+		.social_links,
+		.btn-link {
+			transition-delay: .4s;
+		}
+	}
+}
+/* 3.11 - Expert Team - End
+================================================== */

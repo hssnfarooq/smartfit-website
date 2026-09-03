@@ -1,0 +1,147 @@
+@php
+    $chunker = App\Http\Controllers\PageDisplayController::dajChunker();
+@endphp
+<section class="hero_section hero_video_bg" style="padding-bottom: 150px;">
+    @if (!empty($block->file('video')))
+        <video autoplay muted loop>
+            <source src="{{$block->file('video')}}" type="video/mp4">
+            <source src="{{$block->file('video')}}" type="video/ogg">
+        </video>
+    @else
+      <video autoplay muted loop>
+            <source src="/assets/videos/Smartfit-video-background.mp4" type="video/mp4">
+        </video>
+    @endif
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="hero_title">
+            {!!html_entity_decode($block->input('title'))!!}
+          </h1>
+          <p>
+            {!!html_entity_decode($block->input('description'))!!}
+          </p>
+          <!--<div class="subscribe_form_inline justify-content-start">
+            <input type="search" name="search" placeholder="Car registration">
+            <button type="submit" class="btn btn-primary">
+              <span class="btn_text">Searh</span>
+            </button>
+          </div>-->
+        </div>
+      </div>
+    </div>
+
+</section>
+
+
+<section class="car_maintenance_section">
+  <div class="container">
+    <div class="tab_boxed bg_gray_dark">
+      <ul class="nav tab_nav unordered_list_center" role="tablist">
+        <li role="presentation">
+          <button class="active" data-bs-toggle="tab" data-bs-target="#tab_1" type="button" role="tab" aria-selected="true">
+            <span class="btn_text">
+              Book your MOT or service
+            </span>
+          </button>
+        </li><!--
+        <li role="presentation">
+          <button data-bs-toggle="tab" data-bs-target="#tab_2" type="button" role="tab" aria-selected="false" class="" tabindex="-1">
+            <span class="btn_text">
+              Buy your tires
+            </span>
+          </button>
+        </li>
+        <li role="presentation">
+          <button data-bs-toggle="tab" data-bs-target="#tab_3" type="button" role="tab" aria-selected="false" class="" tabindex="-1">
+            <span class="btn_text">
+              Detailing Service
+            </span>
+          </button>
+        </li>
+        <li role="presentation">
+          <button data-bs-toggle="tab" data-bs-target="#tab_4" type="button" role="tab" aria-selected="false" class="" tabindex="-1">
+            <span class="btn_text">
+              Diagnostic Service
+            </span>
+          </button>
+        </li>-->
+      </ul>
+      <div class="tab-content m-0">
+        <div class="tab-pane fade active show" id="tab_1" role="tabpanel">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-5 order-lg-last">
+              <div class="image_widget">
+                <img src="assets/images/about/about_image_9.jpg" alt="ProMotors - Car Repair Service">
+              </div>
+            </div>
+            <div class="col-lg-6">
+                <livewire:components.home.auto-search>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="tab_2" role="tabpanel">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-5 order-lg-last">
+              <div class="image_widget">
+                <img src="assets/images/about/about_image_9.jpg" alt="ProMotors - Car Repair Service">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="section_heading">
+                <h2 class="heading_text mb-0">
+                  Flat Tire Repair, Tire <span class="d-lg-block">Patches, And More</span>
+                </h2>
+              </div>
+              <div class="accordion" id="faq_accordion_2">
+                <div class="accordion-item">
+                  <div class="accordion-header" id="headingFour">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                      Why should I choose Promotors ?
+                    </button>
+                  </div>
+                  <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#faq_accordion_2">
+                    <div class="accordion-body p-0 pt-2">
+                      <p class="m-0 p-0">
+                        Porttitor leo a diam sollicitudin tempor. Lectus proin nibh nisl condimentum id. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis a condimentum vitae sapien
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      Why should I choose Promotors ?
+                    </button>
+                  </div>
+                  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faq_accordion_2">
+                    <div class="accordion-body p-0 pt-2">
+                      <p class="m-0 p-0">
+                        Porttitor leo a diam sollicitudin tempor. Lectus proin nibh nisl condimentum id. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis a condimentum vitae sapien
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                      Why should I choose Promotors ?
+                    </button>
+                  </div>
+                  <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faq_accordion_2">
+                    <div class="accordion-body p-0 pt-2">
+                      <p class="m-0 p-0">
+                        Porttitor leo a diam sollicitudin tempor. Lectus proin nibh nisl condimentum id. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis a condimentum vitae sapien
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

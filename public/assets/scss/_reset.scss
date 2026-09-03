@@ -1,0 +1,160 @@
+/* 1.2 - Template Reset - Start
+================================================== */
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.65;
+	font-style: normal;
+	color: var(--bs-body-color);
+	font-family: var(--bs-font-body);
+	background-color: var(--bs-body-bg);
+	text-rendering: optimizelegibility;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+.page_wrapper {
+	overflow: hidden;
+	position: relative;
+}
+
+iframe {
+	border: none;
+}
+
+a:focus,
+a:active,
+input,
+input:hover,
+input:focus,
+input:active,
+textarea,
+textarea:hover,
+textarea:focus,
+textarea:active {
+	outline: none;
+}
+
+img:not([draggable]),
+embed,
+object,
+video {
+	height: auto;
+	max-width: 100%;
+}
+img {
+	border: none;
+	height: auto;
+	max-width: 100%;
+	user-select: none;
+	vertical-align: middle;
+}
+
+a {
+	outline: 0;
+	display: inline-block;
+	text-decoration: none;
+	font-family: var(--bs-font-heading);
+	transition: var(--bs-transition);
+	&:active,
+	&:focus,
+	&:hover,
+	&:visited {
+		outline: 0;
+		text-decoration: none;
+	}
+}
+
+button {
+	padding: 0px;
+	border: none;
+	outline: none;
+	background: none;
+	display: inline-block;
+	font-family: var(--bs-font-heading);
+	transition: var(--bs-transition);
+	&:focus {
+		outline: none;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+	text-transform: uppercase;
+	color: var(--bs-secondary);
+	font-family: var(--bs-font-heading);
+}
+
+hr {
+	opacity: 1;
+	height: 1px;
+	border: none;
+	margin: 25px 0;
+	background-color: var(--bs-border-color);
+	&.bg_primary {
+		background-color: var(--bs-primary);
+	}
+}
+
+mark {
+	padding: 0;
+	color: var(--bs-primary);
+	background-color: transparent;
+}
+
+.container {
+	max-width: 1390px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.row {
+	margin: -15px;
+}
+[class*="col-"] {
+	padding: 15px;
+}
+
+.dropdown-menu {
+	border: none;
+	margin-top: 20px;
+	border-radius: 0;
+	background-color: var(--bs-gray-dark);
+	border: 1px solid var(--bs-border-color-translucent);
+	box-shadow: var(--bs-box-shadow);
+	animation: 0.2s ease-in-out 0s normal none 1 running fadeIn;
+	&:before {
+		left: 0;
+		right: 0;
+		top: -20px;
+		content: '';
+		height: 20px;
+		display: block;
+		position: absolute;
+	}
+}
+.dropdown-toggle::after {
+	margin: 0;
+	border: none;
+	line-height: 1;
+	content: '\f107';
+	font-weight: 400;
+	color: var(--bs-body-color);
+	font-family: 'Font Awesome 6 Pro';
+}
+.dropdown {
+	&:hover {
+		>.dropdown-menu {
+			display: block;
+		}
+	}
+}
+
+
+.splitting.animated .char {
+	animation: fadeIn 0.6s cubic-bezier(0.3, 0, 0.7, 1) both;
+	animation-delay: calc(20ms * var(--char-index));
+}
+/* 1.2 - Template Reset - End
+================================================== */

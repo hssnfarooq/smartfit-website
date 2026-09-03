@@ -1,0 +1,115 @@
+@php
+    $import_json = json_decode($this->proizvod->t_import_json);
+    //$proizvod_url = env('GUME_OPSIRNO_SLUG_PREFIX').$proizvod->defaultUrl->slug;
+
+    $naslov = $import_json->product_title;
+
+@endphp
+
+<section class="details_section shop_details section_space_lg">
+    <div class="container">
+        <div class="section_space_sm pt-0">
+            <div class="row">
+            <div class="col-lg-6">
+                <div class="image_gallery_carousel">
+                <div class="details_image_carousel">
+                    <div class="gallery_image">
+                        <img src="{{ $import_json->product_best_match_image_url }}" alt="{{ $import_json->product_title }}" />
+                    </div>
+                </div>
+                <!--<div class="details_image_carousel_nav">
+                        <div class="gallery_image">
+                        <img src="assets/images/products/product_img_1.png" alt="ProMotors - Product Image">
+                        </div>
+                        <div class="gallery_image">
+                        <img src="assets/images/products/product_img_4.png" alt="ProMotors - Product Image">
+                        </div>
+                        <div class="gallery_image">
+                        <img src="assets/images/products/product_img_2.png" alt="ProMotors - Product Image">
+                        </div>
+                        <div class="gallery_image">
+                        <img src="assets/images/products/product_img_17.png" alt="ProMotors - Product Image">
+                        </div>
+                        <div class="gallery_image">
+                        <img src="assets/images/products/product_img_7.png" alt="ProMotors - Product Image">
+                        </div>
+                        <div class="gallery_image">
+                        <img src="assets/images/products/product_img_8.png" alt="ProMotors - Product Image">
+                        </div>
+                        <div class="gallery_image">
+                        <img src="assets/images/products/product_img_13.png" alt="ProMotors - Product Image">
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="details_content ps-lg-4">
+                <ul class="breadcrumb_nav unordered_list mb-4">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{{env('GUME_OPSIRNO_SLUG_PREFIX')}}">Tyres</a></li>
+                    <li>{{$naslov}}</li>
+                </ul>
+                <h1 class="details_item_title">{{$naslov}}</h1>
+
+                <x-proizvod-box-ikone :json="$import_json" />
+                
+                
+                <div style="clear: both; height:30px"></div>
+                <x-proizvod-box-cijena :proizvod="$proizvod" />
+                <!--
+                <ul class="rating_star unordered_list mb-4">
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                </ul>
+                -->
+                
+                
+                
+<!--
+    {"product_stock_number":"1756514HZE03.005.01","product_ean":"6921109014221","product_manufacturer_code":"03.005.01","product_title":"175\/65R14 ZETA ZTR50 82H (CAR SUMMER)","product_group":"TYRES","product_best_match_image_url":"https:\/\/dcjqgkl774ppl.cloudfront.net\/70\/images\/ze-ztr50.jpg","price":"23.97","width":"175","aspect_ratio":"65","rim":"14","speed_rating":"H","load_index":"82","reinforced":"","vehicle_type":"CAR","product_type":"SUMMER","runflat":"false","rolling_resistance":"D","wet_grip":"D","noise_performance":"71","noise_class_type":"2","ec_vehicle_class":"C1","product_available":"30.0","brand_name":"ZETA","brand_group":"House Brand","model_name":"ZTR50"}
+    -->
+                <ul class="product_details_info_list unordered_list_block text-uppercase">
+                    <li><span>Sku: </span>{{$import_json->product_stock_number}}</li>
+                    <li>
+                        <span>Manufacturer: </span>
+                        <a href="#">{{$proizvod->brand->name}}</a>
+                    </li>
+                    <li><span>Width: </span>{{$import_json->width}}</li>
+                    <li><span>Profile: </span>{{$import_json->aspect_ratio}}</li>
+                    <li><span>Rim: </span>{{$import_json->rim}}</li>
+                    </li>
+                </ul>
+
+                <div style="clear: both"></div>
+                <p>
+                    
+                
+                </p>
+                <ul class="cart_btns_group unordered_list mb-4">
+                    <li>
+                    <div class="quantity_form">
+                        <button type="button" class="input_number_decrement">
+                        <i class="fa-regular fa-minus"></i>
+                        </button>
+                        <input class="input_number" type="text" value="1">
+                        <button type="button" class="input_number_increment">
+                        <i class="fa-regular fa-plus"></i>
+                        </button>
+                    </div>
+                    </li>
+                    <li>
+                    <a class="btn btn-primary" href="#!">
+                        <span class="btn_text">Buy Now</span>
+                    </a>
+                    </li>
+                </ul>
+                
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>

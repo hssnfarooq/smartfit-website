@@ -1,0 +1,26 @@
+/* 5.4 - 404 Error Template - Start
+================================================== */
+.error_section {
+	height: 100vh;
+	display: flex;
+	padding: 55px 0;
+	align-items: center;
+	background-size: cover;
+	justify-content: center;
+	background-repeat: no-repeat;
+	background-blend-mode: overlay;
+	background-position: center center;
+	background-color: var(--bs-gray-dark);
+	.title_text {
+		font-size: 66px;
+		line-height: 73px;
+		margin-bottom: 20px;
+	}
+	p {
+		font-size: 18px;
+		line-height: 26px;
+		margin-bottom: 30px;
+	}
+}
+/* 5.4 - 404 Error Template - End
+================================================== */

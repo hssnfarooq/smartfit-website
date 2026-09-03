@@ -1,0 +1,132 @@
+/* 5.1 - Contact Template - Start
+================================================== */
+.contact_section {
+	.gmap_canvas iframe {
+		height: 290px;
+	}
+}
+
+.contact_info_box {
+	min-height: 255px;
+	padding: 39px 40px 41px;
+	border: 1px solid var(--bs-border-color-translucent);
+	transition: var(--bs-transition);
+	&:not(:last-child) {
+		margin-bottom: 30px;
+	}
+	&:hover {
+		border-color: var(--bs-primary);
+	}
+	.item_title {
+		font-size: 23px;
+		line-height: 32px;
+		margin-bottom: 19px;
+	}
+	.info_list {
+		>li {
+			margin: 0;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 26px;
+		}
+	}
+
+	i {
+		width: 24px;
+		color: var(--bs-primary);
+	}
+
+	&.bg_gray_dark {
+		border-color: var(--bs-gray-dark);
+		&:hover {
+			border-color: var(--bs-primary);
+		}
+	}
+}
+
+.contact_info_box:has(.image_wrap) {
+	display: flex;
+	padding: 30px;
+	align-items: center;
+	.image_wrap {
+		flex: 0 0 120px;
+		margin: 0 20px 0 0;
+	}
+	.info_list {
+		>li {
+			font-size: 16px;
+			line-height: 22px;
+			font-family: var(--bs-font-body);
+			&:not(:last-child) {
+				margin: 0 0 10px;
+			}
+		}
+	}
+}
+
+.location_section {
+	.contact_info_box {
+		min-height: auto;
+	}
+	.gmap_canvas iframe {
+		height: 710px;
+	}
+}
+
+.zipcode_select_option {
+	label {
+		flex: 0 0 150px;
+		margin-bottom: 0;
+		padding-right: 20px;
+	}
+}
+
+.store_location_item {
+	z-index: 1;
+	height: 590px;
+	display: flex;
+	padding: 40px;
+	position: relative;
+	flex-direction: column;
+	justify-content: flex-end;
+	&:before {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		content: '';
+		z-index: -1;
+		position: absolute;
+		background: linear-gradient(180.95deg, rgba(30, 30, 30, 0.207414) 0.81%, #0D0D0D 84.24%);
+	}
+	.item_title {
+		font-size: 29px;
+		line-height: 38px;
+		margin-bottom: 5px;
+	}
+	p {
+		margin-bottom: 25px;
+		padding-right: 80px;
+	}
+}
+
+.career_item {
+	padding: 40px;
+	border: 1px solid var(--bs-border-color-translucent);
+	.item_title {
+		font-size: 23px;
+		line-height: 32px;
+		margin-bottom: 20px;
+	}
+	.info_list {
+		gap: 10px;
+		display: grid;
+		margin-bottom: 32px;
+		grid-template-columns: auto auto;
+		li {
+			margin: 0;
+		}
+	}
+}
+/* 5.1 - Contact Template - End
+================================================== */

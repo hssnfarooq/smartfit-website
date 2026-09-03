@@ -1,0 +1,20 @@
+/* 3.8 - Brands Logo - Start
+================================================== */
+.brand_logo_item {
+	display: flex;
+	padding: 15px;
+	height: 142px;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--bs-border-color-translucent);
+	&:hover {
+		border-color: var(--bs-primary);
+		background-color: var(--bs-gray-dark);
+	}
+	img {
+		max-height: 70px;
+		max-width: 160px;
+	}
+}
+/* 3.8 - Brands Logo - End
+================================================== */

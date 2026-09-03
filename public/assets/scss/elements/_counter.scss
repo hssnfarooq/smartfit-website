@@ -1,0 +1,80 @@
+/* 2.18 - Counter - Start
+================================================== */
+.counter_items_group {
+	margin: 0;
+	>[class*="col-"] {
+		padding: 0;
+	}
+}
+
+.counter_item {
+	.counter_value {
+		margin: 0;
+		font-size: 66px;
+		font-weight: 700;
+		line-height: 73px;
+		align-items: center;
+		display: inline-flex;
+		text-transform: uppercase;
+		font-family: var(--bs-font-heading);
+	}
+	hr {
+		margin: 12px 0 21px;
+	}
+	p {
+		font-size: 16px;
+		line-height: 22px;
+		padding: 0 65px 0 0;
+	}
+}
+
+.about_section {
+	.counter_item {
+		hr {
+			height: 2px;
+			max-width: 160px;
+		}
+	}
+}
+
+.funfact_wrapper {
+	display: flex;
+	padding: 10px 30px;
+	justify-content: space-between;
+}
+.funfact_item {
+	padding: 20px;
+	max-width: 250px;
+	.counter_value {
+		font-size: 42px;
+		font-weight: 700;
+		line-height: 55px;
+		align-items: center;
+		display: inline-flex;
+		font-family: var(--bs-font-heading);
+	}
+	.counter_description {
+		font-size: 14px;
+		line-height: 18px;
+	}
+
+	&.d-flex {
+		max-width: 370px;
+		align-items: center;
+		.counter_description {
+			max-width: 130px;
+			padding-left: 10px;
+		}
+	}
+}
+.section_heading:has(.funfact_wrapper) {
+	z-index: 1;
+	position: relative;
+	padding-left: 75px;
+	margin-bottom: -60px;
+	.funfact_wrapper {
+		max-width: 630px;
+	}
+}
+/* 2.18 - Counter - End
+================================================== */

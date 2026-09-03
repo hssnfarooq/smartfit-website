@@ -1,0 +1,35 @@
+/* 2.23 - Pagination Nav - Start
+================================================== */
+.pagination_wrap {
+  padding-top: 40px;
+}
+.pagination_nav {
+  margin: -5px;
+  li {
+    padding: 5px;
+  }
+  a {
+    height: 60px;
+    display: block;
+    min-width: 60px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: center;
+    color: var(--bs-white);
+    font-family: var(--bs-font-heading);
+    border: 1px solid var(--bs-border-color-translucent);
+  }
+  li {
+    &:hover,
+    &.active {
+      a {
+        color: var(--bs-white);
+        border-color: var(--bs-primary);
+        background-color: var(--bs-primary);
+      }
+    }
+  }
+}
+/* 2.23 - Pagination Nav - End
+================================================== */
