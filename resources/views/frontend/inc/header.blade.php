@@ -4,7 +4,7 @@
 
   /* Mobile Navbar & Hamburger Button */
   .mobile_menu_btn {
-    display: inline-flex !important;
+    display: none !important;
     align-items: center !important;
     justify-content: center !important;
     width: 44px !important;
@@ -66,6 +66,10 @@
   }
 
   @media (max-width: 991.98px) {
+    .mobile_menu_btn {
+      display: inline-flex !important;
+    }
+
     .site_header {
       position: sticky !important;
       top: 0 !important;
@@ -102,6 +106,13 @@
       border-top: 2px solid #ED1E24 !important;
       padding: 12px 16px 30px !important;
     }
+    .main_menu_inner.show {
+      animation: smartfitMobileMenuOpen 220ms ease-out both;
+    }
+    .main_menu_inner.mobile_menu_closing {
+      animation: smartfitMobileMenuClose 220ms ease-in both;
+      pointer-events: none !important;
+    }
     .main_menu_list {
       padding: 0 !important;
       margin: 0 !important;
@@ -129,6 +140,23 @@
       color: #ED1E24 !important;
     }
   }
+
+  @keyframes smartfitMobileMenuOpen {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes smartfitMobileMenuClose {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .main_menu_inner.show,
+    .main_menu_inner.mobile_menu_closing {
+      animation-duration: 0ms !important;
+    }
+  }
 </style>
 
 <header class="site_header sticky sticky-top" style="background:#fff !important; background-image:none !important; position: sticky; top: 0; z-index: 1030;">
@@ -139,13 +167,7 @@
         <!-- 1. Brand Logo -->
         <div class="site_logo" style="width: auto; max-width: 220px; flex-shrink: 0;">
           <a class="site_link" href="/">
-            @php
-            $logo = 'logo_330_black.png';
-            if($header == 'bijelo')
-              $logo = 'logo_330_white.png';
-            @endphp
-            <img class="light_theme_logo" src="{{ asset('assets/images/site_logo/logo_330_black.png') }}" alt="{{$chunker['default_picture_alt']}}" style="max-height: 42px; width: auto; display: block;">
-            <img class="dark_theme_logo" src="{{ asset('assets/images/site_logo/' . $logo) }}" alt="{{$chunker['default_picture_alt']}}" style="max-height: 42px; width: auto; display: none;">
+            <img class="smartfit_header_logo" src="{{ asset('assets/images/site_logo/logo_330_black.png') }}" alt="{{$chunker['default_picture_alt']}}" style="max-height: 42px; width: auto; height: auto; display: block;">
           </a>
         </div>
 
@@ -158,7 +180,7 @@
         <div class="d-flex align-items-center gap-2 flex-shrink-0">
           <div class="d-none d-md-block">
             <form action="/tyres" method="GET" class="position-relative" style="max-width: 170px;">
-              <input type="search" name="manufacturer" class="form-control rounded-pill pe-4 ps-3 py-1" style="font-size: 13px; border: 1px solid #ddd; height: 32px;" placeholder="Search tyres...">
+              <input type="search" name="manufacturer" class="form-control smartfit_light_input rounded-pill pe-4 ps-3 py-1" style="font-size: 13px; border: 1px solid #ddd; height: 32px;" placeholder="Search tyres...">
               <button type="submit" class="btn p-0 position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: 0;">
                 <i class="fa-solid fa-magnifying-glass text-danger" style="font-size: 12px;"></i>
               </button>
@@ -166,7 +188,7 @@
           </div>
 
           <!-- Hamburger Toggle Button -->
-          <button class="mobile_menu_btn d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-expanded="false" aria-controls="main_menu_dropdown" aria-label="Toggle navigation" id="site_mobile_toggle_btn">
+          <button class="mobile_menu_btn d-lg-none" type="button" aria-expanded="false" aria-controls="main_menu_dropdown" aria-label="Toggle navigation" id="site_mobile_toggle_btn">
             <span class="hamburger_box">
               <span class="hamburger_bar"></span>
               <span class="hamburger_bar"></span>

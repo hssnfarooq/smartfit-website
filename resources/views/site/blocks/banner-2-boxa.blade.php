@@ -29,7 +29,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="overflow-hidden rounded-3 shadow-sm">
-                    <img src="{{ asset('storage/home/image (9).png') }}" alt="Garage Interior" class="img-fluid w-100 object-fit-cover" style="height: 320px; border-radius: 8px;">
+                    <img src="{{ asset('assets/images/home/garage-interior.webp') }}" alt="Garage Interior" class="img-fluid w-100 object-fit-cover" style="height: 320px; border-radius: 8px;" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>

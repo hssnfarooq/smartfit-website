@@ -3,37 +3,37 @@
         [
             'title' => 'MAINTENANCE',
             'desc' => 'Regular checkups to maintain your car\'s high performance.',
-            'image' => asset('storage/home/image (3).png'),
+            'image' => asset('assets/images/home/service-maintenance.webp'),
             'url' => '/services/maintenance'
         ],
         [
             'title' => 'REPAIR',
             'desc' => 'Quality service that guarantees smooth and safe rides.',
-            'image' => asset('storage/home/image (4).png'),
+            'image' => asset('assets/images/home/service-repair.webp'),
             'url' => '/services/repairs'
         ],
         [
             'title' => 'PARTS SOURCING',
             'desc' => 'Access to trusted suppliers for genuine and high-quality aftermarket parts.',
-            'image' => asset('storage/home/image (5).png'),
+            'image' => asset('assets/images/home/service-parts-sourcing.webp'),
             'url' => '/services/parts-sourcing'
         ],
         [
             'title' => 'FLEET & CONTRACT WORK',
             'desc' => 'Reliable maintenance and repair services for business and fleet vehicles.',
-            'image' => asset('storage/home/image (6).png'),
+            'image' => asset('assets/images/home/service-fleet.webp'),
             'url' => '/services/fleet'
         ],
         [
             'title' => 'SERVICING',
             'desc' => 'Regular vehicle servicing to keep your car running smoothly and efficiently.',
-            'image' => asset('storage/home/image (7).png'),
+            'image' => asset('assets/images/home/service-servicing.webp'),
             'url' => '/services/servicing'
         ],
         [
             'title' => 'VEHICLE RECOVERY',
             'desc' => 'Fast and reliable recovery services whenever you need assistance.',
-            'image' => asset('storage/home/image (8).png'),
+            'image' => asset('assets/images/home/vehicle-recovery.webp'),
             'url' => '/services/vehicle-recovery'
         ],
     ];
@@ -50,7 +50,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100 border-0 rounded-3 overflow-hidden shadow-sm" style="background-color: #2b2b2b;">
                         <div style="height: 220px; overflow: hidden;">
-                            <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" class="w-100 h-100 object-fit-cover">
+                            <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" class="w-100 h-100 object-fit-cover" loading="lazy" decoding="async">
                         </div>
                         <div class="p-3 text-center" style="background-color: #ED1E24;">
                             <h4 class="fw-bold text-uppercase text-white mb-0 fs-5" style="letter-spacing: 0.5px;">{{ $item['title'] }}</h4>

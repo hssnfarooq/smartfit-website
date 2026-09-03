@@ -1261,6 +1261,7 @@ svg {
 }
 
 /* Mega Menu Grids to completely prevent overlapping */
+.mega_menu_with_cta,
 .services_mega_menu_inner,
 .mot_mega_menu_inner,
 .tyres_mega_menu_inner,
@@ -1292,6 +1293,7 @@ svg {
     margin-bottom: 8px !important;
 }
 
+.mega_menu_with_cta .fleet_col,
 .services_mega_menu_inner .fleet_col,
 .mot_mega_menu_inner .fleet_col,
 .tyres_mega_menu_inner .fleet_col,
@@ -1653,4 +1655,31 @@ svg {
     .services_row_existing {
         padding: 10px 0 14px 0;
     }
+}
+/* Keep inputs placed on light cards readable while the page uses Bootstrap's dark theme. */
+.smartfit_light_input,
+.smartfit_light_input:hover {
+    color-scheme: light;
+    color: #1f2933 !important;
+    background-color: #ffffff !important;
+    border-color: #d6d9dd !important;
+}
+
+.smartfit_light_input::placeholder {
+    color: #6b7280 !important;
+    opacity: 1;
+}
+
+.smartfit_light_input:focus {
+    color: #1f2933 !important;
+    background-color: #ffffff !important;
+    border-color: #ed1e24 !important;
+    box-shadow: 0 0 0 0.2rem rgba(237, 30, 36, 0.14) !important;
+}
+
+.smartfit_light_input:-webkit-autofill,
+.smartfit_light_input:-webkit-autofill:hover,
+.smartfit_light_input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #1f2933 !important;
+    box-shadow: 0 0 0 1000px #ffffff inset !important;
 }

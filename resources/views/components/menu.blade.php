@@ -50,18 +50,26 @@
                         $isMot = (strcasecmp(trim($link->title), 'mot') === 0);
                         $isTyres = (strcasecmp(trim($link->title), 'tyres') === 0 || strcasecmp(trim($link->title), 'tyre shop') === 0 || strcasecmp(trim($link->title), 'tyre') === 0);
                         $isRepairs = (strcasecmp(trim($link->title), 'repairs') === 0 || strcasecmp(trim($link->title), 'repair') === 0);
-                        $isDropdown = $link->tree || $isFleet || $isServices || $isMot || $isTyres || $isRepairs;
+                        $isMegaMenu = $isFleet || $isServices || $isMot || $isTyres || $isRepairs;
+                        $isDropdown = $link->tree || $isMegaMenu;
                         $klasa_li = $isDropdown ? ' class="dropdown' . ($isFleet ? ' dropdown_fleet_item' : '') . ($isServices ? ' dropdown_services_item' : '') . ($isMot ? ' dropdown_mot_item' : '') . ($isTyres ? ' dropdown_tyres_item' : '') . ($isRepairs ? ' dropdown_repairs_item' : '') . '"' : '';
-                        $klasa_a = $isDropdown ? ' role="button" data-bs-toggle="dropdown" aria-expanded="false"' : '';
-                        $onclick = ' onclick="document.location = \'' . $url . '\'"';
+                        $klasa_a = $isMegaMenu ? ' aria-haspopup="true" aria-expanded="false"' : '';
+                        if ($link->tree && !$isMegaMenu) {
+                            $klasa_a = ' role="button" data-bs-toggle="dropdown" aria-expanded="false"';
+                        }
                     @endphp
                     <li {!!html_entity_decode($klasa_li)!!}>
-                        <a class="nav-link{{$link_klasa}}" href="{{$url}}" id="shop_submenu{{$link->id}}"{!!html_entity_decode($klasa_a)!!}{!!html_entity_decode($onclick)!!}>
+                        <a class="nav-link{{$link_klasa}}" href="{{$url}}" id="shop_submenu{{$link->id}}"{!!html_entity_decode($klasa_a)!!}>
                             {{strcasecmp(trim($link->title), 'contacts') === 0 ? 'Contact Us' : (strcasecmp(trim($link->title), 'tyre shop') === 0 ? 'Tyres' : $link->title)}}
                         </a>
+                        @if ($isMegaMenu)
+                            <button class="mobile_submenu_toggle" type="button" aria-expanded="false" aria-controls="mobile_submenu{{$link->id}}" aria-label="Toggle {{$link->title}} submenu">
+                                <span aria-hidden="true">&#9662;</span>
+                            </button>
+                        @endif
                         @if ($isFleet)
-                        <div class="dropdown-menu fleet_mega_menu" aria-labelledby="shop_submenu{{$link->id}}">
-                            <div class="fleet_mega_menu_inner">
+                        <div class="dropdown-menu fleet_mega_menu" id="mobile_submenu{{$link->id}}" aria-labelledby="shop_submenu{{$link->id}}">
+                            <div class="fleet_mega_menu_inner mega_menu_with_cta">
                                 <!-- Column 1: Fleet Services -->
                                 <div class="fleet_col fleet_col_1">
                                     <p class="fleet_col_title">Fleet Services</p>
@@ -105,8 +113,8 @@
                             </div>
                         </div>
                         @elseif ($isServices)
-                        <div class="dropdown-menu services_mega_menu" aria-labelledby="shop_submenu{{$link->id}}">
-                            <div class="fleet_mega_menu_inner services_mega_menu_inner">
+                        <div class="dropdown-menu services_mega_menu" id="mobile_submenu{{$link->id}}" aria-labelledby="shop_submenu{{$link->id}}">
+                            <div class="fleet_mega_menu_inner services_mega_menu_inner mega_menu_with_cta">
                                 <!-- Column 1: Vehicle Servicing -->
                                 <div class="fleet_col fleet_col_1">
                                     <p class="fleet_col_title">Vehicle Servicing</p>
@@ -155,8 +163,8 @@
                             </div>
                         </div>
                         @elseif ($isMot)
-                        <div class="dropdown-menu mot_mega_menu" aria-labelledby="shop_submenu{{$link->id}}">
-                            <div class="fleet_mega_menu_inner mot_mega_menu_inner">
+                        <div class="dropdown-menu mot_mega_menu" id="mobile_submenu{{$link->id}}" aria-labelledby="shop_submenu{{$link->id}}">
+                            <div class="fleet_mega_menu_inner mot_mega_menu_inner mega_menu_with_cta">
                                 <!-- Column 1: MOT -->
                                 <div class="fleet_col fleet_col_1">
                                     <p class="fleet_col_title">MOT</p>
@@ -206,7 +214,7 @@
                             </div>
                         </div>
                         @elseif ($isTyres)
-                        <div class="dropdown-menu tyres_mega_menu" aria-labelledby="shop_submenu{{$link->id}}">
+                        <div class="dropdown-menu tyres_mega_menu" id="mobile_submenu{{$link->id}}" aria-labelledby="shop_submenu{{$link->id}}">
                             <div class="fleet_mega_menu_inner tyres_mega_menu_inner">
                                 <!-- Column 1: Tyre Services -->
                                 <div class="fleet_col fleet_col_1">
@@ -259,7 +267,7 @@
                             </div>
                         </div>
                         @elseif ($isRepairs)
-                        <div class="dropdown-menu repairs_mega_menu" aria-labelledby="shop_submenu{{$link->id}}">
+                        <div class="dropdown-menu repairs_mega_menu" id="mobile_submenu{{$link->id}}" aria-labelledby="shop_submenu{{$link->id}}">
                             <div class="fleet_mega_menu_inner repairs_mega_menu_inner">
                                 <!-- Column 1: Engine & Mechanical -->
                                 <div class="fleet_col fleet_col_1">
@@ -307,10 +315,6 @@
                                         <li class="fleet_item"><a href="/repairs" class="services_menu_link">General Vehicle Repairs</a></li>
                                         <li class="fleet_item"><a href="/parts-sourcing" class="services_menu_link">Parts Replacement</a></li>
                                     </ul>
-                                    <div class="repairs_promo_content">
-                                        <h3 class="fleet_promo_heading">Need a Repair?</h3>
-                                        <p class="fleet_promo_desc">From diagnostics to major mechanical work, we 'll get you back on the road quick</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -948,6 +952,143 @@
 
         .services_row_existing {
             padding: 10px 0 14px 0;
+        }
+    }
+
+    /* Keep custom mega menus mounted so mobile open/close can animate. */
+    .mobile_submenu_toggle {
+        display: none;
+    }
+
+    @media (max-width: 991.98px) {
+        .main_menu_list > li.dropdown_fleet_item,
+        .main_menu_list > li.dropdown_services_item,
+        .main_menu_list > li.dropdown_mot_item,
+        .main_menu_list > li.dropdown_tyres_item,
+        .main_menu_list > li.dropdown_repairs_item {
+            position: relative !important;
+        }
+
+        .main_menu_list > li > a.nav-link {
+            padding-right: 52px !important;
+        }
+
+        .main_menu_list > li.dropdown_fleet_item > a.nav-link,
+        .main_menu_list > li.dropdown_services_item > a.nav-link,
+        .main_menu_list > li.dropdown_mot_item > a.nav-link,
+        .main_menu_list > li.dropdown_tyres_item > a.nav-link,
+        .main_menu_list > li.dropdown_repairs_item > a.nav-link {
+            position: relative;
+            z-index: 3;
+            display: inline-flex !important;
+            width: auto !important;
+            max-width: calc(100% - 52px);
+            padding-right: 12px !important;
+        }
+
+        .mobile_submenu_toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            display: inline-flex;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: #111;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .mobile_submenu_toggle span {
+            transition: transform 220ms ease;
+        }
+
+        .mobile_submenu_toggle[aria-expanded="true"] span {
+            transform: rotate(180deg);
+        }
+
+        .dropdown_fleet_item .fleet_mega_menu,
+        .dropdown_services_item .services_mega_menu,
+        .dropdown_mot_item .mot_mega_menu,
+        .dropdown_tyres_item .tyres_mega_menu,
+        .dropdown_repairs_item .repairs_mega_menu {
+            display: grid !important;
+            grid-template-rows: 0fr;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            overflow: hidden !important;
+            transform: translateY(-6px) !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            border-width: 0 !important;
+            transition: grid-template-rows 220ms ease, opacity 180ms ease, transform 220ms ease, padding 220ms ease, margin 220ms ease, border-width 220ms ease, visibility 0s linear 220ms !important;
+        }
+
+        .dropdown_fleet_item .fleet_mega_menu.show,
+        .dropdown_services_item .services_mega_menu.show,
+        .dropdown_mot_item .mot_mega_menu.show,
+        .dropdown_tyres_item .tyres_mega_menu.show,
+        .dropdown_repairs_item .repairs_mega_menu.show {
+            display: grid !important;
+            grid-template-rows: 1fr;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            padding-top: 16px !important;
+            padding-bottom: 16px !important;
+            margin-top: 10px !important;
+            margin-bottom: 10px !important;
+            border-width: 1px !important;
+            transition-delay: 0s !important;
+        }
+
+        .main_menu_list > li.mobile_parent_navigating > .fleet_mega_menu,
+        .main_menu_list > li.mobile_parent_navigating > .services_mega_menu,
+        .main_menu_list > li.mobile_parent_navigating > .mot_mega_menu,
+        .main_menu_list > li.mobile_parent_navigating > .tyres_mega_menu,
+        .main_menu_list > li.mobile_parent_navigating > .repairs_mega_menu {
+            grid-template-rows: 0fr !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transform: translateY(-6px) !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            border-width: 0 !important;
+            transition: none !important;
+        }
+
+        .fleet_mega_menu > .fleet_mega_menu_inner,
+        .services_mega_menu > .fleet_mega_menu_inner,
+        .mot_mega_menu > .fleet_mega_menu_inner,
+        .tyres_mega_menu > .fleet_mega_menu_inner,
+        .repairs_mega_menu > .fleet_mega_menu_inner {
+            min-height: 0 !important;
+            overflow: hidden !important;
+        }
+    }
+
+    @media (max-width: 991.98px) and (prefers-reduced-motion: reduce) {
+        .dropdown_fleet_item .fleet_mega_menu,
+        .dropdown_services_item .services_mega_menu,
+        .dropdown_mot_item .mot_mega_menu,
+        .dropdown_tyres_item .tyres_mega_menu,
+        .dropdown_repairs_item .repairs_mega_menu {
+            transition-duration: 0ms !important;
+        }
+
+        .mobile_submenu_toggle span {
+            transition-duration: 0ms !important;
         }
     }
     </style>

@@ -68,7 +68,7 @@ HOME PAGE — Sequence matching provided design
 }
 }
 </style>
-<section class="hero_section position-relative" style="background-image: url('{{ asset('storage/home/image.webp') }}'); background-size: cover; background-position: center center; padding: 100px 0 140px; min-height: 840px; display: flex; align-items: center;">
+<section class="hero_section position-relative" style="background-image: url('{{ asset('assets/images/home/hero-range-rover.webp') }}'); background-size: cover; background-position: center center; padding: 100px 0 140px; min-height: 840px; display: flex; align-items: center;">
 <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0); z-index: 1;"></div>
 <div class="container position-relative" style="z-index: 2;">
 <livewire:components.home.auto-search naslov="LET'S GET YOU <br><span style='color:#ED1E24'>ON THE ROAD</span>" />
@@ -79,63 +79,35 @@ HOME PAGE — Sequence matching provided design
 <section class="brand_bar py-4 bg-white" style="border-bottom: none !important; border-top: none !important;">
 <div class="container">
 <div class="home_brand_slider_wrap position-relative">
+    @php
+        $homeBrands = [
+            ['name' => 'Pirelli', 'file' => 'pirelli.webp', 'width' => 640, 'height' => 167],
+            ['name' => 'Bridgestone', 'file' => 'bridgestone.webp', 'width' => 640, 'height' => 81],
+            ['name' => 'Hankook', 'file' => 'hankook.webp', 'width' => 640, 'height' => 80],
+            ['name' => 'Uniroyal', 'file' => 'uniroyal.webp', 'width' => 640, 'height' => 82],
+            ['name' => 'Continental', 'file' => 'continental.webp', 'width' => 640, 'height' => 110],
+            ['name' => 'Yokohama', 'file' => 'yokohama.webp', 'width' => 640, 'height' => 95],
+            ['name' => 'Goodyear', 'file' => 'goodyear.webp', 'width' => 640, 'height' => 173],
+            ['name' => 'Michelin', 'file' => 'michelin.webp', 'width' => 420, 'height' => 225, 'class' => 'brand_slide_logo--tall'],
+            ['name' => 'Dunlop', 'file' => 'dunlop.webp', 'width' => 640, 'height' => 143],
+        ];
+    @endphp
     <div class="home_brand_carousel">
-        <div class="brand_slide_px px-2">
-            <a href="/tyres?manufacturer=Continental" class="brand_slide_card d-flex align-items-center justify-content-center text-decoration-none">
-                <img src="{{ asset('assets/images/brands/continental.svg') }}" alt="Continental" style="max-height: 38px; max-width: 85%; object-fit: contain;">
-            </a>
-        </div>
-        <div class="brand_slide_px px-2">
-            <a href="/tyres?manufacturer=Goodyear" class="brand_slide_card d-flex align-items-center justify-content-center text-decoration-none">
-                <img src="{{ asset('assets/images/brands/goodyear.svg') }}" alt="Goodyear" style="max-height: 42px; max-width: 85%; object-fit: contain;">
-            </a>
-        </div>
-        <div class="brand_slide_px px-2">
-            <a href="/tyres?manufacturer=Nexen" class="brand_slide_card d-flex align-items-center justify-content-center text-decoration-none">
-                <img src="{{ asset('assets/images/brands/nexen.svg') }}" alt="Nexen Tire" style="max-height: 36px; max-width: 85%; object-fit: contain;">
-            </a>
-        </div>
-        <div class="brand_slide_px px-2">
-            <a href="/tyres?manufacturer=Bridgestone" class="brand_slide_card d-flex align-items-center justify-content-center text-decoration-none">
-                <img src="{{ asset('assets/images/brands/bridgestone.svg') }}" alt="Bridgestone" style="max-height: 36px; max-width: 85%; object-fit: contain;">
-            </a>
-        </div>
-        <div class="brand_slide_px px-2">
-            <a href="/tyres?manufacturer=Pirelli" class="brand_slide_card d-flex align-items-center justify-content-center text-decoration-none">
-                <img src="{{ asset('assets/images/brands/pirelli.svg') }}" alt="Pirelli" style="max-height: 44px; max-width: 85%; object-fit: contain;">
-            </a>
-        </div>
-        <div class="brand_slide_px px-2">
-            <a href="/tyres?manufacturer=Michelin" class="brand_slide_card d-flex align-items-center justify-content-center text-decoration-none">
-                <svg viewBox="0 0 230 50" style="max-height: 40px; width: 100%; max-width: 170px;" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="230" height="50" rx="4" fill="#002244"/>
-                  <text x="115" y="33" font-family="'Arial Black', sans-serif" font-weight="900" font-style="italic" font-size="21" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">MICHELIN</text>
-                  <rect x="25" y="40" width="180" height="3" fill="#FFE500"/>
-                </svg>
-            </a>
-        </div>
-        <div class="brand_slide_px px-2">
-            <a href="/tyres?manufacturer=Dunlop" class="brand_slide_card d-flex align-items-center justify-content-center text-decoration-none">
-                <svg viewBox="0 0 210 50" style="max-height: 38px; width: 100%; max-width: 170px;" xmlns="http://www.w3.org/2000/svg">
-                  <g transform="translate(10, 10)">
-                    <circle cx="15" cy="15" r="14" fill="#ED1E24"/>
-                    <text x="15" y="22" font-family="'Arial Black', sans-serif" font-weight="900" font-size="18" fill="#FFFFFF" text-anchor="middle">D</text>
-                  </g>
-                  <text x="50" y="34" font-family="'Arial Black', sans-serif" font-weight="900" font-style="italic" font-size="24" fill="#111111" letter-spacing="1">DUNLOP</text>
-                </svg>
-            </a>
-        </div>
-        <div class="brand_slide_px px-2">
-            <a href="/tyres?manufacturer=Hankook" class="brand_slide_card d-flex align-items-center justify-content-center text-decoration-none">
-                <svg viewBox="0 0 220 50" style="max-height: 38px; width: 100%; max-width: 170px;" xmlns="http://www.w3.org/2000/svg">
-                  <g transform="translate(8, 12)">
-                    <polygon points="0,26 14,0 28,26" fill="#FF5500"/>
-                    <polygon points="6,26 14,8 22,26" fill="#FFFFFF"/>
-                  </g>
-                  <text x="46" y="34" font-family="'Arial Black', sans-serif" font-weight="900" font-style="italic" font-size="21" fill="#111111" letter-spacing="0.5">HANKOOK</text>
-                </svg>
-            </a>
-        </div>
+        @foreach($homeBrands as $brand)
+            <div class="brand_slide_px px-2">
+                <a href="/tyres?manufacturer={{ urlencode($brand['name']) }}" class="brand_slide_card d-flex align-items-center justify-content-center text-decoration-none">
+                    <img
+                        src="{{ asset('assets/images/brands/' . $brand['file']) }}"
+                        alt="{{ $brand['name'] }}"
+                        class="brand_slide_logo {{ $brand['class'] ?? '' }}"
+                        width="{{ $brand['width'] }}"
+                        height="{{ $brand['height'] }}"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </a>
+            </div>
+        @endforeach
     </div>
 </div>
 </div>
@@ -144,6 +116,28 @@ HOME PAGE — Sequence matching provided design
 <style>
 .home_brand_slider_wrap {
 padding-bottom: 0;
+}
+.home_brand_carousel:not(.slick-initialized) {
+display: flex;
+height: 111px;
+overflow: hidden;
+}
+.brand_slide_px {
+padding-top: 3px;
+padding-bottom: 3px;
+}
+.home_brand_carousel:not(.slick-initialized) > .brand_slide_px {
+flex: 0 0 20%;
+min-width: 0;
+}
+@media (max-width: 1199.98px) {
+.home_brand_carousel:not(.slick-initialized) > .brand_slide_px { flex-basis: 25%; }
+}
+@media (max-width: 991.98px) {
+.home_brand_carousel:not(.slick-initialized) > .brand_slide_px { flex-basis: 33.333333%; }
+}
+@media (max-width: 575.98px) {
+.home_brand_carousel:not(.slick-initialized) > .brand_slide_px { flex-basis: 50%; }
 }
 .brand_slide_card {
 background: #ffffff;
@@ -160,11 +154,30 @@ border-color: #ED1E24;
 box-shadow: 0 4px 14px rgba(237, 30, 36, 0.12);
 transform: translateY(-2px);
 }
+.brand_slide_logo {
+display: block;
+width: auto;
+height: auto;
+max-width: 82%;
+max-height: 52px;
+object-fit: contain;
+}
+.brand_slide_logo--tall {
+max-height: 68px;
+}
 </style>
 
 <script>
 (function() {
 function initHomeBrandSlider() {
+const slickCss = document.getElementById('smartfit-slick-css');
+if (slickCss && slickCss.media !== 'all') {
+    if (slickCss.dataset.sliderWaiting !== 'true') {
+        slickCss.dataset.sliderWaiting = 'true';
+        slickCss.addEventListener('load', initHomeBrandSlider, { once: true });
+    }
+    return;
+}
 if (window.jQuery && jQuery.fn.slick && jQuery('.home_brand_carousel').length) {
     if (!jQuery('.home_brand_carousel').hasClass('slick-initialized')) {
         jQuery('.home_brand_carousel').slick({
@@ -225,13 +238,13 @@ window.addEventListener('load', initHomeBrandSlider);
             A REPUTATION 35 YEARS IN THE MAKING
         </h2>
         <div class="mt-4 overflow-hidden rounded-3 shadow-sm">
-            <img src="{{ asset('storage/home/image (2).png') }}" alt="Mercedes AMG Coupe" class="img-fluid w-100 object-fit-cover" style="height: 320px; border-radius: 8px;">
+            <img src="{{ asset('assets/images/home/reputation-bmw.webp') }}" alt="BMW on the road" class="img-fluid w-100 object-fit-cover" style="height: 320px; border-radius: 8px;" loading="lazy" decoding="async">
         </div>
     </div>
     <div class="col-lg-1 d-lg-block d-none"></div>
     <div class="col-lg-6">
         <div class="mb-4 overflow-hidden rounded-3 shadow-sm">
-            <img src="{{ asset('storage/home/image (1).png') }}" alt="Car Cockpit Interior" class="img-fluid w-100 object-fit-cover" style="height: 340px; border-radius: 8px;">
+            <img src="{{ asset('assets/images/home/reputation-interior.webp') }}" alt="Right-hand-drive BMW interior" class="img-fluid w-100 object-fit-cover" style="height: 340px; border-radius: 8px;" loading="lazy" decoding="async">
         </div>
         <p class="text-secondary fs-5 mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;">
             For over 35 years, Smartfit Autos has provided trusted MOTs, servicing, repairs and tyres across the UK. Built on honest advice, reliable workmanship and experienced technicians.
@@ -253,37 +266,37 @@ $hmOffers = [
 [
     'title' => 'MAINTENANCE',
     'desc' => 'Regular checkups to maintain your car\'s high performance.',
-    'image' => asset('storage/home/image (3).png'),
+    'image' => asset('assets/images/home/service-maintenance.webp'),
     'url' => '/services/maintenance'
 ],
 [
     'title' => 'REPAIR',
     'desc' => 'Quality service that guarantees smooth and safe rides.',
-    'image' => asset('storage/home/image (4).png'),
+    'image' => asset('assets/images/home/service-repair.webp'),
     'url' => '/services/repairs'
 ],
 [
     'title' => 'PARTS SOURCING',
     'desc' => 'Access to trusted suppliers for genuine and high-quality aftermarket parts.',
-    'image' => asset('storage/home/image (5).png'),
+    'image' => asset('assets/images/home/service-parts-sourcing.webp'),
     'url' => '/services/parts-sourcing'
 ],
 [
     'title' => 'FLEET & CONTRACT WORK',
     'desc' => 'Reliable maintenance and repair services for business and fleet vehicles.',
-    'image' => asset('storage/home/image (6).png'),
+    'image' => asset('assets/images/home/service-fleet.webp'),
     'url' => '/services/fleet'
 ],
 [
     'title' => 'SERVICING',
     'desc' => 'Regular vehicle servicing to keep your car running smoothly and efficiently.',
-    'image' => asset('storage/home/image (7).png'),
+    'image' => asset('assets/images/home/service-servicing.webp'),
     'url' => '/services/servicing'
 ],
 [
     'title' => 'VEHICLE RECOVERY',
     'desc' => 'Fast and reliable recovery services whenever you need assistance.',
-    'image' => asset('storage/home/image (8).png'),
+    'image' => asset('assets/images/home/vehicle-recovery.webp'),
     'url' => '/services/vehicle-recovery'
 ],
 ];
@@ -301,7 +314,7 @@ $hmOffers = [
         <div class="col-lg-4 col-md-6">
             <div class="card h-100 border-0 rounded-3 overflow-hidden shadow-sm" style="background-color: #2b2b2b;">
                 <div style="height: 220px; overflow: hidden;">
-                    <img src="{{ $hmo['image'] }}" alt="{{ $hmo['title'] }}" class="w-100 h-100 object-fit-cover">
+                    <img src="{{ $hmo['image'] }}" alt="{{ $hmo['title'] }}" class="w-100 h-100 object-fit-cover" loading="lazy" decoding="async">
                 </div>
                 <div class="p-3 text-center pb-0" style="background-color: #ED1E24;">
                     <h3 class="fw-bold text-white mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
@@ -354,7 +367,7 @@ $hmOffers = [
     </div>
     <div class="col-lg-6">
         <div class="overflow-hidden rounded-3 shadow-sm">
-            <img src="{{ asset('storage/home/image (9).png') }}" alt="Garage Interior" class="img-fluid w-100 object-fit-cover" style="height: 320px; border-radius: 8px;">
+            <img src="{{ asset('assets/images/home/garage-interior.webp') }}" alt="Garage Interior" class="img-fluid w-100 object-fit-cover" style="height: 320px; border-radius: 8px;" loading="lazy" decoding="async">
         </div>
     </div>
 </div>
@@ -366,19 +379,19 @@ $hmOffers = [
 $hmPackages = [
 [
     'title' => 'MAJOR SERVICE',
-    'image' => asset('storage/home/image (10).png'),
+    'image' => asset('assets/images/home/package-major-service.webp'),
     'price' => '£194.95',
     'features' => ['Engine oil & oil filter', 'Air filter & cabin filter', 'Fuel filter / spark plugs', '144-point inspection']
 ],
 [
     'title' => 'FULL SERVICE',
-    'image' => asset('storage/home/image (11).png'),
+    'image' => asset('assets/images/home/package-full-service.webp'),
     'price' => '£159.95',
     'features' => ['Engine oil & oil filter', '144-point inspection']
 ],
 [
     'title' => 'INTERIM SERVICE',
-    'image' => asset('storage/home/image (12).png'),
+    'image' => asset('assets/images/home/package-interim-service.webp'),
     'price' => '£94.95',
     'features' => ['Engine oil replacement', 'Oil Filter']
 ],
@@ -397,7 +410,7 @@ $hmPackages = [
         <div class="col-lg-4 col-md-6">
             <div class="card h-100 border-0 p-4 text-center bg-transparent">
                 <div class="mb-3 d-flex align-items-center justify-content-center" style="height: 160px;">
-                    <img src="{{ $pkg['image'] }}" alt="{{ $pkg['title'] }}" class="img-fluid object-fit-contain" style="max-height: 140px;">
+                    <img src="{{ $pkg['image'] }}" alt="{{ $pkg['title'] }}" class="img-fluid object-fit-contain" style="max-height: 140px;" loading="lazy" decoding="async">
                 </div>
                 <h3 class="fw-bold text-dark mb-1" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     {{ $pkg['title'] }}
@@ -445,7 +458,7 @@ $hmPackages = [
 <div class="row justify-content-center">
     <div class="col-lg-8">
         <p class="display-5 fw-extrabold text-white mb-4" style="font-weight: 800; line-height: 1.3;">
-            Reliable automotive repair and maintenance you can count on.
+            RELIABLE AUTOMOTIVE REPAIR AND MAINTENANCE YOU CAN COUNT ON
         </p>
         <div>
             <a href="/booking/order" class="btn btn-danger rounded-pill px-4 py-3 fw-bold text-uppercase d-inline-flex align-items-center gap-2" style="background-color: #ED1E24; border-color: #ED1E24; font-size: 14px; letter-spacing: 0.5px;">
@@ -3450,66 +3463,114 @@ item.style.fontFamily = 'Mulish';
     const mobileBtn = document.getElementById('site_mobile_toggle_btn');
     const mobileMenu = document.getElementById('main_menu_dropdown');
     const megaItems = document.querySelectorAll('.dropdown_fleet_item, .dropdown_services_item, .dropdown_mot_item, .dropdown_tyres_item, .dropdown_repairs_item');
+    let mobileMenuCloseTimer;
+
+    function getMobileMenuCloseDuration() {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 220;
+    }
+
+    function openMobileMenu() {
+      if (!mobileBtn || !mobileMenu) return;
+      window.clearTimeout(mobileMenuCloseTimer);
+      mobileMenu.classList.remove('mobile_menu_closing');
+      mobileMenu.classList.add('show');
+      mobileBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMobileMenu(afterClose) {
+      if (!mobileBtn || !mobileMenu) return;
+
+      if (!mobileMenu.classList.contains('show')) {
+        if (afterClose) afterClose();
+        return;
+      }
+
+      window.clearTimeout(mobileMenuCloseTimer);
+      mobileMenu.classList.add('mobile_menu_closing');
+      mobileBtn.setAttribute('aria-expanded', 'false');
+
+      mobileMenuCloseTimer = window.setTimeout(function() {
+        mobileMenu.classList.remove('show', 'mobile_menu_closing');
+        if (afterClose) afterClose();
+      }, getMobileMenuCloseDuration());
+    }
 
     // Mobile Toggle Handler
     if (mobileBtn && mobileMenu) {
       mobileBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        const isOpen = mobileMenu.classList.contains('show');
-        if (isOpen) {
-          mobileMenu.classList.remove('show');
-          mobileBtn.setAttribute('aria-expanded', 'false');
+        if (mobileMenu.classList.contains('show') && !mobileMenu.classList.contains('mobile_menu_closing')) {
+          closeMobileMenu();
         } else {
-          mobileMenu.classList.add('show');
-          mobileBtn.setAttribute('aria-expanded', 'true');
+          openMobileMenu();
         }
       });
     }
 
-    // Setup mega menus (Fleet, Services, MOT, Tyres, Repairs)
-    megaItems.forEach(function(item) {
-      const link = item.querySelector('a.nav-link');
-      const menu = item.querySelector('.fleet_mega_menu, .services_mega_menu, .mot_mega_menu, .tyres_mega_menu, .repairs_mega_menu');
-      if (!link || !menu) return;
+    // Own mobile mega-menu toggles and page navigation before Bootstrap's
+    // delegated dropdown handler can hide a submenu abruptly.
+    if (mobileMenu) {
+      mobileMenu.addEventListener('click', function(e) {
+        const submenuToggle = e.target.closest('.mobile_submenu_toggle');
+        const megaRow = e.target.closest('.dropdown_fleet_item, .dropdown_services_item, .dropdown_mot_item, .dropdown_tyres_item, .dropdown_repairs_item');
+        const clickedInsideSubmenu = e.target.closest('.fleet_mega_menu, .services_mega_menu, .mot_mega_menu, .tyres_mega_menu, .repairs_mega_menu');
+        const clickedParentLink = e.target.closest('a.nav-link');
+        const clickedExpandableRow = megaRow && !clickedInsideSubmenu && !clickedParentLink;
 
-      link.addEventListener('click', function(e) {
-        if (window.innerWidth < 992) {
+        if ((submenuToggle || clickedExpandableRow) && window.innerWidth < 992) {
           e.preventDefault();
-          e.stopPropagation();
-          const isOpen = menu.classList.contains('show');
-          
-          // Close other mega menus
+          e.stopImmediatePropagation();
+
+          const item = megaRow;
+          const menu = item ? item.querySelector('.fleet_mega_menu, .services_mega_menu, .mot_mega_menu, .tyres_mega_menu, .repairs_mega_menu') : null;
+          if (!item || !menu) return;
+
+          const itemToggle = item.querySelector('.mobile_submenu_toggle');
+          const isOpen = itemToggle && itemToggle.getAttribute('aria-expanded') === 'true';
           megaItems.forEach(function(other) {
-            if (other !== item) {
-              const otherMenu = other.querySelector('.fleet_mega_menu, .services_mega_menu, .mot_mega_menu, .tyres_mega_menu, .repairs_mega_menu');
-              const otherLink = other.querySelector('a.nav-link');
-              if (otherMenu) otherMenu.classList.remove('show');
-              other.classList.remove('show');
-              if (otherLink) otherLink.setAttribute('aria-expanded', 'false');
-            }
+            const otherMenu = other.querySelector('.fleet_mega_menu, .services_mega_menu, .mot_mega_menu, .tyres_mega_menu, .repairs_mega_menu');
+            const otherLink = other.querySelector('a.nav-link');
+            const otherToggle = other.querySelector('.mobile_submenu_toggle');
+            const shouldOpen = other === item && !isOpen;
+            if (otherMenu) otherMenu.classList.toggle('show', shouldOpen);
+            other.classList.toggle('show', shouldOpen);
+            if (otherLink) otherLink.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+            if (otherToggle) otherToggle.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
           });
-
-          if (isOpen) {
-            menu.classList.remove('show');
-            item.classList.remove('show');
-            link.setAttribute('aria-expanded', 'false');
-          } else {
-            menu.classList.add('show');
-            item.classList.add('show');
-            link.setAttribute('aria-expanded', 'true');
-          }
+          return;
         }
-      });
-    });
 
-    // Close when clicking outside
+        const link = e.target.closest('a[href]');
+        if (!link || window.innerWidth >= 992 || (typeof e.button === 'number' && e.button !== 0) || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        if (link.target === '_blank') return;
+
+        const destination = link.getAttribute('href');
+        if (!destination || destination.startsWith('#') || destination.startsWith('javascript:')) return;
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        // A parent title is a page link, not a submenu toggle. Hide any
+        // hover/focus/open submenu immediately while the outer menu fades.
+        const parentMegaItem = link.matches('.main_menu_list > li.dropdown > a.nav-link') ? link.parentElement : null;
+        if (parentMegaItem) {
+          const parentMegaMenu = parentMegaItem.querySelector('.fleet_mega_menu, .services_mega_menu, .mot_mega_menu, .tyres_mega_menu, .repairs_mega_menu');
+          const parentToggle = parentMegaItem.querySelector('.mobile_submenu_toggle');
+          parentMegaItem.classList.remove('show');
+          parentMegaItem.classList.add('mobile_parent_navigating');
+          if (parentMegaMenu) parentMegaMenu.classList.remove('show');
+          link.setAttribute('aria-expanded', 'false');
+          if (parentToggle) parentToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        closeMobileMenu(function() {
+          window.location.assign(link.href);
+        });
+      }, true);
+    }
+
+    // Individual mega menus close when focus moves elsewhere.
     document.addEventListener('click', function(e) {
-      if (mobileMenu && !mobileMenu.contains(e.target) && mobileBtn && !mobileBtn.contains(e.target)) {
-        if (mobileMenu.classList.contains('show')) {
-          mobileMenu.classList.remove('show');
-          mobileBtn.setAttribute('aria-expanded', 'false');
-        }
-      }
       megaItems.forEach(function(item) {
         if (!item.contains(e.target)) {
           const menu = item.querySelector('.fleet_mega_menu, .services_mega_menu, .mot_mega_menu, .tyres_mega_menu, .repairs_mega_menu');
@@ -3525,8 +3586,7 @@ item.style.fontFamily = 'Mulish';
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         if (mobileMenu && window.innerWidth < 992) {
-          mobileMenu.classList.remove('show');
-          if (mobileBtn) mobileBtn.setAttribute('aria-expanded', 'false');
+          closeMobileMenu();
         }
         megaItems.forEach(function(item) {
           const menu = item.querySelector('.fleet_mega_menu, .services_mega_menu, .mot_mega_menu, .tyres_mega_menu, .repairs_mega_menu');

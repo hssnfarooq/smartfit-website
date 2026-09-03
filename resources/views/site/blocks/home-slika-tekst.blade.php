@@ -6,12 +6,12 @@
                     A REPUTATION<br>35 YEARS IN<br>THE MAKING
                 </h2>
                 <div class="mt-4 overflow-hidden rounded-3 shadow-sm">
-                    <img src="{{ asset('storage/home/image (2).png') }}" alt="Mercedes AMG Coupe" class="img-fluid w-100 object-fit-cover" style="height: 320px; border-radius: 8px;">
+                    <img src="{{ asset('assets/images/home/reputation-bmw.webp') }}" alt="BMW on the road" class="img-fluid w-100 object-fit-cover" style="height: 320px; border-radius: 8px;" loading="lazy" decoding="async">
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="mb-4 overflow-hidden rounded-3 shadow-sm">
-                    <img src="{{ asset('storage/home/image (1).png') }}" alt="Car Cockpit Interior" class="img-fluid w-100 object-fit-cover" style="height: 340px; border-radius: 8px;">
+                    <img src="{{ asset('assets/images/home/reputation-interior.webp') }}" alt="Right-hand-drive BMW interior" class="img-fluid w-100 object-fit-cover" style="height: 340px; border-radius: 8px;" loading="lazy" decoding="async">
                 </div>
                 <p class="text-secondary fs-5 mb-4" style="line-height: 1.6;">
                     For over 35 years, Smartfit Autos has provided trusted MOTs, servicing, repairs and tyres across the UK. Built on honest advice, reliable workmanship and experienced technicians.

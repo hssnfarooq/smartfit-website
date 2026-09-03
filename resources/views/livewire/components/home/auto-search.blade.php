@@ -16,7 +16,7 @@
             <div class="col-lg-5 mt-4 mt-lg-0">
                 <div class="bg-white p-4 rounded-4 shadow-lg text-center" style="max-width: 380px; margin-left: auto;">
                     <div class="mb-3">
-                        <input type="search" name="registration" wire:model="registration" class="form-control form-control-lg border-secondary-subtle rounded-3 text-center text-uppercase fw-bold" placeholder="Enter Registration" style="height: 54px; font-size: 18px; letter-spacing: 1px;">
+                        <input type="search" name="registration" wire:model="registration" class="form-control smartfit_light_input form-control-lg border-secondary-subtle rounded-3 text-center text-uppercase fw-bold" placeholder="Enter Registration" style="height: 54px; font-size: 18px; letter-spacing: 1px;">
                     </div>
                     <button type="submit" class="btn btn-danger w-100 py-3 rounded-pill fw-bold text-uppercase d-flex align-items-center justify-content-center gap-2" wire:click="searchReg" style="background-color: #ED1E24; border-color: #ED1E24; font-size: 15px; letter-spacing: 0.5px; height: 50px;">
                         <span>GET A QUOTE</span>

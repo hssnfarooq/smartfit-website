@@ -2,19 +2,19 @@
     $packages = [
         [
             'title' => 'MAJOR SERVICE',
-            'image' => asset('storage/home/image (10).png'),
+            'image' => asset('assets/images/home/package-major-service.webp'),
             'price' => '£194.95',
             'features' => ['Engine oil & oil filter', 'Air filter & cabin filter', 'Fuel filter / spark plugs', '144-point inspection']
         ],
         [
             'title' => 'FULL SERVICE',
-            'image' => asset('storage/home/image (11).png'),
+            'image' => asset('assets/images/home/package-full-service.webp'),
             'price' => '£159.95',
             'features' => ['Engine oil & oil filter', '144-point inspection']
         ],
         [
             'title' => 'INTERIM SERVICE',
-            'image' => asset('storage/home/image (12).png'),
+            'image' => asset('assets/images/home/package-interim-service.webp'),
             'price' => '£94.95',
             'features' => ['Engine oil replacement', 'Oil Filter']
         ],
@@ -34,7 +34,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100 border-0 p-4 text-center bg-transparent">
                         <div class="mb-3 d-flex align-items-center justify-content-center" style="height: 160px;">
-                            <img src="{{ $pkg['image'] }}" alt="{{ $pkg['title'] }}" class="img-fluid object-fit-contain" style="max-height: 140px;">
+                            <img src="{{ $pkg['image'] }}" alt="{{ $pkg['title'] }}" class="img-fluid object-fit-contain" style="max-height: 140px;" loading="lazy" decoding="async">
                         </div>
                         <h4 class="fw-extrabold text-uppercase text-dark mb-1" style="font-weight: 900; font-size: 18px; letter-spacing: 0.5px;">
                             {{ $pkg['title'] }}
