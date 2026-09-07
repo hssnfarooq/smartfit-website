@@ -11,11 +11,10 @@
                 
                 $isFleet = (strcasecmp(trim($link->title), 'fleet') === 0);
                 $isServices = (strcasecmp(trim($link->title), 'services') === 0 || strcasecmp(trim($link->title), 'servicing') === 0);
-                $isMot = (strcasecmp(trim($link->title), 'mot') === 0);
                 $isTyres = (strcasecmp(trim($link->title), 'tyres') === 0 || strcasecmp(trim($link->title), 'tyre shop') === 0 || strcasecmp(trim($link->title), 'tyre') === 0);
                 $isRepairs = (strcasecmp(trim($link->title), 'repairs') === 0 || strcasecmp(trim($link->title), 'repair') === 0);
                 $klik = '';
-                if(($link->tree && !$isMot) || $isFleet){
+                if($link->tree || $isFleet){
                     $url = 'javascript:;';
                     $klik = ' onclick="podmeni('.$link->id.')"';
                 }
@@ -37,7 +36,7 @@
                 }
             @endphp
              <a href="{{$url}}"{!!html_entity_decode($klik)!!} class="list-group-item list-group-item-action list-group-item-success">{{strcasecmp(trim($link->title), 'contacts') === 0 ? 'Contact Us' : (strcasecmp(trim($link->title), 'tyre shop') === 0 ? 'Tyres' : $link->title)}} 
-                @if (($link->tree && !$isMot) || $isFleet)
+                @if ($link->tree || $isFleet)
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short strelica" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
                 </svg>
@@ -74,11 +73,11 @@
                         if ($isTyres) $url = '/tyres';
                         if ($isFleet) $url = '/fleet-and-contract-work';
                         if ($isRepairs) $url = '/repairs';
-                        $isMegaMenu = $isFleet || $isServices || $isTyres || $isRepairs;
-                        $isDropdown = ($link->tree && !$isMot) || $isMegaMenu;
-                        $klasa_li = $isDropdown ? ' class="dropdown' . ($isFleet ? ' dropdown_fleet_item' : '') . ($isServices ? ' dropdown_services_item' : '') . ($isTyres ? ' dropdown_tyres_item' : '') . ($isRepairs ? ' dropdown_repairs_item' : '') . '"' : '';
+                        $isMegaMenu = $isFleet || $isServices || $isMot || $isTyres || $isRepairs;
+                        $isDropdown = $link->tree || $isMegaMenu;
+                        $klasa_li = $isDropdown ? ' class="dropdown' . ($isFleet ? ' dropdown_fleet_item' : '') . ($isServices ? ' dropdown_services_item' : '') . ($isMot ? ' dropdown_mot_item' : '') . ($isTyres ? ' dropdown_tyres_item' : '') . ($isRepairs ? ' dropdown_repairs_item' : '') . '"' : '';
                         $klasa_a = $isMegaMenu ? ' aria-haspopup="true" aria-expanded="false"' : '';
-                        if ($link->tree && !$isMegaMenu && !$isMot) {
+                        if ($link->tree && !$isMegaMenu) {
                             $klasa_a = ' role="button" data-bs-toggle="dropdown" aria-expanded="false"';
                         }
                     @endphp
@@ -179,6 +178,57 @@
                                 </div>
                             </div>
                         </div>
+                        @elseif ($isMot)
+                        <div class="dropdown-menu mot_mega_menu" id="mobile_submenu{{$link->id}}" aria-labelledby="shop_submenu{{$link->id}}">
+                            <div class="fleet_mega_menu_inner mot_mega_menu_inner mega_menu_with_cta">
+                                <!-- Column 1: MOT -->
+                                <div class="fleet_col fleet_col_1">
+                                    <p class="fleet_col_title">MOT</p>
+                                    <ul class="fleet_list services_nav_list">
+                                        <li class="fleet_item"><a href="/mot" class="services_menu_link">Book Your MOT</a></li>
+                                        <li class="fleet_item"><a href="/mot-class-4" class="services_menu_link">MOT Class 4</a></li>
+                                        <li class="fleet_item"><a href="/mot-class-5-kennings-auto-centre" class="services_menu_link">MOT Class 5</a></li>
+                                        <li class="fleet_item"><a href="/mot-class-7" class="services_menu_link">MOT Class 7</a></li>
+                                        <li class="fleet_item"><a href="/mot-class-4" class="services_menu_link">MOT Retest</a></li>
+                                        <li class="fleet_item"><a href="/mot-class-4" class="services_menu_link">MOT Preparation</a></li>
+                                        <li class="fleet_item"><a href="/mot" class="services_menu_link">When is My MOT Due</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Column 2: MOT & Service -->
+                                <div class="fleet_col fleet_col_2">
+                                    <p class="fleet_col_title">MOT & Service</p>
+                                    <ul class="fleet_list services_nav_list">
+                                        <li class="fleet_item"><a href="/mot-class-4-oil-and-filter" class="services_menu_link">Combined MOT & Service</a></li>
+                                        <li class="fleet_item"><a href="/mot-class-4-oil-and-filter" class="services_menu_link">MOT Class 4 + Oil & Filter</a></li>
+                                        <li class="fleet_item"><a href="/mot-class-4-interim-service" class="services_menu_link">MOT Class 4 + Interim Service</a></li>
+                                        <li class="fleet_item"><a href="/mot-class-4-full-service" class="services_menu_link">MOT Class 4 + Full Service</a></li>
+                                        <li class="fleet_item"><a href="/mot-class-4-major-service" class="services_menu_link">MOT Class 4 + Major Service</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Column 3: Commercial Vehicles -->
+                                <div class="fleet_col fleet_col_3">
+                                    <p class="fleet_col_title">Commercial Vehicles</p>
+                                    <ul class="fleet_list services_nav_list">
+                                        <li class="fleet_item"><a href="/mot-class-5-kennings-auto-centre" class="services_menu_link">MOT Class 5 - Smartfit Autos</a></li>
+                                        <li class="fleet_item"><a href="/mot-class-7" class="services_menu_link">MOT Class 7</a></li>
+                                        <li class="fleet_item"><a href="/mot" class="services_menu_link">Common MOT Failures</a></li>
+                                        <li class="fleet_item"><a href="/free-25-point-health-check" class="services_menu_link">Pre MOT Checks</a></li>
+                                        <li class="fleet_item"><a href="/mot" class="services_menu_link">MOT Test Advise</a></li>
+                                        <li class="fleet_item"><a href="/repairs" class="services_menu_link">MOT Repair</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Column 4: Promotional Content -->
+                                <div class="fleet_col fleet_col_4 fleet_promo_col">
+                                    <div class="fleet_promo_content">
+                                        <h3 class="fleet_promo_heading">MOT due?</h3>
+                                        <p class="fleet_promo_desc">Fast and reliable MOT testing available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         @elseif ($isTyres)
                         <div class="dropdown-menu tyres_mega_menu" id="mobile_submenu{{$link->id}}" aria-labelledby="shop_submenu{{$link->id}}">
                             <div class="fleet_mega_menu_inner tyres_mega_menu_inner mega_menu_three_columns">
@@ -267,7 +317,7 @@
                                 </div>
                             </div>
                         </div>
-                        @elseif ($link->tree && !$isMot)
+                        @elseif ($link->tree)
                         <ul class="dropdown-menu" aria-labelledby="shop_submenu{{$link->id}}">
                             @foreach ($link->getRelated('page')->first()->children as $podmeni)
                                 <li>

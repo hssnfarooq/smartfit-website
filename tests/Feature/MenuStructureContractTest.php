@@ -47,17 +47,17 @@ class MenuStructureContractTest extends TestCase
         $this->assertSame($expectedItems, $actualItems);
     }
 
-    public function test_only_sheet_defined_header_items_use_mega_menus_and_canonical_links(): void
+    public function test_sheet_defined_header_items_keep_the_existing_mot_mega_menu(): void
     {
         $menu = $this->source('resources/views/components/menu.blade.php');
 
         $this->assertStringContainsString(
-            '$isMegaMenu = $isFleet || $isServices || $isTyres || $isRepairs;',
+            '$isMegaMenu = $isFleet || $isServices || $isMot || $isTyres || $isRepairs;',
             $menu
         );
-        $this->assertStringNotContainsString('@elseif ($isMot)', $menu);
-        $this->assertStringContainsString('$isDropdown = ($link->tree && !$isMot) || $isMegaMenu;', $menu);
-        $this->assertStringContainsString('@elseif ($link->tree && !$isMot)', $menu);
+        $this->assertStringContainsString('@elseif ($isMot)', $menu);
+        $this->assertStringContainsString('$isDropdown = $link->tree || $isMegaMenu;', $menu);
+        $this->assertStringContainsString('@elseif ($link->tree)', $menu);
         $this->assertStringContainsString(
             '.mega_menu_three_columns {'.PHP_EOL.'        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;',
             str_replace("\r\n", "\n", $menu)
@@ -76,7 +76,7 @@ class MenuStructureContractTest extends TestCase
     public function test_services_mega_menu_matches_the_sheet_exactly(): void
     {
         $menu = $this->source('resources/views/components/menu.blade.php');
-        $block = $this->between($menu, '@elseif ($isServices)', '@elseif ($isTyres)');
+        $block = $this->between($menu, '@elseif ($isServices)', '@elseif ($isMot)');
 
         $this->assertMenuBlock($block, [
             'Vehicle Servicing',
@@ -98,6 +98,39 @@ class MenuStructureContractTest extends TestCase
         ]);
         $this->assertStringContainsString('KEEP YOUR VEHICLE PERFORMING AT ITS BEST', $block);
         $this->assertStringContainsString('Routine servicing and maintenance for all makes and models', $block);
+    }
+
+    public function test_mot_mega_menu_remains_unchanged_until_the_sheet_is_finalized(): void
+    {
+        $menu = $this->source('resources/views/components/menu.blade.php');
+        $block = $this->between($menu, '@elseif ($isMot)', '@elseif ($isTyres)');
+
+        $this->assertMenuBlock($block, [
+            'MOT',
+            'MOT & Service',
+            'Commercial Vehicles',
+        ], [
+            ['Book Your MOT', '/mot'],
+            ['MOT Class 4', '/mot-class-4'],
+            ['MOT Class 5', '/mot-class-5-kennings-auto-centre'],
+            ['MOT Class 7', '/mot-class-7'],
+            ['MOT Retest', '/mot-class-4'],
+            ['MOT Preparation', '/mot-class-4'],
+            ['When is My MOT Due', '/mot'],
+            ['Combined MOT & Service', '/mot-class-4-oil-and-filter'],
+            ['MOT Class 4 + Oil & Filter', '/mot-class-4-oil-and-filter'],
+            ['MOT Class 4 + Interim Service', '/mot-class-4-interim-service'],
+            ['MOT Class 4 + Full Service', '/mot-class-4-full-service'],
+            ['MOT Class 4 + Major Service', '/mot-class-4-major-service'],
+            ['MOT Class 5 - Smartfit Autos', '/mot-class-5-kennings-auto-centre'],
+            ['MOT Class 7', '/mot-class-7'],
+            ['Common MOT Failures', '/mot'],
+            ['Pre MOT Checks', '/free-25-point-health-check'],
+            ['MOT Test Advise', '/mot'],
+            ['MOT Repair', '/repairs'],
+        ]);
+        $this->assertStringContainsString('MOT due?', $block);
+        $this->assertStringContainsString('Fast and reliable MOT testing available', $block);
     }
 
     public function test_tyres_mega_menu_matches_the_sheet_exactly(): void
@@ -156,7 +189,7 @@ class MenuStructureContractTest extends TestCase
     public function test_repairs_mega_menu_matches_the_sheet_exactly(): void
     {
         $menu = $this->source('resources/views/components/menu.blade.php');
-        $block = $this->between($menu, '@elseif ($isRepairs)', '@elseif ($link->tree && !$isMot)');
+        $block = $this->between($menu, '@elseif ($isRepairs)', '@elseif ($link->tree)');
 
         $this->assertMenuBlock($block, [
             'Engine & Mechanical',
