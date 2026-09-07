@@ -6711,3 +6711,84 @@ Responsive For Mobile & Tablet Devices
 }
 /* Media Screen 375px - End
 ================================================== */
+
+/* SmartFit main-page design system: scoped to the six primary public pages. */
+.sf-main-page {
+  --sf-type-h1: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --sf-type-h2: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+  --sf-type-h3: clamp(1.25rem, 1.18rem + 0.3vw, 1.375rem);
+  --sf-type-h4: 1.125rem;
+  --sf-type-body: 1rem;
+  --sf-type-supporting: 0.875rem;
+  --sf-type-label: 0.8125rem;
+}
+
+.sf-main-page .page_content h1,
+.sf-main-page .page_content .page_title,
+.sf-main-page .page_content .fm-hero-title {
+  font-family: var(--bs-font-heading) !important;
+  font-size: var(--sf-type-h1) !important;
+  font-weight: 800 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.02em;
+}
+
+.sf-main-page .page_content h2,
+.sf-main-page .page_content p.display-4,
+.sf-main-page .page_content .section_heading .heading_text {
+  font-family: var(--bs-font-heading) !important;
+  font-size: var(--sf-type-h2) !important;
+  font-weight: 800 !important;
+  line-height: 1.14 !important;
+  letter-spacing: -0.015em;
+}
+
+.sf-main-page .page_content h3,
+.sf-main-page .page_content .product_item .item_title {
+  font-family: var(--bs-font-heading) !important;
+  font-size: var(--sf-type-h3) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em;
+}
+
+.sf-main-page .page_content h4 {
+  font-family: var(--bs-font-heading) !important;
+  font-size: var(--sf-type-h4) !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+}
+
+.sf-main-page .page_content p,
+.sf-main-page .page_content li,
+.sf-main-page .page_content .section_heading .heading_description {
+  font-family: var(--bs-font-body) !important;
+  font-size: var(--sf-type-body) !important;
+  font-weight: 400;
+  line-height: 1.65 !important;
+}
+
+.sf-main-page .page_content small,
+.sf-main-page .page_content .small,
+.sf-main-page .page_content .text-muted,
+.sf-main-page .page_content .product_item .item_brand {
+  font-family: var(--bs-font-body) !important;
+  font-size: var(--sf-type-supporting) !important;
+  line-height: 1.55 !important;
+}
+
+.sf-main-page .page_content label,
+.sf-main-page .page_content .eyebrow,
+.sf-main-page .page_content .widget_title {
+  font-family: var(--bs-font-heading) !important;
+  font-size: var(--sf-type-label) !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+}
+
+.sf-main-page .page_content h1,
+.sf-main-page .page_content h2,
+.sf-main-page .page_content h3,
+.sf-main-page .page_content h4 {
+  overflow-wrap: anywhere;
+}

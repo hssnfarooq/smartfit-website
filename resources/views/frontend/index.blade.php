@@ -9,21 +9,9 @@
 @include('frontend.inc.meta')
 
 <style>
-H1 {font-family: Montserrat !important; font-weight: 800; font-size: 60px;}
-H2 {font-family: Montserrat !important; font-weight: 800;}
-H3 {font-family: Montserrat !important; font-weight: 700;}
-H4 {font-family: Montserrat !important; font-weight: 700;}
-H5 {font-family: Montserrat !important; font-weight: 600;}
-H6 {font-family: Montserrat !important; font-weight: 600;}
-p {
-    font-family: Mulish !important;font-weight: 400;vertical-align: middle !important;
-}
-.fm-hero-title{font-size:clamp(2.2rem,3.8vw,3.6rem);font-weight:900;line-height:1.06;letter-spacing:-.8px;text-transform:uppercase;color:#fff;margin-bottom:20px}
-.fs-5 {font-size: 18px !important;}
+.sf-main-page .page_content .fm-hero-title{letter-spacing:-.8px;text-transform:uppercase;color:#fff;margin-bottom:20px}
 @media(max-width:767px){
-    H1 {font-size: 40px;}
-.fm-hero-title{font-size:2rem;font-weight: 800;line-height: 121%;letter-spacing: -0.42px;}
-.fs-5 {font-size: 16px !important;}
+.sf-main-page .page_content .fm-hero-title{letter-spacing: -0.42px;}
 }
 </style>
 @php
@@ -252,7 +240,7 @@ window.addEventListener('load', initHomeBrandSlider);
 <div class="container py-4">
 <div class="row align-items-center g-5">
     <div class="col-lg-5">
-        <h2 class="display-4 fw-extrabold text-dark mb-5" style=" font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+        <h2 class="display-4 fw-extrabold text-dark mb-5" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
             A REPUTATION 35 YEARS IN THE MAKING
         </h2>
         <div class="mt-4 overflow-hidden rounded-3 shadow-sm">
@@ -322,7 +310,7 @@ $hmOffers = [
 <section class="our_services_section py-5" style="background-color: #1e1e1e;">
 <div class="container py-4">
 <div class="section_heading text-center mb-5">
-    <h2 class="display-4 fw-extrabold mb-0 text-white" style=" font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+    <h2 class="display-4 fw-extrabold mb-0 text-white" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
         WHAT WE OFFER
     </h2>
 </div>
@@ -335,7 +323,7 @@ $hmOffers = [
                     <img src="{{ $hmo['image'] }}" alt="{{ $hmo['title'] }}" class="w-100 h-100 object-fit-cover" loading="lazy" decoding="async">
                 </div>
                 <div class="p-3 text-center pb-0" style="background-color: #ED1E24;">
-                    <h3 class="fw-bold text-white mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
+                    <h3 class="fw-bold text-white mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                         {{ $hmo['title'] }}
                     </h3>
                 </div>
@@ -356,7 +344,7 @@ $hmOffers = [
 <div class="container py-4">
 <div class="row align-items-center g-5">
     <div class="col-lg-12 mt-0 text-center">
-        <h2 class="display-4 fw-extrabold text-dark mb-0" style=" font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+        <h2 class="display-4 fw-extrabold text-dark mb-0" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
             FIND A GARAGE NEAR YOU
         </h2>
     </div>
@@ -418,7 +406,7 @@ $hmPackages = [
 <section class="py-5" style="background-color: #f4f5f7;">
 <div class="container py-4">
 <div class="text-center mb-0">
-    <h2 class="display-4 fw-extrabold mb-0" style="color: #ED1E24;font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+    <h2 class="display-4 fw-extrabold mb-0" style="color: #ED1E24;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
         SERVICES PACKAGES
     </h2>
 </div>
@@ -430,7 +418,7 @@ $hmPackages = [
                 <div class="mb-3 d-flex align-items-center justify-content-center" style="height: 160px;">
                     <img src="{{ $pkg['image'] }}" alt="{{ $pkg['title'] }}" class="img-fluid object-fit-contain" style="max-height: 140px;" loading="lazy" decoding="async">
                 </div>
-                <h3 class="fw-bold text-dark mb-1" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
+                <h3 class="fw-bold text-dark mb-1" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     {{ $pkg['title'] }}
                 </h4>
                 <div class="text-uppercase fw-bold text-muted small mb-3" style="font-size: 11px; letter-spacing: 0.5px;">WHAT IS INCLUDED</div>
@@ -495,7 +483,7 @@ $hmPackages = [
 <div class="row align-items-center g-4">
     <div class="col-lg-4 position-relative">
         <div class="" style="border-right: 2px solid #111;">
-            <h2 class="display-4 fw-extrabold text-dark mb-3" style=" font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+            <h2 class="display-4 fw-extrabold text-dark mb-3" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
                 OUR GARAGES
             </h2>
             <p class="text-secondary fs-5 mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;">
@@ -569,7 +557,7 @@ $hmPackages = [
 <section class="py-5" style="background: #F2F2F4 !important;">
 <div class="container py-4">
 <div class="text-center mb-5">
-    <h2 class="display-4 fw-extrabold text-dark mb-0" style="font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+    <h2 class="display-4 fw-extrabold text-dark mb-0" style="font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
         WHAT OUR CUSTOMERS SAY
     </h2>
 </div>
@@ -739,7 +727,7 @@ window.addEventListener('load', initReviewsSlider);
 <section class="py-5 bg-white">
 <div class="container py-4">
 <div class="text-center mb-5">
-    <h2 class="display-4 fw-extrabold text-dark mb-0" style=" font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+    <h2 class="display-4 fw-extrabold text-dark mb-0" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
         WHY CHOOSE US
     </h2>
 </div>
@@ -749,7 +737,7 @@ window.addEventListener('load', initReviewsSlider);
         <div class="p-4 rounded-3 h-100" style="background-color: #EEF2F6;">
             <div class="d-flex align-items-center gap-2 mb-2">
                 <span class="fw-extrabold" style="color: #ED1E24; font-size: 20px; font-weight: 900;">01</span>
-                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
+                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     FAST TURNAROUND
                 </h3>
             </div>
@@ -763,7 +751,7 @@ window.addEventListener('load', initReviewsSlider);
         <div class="p-4 rounded-3 h-100" style="background-color: #EEF2F6;">
             <div class="d-flex align-items-center gap-2 mb-2">
                 <span class="fw-extrabold" style="color: #ED1E24; font-size: 20px; font-weight: 900;">02</span>
-                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
+                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     HIGH QUALITY
                 </h3>
             </div>
@@ -777,7 +765,7 @@ window.addEventListener('load', initReviewsSlider);
         <div class="p-4 rounded-3 h-100" style="background-color: #EEF2F6;">
             <div class="d-flex align-items-center gap-2 mb-2">
                 <span class="fw-extrabold" style="color: #ED1E24; font-size: 20px; font-weight: 900;">03</span>
-                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
+                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     PREMIUM SUPPORT
                 </h3>
             </div>
@@ -791,7 +779,7 @@ window.addEventListener('load', initReviewsSlider);
         <div class="p-4 rounded-3 h-100" style="background-color: #EEF2F6;">
             <div class="d-flex align-items-center gap-2 mb-2">
                 <span class="fw-extrabold" style="color: #ED1E24; font-size: 15px; font-weight: 900;">04</span>
-                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
+                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     AFFORDABLE RATES
                 </h3>
             </div>
@@ -891,7 +879,7 @@ FLEET PAGE — SCOPED STYLES (prefix fm-)
 /* HERO */
 .fm-hero{background:#0d0d0f;background:linear-gradient(135deg,#070708 0%,#111114 50%,#1b0d10 100%);min-height: 600px;display:flex;align-items:center;padding:50px 0;position:relative;overflow:hidden}
 .fm-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 50%,rgba(237,30,36,.22) 0%,rgba(237,30,36,.04) 45%,transparent 70%);pointer-events:none}
-.fm-hero-title{font-size:clamp(2.2rem,3.8vw,3.6rem);font-weight:900;line-height:1.06;letter-spacing:-.8px;text-transform:uppercase;color:#fff;margin-bottom:20px}
+.sf-main-page .page_content .fm-hero-title{letter-spacing:-.8px;text-transform:uppercase;color:#fff;margin-bottom:20px}
 .fm-hero-desc{color:rgba(255,255,255,.76);font-size:14.5px;line-height:1.72;max-width:580px;margin-bottom:28px}
 .fm-hero-feats{display:flex;gap:32px;flex-wrap:wrap;margin-top:24px}
 .fm-hero-feats span{color:rgba(255,255,255,.88);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
@@ -926,7 +914,7 @@ FLEET PAGE — SCOPED STYLES (prefix fm-)
 .fm-scard-title{font-size:17px;font-weight:900;text-transform:uppercase;letter-spacing:.4px;color:#111;margin-bottom:0;line-height:1.2}
 .fm-sdiv{height:3px;background:#ED1E24;border-radius:2px;margin:14px 0 20px}
 .fm-scard ul{list-style:none;padding:0;margin:0}
-.fm-scard ul li, .fm-bcard ul li{display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:18px !important;color:#444;border-bottom:1px solid #f4f4f4}
+.fm-scard ul li, .fm-bcard ul li{display:flex;align-items:flex-start;gap:10px;padding:6px 0;color:#444;border-bottom:1px solid #f4f4f4}
 .fm-scard ul li:last-child{border-bottom:none}
 .fm-scard ul li i{
 color: #ED1E24;
@@ -1042,9 +1030,8 @@ border-radius: 50%;
 }
 @media(max-width:767px){
 .fm-hero{min-height:auto;padding:44px 0}
-.fm-hero-title{font-size:2rem;font-weight: 800;line-height: 121%;letter-spacing: -0.42px;}
+.sf-main-page .page_content .fm-hero-title{letter-spacing: -0.42px;}
 .fm-dcta-title,.fm-fcta .fm-dcta-title{font-size:1.6rem}
-.fs-5 {font-size: 18px !important;}
 }
 </style>
 
@@ -1104,7 +1091,7 @@ SECTION 2 — OUR FLEET VEHICLE SERVICES
 <section class="fm-services">
 <div class="container">
 <div class="text-center mb-5">
-<h2 class="display-4 fw-extrabold text-dark" style=" font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+<h2 class="display-4 fw-extrabold text-dark" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
   OUR FLEET VEHICLE SERVICES
 </h2>
 <p class="text-secondary fs-5 mb-4 w-75 fm-sec-sub" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;text-align:center;max-width:100%;">
@@ -1114,11 +1101,11 @@ SECTION 2 — OUR FLEET VEHICLE SERVICES
 <div class="row g-4">
 <div class="col-lg-4 col-md-6">
 <div class="fm-scard">
-    <h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
+    <h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
         Fleet Servicing
     </h3>
   <div class="fm-sdiv"></div>
-  <ul style="font-size: 18px !important;">
+  <ul>
     <li><i class="fa-solid fa-check"></i>Interim Vehicle Servicing</li>
     <li><i class="fa-solid fa-check"></i>Full Vehicle Servicing</li>
     <li><i class="fa-solid fa-check"></i>Manufacturer Scheduled Servicing</li>
@@ -1135,7 +1122,7 @@ SECTION 2 — OUR FLEET VEHICLE SERVICES
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="fm-scard">
-    <h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
+    <h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
       Fleet Vehicle Repairs
     </h3>
   <div class="fm-sdiv"></div>
@@ -1156,7 +1143,7 @@ SECTION 2 — OUR FLEET VEHICLE SERVICES
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="fm-scard">
-    <h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
+    <h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
         MOT Testing &amp; Preparation
     </h3>
   <div class="fm-sdiv"></div>
@@ -1184,14 +1171,14 @@ SECTION 3 — HOW FLEET ACCOUNTS WORK
 <section class="fm-how">
 <div class="container">
 <div class="text-center mb-5">
-<h2 class="display-4 fw-extrabold text-dark mb-5" style=" font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+<h2 class="display-4 fw-extrabold text-dark mb-5" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
   HOW FLEET ACCOUNTS WORK
 </h2>
 </div>
 <div class="row g-4">
 <div class="col-lg-3 col-md-6">
 <div class="fm-stepnum">01</div>
-<h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
+<h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
     Open Your Fleet Account
 </h3>
 <p class="text-secondary fs-5 mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;">
@@ -1200,7 +1187,7 @@ SECTION 3 — HOW FLEET ACCOUNTS WORK
 </div>
 <div class="col-lg-3 col-md-6">
 <div class="fm-stepnum">02</div>
-<h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
+<h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
     Book Your Vehicles
 </h3>
 <p class="text-secondary fs-5 mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;">
@@ -1209,7 +1196,7 @@ SECTION 3 — HOW FLEET ACCOUNTS WORK
 </div>
 <div class="col-lg-3 col-md-6">
 <div class="fm-stepnum">03</div>
-<h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
+<h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
     We Service &amp; Maintain Fleet
 </h3>
 <p class="text-secondary fs-5 mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;">
@@ -1218,7 +1205,7 @@ SECTION 3 — HOW FLEET ACCOUNTS WORK
 </div>
 <div class="col-lg-3 col-md-6">
 <div class="fm-stepnum">04</div>
-<h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
+<h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
     Get Back On The Road
 </h3>
 <p class="text-secondary fs-5 mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;">
@@ -1249,7 +1236,7 @@ SECTION 4 — DARK FLEET CTA
 <div class="fm-dcta-bg" style="background-image:url('{{ $fmImg2 }}')"></div>
 <div class="container">
 <div class="fm-dcta-inner text-center w-100">
-<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
   Keep Your Fleet Safe, <br>Compliant, And On The Road
 </p>
 <p class="text-secondary fs-5 mb-4 text-white opacity-1" style="opacity: 1 !important;font-family: Mulish;font-weight: 400;vertical-align: middle;">Trusted by local businesses to look after the vehicles they rely on every day.</p>
@@ -1267,7 +1254,7 @@ SECTION 5 — RELIABLE FLEET MAINTENANCE
 <section class="fm-reliable">
 <div class="container">
 <div class="text-center mb-5 d-flex justify-content-center">
-<h2 class="display-4 fw-extrabold text-dark w-75" style=" font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+<h2 class="display-4 fw-extrabold text-dark w-75" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
     Reliable Fleet Maintenance Services For Businesses
 </h2>
 </div>
@@ -1300,7 +1287,7 @@ SECTION 6 — THE BENEFITS
 <section class="fm-benefits">
     <div class="container">
         <div class="text-center">
-            <h2 class="display-4 fw-extrabold text-dark mx-lg-3 mx-0" style=" font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+            <h2 class="display-4 fw-extrabold text-dark mx-lg-3 mx-0" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
                 The Benefits Of Our Fleet Maintenance Solutions
             </h2>
             <p class="text-secondary fs-5 mb-4 w-75 fm-sec-sub" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;text-align:center;max-width:100%;">
@@ -1311,7 +1298,7 @@ SECTION 6 — THE BENEFITS
         <div class="row g-4">
             <div class="col-lg-6">
                 <div class="fm-bcard">
-                    <h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
+                    <h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
                         For Your Business
                     </h3>
                     <ul>
@@ -1325,7 +1312,7 @@ SECTION 6 — THE BENEFITS
             </div>
             <div class="col-lg-6">
                 <div class="fm-bcard">
-                    <h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;font-size: 25px !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
+                    <h3 class="fw-bold mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;vertical-align: middle;text-transform: uppercase !important;">
                         For Your Drivers
                     </h3>
                     <ul>
@@ -1526,7 +1513,7 @@ SECTION 10 — TESTIMONIALS
 <section class="py-5" style="background: #F2F2F4 !important;">
     <div class="container py-4">
         <div class="text-center mb-5">
-            <h2 class="display-4 fw-extrabold text-dark mb-0" style="font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+            <h2 class="display-4 fw-extrabold text-dark mb-0" style="font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
                 WHAT OUR CUSTOMERS SAY
             </h2>
         </div>
@@ -1772,7 +1759,7 @@ SECTION 12 — FINAL CTA
 <div class="fm-fcta-bg" style="background-image:url('{{ $fmImg3 }}')"></div>
 <div class="container">
 <div class="fm-fcta-inner">
-<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">Looking For A Trusted Fleet<br>Maintenance Partner?</h2>
+<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">Looking For A Trusted Fleet<br>Maintenance Partner?</p>
 <p class="text-secondary mb-4 text-white opacity-1" style="opacity: 1 !important;font-family: Mulish;font-weight: 400;vertical-align: middle; font-size: 18px;">Reduce downtime, simplify vehicle maintenance, and keep your fleet operating efficiently with expert garage services.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
 <a href="/contact-us" class="btn fm-btn-red rounded-pill px-5 py-3 fw-bold text-uppercase" style="font-size:13px;letter-spacing:.8px">CONTACT OUR FLEET TEAM</a>
@@ -2202,7 +2189,7 @@ SECTION 6 — BOOK YOUR CAR REPAIR CTA
 <div class="rp-bookcta-bg" style="background-image:url('{{ $rpCtaImg }}')"></div>
 <div class="container">
 <div class="rp-bookcta-inner">
-<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">NEED CAR REPAIR IN PETERBOROUGH?</p>
+<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">NEED CAR REPAIR IN PETERBOROUGH?</p>
 <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color:#ffffff;">Book car repair in Peterborough with Smartfit Autos. Fast, affordable repairs by expert local mechanics you can trust.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
 <a href="/booking/order" class="btn rp-btn-red rounded-pill px-5 py-3 fw-bold text-uppercase" style="font-size:13px;letter-spacing:.8px">BOOK YOUR APPOINTMENT TODAY &rarr;</a>
@@ -2328,7 +2315,7 @@ SECTION 9 — CUSTOMER REVIEWS
 <section class="py-5" style="background: #F2F2F4 !important;">
 <div class="container py-4">
 <div class="text-center mb-5">
-    <h2 class="display-4 fw-extrabold text-dark mb-0" style="font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+    <h2 class="display-4 fw-extrabold text-dark mb-0" style="font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
         WHAT OUR CUSTOMERS SAY
     </h2>
 </div>
@@ -2543,7 +2530,7 @@ SECTION 11 — FINAL CTA
 <div class="rp-fcta-bg" style="background-image:url('{{ $rpCtaImg }}')"></div>
 <div class="container">
 <div class="rp-fcta-inner">
-<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">BOOK YOUR CAR REPAIR IN PETERBOROUGH TODAY</p>
+<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">BOOK YOUR CAR REPAIR IN PETERBOROUGH TODAY</p>
 <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color:#ffffff;">Smartfit Autos offers fast, affordable car repair in Peterborough with expert local mechanics.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
 <a href="/booking/order" class="btn rp-btn-red rounded-pill px-5 py-3 fw-bold text-uppercase" style="font-size:13px;letter-spacing:.8px">BOOK YOUR CAR REPAIR TODAY &rarr;</a>
@@ -2981,7 +2968,7 @@ SECTION 6 — BOOK YOUR CAR SERVICE IN PETERBOROUGH TODAY
 <div class="sv-bookcta-bg" style="background-image:url('{{ $svLiftImg }}')"></div>
 <div class="container">
 <div class="sv-bookcta-inner">
-<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">BOOK YOUR CAR SERVICE IN PETERBOROUGH TODAY</p>
+<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">BOOK YOUR CAR SERVICE IN PETERBOROUGH TODAY</p>
  <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color: white;">Don't wait for small issues to turn into expensive repairs. Keep your vehicle in top condition with Smartfit Autos.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
 <a href="/booking/order" class="btn sv-btn-red rounded-pill px-5 py-3 fw-bold text-uppercase" style="font-size:13px;letter-spacing:.8px">SCHEDULE YOUR SERVICE TODAY &rarr;</a>
@@ -3107,7 +3094,7 @@ SECTION 9 — WHAT OUR CUSTOMERS SAY
 <section class="py-5" style="background: #F2F2F4 !important;">
 <div class="container py-4">
 <div class="text-center mb-5">
-    <h2 class="display-4 fw-extrabold text-dark mb-0" style="font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+    <h2 class="display-4 fw-extrabold text-dark mb-0" style="font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
         WHAT OUR CUSTOMERS SAY
     </h2>
 </div>
@@ -3315,7 +3302,7 @@ SECTION 11 — FINAL CTA
 <div class="sv-fcta-bg" style="background-image:url('{{ $svBrakeImg }}')"></div>
 <div class="container">
 <div class="sv-fcta-inner">
-<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">GET YOUR CAR SERVICED BY LOCAL EXPERTS</p>
+<p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">GET YOUR CAR SERVICED BY LOCAL EXPERTS</p>
  <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color:white;">Smartfit Autos offers reliable, affordable car servicing in Peterborough. Book your slot today.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
 <a href="/booking/order" class="btn sv-btn-red rounded-pill px-5 py-3 fw-bold text-uppercase" style="font-size:13px;letter-spacing:.8px">BOOK YOUR CAR SERVICE &rarr;</a>
@@ -3413,68 +3400,6 @@ window.addEventListener('resize', function(){ if(map) map.invalidateSize(); });
 <!-- Body Wrap - End -->
 
 @include('frontend.inc.js')
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-document.querySelectorAll('h1').forEach(function (heading) {
-
-// Add classes
-heading.classList.add('fw-extrabold','display-1','text-uppercase');
-// Add inline styles
-heading.style.fontFamily = 'Montserrat';
-heading.style.fontWeight = '800';
-heading.style.lineHeight = '100%';
-heading.style.letterSpacing = '0px';
-heading.style.verticalAlign = 'middle';
-});
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-document.querySelectorAll('h2').forEach(function (heading) {
-// Add classes
-heading.classList.add('display-4','fw-extrabold','text-uppercase');
-// Add inline styles
-heading.style.fontFamily = 'Montserrat';
-heading.style.fontWeight = '800';
-heading.style.setProperty('line-height', '100%', 'important');
-heading.style.letterSpacing = '0px';
-heading.style.verticalAlign = 'middle';
-});
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-document.querySelectorAll('h3').forEach(function (heading) {
-// Add classes
-heading.classList.add('fw-bold','text-uppercase');
-// Add inline styles
-heading.style.fontFamily = 'Mulish';
-heading.style.setProperty('font-weight', '800', 'important');
-heading.style.setProperty('font-size', '25px', 'important');
-heading.style.lineHeight = '30.4px';
-heading.style.letterSpacing = '-0.19px';
-heading.style.verticalAlign = 'middle';
-
-});
-
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-document.querySelectorAll('ul li').forEach(function (item) {
-item.style.color = '#444';
-item.style.setProperty('font-size', '18px', 'important');
-item.style.fontFamily = 'Mulish';
-
-});
-
-});
-</script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {

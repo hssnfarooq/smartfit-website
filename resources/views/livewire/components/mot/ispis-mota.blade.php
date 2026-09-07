@@ -698,8 +698,8 @@
     ══════════════════════════════════════════════════════════ --}}
     <section class="mot-cta-banner">
         <div class="container">
-            <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">NEED AN MOT? GET IT DONE TODAY</p>
-            <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px !important; color: white;">Book your MOT in Peterborough today with trusted local experts and<br class="d-none d-md-block"> fast, simple online scheduling.</p>
+            <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">NEED AN MOT? GET IT DONE TODAY</p>
+            <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; color: white;">Book your MOT in Peterborough today with trusted local experts and<br class="d-none d-md-block"> fast, simple online scheduling.</p>
             <div class="d-flex align-items-center justify-content-center flex-wrap gap-3">
                 <a href="#book-mot" class="mot-cta-btn-red">
                     <span>BOOK YOUR MOT NOW</span>
@@ -855,7 +855,7 @@
     <section class="py-5" style="background: #F2F2F4 !important;">
         <div class="container py-4">
         <div class="text-center mb-5">
-            <h2 class="display-4 fw-extrabold text-dark mb-0" style="font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
+            <h2 class="display-4 fw-extrabold text-dark mb-0" style="font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
                 WHAT OUR CUSTOMERS SAY
             </h2>
         </div>
@@ -1104,8 +1104,8 @@
     ══════════════════════════════════════════════════════════ --}}
     <section class="mot-cta-banner">
         <div class="container">
-            <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;line-height: 100% !important;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">Book your MOT in Peterborough today</h2>
-            <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px !important; color: white;">Get your MOT done quickly in Peterborough with flexible slots and DVSA-approved testing at Smartfit Autos.</p>
+            <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">Book your MOT in Peterborough today</p>
+            <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; color: white;">Get your MOT done quickly in Peterborough with flexible slots and DVSA-approved testing at Smartfit Autos.</p>
             <div>
                 <a href="#book-mot"       class="mot-cta-btn-red">BOOK YOUR MOT NOW &rarr;</a>
                 <a href="tel:01733569998" class="mot-cta-btn-outline">CALL NOW 01733 569998 &rarr;</a>
