@@ -26,8 +26,26 @@ p {
 .fs-5 {font-size: 16px !important;}
 }
 </style>
+@php
+    $sfPageAliases = [
+        'home-page' => 'home',
+        'home' => 'home',
+        'mot' => 'mot',
+        'mot-peterborough' => 'mot',
+        'mots' => 'mot',
+        'repairs' => 'repairs',
+        'car-servicing' => 'services',
+        'tyres' => 'tyres',
+        'fleet-and-contract-work' => 'fleet',
+    ];
+    $sfCurrentSlug = isset($item) ? ($item->slug ?? '') : '';
+    $sfPageKey = $sfPageAliases[$sfCurrentSlug] ?? ($sfCurrentSlug === '' && isset($item) ? 'home' : null);
+@endphp
 </head>
-<body>
+<body @class([
+    'sf-main-page' => $sfPageKey !== null,
+    "sf-page-{$sfPageKey}" => $sfPageKey !== null,
+])>
 @include('frontend.inc.odrzavanje')
 
 <div class="page_wrapper">
