@@ -51,12 +51,9 @@
         .mot-btn-red {
             background-color: #e72b37;
             color: #fff;
-            border: 2px solid #e72b37;
-            padding: 11px 26px;
+            border-color: #e72b37;
             font-weight: 800;
-            font-size: 12px;
             text-transform: uppercase;
-            border-radius: 30px;
             margin-right: 12px;
             margin-bottom: 12px;
             display: inline-block;
@@ -67,12 +64,9 @@
         .mot-btn-outline {
             background-color: transparent;
             color: #fff;
-            border: 1px solid #555;
-            padding: 11px 26px;
+            border-color: #555;
             font-weight: 700;
-            font-size: 12px;
             text-transform: uppercase;
-            border-radius: 30px;
             margin-bottom: 12px;
             display: inline-block;
             text-decoration: none;
@@ -335,11 +329,8 @@
             gap: 8px;
             background: #ED1E24;
             color: #fff !important;
-            border: 1.5px solid #ED1E24;
-            padding: 13px 32px;
-            border-radius: 30px;
+            border-color: #ED1E24;
             font-weight: 800;
-            font-size: 13px;
             text-transform: uppercase;
             text-decoration: none;
             letter-spacing: 0.5px;
@@ -357,11 +348,8 @@
             background: rgba(0,0,0,0.3);
             backdrop-filter: blur(4px);
             color: #fff !important;
-            border: 1.5px solid #ED1E24;
-            padding: 13px 32px;
-            border-radius: 30px;
+            border-color: #ED1E24;
             font-weight: 800;
-            font-size: 13px;
             text-transform: uppercase;
             text-decoration: none;
             letter-spacing: 0.5px;
@@ -562,8 +550,8 @@
                         Looking for a reliable MOT in Peterborough? At Smartfit Autos, we provide professional, DVSA approved MOT testing to keep your vehicle safe, legal, and roadworthy. Our experienced technicians ensure a quick, hassle-free process with honest advice and transparent pricing.
                     </p>
                     <div>
-                        <a href="tel:01733569998" class="mot-btn-red">CALL NOW 01733 569998</a>
-                        <a href="#book-mot"       class="mot-btn-outline">BOOK MOT ONLINE +</a>
+                        <a href="tel:01733569998" class="mot-btn-red sf-cta sf-cta--primary">CALL NOW 01733 569998</a>
+                        <a href="#book-mot"       class="mot-btn-outline sf-cta sf-cta--outline-light">BOOK MOT ONLINE +</a>
                     </div>
                     <div class="features">
                         <div><i class="fas fa-check"></i> SAME-DAY SLOTS</div>
@@ -652,8 +640,8 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-3 flex-wrap">
-                    <a href="tel:01733569998" style="display:inline-block;padding:10px 24px;border:1.5px solid #111;border-radius:30px;font-weight:800;font-size:12.5px;color:#111;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;-webkit-clip-path:none!important;clip-path:none!important;">CALL NOW &nbsp;01733 569998</a>
-                    <a href="#book-mot"       style="display:inline-block;padding:10px 26px;background:#ED1E24;border:1.5px solid #ED1E24;border-radius:30px;font-weight:800;font-size:12.5px;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;-webkit-clip-path:none!important;clip-path:none!important;">BOOK MOT ONLINE</a>
+                    <a href="tel:01733569998" class="sf-cta sf-cta--outline-dark" style="border-color:#111;font-weight:800;color:#111;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;-webkit-clip-path:none!important;clip-path:none!important;">CALL NOW &nbsp;01733 569998</a>
+                    <a href="#book-mot" class="sf-cta sf-cta--primary" style="background:#ED1E24;border-color:#ED1E24;font-weight:800;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;-webkit-clip-path:none!important;clip-path:none!important;">BOOK MOT ONLINE</a>
                 </div>
             </div>
         </div>
@@ -676,7 +664,7 @@
                         <h3>Cars &amp; Small Vehicles</h3>
                         <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">Required for most cars and small vehicles over 3 years old. This is the standard MOT test for passenger vehicles, helping confirm full compliance with UK road safety and environmental regulations.</p>
                         <div class="price d-flex"><small class="fs-5">£</small>39.99</div>
-                        <a href="/booking/order" style="display:inline-block;background:#E31837;color:#fff;border:none;padding:12px 28px;border-radius:30px;font-weight:800;font-size:13px;text-transform:uppercase;text-decoration:none;-webkit-clip-path:none!important;clip-path:none!important;">BOOK THIS TEST</a>
+                        <a href="/booking/order" class="sf-cta sf-cta--primary" style="background:#E31837;color:#fff;font-weight:800;text-transform:uppercase;text-decoration:none;-webkit-clip-path:none!important;clip-path:none!important;">BOOK THIS TEST</a>
                     </div>
                 </div>
                 {{-- CLASS 7 --}}
@@ -686,7 +674,7 @@
                         <h3>Vans &amp; Commercial Vehicles</h3>
                         <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">For larger vans and commercial vehicles weighing between 3,000kg and 3,500kg. A complete safety inspection to confirm your vehicle meets legal road standards.</p>
                         <div class="price d-flex"><small class="fs-5">£</small>55</div>
-                        <a href="/booking/order" style="display:inline-block;background:#E31837;color:#fff;border:none;padding:12px 28px;border-radius:30px;font-weight:800;font-size:13px;text-transform:uppercase;text-decoration:none;-webkit-clip-path:none!important;clip-path:none!important;">BOOK THIS TEST</a>
+                        <a href="/booking/order" class="sf-cta sf-cta--primary" style="background:#E31837;color:#fff;font-weight:800;text-transform:uppercase;text-decoration:none;-webkit-clip-path:none!important;clip-path:none!important;">BOOK THIS TEST</a>
                     </div>
                 </div>
             </div>
@@ -701,11 +689,11 @@
             <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">NEED AN MOT? GET IT DONE TODAY</p>
             <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; color: white;">Book your MOT in Peterborough today with trusted local experts and<br class="d-none d-md-block"> fast, simple online scheduling.</p>
             <div class="d-flex align-items-center justify-content-center flex-wrap gap-3">
-                <a href="#book-mot" class="mot-cta-btn-red">
+                <a href="#book-mot" class="mot-cta-btn-red sf-cta sf-cta--primary">
                     <span>BOOK YOUR MOT NOW</span>
                     <i class="fa-solid fa-arrow-right fs-6"></i>
                 </a>
-                <a href="tel:01733569998" class="mot-cta-btn-outline">
+                <a href="tel:01733569998" class="mot-cta-btn-outline sf-cta sf-cta--outline-light">
                     <span>CALL NOW 01733 569998</span>
                     <i class="fa-solid fa-arrow-right fs-6"></i>
                 </a>
@@ -1107,8 +1095,8 @@
             <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">Book your MOT in Peterborough today</p>
             <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; color: white;">Get your MOT done quickly in Peterborough with flexible slots and DVSA-approved testing at Smartfit Autos.</p>
             <div>
-                <a href="#book-mot"       class="mot-cta-btn-red">BOOK YOUR MOT NOW &rarr;</a>
-                <a href="tel:01733569998" class="mot-cta-btn-outline">CALL NOW 01733 569998 &rarr;</a>
+                <a href="#book-mot"       class="mot-cta-btn-red sf-cta sf-cta--primary">BOOK YOUR MOT NOW &rarr;</a>
+                <a href="tel:01733569998" class="mot-cta-btn-outline sf-cta sf-cta--outline-light">CALL NOW 01733 569998 &rarr;</a>
             </div>
         </div>
     </section>

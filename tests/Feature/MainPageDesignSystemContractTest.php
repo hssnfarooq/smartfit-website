@@ -97,4 +97,24 @@ class MainPageDesignSystemContractTest extends TestCase
             $this->assertStringContainsString($contract, $css);
         }
     }
+
+    public function test_main_page_templates_use_the_shared_cta_classes(): void
+    {
+        $templates = [
+            'resources/views/frontend/index.blade.php',
+            'resources/views/livewire/components/home/auto-search.blade.php',
+            'resources/views/livewire/components/mot/ispis-mota.blade.php',
+            'resources/views/livewire/gume-katalog.blade.php',
+        ];
+
+        foreach ($templates as $template) {
+            $this->assertStringContainsString('sf-cta', $this->source($template), $template);
+        }
+
+        $tyres = $this->source('resources/views/livewire/gume-katalog.blade.php');
+        $this->assertMatchesRegularExpression(
+            '/<button[^>]+type="submit"[^>]+sf-cta[^>]+sf-cta--primary/s',
+            $tyres
+        );
+    }
 }

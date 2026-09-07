@@ -18,7 +18,7 @@
                     <div class="mb-3">
                         <input type="search" name="registration" wire:model="registration" class="form-control smartfit_light_input form-control-lg border-secondary-subtle rounded-3 text-center text-uppercase fw-bold" placeholder="Enter Registration" style="height: 54px; font-size: 18px; letter-spacing: 1px;">
                     </div>
-                    <button type="submit" class="btn btn-danger w-100 py-3 rounded-pill fw-bold text-uppercase d-flex align-items-center justify-content-center gap-2" wire:click="searchReg" style="background-color: #ED1E24; border-color: #ED1E24; font-size: 15px; letter-spacing: 0.5px; height: 50px;">
+                    <button type="submit" class="btn btn-danger w-100 fw-bold text-uppercase d-flex align-items-center justify-content-center gap-2 sf-cta sf-cta--primary" wire:click="searchReg" style="background-color: #ED1E24; border-color: #ED1E24; letter-spacing: 0.5px;">
                         <span>GET A QUOTE</span>
                         <i class="fa-solid fa-arrow-right fs-6"></i>
                     </button>
@@ -42,8 +42,8 @@
     <div class="bg-white p-4 rounded-3 mt-4 text-dark shadow">
         <x-modals.auto.auto-info :auto="$this->auto_json" />
         <div class="mt-4 d-flex gap-2">
-            <button type="button" class="btn btn-success px-4 py-2" wire:click.prevent="selekt">Select</button>
-            <button type="button" class="btn btn-danger px-4 py-2" wire:click.prevent="ponovno" style="background-color: #ED1E24;">Not my vehicle</button>
+            <button type="button" class="btn btn-success sf-cta sf-cta--primary" wire:click.prevent="selekt">Select</button>
+            <button type="button" class="btn btn-danger sf-cta sf-cta--outline-dark" wire:click.prevent="ponovno">Not my vehicle</button>
         </div>
     </div>
     @endif

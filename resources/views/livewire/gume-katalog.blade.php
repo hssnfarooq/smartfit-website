@@ -116,9 +116,9 @@
                         </div>
                     -->
                         <div class="widget"> 
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary sf-cta sf-cta--primary">
                                 <span class="btn_text">Search</span>
-                              </button>
+                            </button>
                         </div>
                   
                     </form>
