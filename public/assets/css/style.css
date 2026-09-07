@@ -6794,3 +6794,83 @@ Responsive For Mobile & Tablet Devices
 .sf-main-page .page_content h4 {
   overflow-wrap: anywhere;
 }
+
+.sf-main-page .page_content .sf-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 26px;
+  font-family: var(--bs-font-heading) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.35px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.sf-main-page .page_content .sf-cta--primary {
+  color: #fff !important;
+  background: #ed1e24;
+  border-color: #ed1e24;
+}
+
+.sf-main-page .page_content .sf-cta--primary:hover {
+  color: #fff !important;
+  background: #c9141a;
+  border-color: #c9141a;
+  transform: translateY(-1px);
+}
+
+.sf-main-page .page_content .sf-cta--outline-light {
+  color: #fff !important;
+  background: transparent;
+  border-color: #fff;
+}
+
+.sf-main-page .page_content .sf-cta--outline-light:hover {
+  color: #181818 !important;
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.sf-main-page .page_content .sf-cta--outline-dark {
+  color: #181818 !important;
+  background: transparent;
+  border-color: #181818;
+}
+
+.sf-main-page .page_content .sf-cta--outline-dark:hover {
+  color: #fff !important;
+  background: #181818;
+  transform: translateY(-1px);
+}
+
+.sf-main-page .page_content .sf-cta:focus-visible {
+  outline: 3px solid #f8b4b7;
+  outline-offset: 3px;
+}
+
+.sf-main-page .page_content .sf-cta:active {
+  transform: translateY(0);
+}
+
+.sf-main-page .page_content .sf-cta:disabled,
+.sf-main-page .page_content .sf-cta[aria-disabled='true'] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sf-main-page .page_content .sf-cta {
+    transition: none;
+  }
+}

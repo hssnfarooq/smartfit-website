@@ -74,4 +74,27 @@ class MainPageDesignSystemContractTest extends TestCase
         $this->assertStringContainsString('.sf-main-page .page_content label.small,', $css);
         $this->assertStringContainsString('.sf-main-page .page_content label.text-muted,', $css);
     }
+
+    public function test_central_stylesheet_defines_shared_cta_geometry_and_variants(): void
+    {
+        $css = $this->source('public/assets/css/style.css');
+
+        foreach ([
+            '.sf-main-page .page_content .sf-cta',
+            'min-height: 48px',
+            'padding: 0 26px',
+            'font-size: 13px',
+            'font-weight: 800',
+            'border: 2px solid transparent',
+            'border-radius: 999px',
+            'letter-spacing: 0.35px',
+            '.sf-cta--primary',
+            '.sf-cta--outline-light',
+            '.sf-cta--outline-dark',
+            '.sf-cta:focus-visible',
+            '.sf-cta:disabled',
+        ] as $contract) {
+            $this->assertStringContainsString($contract, $css);
+        }
+    }
 }
