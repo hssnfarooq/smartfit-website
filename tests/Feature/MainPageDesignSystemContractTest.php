@@ -128,19 +128,24 @@ class MainPageDesignSystemContractTest extends TestCase
         $scope = ':where(body:not(.sf-main-page) .page_content, .site_header, .site_footer)';
         $strongScope = ':is(body:not(.sf-main-page) .page_content, .site_header, .site_footer)';
 
-        foreach (['h1', 'h2', 'h4', 'h5', 'h6', 'p', 'ul li', '.fs-5'] as $target) {
+        foreach (['h1', 'h2', 'h4', 'h5', 'h6', 'p', '.fs-5'] as $target) {
             $this->assertStringContainsString("{$scope} {$target}", $css);
         }
 
         $this->assertStringContainsString("{$strongScope} h3", $css);
+        $this->assertStringContainsString("{$strongScope} ul li", $css);
         $quotedStrongScope = preg_quote($strongScope, '/');
         $this->assertMatchesRegularExpression(
             "/{$quotedStrongScope} h3\\s*\\{[^}]*font-family:\\s*Mulish\\s*!important;[^}]*font-weight:\\s*800\\s*!important;[^}]*font-size:\\s*25px\\s*!important;[^}]*line-height:\\s*30\\.4px;[^}]*letter-spacing:\\s*-0\\.19px;[^}]*text-transform:\\s*uppercase;/s",
             $css
         );
-        $quotedScope = preg_quote($scope, '/');
+        $quotedScope = preg_quote($strongScope, '/');
         $this->assertMatchesRegularExpression(
             "/{$quotedScope} ul li\\s*\\{[^}]*color:\\s*#444;[^}]*font-size:\\s*18px\\s*!important;[^}]*font-family:\\s*Mulish\\s*!important;/s",
+            $css
+        );
+        $this->assertMatchesRegularExpression(
+            "/".preg_quote($scope, '/')." h2\\s*\\{[^}]*letter-spacing:\\s*0\\s*!important;/s",
             $css
         );
         $this->assertStringNotContainsString("querySelectorAll('h3')", $this->source('resources/views/frontend/index.blade.php'));

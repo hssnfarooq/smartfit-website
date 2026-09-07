@@ -6728,7 +6728,7 @@ Responsive For Mobile & Tablet Devices
   font-size: calc(1.475rem + 2.7vw);
   font-weight: 800 !important;
   line-height: 100% !important;
-  letter-spacing: 0;
+  letter-spacing: 0 !important;
   vertical-align: middle;
   text-transform: uppercase;
 }
@@ -6764,7 +6764,7 @@ Responsive For Mobile & Tablet Devices
   vertical-align: middle !important;
 }
 
-:where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) ul li {
+:is(body:not(.sf-main-page) .page_content, .site_header, .site_footer) ul li {
   color: #444;
   font-size: 18px !important;
   font-family: Mulish !important;
