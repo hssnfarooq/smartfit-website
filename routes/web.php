@@ -77,6 +77,8 @@ Route::get('/assets/{path}', function ($path) {
     abort(404);
 })->where('path', '.*');
 
+Route::redirect('/services', '/car-servicing', 301);
+
 Route::post('{slug}', [\App\Http\Controllers\PageDisplayController::class, 'kontaktForma']);
 
 Route::get('/test', function(PageRepository $pageRepository){

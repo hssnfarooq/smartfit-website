@@ -1038,9 +1038,9 @@ SECTION 1 — FLEET HERO
 <div class="col-lg-8">
 <h1 class="fm-hero-title">FLEET VEHICLE SERVICING AND MAINTENANCE</h1>
 <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">Keep your business vehicles running efficiently with expert fleet servicing, maintenance, and repairs. From routine checks to complex repairs, our experienced technicians help reduce downtime, improve reliability, and keep your cars, vans, and commercial vehicles safe and road-ready.</p>
-<div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+<div class="d-flex flex-wrap align-items-center gap-3 mb-4 sf-cta-pair">
   <a href="tel:01733569998" class="btn fm-btn-red text-uppercase sf-cta sf-cta--primary">CALL NOW 01733 569998</a>
-  <a href="/booking/order" class="btn fm-btn-outline text-uppercase sf-cta sf-cta--outline-light">BOOK FLEET SERVICING &rarr;</a>
+  <a href="/booking/order" class="btn fm-btn-outline text-uppercase sf-cta sf-cta--outline-light">BOOK FLEET SERVICING <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
 <div class="fm-hero-feats">
   <span class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;"><i class="fa-solid fa-check"></i>ALL MAKES &amp; MODELS</span>
@@ -1215,8 +1215,8 @@ SECTION 3 — HOW FLEET ACCOUNTS WORK
   <div style="font-size:13px;color:#888">Speak to the Peterborough team directly.</div>
 </div>
 </div>
-<div class="d-flex flex-wrap gap-3">
-<a href="tel:01733569998" class="btn fm-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW  01733 569998</a>
+<div class="d-flex flex-wrap gap-3 sf-cta-pair">
+<a href="tel:01733569998" class="btn fm-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 <a href="/booking/order" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR SERVICE</a>
 </div>
 </div>
@@ -1234,9 +1234,9 @@ SECTION 4 — DARK FLEET CTA
   Keep Your Fleet Safe, <br>Compliant, And On The Road
 </p>
 <p class="text-secondary fs-5 mb-4 text-white opacity-1" style="opacity: 1 !important;font-family: Mulish;font-weight: 400;vertical-align: middle;">Trusted by local businesses to look after the vehicles they rely on every day.</p>
-<div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/contact-us" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">TALK TO OUR TEAM &rarr;</a>
-<a href="tel:01733569998" class="btn fm-btn-wh fw-bold text-uppercase border-white sf-cta sf-cta--outline-light">CALL NOW 01733 569998 &rarr;</a>
+<div class="d-flex flex-wrap justify-content-center gap-3 sf-cta-pair">
+<a href="/contact-us" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">TALK TO OUR TEAM</a>
+<a href="tel:01733569998" class="btn fm-btn-wh fw-bold text-uppercase border-white sf-cta sf-cta--outline-light">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
 </div>
 </div>
@@ -1755,9 +1755,9 @@ SECTION 12 — FINAL CTA
 <div class="fm-fcta-inner">
 <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">Looking For A Trusted Fleet<br>Maintenance Partner?</p>
 <p class="text-secondary mb-4 text-white opacity-1" style="opacity: 1 !important;font-family: Mulish;font-weight: 400;vertical-align: middle; font-size: 18px;">Reduce downtime, simplify vehicle maintenance, and keep your fleet operating efficiently with expert garage services.</p>
-<div class="d-flex flex-wrap justify-content-center gap-3">
+<div class="d-flex flex-wrap justify-content-center gap-3 sf-cta-pair">
 <a href="/contact-us" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">CONTACT OUR FLEET TEAM</a>
-<a href="tel:01733569998" class="btn fm-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998</a>
+<a href="tel:01733569998" class="btn fm-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
 </div>
 </div>
@@ -1994,9 +1994,9 @@ SECTION 1 — HERO
 <div class="col-lg-6">
 <h1 class="fm-hero-title">CAR REPAIR<br>PETERBOROUGH</h1>
 <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px; color:#C7C4C0;">Need expert car repair in Peterborough? Smartfit Autos provides affordable and professional repair services for all vehicles. From minor issues to complex mechanical work, our experienced team uses advanced diagnostics to ensure quick, precise, and accurate results.</p>
-<div class="d-flex flex-wrap gap-3 mb-4">
-  <a href="tel:01733569998" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary"><i class="fa-solid fa-phone me-2"></i>CALL NOW 01733 569998</a>
-  <a href="/booking/order" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">BOOK MOT ONLINE &rarr;</a>
+<div class="d-flex flex-wrap gap-3 mb-4 sf-cta-pair">
+  <a href="tel:01733569998" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">CALL NOW 01733 569998</a>
+  <a href="/booking/order" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">BOOK MOT ONLINE <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
 <div class="rp-hero-feats">
   <span><i class="fa-solid fa-check"></i>ADVANCED DIAGNOSTICS</span>
@@ -2112,8 +2112,8 @@ SECTION 3 — HOW OUR REPAIR PROCESS WORKS
   <div class="rp-hcta-phone">01733 569998</div>
 </div>
 </div>
-<div class="d-flex flex-wrap gap-3">
-<a href="tel:01733569998" class="btn rp-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW 01733 569998</a>
+<div class="d-flex flex-wrap gap-3 sf-cta-pair">
+<a href="tel:01733569998" class="btn rp-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 <a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR REPAIR TODAY</a>
 </div>
 </div>
@@ -2185,9 +2185,9 @@ SECTION 6 — BOOK YOUR CAR REPAIR CTA
 <div class="rp-bookcta-inner">
 <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">NEED CAR REPAIR IN PETERBOROUGH?</p>
 <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color:#ffffff;">Book car repair in Peterborough with Smartfit Autos. Fast, affordable repairs by expert local mechanics you can trust.</p>
-<div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR APPOINTMENT TODAY &rarr;</a>
-<a href="tel:01733569998" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW &rarr;</a>
+<div class="d-flex flex-wrap justify-content-center gap-3 sf-cta-pair">
+<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR APPOINTMENT TODAY</a>
+<a href="tel:01733569998" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
 </div>
 </div>
@@ -2526,9 +2526,9 @@ SECTION 11 — FINAL CTA
 <div class="rp-fcta-inner">
 <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">BOOK YOUR CAR REPAIR IN PETERBOROUGH TODAY</p>
 <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color:#ffffff;">Smartfit Autos offers fast, affordable car repair in Peterborough with expert local mechanics.</p>
-<div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR REPAIR TODAY &rarr;</a>
-<a href="tel:01733569998" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998 &rarr;</a>
+<div class="d-flex flex-wrap justify-content-center gap-3 sf-cta-pair">
+<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR REPAIR TODAY</a>
+<a href="tel:01733569998" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
 </div>
 </div>
@@ -2764,9 +2764,9 @@ SECTION 1 — HERO
 <div class="col-lg-7">
 <h1 class="fm-hero-title">CAR SERVICE PETERBOROUGH</h1>
  <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px; color:#C7C4C0;">Keep your vehicle running at its best with Smartfit Autos in Peterborough. We offer reliable, affordable car servicing for all makes and models, delivered by skilled mechanics. From routine maintenance to full inspections, we ensure quality, safety, and performance you can trust.</p>
-<div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+<div class="d-flex flex-wrap align-items-center gap-3 mb-4 sf-cta-pair">
   <a href="tel:01733569998" class="btn sv-btn-red text-uppercase sf-cta sf-cta--primary">CALL NOW 01733 569998</a>
-  <a href="/booking/order" class="btn sv-btn-outline text-uppercase sf-cta sf-cta--outline-light">BOOK YOUR CAR SERVICE &rarr;</a>
+  <a href="/booking/order" class="btn sv-btn-outline text-uppercase sf-cta sf-cta--outline-light">BOOK YOUR CAR SERVICE <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
 <div class="sv-hero-feats">
   <span><i class="fa-solid fa-check"></i>ALL MAKES &amp; MODELS</span>
@@ -2870,8 +2870,8 @@ SECTION 3 — EASY STEPS TO GET YOUR CAR SERVICED
   <div style="font-size:13px;color:#666">Speak to the Peterborough team directly</div>
 </div>
 </div>
-<div class="d-flex flex-wrap gap-3">
-<a href="tel:01733569998" class="btn sv-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW 01733 569998</a>
+<div class="d-flex flex-wrap gap-3 sf-cta-pair">
+<a href="tel:01733569998" class="btn sv-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 <a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR SERVICE</a>
 </div>
 </div>
@@ -2956,9 +2956,9 @@ SECTION 6 — BOOK YOUR CAR SERVICE IN PETERBOROUGH TODAY
 <div class="sv-bookcta-inner">
 <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">BOOK YOUR CAR SERVICE IN PETERBOROUGH TODAY</p>
  <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color: white;">Don't wait for small issues to turn into expensive repairs. Keep your vehicle in top condition with Smartfit Autos.</p>
-<div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">SCHEDULE YOUR SERVICE TODAY &rarr;</a>
-<a href="tel:01733569998" class="btn sv-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998 &rarr;</a>
+<div class="d-flex flex-wrap justify-content-center gap-3 sf-cta-pair">
+<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">SCHEDULE YOUR SERVICE TODAY</a>
+<a href="tel:01733569998" class="btn sv-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
 </div>
 </div>
@@ -3290,9 +3290,9 @@ SECTION 11 — FINAL CTA
 <div class="sv-fcta-inner">
 <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">GET YOUR CAR SERVICED BY LOCAL EXPERTS</p>
  <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color:white;">Smartfit Autos offers reliable, affordable car servicing in Peterborough. Book your slot today.</p>
-<div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR SERVICE &rarr;</a>
-<a href="tel:01733569998" class="btn sv-btn-red-out fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998 &rarr;</a>
+<div class="d-flex flex-wrap justify-content-center gap-3 sf-cta-pair">
+<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR SERVICE</a>
+<a href="tel:01733569998" class="btn sv-btn-red-out fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
 </div>
 </div>

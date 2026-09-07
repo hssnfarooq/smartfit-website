@@ -547,9 +547,9 @@
                     <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">
                         Looking for a reliable MOT in Peterborough? At Smartfit Autos, we provide professional, DVSA approved MOT testing to keep your vehicle safe, legal, and roadworthy. Our experienced technicians ensure a quick, hassle-free process with honest advice and transparent pricing.
                     </p>
-                    <div>
+                    <div class="sf-cta-pair">
                         <a href="tel:01733569998" class="mot-btn-red sf-cta sf-cta--primary">CALL NOW 01733 569998</a>
-                        <a href="#book-mot"       class="mot-btn-outline sf-cta sf-cta--outline-light">BOOK MOT ONLINE +</a>
+                        <a href="#book-mot" class="mot-btn-outline sf-cta sf-cta--outline-light">BOOK MOT ONLINE <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
                     </div>
                     <div class="features">
                         <div><i class="fas fa-check"></i> SAME-DAY SLOTS</div>
@@ -637,8 +637,8 @@
                         <div style="font-size: 15px;color:#666">Speak to the Peterborough team directly</div>
                     </div>
                 </div>
-                <div class="d-flex align-items-center gap-3 flex-wrap">
-                    <a href="tel:01733569998" class="sf-cta sf-cta--outline-dark" style="border-color:#111;font-weight:800;color:#111;text-decoration:none;text-transform:uppercase;-webkit-clip-path:none!important;clip-path:none!important;">CALL NOW &nbsp;01733 569998</a>
+                <div class="d-flex align-items-center gap-3 flex-wrap sf-cta-pair">
+                    <a href="tel:01733569998" class="sf-cta sf-cta--outline-dark" style="border-color:#111;font-weight:800;color:#111;text-decoration:none;text-transform:uppercase;-webkit-clip-path:none!important;clip-path:none!important;">CALL NOW &nbsp;01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
                     <a href="#book-mot" class="sf-cta sf-cta--primary" style="background:#ED1E24;border-color:#ED1E24;font-weight:800;color:#fff;text-decoration:none;text-transform:uppercase;-webkit-clip-path:none!important;clip-path:none!important;">BOOK MOT ONLINE</a>
                 </div>
             </div>
@@ -686,14 +686,13 @@
         <div class="container">
             <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">NEED AN MOT? GET IT DONE TODAY</p>
             <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; color: white;">Book your MOT in Peterborough today with trusted local experts and<br class="d-none d-md-block"> fast, simple online scheduling.</p>
-            <div class="d-flex align-items-center justify-content-center flex-wrap gap-3">
+            <div class="d-flex align-items-center justify-content-center flex-wrap gap-3 sf-cta-pair">
                 <a href="#book-mot" class="mot-cta-btn-red sf-cta sf-cta--primary">
                     <span>BOOK YOUR MOT NOW</span>
-                    <i class="fa-solid fa-arrow-right fs-6"></i>
                 </a>
                 <a href="tel:01733569998" class="mot-cta-btn-outline sf-cta sf-cta--outline-light">
                     <span>CALL NOW 01733 569998</span>
-                    <i class="fa-solid fa-arrow-right fs-6"></i>
+                    <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
@@ -1092,9 +1091,9 @@
         <div class="container">
             <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">Book your MOT in Peterborough today</p>
             <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; color: white;">Get your MOT done quickly in Peterborough with flexible slots and DVSA-approved testing at Smartfit Autos.</p>
-            <div>
-                <a href="#book-mot"       class="mot-cta-btn-red sf-cta sf-cta--primary">BOOK YOUR MOT NOW &rarr;</a>
-                <a href="tel:01733569998" class="mot-cta-btn-outline sf-cta sf-cta--outline-light">CALL NOW 01733 569998 &rarr;</a>
+            <div class="sf-cta-pair">
+                <a href="#book-mot" class="mot-cta-btn-red sf-cta sf-cta--primary">BOOK YOUR MOT NOW</a>
+                <a href="tel:01733569998" class="mot-cta-btn-outline sf-cta sf-cta--outline-light">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
             </div>
         </div>
     </section>

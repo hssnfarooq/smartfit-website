@@ -10,10 +10,15 @@
                 if($url == '/home-page') $url = '/';
                 
                 $isFleet = (strcasecmp(trim($link->title), 'fleet') === 0);
+                $isServices = (strcasecmp(trim($link->title), 'services') === 0 || strcasecmp(trim($link->title), 'servicing') === 0);
                 $klik = '';
                 if($link->tree || $isFleet){
                     $url = 'javascript:;';
                     $klik = ' onclick="podmeni('.$link->id.')"';
+                }
+                if ($isServices) {
+                    $url = '/car-servicing';
+                    $klik = '';
                 }
             @endphp
              <a href="{{$url}}"{!!html_entity_decode($klik)!!} class="list-group-item list-group-item-action list-group-item-success">{{strcasecmp(trim($link->title), 'contacts') === 0 ? 'Contact Us' : (strcasecmp(trim($link->title), 'tyre shop') === 0 ? 'Tyres' : $link->title)}} 
@@ -47,6 +52,7 @@
                         
                         $isFleet = (strcasecmp(trim($link->title), 'fleet') === 0);
                         $isServices = (strcasecmp(trim($link->title), 'services') === 0 || strcasecmp(trim($link->title), 'servicing') === 0);
+                        if ($isServices) $url = '/car-servicing';
                         $isMot = (strcasecmp(trim($link->title), 'mot') === 0);
                         $isTyres = (strcasecmp(trim($link->title), 'tyres') === 0 || strcasecmp(trim($link->title), 'tyre shop') === 0 || strcasecmp(trim($link->title), 'tyre') === 0);
                         $isRepairs = (strcasecmp(trim($link->title), 'repairs') === 0 || strcasecmp(trim($link->title), 'repair') === 0);

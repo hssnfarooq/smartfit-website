@@ -340,4 +340,51 @@ class MainPageDesignSystemContractTest extends TestCase
             $tyres
         );
     }
+
+    public function test_services_navigation_uses_car_servicing_as_the_canonical_main_page(): void
+    {
+        $menu = $this->source('resources/views/components/menu.blade.php');
+        $footer = $this->source('resources/views/components/footer.blade.php');
+        $routes = $this->source('routes/web.php');
+
+        $this->assertSame(2, substr_count($menu, "\$url = '/car-servicing';"));
+        $mobileMenu = strstr($menu, '@else', true);
+        $this->assertNotFalse($mobileMenu);
+        $treeOverride = strpos($mobileMenu, 'if($link->tree || $isFleet)');
+        $servicesOverride = strpos($mobileMenu, 'if ($isServices) {');
+        $this->assertNotFalse($treeOverride);
+        $this->assertNotFalse($servicesOverride);
+        $this->assertGreaterThan($treeOverride, $servicesOverride);
+        $this->assertStringContainsString("\$url = '/car-servicing';\n                    \$klik = '';", $mobileMenu);
+        $this->assertStringContainsString('<a href="/car-servicing">SERVICES</a>', $footer);
+        $this->assertStringContainsString("Route::redirect('/services', '/car-servicing', 301);", $routes);
+    }
+
+    public function test_paired_ctas_keep_the_primary_clean_and_put_the_arrow_on_the_companion(): void
+    {
+        $templates = [
+            'resources/views/frontend/index.blade.php' => 12,
+            'resources/views/livewire/components/mot/ispis-mota.blade.php' => 4,
+        ];
+
+        foreach ($templates as $template => $expectedPairs) {
+            $source = $this->source($template);
+            preg_match_all('/<div\b[^>]*class="[^"]*\bsf-cta-pair\b[^"]*"[^>]*>(.*?)<\/div>/s', $source, $pairs);
+
+            $this->assertCount($expectedPairs, $pairs[1], $template);
+
+            foreach ($pairs[1] as $pair) {
+                preg_match_all('/<a\b[^>]*class="[^"]*\bsf-cta--primary\b[^"]*"[^>]*>(.*?)<\/a>/s', $pair, $primary);
+                preg_match_all('/<a\b[^>]*class="[^"]*\bsf-cta--outline-(?:light|dark)\b[^"]*"[^>]*>(.*?)<\/a>/s', $pair, $companion);
+
+                $this->assertCount(1, $primary[1], "Primary CTA missing from {$template}: {$pair}");
+                $this->assertCount(1, $companion[1], "Companion CTA missing from {$template}: {$pair}");
+                $this->assertDoesNotMatchRegularExpression('/(?:fa-arrow-right|fa-phone|&rarr;|→|\+)/', $primary[1][0]);
+                $this->assertStringContainsString('fa-arrow-right sf-cta__icon', $companion[1][0]);
+            }
+        }
+
+        $css = $this->source('public/assets/css/style.css');
+        $this->assertStringContainsString('.sf-main-page .page_content .sf-cta__icon', $css);
+    }
 }

@@ -6894,6 +6894,12 @@ Responsive For Mobile & Tablet Devices
   transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease !important;
 }
 
+.sf-main-page .page_content .sf-cta__icon {
+  flex: 0 0 auto;
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
 .sf-main-page .page_content .sf-cta--primary {
   color: #fff !important;
   background: #ed1e24 !important;
