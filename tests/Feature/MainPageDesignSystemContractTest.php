@@ -350,7 +350,7 @@ class MainPageDesignSystemContractTest extends TestCase
         $this->assertSame(2, substr_count($menu, "\$url = '/car-servicing';"));
         $mobileMenu = strstr($menu, '@else', true);
         $this->assertNotFalse($mobileMenu);
-        $treeOverride = strpos($mobileMenu, 'if($link->tree || $isFleet)');
+        $treeOverride = strpos($mobileMenu, 'if(($link->tree && !$isMot) || $isFleet)');
         $servicesOverride = strpos($mobileMenu, 'if ($isServices) {');
         $this->assertNotFalse($treeOverride);
         $this->assertNotFalse($servicesOverride);

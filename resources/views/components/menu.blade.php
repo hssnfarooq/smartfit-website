@@ -11,8 +11,11 @@
                 
                 $isFleet = (strcasecmp(trim($link->title), 'fleet') === 0);
                 $isServices = (strcasecmp(trim($link->title), 'services') === 0 || strcasecmp(trim($link->title), 'servicing') === 0);
+                $isMot = (strcasecmp(trim($link->title), 'mot') === 0);
+                $isTyres = (strcasecmp(trim($link->title), 'tyres') === 0 || strcasecmp(trim($link->title), 'tyre shop') === 0 || strcasecmp(trim($link->title), 'tyre') === 0);
+                $isRepairs = (strcasecmp(trim($link->title), 'repairs') === 0 || strcasecmp(trim($link->title), 'repair') === 0);
                 $klik = '';
-                if($link->tree || $isFleet){
+                if(($link->tree && !$isMot) || $isFleet){
                     $url = 'javascript:;';
                     $klik = ' onclick="podmeni('.$link->id.')"';
                 }
@@ -20,9 +23,21 @@
                     $url = '/car-servicing';
                     $klik = '';
                 }
+                if ($isTyres) {
+                    $url = '/tyres';
+                    $klik = '';
+                }
+                if ($isFleet) {
+                    $url = '/fleet-and-contract-work';
+                    $klik = '';
+                }
+                if ($isRepairs) {
+                    $url = '/repairs';
+                    $klik = '';
+                }
             @endphp
              <a href="{{$url}}"{!!html_entity_decode($klik)!!} class="list-group-item list-group-item-action list-group-item-success">{{strcasecmp(trim($link->title), 'contacts') === 0 ? 'Contact Us' : (strcasecmp(trim($link->title), 'tyre shop') === 0 ? 'Tyres' : $link->title)}} 
-                @if ($link->tree || $isFleet)
+                @if (($link->tree && !$isMot) || $isFleet)
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short strelica" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
                 </svg>
@@ -52,15 +67,18 @@
                         
                         $isFleet = (strcasecmp(trim($link->title), 'fleet') === 0);
                         $isServices = (strcasecmp(trim($link->title), 'services') === 0 || strcasecmp(trim($link->title), 'servicing') === 0);
-                        if ($isServices) $url = '/car-servicing';
                         $isMot = (strcasecmp(trim($link->title), 'mot') === 0);
                         $isTyres = (strcasecmp(trim($link->title), 'tyres') === 0 || strcasecmp(trim($link->title), 'tyre shop') === 0 || strcasecmp(trim($link->title), 'tyre') === 0);
                         $isRepairs = (strcasecmp(trim($link->title), 'repairs') === 0 || strcasecmp(trim($link->title), 'repair') === 0);
-                        $isMegaMenu = $isFleet || $isServices || $isMot || $isTyres || $isRepairs;
-                        $isDropdown = $link->tree || $isMegaMenu;
-                        $klasa_li = $isDropdown ? ' class="dropdown' . ($isFleet ? ' dropdown_fleet_item' : '') . ($isServices ? ' dropdown_services_item' : '') . ($isMot ? ' dropdown_mot_item' : '') . ($isTyres ? ' dropdown_tyres_item' : '') . ($isRepairs ? ' dropdown_repairs_item' : '') . '"' : '';
+                        if ($isServices) $url = '/car-servicing';
+                        if ($isTyres) $url = '/tyres';
+                        if ($isFleet) $url = '/fleet-and-contract-work';
+                        if ($isRepairs) $url = '/repairs';
+                        $isMegaMenu = $isFleet || $isServices || $isTyres || $isRepairs;
+                        $isDropdown = ($link->tree && !$isMot) || $isMegaMenu;
+                        $klasa_li = $isDropdown ? ' class="dropdown' . ($isFleet ? ' dropdown_fleet_item' : '') . ($isServices ? ' dropdown_services_item' : '') . ($isTyres ? ' dropdown_tyres_item' : '') . ($isRepairs ? ' dropdown_repairs_item' : '') . '"' : '';
                         $klasa_a = $isMegaMenu ? ' aria-haspopup="true" aria-expanded="false"' : '';
-                        if ($link->tree && !$isMegaMenu) {
+                        if ($link->tree && !$isMegaMenu && !$isMot) {
                             $klasa_a = ' role="button" data-bs-toggle="dropdown" aria-expanded="false"';
                         }
                     @endphp
@@ -80,10 +98,10 @@
                                 <div class="fleet_col fleet_col_1">
                                     <p class="fleet_col_title">Fleet Services</p>
                                     <ul class="fleet_list">
-                                        <li class="fleet_item">Fleet Maintenance</li>
-                                        <li class="fleet_item">Fleet Servicing</li>
-                                        <li class="fleet_item">Fleet Repair</li>
-                                        <li class="fleet_item">MOT Management</li>
+                                        <li class="fleet_item">Fleet Maintenance (Coming Soon)</li>
+                                        <li class="fleet_item">Fleet Servicing (Coming Soon)</li>
+                                        <li class="fleet_item">Fleet Repair (Coming Soon)</li>
+                                        <li class="fleet_item">MOT Management (Coming Soon)</li>
                                     </ul>
                                 </div>
 
@@ -91,10 +109,8 @@
                                 <div class="fleet_col fleet_col_2">
                                     <p class="fleet_col_title">Business Support</p>
                                     <ul class="fleet_list">
-                                        <li class="fleet_item">Contract Work</li>
-                                        <li class="fleet_item">parts Sourcing</li>
-                                        <li class="fleet_item">Priority Bookings</li>
-                                        <li class="fleet_item">Scheduled Maintenance</li>
+                                        <li class="fleet_item">Contract Work (Coming Soon)</li>
+                                        <li class="fleet_item">Priority Bookings (Coming Soon)</li>
                                     </ul>
                                 </div>
 
@@ -102,17 +118,17 @@
                                 <div class="fleet_col fleet_col_3">
                                     <p class="fleet_col_title">Commercial Vehicles</p>
                                     <ul class="fleet_list">
-                                        <li class="fleet_item">Van Servicing</li>
-                                        <li class="fleet_item">Commercial Vehicle Repair</li>
-                                        <li class="fleet_item">Vehicle Recovery</li>
-                                        <li class="fleet_item">Vehicle Health Checks</li>
+                                        <li class="fleet_item">Van Servicing (Coming Soon)</li>
+                                        <li class="fleet_item">Commercial Vehicle Repair (Coming Soon)</li>
+                                        <li class="fleet_item">Vehicle Recovery (Coming Soon)</li>
+                                        <li class="fleet_item">Vehicle Health Checks (Coming Soon)</li>
                                     </ul>
                                 </div>
 
                                 <!-- Column 4: Promotional Content -->
                                 <div class="fleet_col fleet_col_4 fleet_promo_col">
                                     <div class="fleet_promo_content">
-                                        <h3 class="fleet_promo_heading">Keep your fleet moving</h3>
+                                        <h3 class="fleet_promo_heading">KEEP YOUR FLEET MOVING</h3>
                                         <p class="fleet_promo_desc">Reliable main tenancy and repair solutions for business and commercial vehicles</p>
                                     </div>
                                 </div>
@@ -128,10 +144,10 @@
                                         <li class="fleet_item"><a href="/interim-car-service" class="services_menu_link">Interim Car Service</a></li>
                                         <li class="fleet_item"><a href="/full-car-service" class="services_menu_link">Full Car Service</a></li>
                                         <li class="fleet_item"><a href="/major-car-service" class="services_menu_link">Major Car Service</a></li>
-                                        <li class="fleet_item"><a href="/manufacturer-approved-service" class="services_menu_link">Manufacturer Approved Service</a></li>
                                         <li class="fleet_item"><a href="/electric-vehicle-servicing-and-maintenance" class="services_menu_link">Electric Vehicle Servicing & Maintenance</a></li>
                                         <li class="fleet_item"><a href="/hybrid-vehicle-servicing" class="services_menu_link">Hybrid Vehicle Servicing</a></li>
-                                        <li class="fleet_item"><a href="/car-servicing" class="services_menu_link">Car Servicing</a></li>
+                                        <li class="fleet_item"><a href="/oil-and-filter" class="services_menu_link">Oil & Filter</a></li>
+                                        <li class="fleet_item"><a href="/free-25-point-health-check" class="services_menu_link">Free 25 Point Health Check</a></li>
                                     </ul>
                                 </div>
 
@@ -140,10 +156,7 @@
                                     <p class="fleet_col_title">Maintenance</p>
                                     <ul class="fleet_list services_nav_list">
                                         <li class="fleet_item"><a href="/air-conditioning-service" class="services_menu_link">Air Conditioning Service</a></li>
-                                        <li class="fleet_item"><a href="/oil-and-filter" class="services_menu_link">Oil & Filter</a></li>
                                         <li class="fleet_item"><a href="/brake-fluid-change" class="services_menu_link">Brake Fluid Change</a></li>
-                                        <li class="fleet_item"><a href="/servicing" class="services_menu_link">Servicing</a></li>
-                                        <li class="fleet_item"><a href="/free-25-point-health-check" class="services_menu_link">Free 25 Point Health Check</a></li>
                                     </ul>
                                 </div>
 
@@ -151,10 +164,8 @@
                                 <div class="fleet_col fleet_col_3">
                                     <p class="fleet_col_title">Additional Services</p>
                                     <ul class="fleet_list services_nav_list">
-                                        <li class="fleet_item"><a href="/air-conditioning-recharge" class="services_menu_link">Air Conditioning Recharge</a></li>
                                         <li class="fleet_item"><a href="/batteries" class="services_menu_link">Battery Check & Replacement</a></li>
                                         <li class="fleet_item"><a href="/vehicle-diagnostics" class="services_menu_link">Vehicle Diagnostics</a></li>
-                                        <li class="fleet_item"><a href="/parts-sourcing" class="services_menu_link">Parts Sourcing</a></li>
                                         <li class="fleet_item"><a href="/vehicle-recovery" class="services_menu_link">Vehicle Recovery</a></li>
                                     </ul>
                                 </div>
@@ -162,77 +173,26 @@
                                 <!-- Column 4: Promotional Content -->
                                 <div class="fleet_col fleet_col_4 fleet_promo_col">
                                     <div class="fleet_promo_content">
-                                        <h3 class="fleet_promo_heading">Keep your vehicle performing at its best</h3>
+                                        <h3 class="fleet_promo_heading">KEEP YOUR VEHICLE PERFORMING AT ITS BEST</h3>
                                         <p class="fleet_promo_desc">Routine servicing and maintenance for all makes and models</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @elseif ($isMot)
-                        <div class="dropdown-menu mot_mega_menu" id="mobile_submenu{{$link->id}}" aria-labelledby="shop_submenu{{$link->id}}">
-                            <div class="fleet_mega_menu_inner mot_mega_menu_inner mega_menu_with_cta">
-                                <!-- Column 1: MOT -->
-                                <div class="fleet_col fleet_col_1">
-                                    <p class="fleet_col_title">MOT</p>
-                                    <ul class="fleet_list services_nav_list">
-                                        <li class="fleet_item"><a href="/mot" class="services_menu_link">Book Your MOT</a></li>
-                                        <li class="fleet_item"><a href="/mot-class-4" class="services_menu_link">MOT Class 4</a></li>
-                                        <li class="fleet_item"><a href="/mot-class-5-kennings-auto-centre" class="services_menu_link">MOT Class 5</a></li>
-                                        <li class="fleet_item"><a href="/mot-class-7" class="services_menu_link">MOT Class 7</a></li>
-                                        <li class="fleet_item"><a href="/mot-class-4" class="services_menu_link">MOT Retest</a></li>
-                                        <li class="fleet_item"><a href="/mot-class-4" class="services_menu_link">MOT Preparation</a></li>
-                                        <li class="fleet_item"><a href="/mot" class="services_menu_link">When is My MOT Due</a></li>
-                                    </ul>
-                                </div>
-
-                                <!-- Column 2: MOT & Service -->
-                                <div class="fleet_col fleet_col_2">
-                                    <p class="fleet_col_title">MOT & Service</p>
-                                    <ul class="fleet_list services_nav_list">
-                                        <li class="fleet_item"><a href="/mot-class-4-oil-and-filter" class="services_menu_link">Combined MOT & Service</a></li>
-                                        <li class="fleet_item"><a href="/mot-class-4-oil-and-filter" class="services_menu_link">MOT Class 4 + Oil & Filter</a></li>
-                                        <li class="fleet_item"><a href="/mot-class-4-interim-service" class="services_menu_link">MOT Class 4 + Interim Service</a></li>
-                                        <li class="fleet_item"><a href="/mot-class-4-full-service" class="services_menu_link">MOT Class 4 + Full Service</a></li>
-                                        <li class="fleet_item"><a href="/mot-class-4-major-service" class="services_menu_link">MOT Class 4 + Major Service</a></li>
-                                    </ul>
-                                </div>
-
-                                <!-- Column 3: Commercial Vehicles -->
-                                <div class="fleet_col fleet_col_3">
-                                    <p class="fleet_col_title">Commercial Vehicles</p>
-                                    <ul class="fleet_list services_nav_list">
-                                        <li class="fleet_item"><a href="/mot-class-5-kennings-auto-centre" class="services_menu_link">MOT Class 5 - Smartfit Autos</a></li>
-                                        <li class="fleet_item"><a href="/mot-class-7" class="services_menu_link">MOT Class 7</a></li>
-                                        <li class="fleet_item"><a href="/mot" class="services_menu_link">Common MOT Failures</a></li>
-                                        <li class="fleet_item"><a href="/free-25-point-health-check" class="services_menu_link">Pre MOT Checks</a></li>
-                                        <li class="fleet_item"><a href="/mot" class="services_menu_link">MOT Test Advise</a></li>
-                                        <li class="fleet_item"><a href="/repairs" class="services_menu_link">MOT Repair</a></li>
-                                    </ul>
-                                </div>
-
-                                <!-- Column 4: Promotional Content -->
-                                <div class="fleet_col fleet_col_4 fleet_promo_col">
-                                    <div class="fleet_promo_content">
-                                        <h3 class="fleet_promo_heading">MOT due?</h3>
-                                        <p class="fleet_promo_desc">Fast and reliable MOT testing available</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @elseif ($isTyres)
                         <div class="dropdown-menu tyres_mega_menu" id="mobile_submenu{{$link->id}}" aria-labelledby="shop_submenu{{$link->id}}">
-                            <div class="fleet_mega_menu_inner tyres_mega_menu_inner">
+                            <div class="fleet_mega_menu_inner tyres_mega_menu_inner mega_menu_three_columns">
                                 <!-- Column 1: Tyre Services -->
                                 <div class="fleet_col fleet_col_1">
                                     <p class="fleet_col_title">Tyre Services</p>
                                     <ul class="fleet_list services_nav_list">
                                         <li class="fleet_item"><a href="/tyres-2" class="services_menu_link">Tyre Fitting</a></li>
                                         <li class="fleet_item"><a href="/mobile-tyre-fitting" class="services_menu_link">Mobile Tyre Fitting</a></li>
-                                        <li class="fleet_item">Puncture Repairs</li>
+                                        <li class="fleet_item">Puncture Repairs (Coming Soon)</li>
                                         <li class="fleet_item"><a href="/tyre-pressure-monitoring-system" class="services_menu_link">TPMS</a></li>
-                                        <li class="fleet_item">Wheel Balancing</li>
-                                        <li class="fleet_item">Tyre Rotation</li>
-                                        <li class="fleet_item">Seasonal Tyre Charges</li>
+                                        <li class="fleet_item">Wheel Balancing (Coming Soon)</li>
+                                        <li class="fleet_item">Tyre Rotation (Coming Soon)</li>
+                                        <li class="fleet_item">Seasonal Tyre Charges (Coming Soon)</li>
                                     </ul>
                                 </div>
 
@@ -243,8 +203,6 @@
                                         <li class="fleet_item"><a href="/wheel-alignment" class="services_menu_link">Wheel Alignment</a></li>
                                         <li class="fleet_item"><a href="/4-wheel-laser-alignment" class="services_menu_link">4 Wheel Laser Alignment</a></li>
                                         <li class="fleet_item"><a href="/alloy-wheel-refurbishment" class="services_menu_link">Alloy Wheel Refurbishment</a></li>
-                                        <li class="fleet_item">Tracking Adjustment</li>
-                                        <li class="fleet_item">Wheel Balancing</li>
                                     </ul>
                                 </div>
 
@@ -252,22 +210,11 @@
                                 <div class="fleet_col fleet_col_3">
                                     <p class="fleet_col_title">Tyre Information</p>
                                     <ul class="fleet_list services_nav_list">
-                                        <li class="fleet_item">Tyre Pressure Advise</li>
-                                        <li class="fleet_item">Tyre Safety Checks</li>
-                                        <li class="fleet_item">Tyre Wear & Tread Depth</li>
-                                        <li class="fleet_item">Tyre Maintenance Tips</li>
-                                        <li class="fleet_item">Winter vs Summer Tyres</li>
-                                    </ul>
-                                </div>
-
-                                <!-- Column 4: Fleet & Commercial -->
-                                <div class="fleet_col fleet_col_4">
-                                    <p class="fleet_col_title">Fleet & Commercial</p>
-                                    <ul class="fleet_list services_nav_list">
-                                        <li class="fleet_item">Fleet Tyre Management</li>
-                                        <li class="fleet_item"><a href="/fleet-and-contract-work" class="services_menu_link">Contract Work</a></li>
-                                        <li class="fleet_item">Commercial Vehicle Tyres</li>
-                                        <li class="fleet_item">Emergency Tyre Assistance</li>
+                                        <li class="fleet_item">Tyre Pressure Advise (Coming Soon)</li>
+                                        <li class="fleet_item">Tyre Safety Checks (Coming Soon)</li>
+                                        <li class="fleet_item">Tyre Wear & Tread Depth (Coming Soon)</li>
+                                        <li class="fleet_item">Tyre Maintenance Tips (Coming Soon)</li>
+                                        <li class="fleet_item">Winter vs Summer Tyres (Coming Soon)</li>
                                     </ul>
                                 </div>
                             </div>
@@ -279,11 +226,11 @@
                                 <div class="fleet_col fleet_col_1">
                                     <p class="fleet_col_title">Engine & Mechanical</p>
                                     <ul class="fleet_list services_nav_list">
-                                        <li class="fleet_item">Engine Repairs</li>
-                                        <li class="fleet_item">Timing Belt Replacement</li>
+                                        <li class="fleet_item">Engine Repairs (Coming Soon)</li>
+                                        <li class="fleet_item">Timing Belt Replacement (Coming Soon)</li>
                                         <li class="fleet_item"><a href="/clutches" class="services_menu_link">Clutch Repairs</a></li>
-                                        <li class="fleet_item">GearBox Repairs</li>
-                                        <li class="fleet_item">Cooling System Repairs</li>
+                                        <li class="fleet_item">GearBox Repairs (Coming Soon)</li>
+                                        <li class="fleet_item">Cooling System Repairs (Coming Soon)</li>
                                     </ul>
                                 </div>
 
@@ -292,7 +239,6 @@
                                     <p class="fleet_col_title">Brakes</p>
                                     <ul class="fleet_list services_nav_list">
                                         <li class="fleet_item"><a href="/brakes" class="services_menu_link">Brake Repairs</a></li>
-                                        <li class="fleet_item">Brake Pads & Discs</li>
                                         <li class="fleet_item"><a href="/shocks-and-suspension" class="services_menu_link">Suspension Repairs</a></li>
                                         <li class="fleet_item"><a href="/shocks-and-suspension" class="services_menu_link">Shock Absorbers</a></li>
                                         <li class="fleet_item"><a href="/steering" class="services_menu_link">Steering Repair</a></li>
@@ -305,9 +251,9 @@
                                     <ul class="fleet_list services_nav_list">
                                         <li class="fleet_item"><a href="/vehicle-diagnostics" class="services_menu_link">Vehicle Diagnostics</a></li>
                                         <li class="fleet_item"><a href="/batteries" class="services_menu_link">Battery Replacement</a></li>
-                                        <li class="fleet_item">Starter Motor Repairs</li>
-                                        <li class="fleet_item">Alternator Repairs</li>
-                                        <li class="fleet_item">Electrical Fault Finding</li>
+                                        <li class="fleet_item">Starter Motor Repairs (Coming Soon)</li>
+                                        <li class="fleet_item">Alternator Repairs (Coming Soon)</li>
+                                        <li class="fleet_item">Electrical Fault Finding (Coming Soon)</li>
                                     </ul>
                                 </div>
 
@@ -316,15 +262,12 @@
                                     <p class="fleet_col_title">Exhaust & General Repairs</p>
                                     <ul class="fleet_list services_nav_list">
                                         <li class="fleet_item"><a href="/exhausts" class="services_menu_link">Exhaust Repairs</a></li>
-                                        <li class="fleet_item">Welding Repairs</li>
-                                        <li class="fleet_item"><a href="/repairs" class="services_menu_link">MOT Repairs</a></li>
-                                        <li class="fleet_item"><a href="/repairs" class="services_menu_link">General Vehicle Repairs</a></li>
-                                        <li class="fleet_item"><a href="/parts-sourcing" class="services_menu_link">Parts Replacement</a></li>
+                                        <li class="fleet_item">General Vehicle Repairs (Coming Soon)</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        @elseif ($link->tree)
+                        @elseif ($link->tree && !$isMot)
                         <ul class="dropdown-menu" aria-labelledby="shop_submenu{{$link->id}}">
                             @foreach ($link->getRelated('page')->first()->children as $podmeni)
                                 <li>
@@ -585,6 +528,10 @@
         grid-template-columns: repeat(4, 1fr) !important;
         gap: clamp(24px, 3.5vw, 60px) !important;
         align-items: start !important;
+    }
+
+    .mega_menu_three_columns {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
 
     .tyres_mega_menu_inner,
