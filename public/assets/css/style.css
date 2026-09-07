@@ -6712,6 +6712,84 @@ Responsive For Mobile & Tablet Devices
 /* Media Screen 375px - End
 ================================================== */
 
+/* Preserve the former global typography on explicitly excluded content. */
+:where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) h1 {
+  font-family: Montserrat, sans-serif !important;
+  font-size: calc(1.625rem + 4.5vw);
+  font-weight: 800 !important;
+  line-height: 100%;
+  letter-spacing: 0;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+:where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) h2 {
+  font-family: Montserrat, sans-serif !important;
+  font-size: calc(1.475rem + 2.7vw);
+  font-weight: 800 !important;
+  line-height: 100% !important;
+  letter-spacing: 0;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+:is(body:not(.sf-main-page) .page_content, .site_header, .site_footer) h3 {
+  font-family: Mulish !important;
+  font-weight: 800 !important;
+  font-size: 25px !important;
+  line-height: 30.4px;
+  letter-spacing: -0.19px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+:where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) h4 {
+  font-family: Montserrat, sans-serif !important;
+  font-weight: 700;
+}
+
+:where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) h5 {
+  font-family: Montserrat, sans-serif !important;
+  font-weight: 600;
+}
+
+:where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) h6 {
+  font-family: Montserrat, sans-serif !important;
+  font-weight: 600;
+}
+
+:where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) p {
+  font-family: Mulish !important;
+  font-weight: 400;
+  vertical-align: middle !important;
+}
+
+:where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) ul li {
+  color: #444;
+  font-size: 18px !important;
+  font-family: Mulish !important;
+}
+
+:where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) .fs-5 {
+  font-size: 18px !important;
+}
+
+@media (min-width: 1200px) {
+  :where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) h1 {
+    font-size: 5rem;
+  }
+
+  :where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) h2 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :where(body:not(.sf-main-page) .page_content, .site_header, .site_footer) .fs-5 {
+    font-size: 16px !important;
+  }
+}
+
 /* SmartFit main-page design system: scoped to the six primary public pages. */
 .sf-main-page {
   --sf-type-h1: clamp(2rem, 1.5rem + 2vw, 3rem);
@@ -6735,6 +6813,7 @@ Responsive For Mobile & Tablet Devices
 
 .sf-main-page .page_content h2,
 .sf-main-page .page_content p.display-4,
+.sf-main-page .page_content p.sf-section-heading,
 .sf-main-page .page_content .section_heading .heading_text {
   font-family: var(--bs-font-heading) !important;
   font-size: var(--sf-type-h2) !important;
@@ -6806,56 +6885,71 @@ Responsive For Mobile & Tablet Devices
   font-size: 13px !important;
   font-weight: 800 !important;
   line-height: 1 !important;
-  letter-spacing: 0.35px;
+  letter-spacing: 0.35px !important;
   text-align: center;
   text-decoration: none;
   border: 2px solid transparent;
   border-radius: 999px;
   cursor: pointer;
-  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease !important;
 }
 
 .sf-main-page .page_content .sf-cta--primary {
   color: #fff !important;
-  background: #ed1e24;
-  border-color: #ed1e24;
+  background: #ed1e24 !important;
+  border-color: #ed1e24 !important;
+}
+
+.sf-main-page .page_content .sf-cta.fm-btn-wh,
+.sf-main-page .page_content .sf-cta.sv-btn-wh {
+  color: #111 !important;
+  background: #fff !important;
+  border-color: #fff !important;
+}
+
+.sf-main-page .page_content .sf-cta.sv-btn-red-out {
+  color: #fff !important;
+  background: transparent !important;
+  border-color: #ed1e24 !important;
 }
 
 .sf-main-page .page_content .sf-cta--primary:hover {
+  background: #c9141a !important;
+  border-color: #c9141a !important;
   color: #fff !important;
-  background: #c9141a;
-  border-color: #c9141a;
   transform: translateY(-1px);
 }
 
 .sf-main-page .page_content .sf-cta--outline-light {
   color: #fff !important;
-  background: transparent;
-  border-color: #fff;
+  background: transparent !important;
+  border-color: #fff !important;
 }
 
 .sf-main-page .page_content .sf-cta--outline-light:hover {
+  background: #fff !important;
+  border-color: #fff !important;
   color: #181818 !important;
-  background: #fff;
   transform: translateY(-1px);
 }
 
 .sf-main-page .page_content .sf-cta--outline-dark {
   color: #181818 !important;
-  background: transparent;
-  border-color: #181818;
+  background: transparent !important;
+  border-color: #181818 !important;
 }
 
 .sf-main-page .page_content .sf-cta--outline-dark:hover {
+  background: #181818 !important;
+  border-color: #181818 !important;
   color: #fff !important;
-  background: #181818;
   transform: translateY(-1px);
 }
 
 .sf-main-page .page_content .sf-cta:focus-visible {
-  outline: 3px solid #343a40;
-  outline-offset: 3px;
-  box-shadow: 0 0 0 3px #fff;
+  outline: 3px solid #343a40 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 3px #fff !important;
 }
 
 .sf-main-page .page_content .sf-cta:active {
@@ -6872,6 +6966,6 @@ Responsive For Mobile & Tablet Devices
 
 @media (prefers-reduced-motion: reduce) {
   .sf-main-page .page_content .sf-cta {
-    transition: none;
+    transition: none !important;
   }
 }

@@ -256,7 +256,7 @@ window.addEventListener('load', initHomeBrandSlider);
             For over 35 years, Smartfit Autos has provided trusted MOTs, servicing, repairs and tyres across the UK. Built on honest advice, reliable workmanship and experienced technicians.
         </p>
         <div>
-            <a class="btn btn-danger fw-bold text-uppercase d-inline-flex align-items-center gap-2 sf-cta sf-cta--primary" href="/about-us" style="background-color: #ED1E24; border-color: #ED1E24; letter-spacing: 0.5px;">
+            <a class="btn btn-danger fw-bold text-uppercase d-inline-flex align-items-center gap-2 sf-cta sf-cta--primary" href="/about-us" style="background-color: #ED1E24; border-color: #ED1E24;">
                 <span>FIND OUT MORE</span>
                 <i class="fa-solid fa-arrow-right fs-6"></i>
             </a>
@@ -364,7 +364,7 @@ $hmOffers = [
                 </div>
             </div>
             <div>
-                <button type="submit" class="btn btn-danger fw-bold text-uppercase d-inline-flex align-items-center gap-2 sf-cta sf-cta--primary" style="background-color: #ED1E24; border-color: #ED1E24; letter-spacing: 0.5px;">
+                <button type="submit" class="btn btn-danger fw-bold text-uppercase d-inline-flex align-items-center gap-2 sf-cta sf-cta--primary" style="background-color: #ED1E24; border-color: #ED1E24;">
                     <span>SEARCH GARAGES</span>
                     <i class="fa-solid fa-arrow-right fs-6"></i>
                 </button>
@@ -449,7 +449,7 @@ $hmPackages = [
 </div>
 
 <div class="text-center mt-5">
-    <a href="/booking/order" class="btn btn-danger fw-bold text-uppercase d-inline-flex align-items-center gap-2 sf-cta sf-cta--primary" style="background-color: #ED1E24; border-color: #ED1E24; letter-spacing: 0.5px;">
+    <a href="/booking/order" class="btn btn-danger fw-bold text-uppercase d-inline-flex align-items-center gap-2 sf-cta sf-cta--primary" style="background-color: #ED1E24; border-color: #ED1E24;">
         <span>BOOK A SERVICE</span>
         <i class="fa-solid fa-arrow-right fs-6"></i>
     </a>
@@ -463,11 +463,11 @@ $hmPackages = [
 <div class="container position-relative py-4" style="z-index: 2;">
 <div class="row justify-content-center">
     <div class="col-lg-8">
-        <p class="display-5 fw-extrabold text-white mb-4" style="font-weight: 800; line-height: 1.3;">
+        <p class="display-5 fw-extrabold text-white mb-4 sf-section-heading">
             RELIABLE AUTOMOTIVE REPAIR AND MAINTENANCE YOU CAN COUNT ON
         </p>
         <div>
-            <a href="/booking/order" class="btn btn-danger fw-bold text-uppercase d-inline-flex align-items-center gap-2 sf-cta sf-cta--primary" style="background-color: #ED1E24; border-color: #ED1E24; letter-spacing: 0.5px;">
+            <a href="/booking/order" class="btn btn-danger fw-bold text-uppercase d-inline-flex align-items-center gap-2 sf-cta sf-cta--primary" style="background-color: #ED1E24; border-color: #ED1E24;">
                 <span>BOOK AN APPOINTMENT</span>
                 <i class="fa-solid fa-arrow-right fs-6"></i>
             </a>
@@ -797,7 +797,7 @@ window.addEventListener('load', initReviewsSlider);
 <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.8); z-index: 1;"></div>
 <div class="container position-relative py-4" style="z-index: 2;">
 <div class="text-center mb-5">
-    <p class="display-5 fw-extrabold text-uppercase text-white mb-0" style="font-weight: 900; letter-spacing: 1px;">
+    <p class="display-5 fw-extrabold text-uppercase text-white mb-0 sf-section-heading">
         GET IN TOUCH
     </p>
 </div>
@@ -864,19 +864,11 @@ $fmMap  = asset('storage/Fleet/3677237b4ad144fd1f5ffaa1482464466f659bc0.png');
 FLEET PAGE — SCOPED STYLES (prefix fm-)
 ============================================================ */
 /* BUTTONS */
-.fm-btn-red, .fm-btn-outline, .fm-btn-dk, .fm-btn-wh{position:relative!important;box-shadow:none!important;-webkit-clip-path:none!important;clip-path:none!important}
+.fm-btn-red, .fm-btn-outline, .fm-btn-dk, .fm-btn-wh{position:relative!important;-webkit-clip-path:none!important;clip-path:none!important}
 .fm-btn-red::before,.fm-btn-red::after,
 .fm-btn-outline::before,.fm-btn-outline::after,
 .fm-btn-dk::before,.fm-btn-dk::after,
 .fm-btn-wh::before,.fm-btn-wh::after{display:none!important;content:none!important;opacity:0!important}
-
-.fm-btn-red{background-color:#ED1E24!important;border-color:#ED1E24!important;color:#fff!important;font-weight:800!important;letter-spacing:.5px!important;transition:all .2s ease!important}
-.fm-btn-red:hover{background-color:#c41019!important;border-color:#c41019!important;color:#fff!important}
-.fm-btn-outline{background:transparent!important;border-color:rgba(255,255,255,.4)!important;color:#fff!important;font-weight:700!important;letter-spacing:.5px!important;transition:all .2s ease!important}
-.fm-btn-outline:hover{border-color:#fff!important;background:rgba(255,255,255,.1)!important;color:#fff!important}
-.fm-btn-dk{background:transparent!important;border-color:#222!important;color:#222!important;transition:all .2s}
-.fm-btn-dk:hover{background:#222!important;color:#fff!important;border-color:#222!important}
-.sf-main-page .page_content .sf-cta.fm-btn-wh{background:#fff!important;border-color:#fff!important;color:#111!important}
 
 /* HERO */
 .fm-hero{background:#0d0d0f;background:linear-gradient(135deg,#070708 0%,#111114 50%,#1b0d10 100%);min-height: 600px;display:flex;align-items:center;padding:50px 0;position:relative;overflow:hidden}
@@ -1224,8 +1216,8 @@ SECTION 3 — HOW FLEET ACCOUNTS WORK
 </div>
 </div>
 <div class="d-flex flex-wrap gap-3">
-<a href="tel:01733569998" class="btn fm-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark" style="letter-spacing:.5px">CALL NOW  01733 569998</a>
-<a href="/booking/order" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary" style="letter-spacing:.5px">BOOK YOUR CAR SERVICE</a>
+<a href="tel:01733569998" class="btn fm-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW  01733 569998</a>
+<a href="/booking/order" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR SERVICE</a>
 </div>
 </div>
 </div>
@@ -1243,8 +1235,8 @@ SECTION 4 — DARK FLEET CTA
 </p>
 <p class="text-secondary fs-5 mb-4 text-white opacity-1" style="opacity: 1 !important;font-family: Mulish;font-weight: 400;vertical-align: middle;">Trusted by local businesses to look after the vehicles they rely on every day.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/contact-us" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary" style="letter-spacing:.8px">TALK TO OUR TEAM &rarr;</a>
-<a href="tel:01733569998" class="btn fm-btn-wh fw-bold text-uppercase border-white sf-cta sf-cta--outline-light" style="letter-spacing:.8px">CALL NOW 01733 569998 &rarr;</a>
+<a href="/contact-us" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">TALK TO OUR TEAM &rarr;</a>
+<a href="tel:01733569998" class="btn fm-btn-wh fw-bold text-uppercase border-white sf-cta sf-cta--outline-light">CALL NOW 01733 569998 &rarr;</a>
 </div>
 </div>
 </div>
@@ -1764,8 +1756,8 @@ SECTION 12 — FINAL CTA
 <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">Looking For A Trusted Fleet<br>Maintenance Partner?</p>
 <p class="text-secondary mb-4 text-white opacity-1" style="opacity: 1 !important;font-family: Mulish;font-weight: 400;vertical-align: middle; font-size: 18px;">Reduce downtime, simplify vehicle maintenance, and keep your fleet operating efficiently with expert garage services.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/contact-us" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary" style="letter-spacing:.8px">CONTACT OUR FLEET TEAM</a>
-<a href="tel:01733569998" class="btn fm-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light" style="letter-spacing:.8px">CALL NOW 01733 569998</a>
+<a href="/contact-us" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">CONTACT OUR FLEET TEAM</a>
+<a href="tel:01733569998" class="btn fm-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998</a>
 </div>
 </div>
 </div>
@@ -2003,8 +1995,8 @@ SECTION 1 — HERO
 <h1 class="fm-hero-title">CAR REPAIR<br>PETERBOROUGH</h1>
 <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px; color:#C7C4C0;">Need expert car repair in Peterborough? Smartfit Autos provides affordable and professional repair services for all vehicles. From minor issues to complex mechanical work, our experienced team uses advanced diagnostics to ensure quick, precise, and accurate results.</p>
 <div class="d-flex flex-wrap gap-3 mb-4">
-  <a href="tel:01733569998" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary" style="letter-spacing:.5px"><i class="fa-solid fa-phone me-2"></i>CALL NOW 01733 569998</a>
-  <a href="/booking/order" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light" style="letter-spacing:.5px">BOOK MOT ONLINE &rarr;</a>
+  <a href="tel:01733569998" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary"><i class="fa-solid fa-phone me-2"></i>CALL NOW 01733 569998</a>
+  <a href="/booking/order" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">BOOK MOT ONLINE &rarr;</a>
 </div>
 <div class="rp-hero-feats">
   <span><i class="fa-solid fa-check"></i>ADVANCED DIAGNOSTICS</span>
@@ -2121,8 +2113,8 @@ SECTION 3 — HOW OUR REPAIR PROCESS WORKS
 </div>
 </div>
 <div class="d-flex flex-wrap gap-3">
-<a href="tel:01733569998" class="btn rp-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark" style="letter-spacing:.5px">CALL NOW 01733 569998</a>
-<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary" style="letter-spacing:.5px">BOOK YOUR CAR REPAIR TODAY</a>
+<a href="tel:01733569998" class="btn rp-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW 01733 569998</a>
+<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR REPAIR TODAY</a>
 </div>
 </div>
 </div>
@@ -2173,7 +2165,7 @@ SECTION 5 — LOCAL CAR REPAIR EXPERTS
   <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px; color:#101014;">Our team delivers car repair solutions in Peterborough, providing fast, reliable service with minimal disruption to your routine.</p>
  <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px; color:#101014;">For anyone looking for reliable car repair services in Peterborough, Smartfit Autos is your local choice for expert repairs, honest advice, and quality workmanship.</p>
 </div>
-<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase mt-2 sf-cta sf-cta--primary" style="letter-spacing:.6px">BOOK YOUR REPAIR TODAY</a>
+<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase mt-2 sf-cta sf-cta--primary">BOOK YOUR REPAIR TODAY</a>
 </div>
 <div class="col-lg-6">
 <div class="rp-local-img">
@@ -2194,8 +2186,8 @@ SECTION 6 — BOOK YOUR CAR REPAIR CTA
 <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">NEED CAR REPAIR IN PETERBOROUGH?</p>
 <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color:#ffffff;">Book car repair in Peterborough with Smartfit Autos. Fast, affordable repairs by expert local mechanics you can trust.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary" style="letter-spacing:.8px">BOOK YOUR APPOINTMENT TODAY &rarr;</a>
-<a href="tel:01733569998" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light" style="letter-spacing:.8px">CALL NOW &rarr;</a>
+<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR APPOINTMENT TODAY &rarr;</a>
+<a href="tel:01733569998" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW &rarr;</a>
 </div>
 </div>
 </div>
@@ -2535,8 +2527,8 @@ SECTION 11 — FINAL CTA
 <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">BOOK YOUR CAR REPAIR IN PETERBOROUGH TODAY</p>
 <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color:#ffffff;">Smartfit Autos offers fast, affordable car repair in Peterborough with expert local mechanics.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary" style="letter-spacing:.8px">BOOK YOUR CAR REPAIR TODAY &rarr;</a>
-<a href="tel:01733569998" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light" style="letter-spacing:.8px">CALL NOW 01733 569998 &rarr;</a>
+<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR REPAIR TODAY &rarr;</a>
+<a href="tel:01733569998" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998 &rarr;</a>
 </div>
 </div>
 </div>
@@ -2629,7 +2621,7 @@ CAR SERVICING PAGE — SCOPED STYLES (prefix sv-)
 ============================================================ */
 /* BUTTONS */
 .sv-btn-red, .sv-btn-outline, .sv-btn-dk, .sv-btn-red-out, .sv-btn-wh,
-.rp-btn-red, .rp-btn-wh, .rp-btn-dk{position:relative!important;box-shadow:none!important;-webkit-clip-path:none!important;clip-path:none!important}
+.rp-btn-red, .rp-btn-wh, .rp-btn-dk{position:relative!important;-webkit-clip-path:none!important;clip-path:none!important}
 .sv-btn-red::before,.sv-btn-red::after,
 .sv-btn-outline::before,.sv-btn-outline::after,
 .sv-btn-dk::before,.sv-btn-dk::after,
@@ -2638,14 +2630,6 @@ CAR SERVICING PAGE — SCOPED STYLES (prefix sv-)
 .rp-btn-red::before,.rp-btn-red::after,
 .rp-btn-wh::before,.rp-btn-wh::after,
 .rp-btn-dk::before,.rp-btn-dk::after{display:none!important;content:none!important;opacity:0!important}
-
-.sv-btn-red{background-color:#ED1E24!important;border-color:#ED1E24!important;color:#fff!important;font-weight:800!important;letter-spacing:.5px!important;transition:all .2s ease!important}
-.sv-btn-red:hover{background-color:#c41019!important;border-color:#c41019!important;color:#fff!important}
-.sv-btn-outline{background:transparent!important;border-color:rgba(255,255,255,.45)!important;color:#fff!important;font-weight:700!important;letter-spacing:.5px!important;transition:all .2s ease!important}
-.sv-btn-outline:hover{border-color:#fff!important;background:rgba(255,255,255,.12)!important;color:#fff!important}
-.sv-btn-dk{background:transparent!important;border-color:#222!important;color:#222!important;transition:all .2s}
-.sv-btn-dk:hover{background:#222!important;color:#fff!important;border-color:#222!important}
-.sf-main-page .page_content .sf-cta.sv-btn-wh{background:#fff!important;border-color:#fff!important;color:#111!important}
 
 .sv-hero{background:#0d0d0f;background:linear-gradient(135deg,#070708 0%,#111114 50%,#1b0d10 100%);min-height:auto;display:flex;align-items:center;padding:50px 0;position:relative;overflow:hidden}
 .sv-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 50%,rgba(237,30,36,.22) 0%,rgba(237,30,36,.04) 45%,transparent 70%);pointer-events:none}
@@ -2746,8 +2730,6 @@ CAR SERVICING PAGE — SCOPED STYLES (prefix sv-)
 .sv-fitem.open .sv-fa{display:block}
 
 /* FINAL CTA */
-.sv-btn-red-out{background:transparent!important;border-color:#ED1E24!important;color:#fff!important;transition:all .2s}
-.sv-btn-red-out:hover{background:#ED1E24!important;color:#fff!important}
 .sv-fcta{position:relative;background:#111;padding:120px 0;overflow:hidden}
 .sv-fcta-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.48!important}
 .sv-fcta .sv-bookcta-title{font-size:clamp(2.2rem,4.5vw,3.6rem);letter-spacing:-.5px}
@@ -2889,8 +2871,8 @@ SECTION 3 — EASY STEPS TO GET YOUR CAR SERVICED
 </div>
 </div>
 <div class="d-flex flex-wrap gap-3">
-<a href="tel:01733569998" class="btn sv-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark" style="letter-spacing:.5px">CALL NOW 01733 569998</a>
-<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary" style="letter-spacing:.5px">BOOK YOUR CAR SERVICE</a>
+<a href="tel:01733569998" class="btn sv-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW 01733 569998</a>
+<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR SERVICE</a>
 </div>
 </div>
 </div>
@@ -2975,8 +2957,8 @@ SECTION 6 — BOOK YOUR CAR SERVICE IN PETERBOROUGH TODAY
 <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">BOOK YOUR CAR SERVICE IN PETERBOROUGH TODAY</p>
  <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color: white;">Don't wait for small issues to turn into expensive repairs. Keep your vehicle in top condition with Smartfit Autos.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary" style="letter-spacing:.8px">SCHEDULE YOUR SERVICE TODAY &rarr;</a>
-<a href="tel:01733569998" class="btn sv-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light" style="letter-spacing:.8px">CALL NOW 01733 569998 &rarr;</a>
+<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">SCHEDULE YOUR SERVICE TODAY &rarr;</a>
+<a href="tel:01733569998" class="btn sv-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998 &rarr;</a>
 </div>
 </div>
 </div>
@@ -3309,8 +3291,8 @@ SECTION 11 — FINAL CTA
 <p class="display-4 fw-extrabold text-white opacity-1" style="opacity: 1 !important;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">GET YOUR CAR SERVICED BY LOCAL EXPERTS</p>
  <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: center !important; font-size: 18px; color:white;">Smartfit Autos offers reliable, affordable car servicing in Peterborough. Book your slot today.</p>
 <div class="d-flex flex-wrap justify-content-center gap-3">
-<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary" style="letter-spacing:.8px">BOOK YOUR CAR SERVICE &rarr;</a>
-<a href="tel:01733569998" class="btn sv-btn-red-out fw-bold text-uppercase sf-cta sf-cta--outline-light" style="letter-spacing:.8px">CALL NOW 01733 569998 &rarr;</a>
+<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR SERVICE &rarr;</a>
+<a href="tel:01733569998" class="btn sv-btn-red-out fw-bold text-uppercase sf-cta sf-cta--outline-light">CALL NOW 01733 569998 &rarr;</a>
 </div>
 </div>
 </div>

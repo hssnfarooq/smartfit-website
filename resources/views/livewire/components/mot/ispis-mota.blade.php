@@ -333,7 +333,6 @@
             font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
-            letter-spacing: 0.5px;
             transition: all .2s;
             box-shadow: 0 4px 15px rgba(237,30,36,0.3);
             -webkit-clip-path: none !important;
@@ -352,7 +351,6 @@
             font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
-            letter-spacing: 0.5px;
             transition: all .2s;
             -webkit-clip-path: none !important;
             clip-path: none !important;
@@ -640,8 +638,8 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-3 flex-wrap">
-                    <a href="tel:01733569998" class="sf-cta sf-cta--outline-dark" style="border-color:#111;font-weight:800;color:#111;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;-webkit-clip-path:none!important;clip-path:none!important;">CALL NOW &nbsp;01733 569998</a>
-                    <a href="#book-mot" class="sf-cta sf-cta--primary" style="background:#ED1E24;border-color:#ED1E24;font-weight:800;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;-webkit-clip-path:none!important;clip-path:none!important;">BOOK MOT ONLINE</a>
+                    <a href="tel:01733569998" class="sf-cta sf-cta--outline-dark" style="border-color:#111;font-weight:800;color:#111;text-decoration:none;text-transform:uppercase;-webkit-clip-path:none!important;clip-path:none!important;">CALL NOW &nbsp;01733 569998</a>
+                    <a href="#book-mot" class="sf-cta sf-cta--primary" style="background:#ED1E24;border-color:#ED1E24;font-weight:800;color:#fff;text-decoration:none;text-transform:uppercase;-webkit-clip-path:none!important;clip-path:none!important;">BOOK MOT ONLINE</a>
                 </div>
             </div>
         </div>

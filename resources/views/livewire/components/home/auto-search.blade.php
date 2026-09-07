@@ -18,7 +18,7 @@
                     <div class="mb-3">
                         <input type="search" name="registration" wire:model="registration" class="form-control smartfit_light_input form-control-lg border-secondary-subtle rounded-3 text-center text-uppercase fw-bold" placeholder="Enter Registration" style="height: 54px; font-size: 18px; letter-spacing: 1px;">
                     </div>
-                    <button type="submit" class="btn btn-danger w-100 fw-bold text-uppercase d-flex align-items-center justify-content-center gap-2 sf-cta sf-cta--primary" wire:click="searchReg" style="background-color: #ED1E24; border-color: #ED1E24; letter-spacing: 0.5px;">
+                    <button type="submit" class="btn btn-danger w-100 fw-bold text-uppercase d-flex align-items-center justify-content-center gap-2 sf-cta sf-cta--primary" wire:click="searchReg" style="background-color: #ED1E24; border-color: #ED1E24;">
                         <span>GET A QUOTE</span>
                         <i class="fa-solid fa-arrow-right fs-6"></i>
                     </button>

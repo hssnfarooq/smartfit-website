@@ -54,7 +54,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery-ui.css') }}">
 
 <!-- Custom - CSS Include -->
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}?v={{ filemtime(public_path('assets/css/style.css')) }}">
 
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/moj.css') }}?v={{ filemtime(public_path('assets/css/moj.css')) }}">
 
