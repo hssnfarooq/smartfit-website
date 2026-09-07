@@ -420,7 +420,7 @@ $hmPackages = [
                 </div>
                 <h3 class="fw-bold text-dark mb-1" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     {{ $pkg['title'] }}
-                </h4>
+                </h3>
                 <div class="text-uppercase fw-bold text-muted small mb-3" style="font-size: 11px; letter-spacing: 0.5px;">WHAT IS INCLUDED</div>
                 
                 <div class="d-flex justify-content-center">

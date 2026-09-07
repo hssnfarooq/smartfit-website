@@ -67,6 +67,16 @@ class MainPageDesignSystemContractTest extends TestCase
         $this->assertStringNotContainsString("querySelectorAll('ul li')", $view);
     }
 
+    public function test_homepage_package_titles_close_at_the_same_heading_level(): void
+    {
+        $view = $this->source('resources/views/frontend/index.blade.php');
+
+        $this->assertStringContainsString(
+            "<h3 class=\"fw-bold text-dark mb-1\" style=\"font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;\">\n                    {{ \$pkg['title'] }}\n                </h3>",
+            $view
+        );
+    }
+
     public function test_label_rule_outspecifies_supporting_utility_classes(): void
     {
         $css = $this->source('public/assets/css/style.css');
