@@ -6778,6 +6778,8 @@ Responsive For Mobile & Tablet Devices
 }
 
 .sf-main-page .page_content label,
+.sf-main-page .page_content label.small,
+.sf-main-page .page_content label.text-muted,
 .sf-main-page .page_content .eyebrow,
 .sf-main-page .page_content .widget_title {
   font-family: var(--bs-font-heading) !important;

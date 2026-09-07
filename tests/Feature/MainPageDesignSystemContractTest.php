@@ -66,4 +66,12 @@ class MainPageDesignSystemContractTest extends TestCase
         $this->assertStringNotContainsString("querySelectorAll('h3')", $view);
         $this->assertStringNotContainsString("querySelectorAll('ul li')", $view);
     }
+
+    public function test_label_rule_outspecifies_supporting_utility_classes(): void
+    {
+        $css = $this->source('public/assets/css/style.css');
+
+        $this->assertStringContainsString('.sf-main-page .page_content label.small,', $css);
+        $this->assertStringContainsString('.sf-main-page .page_content label.text-muted,', $css);
+    }
 }
