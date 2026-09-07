@@ -14,6 +14,31 @@ class MainPageDesignSystemContractTest extends TestCase
         return $source;
     }
 
+    private function relativeLuminance(string $hex): float
+    {
+        $rgb = array_map(
+            static fn (int $offset): float => hexdec(substr($hex, $offset, 2)) / 255,
+            [1, 3, 5]
+        );
+
+        $linear = array_map(
+            static fn (float $channel): float => $channel <= 0.04045
+                ? $channel / 12.92
+                : (($channel + 0.055) / 1.055) ** 2.4,
+            $rgb
+        );
+
+        return (0.2126 * $linear[0]) + (0.7152 * $linear[1]) + (0.0722 * $linear[2]);
+    }
+
+    private function contrastRatio(string $foreground, string $background): float
+    {
+        $lighter = max($this->relativeLuminance($foreground), $this->relativeLuminance($background));
+        $darker = min($this->relativeLuminance($foreground), $this->relativeLuminance($background));
+
+        return ($lighter + 0.05) / ($darker + 0.05);
+    }
+
     public function test_frontend_layout_scopes_the_design_system_to_the_six_main_pages(): void
     {
         $view = $this->source('resources/views/frontend/index.blade.php');
@@ -106,6 +131,20 @@ class MainPageDesignSystemContractTest extends TestCase
         ] as $contract) {
             $this->assertStringContainsString($contract, $css);
         }
+    }
+
+    public function test_cta_focus_indicator_has_contrast_on_light_and_dark_contexts(): void
+    {
+        $css = $this->source('public/assets/css/style.css');
+
+        $this->assertMatchesRegularExpression(
+            '/\.sf-main-page \.page_content \.sf-cta:focus-visible\s*\{[^}]*outline:\s*3px solid #343a40;[^}]*outline-offset:\s*3px;[^}]*box-shadow:\s*0 0 0 3px #fff;/s',
+            $css
+        );
+
+        $this->assertGreaterThanOrEqual(3, $this->contrastRatio('#343a40', '#ffffff'));
+        $this->assertGreaterThanOrEqual(3, $this->contrastRatio('#ffffff', '#181818'));
+        $this->assertGreaterThanOrEqual(3, $this->contrastRatio('#ffffff', '#ed1e24'));
     }
 
     public function test_main_page_templates_use_the_shared_cta_classes(): void

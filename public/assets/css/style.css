@@ -6853,8 +6853,9 @@ Responsive For Mobile & Tablet Devices
 }
 
 .sf-main-page .page_content .sf-cta:focus-visible {
-  outline: 3px solid #f8b4b7;
+  outline: 3px solid #343a40;
   outline-offset: 3px;
+  box-shadow: 0 0 0 3px #fff;
 }
 
 .sf-main-page .page_content .sf-cta:active {
