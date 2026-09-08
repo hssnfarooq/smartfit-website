@@ -29,15 +29,15 @@
                     </li>
                     <li>
                         <span>Year of registration:</span>
-                        <span>{{$this->auto->registrationDate}}</span>
+                        <span>{{\App\Support\VehicleDate::format($this->auto->registrationDate)}}</span>
                     </li>
                     <li>
                         <span>MOT due date:</span>
                         <span> 
                             @if (isset($this->auto->motTests))
-                            {{$this->auto->motTests[0]->expiryDate}}
+                            {{\App\Support\VehicleDate::format($this->auto->motTests[0]->expiryDate)}}
                           @else
-                            {{$this->auto->motTestDueDate}}
+                            {{\App\Support\VehicleDate::format($this->auto->motTestDueDate)}}
                           @endif  
                         </span>
                     </li>

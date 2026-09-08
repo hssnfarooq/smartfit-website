@@ -66,18 +66,10 @@ HOME PAGE — Sequence matching provided design
 ============================================================ --}}
 
 {{-- 1. HERO SECTION --}}
-<style>
-@media (max-width: 768px){
-.hero_section {
-    padding: 60px 0 60px !important;
-    min-height: 500px !important;
-}
-}
-</style>
-<section class="hero_section position-relative" style="background-image: url('{{ asset('assets/images/home/hero-range-rover.webp') }}'); background-size: cover; background-position: center center; padding: 100px 0 140px; min-height: 840px; display: flex; align-items: center;">
-<div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0); z-index: 1;"></div>
-<div class="container position-relative" style="z-index: 2;">
-<livewire:components.home.auto-search naslov="LET'S GET YOU <br><span style='color:#ED1E24'>ON THE ROAD</span>" />
+<section class="hero_section sf-home-hero position-relative" style="background-image: url('{{ asset('assets/images/home/hero-range-rover.webp') }}');">
+<div class="sf-home-hero__overlay position-absolute top-0 start-0 w-100 h-100"></div>
+<div class="container-fluid sf-home-hero__container position-relative" style="z-index: 2;">
+<livewire:components.home.auto-search naslov="<span class='sf-home-hero__line'>LET'S GET YOU</span><span class='sf-home-hero__line sf-home-hero__accent'>ON THE ROAD</span>" />
 </div>
 </section>
 

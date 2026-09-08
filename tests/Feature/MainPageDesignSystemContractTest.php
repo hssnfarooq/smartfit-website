@@ -411,4 +411,43 @@ class MainPageDesignSystemContractTest extends TestCase
         $this->assertStringNotContainsString('autoplaySpeed: 1800', $brandCarousel);
         $this->assertStringNotContainsString('pauseOnHover: true', $brandCarousel);
     }
+
+    public function test_homepage_hero_uses_the_full_width_editorial_layout(): void
+    {
+        $layout = $this->source('resources/views/frontend/index.blade.php');
+        $search = $this->source('resources/views/livewire/components/home/auto-search.blade.php');
+        $css = $this->source('public/assets/css/style.css');
+
+        $this->assertStringContainsString('sf-home-hero', $layout);
+        $this->assertStringContainsString('sf-home-hero__layout', $search);
+        $this->assertStringContainsString('sf-home-hero__title', $search);
+        $this->assertStringContainsString('sf-home-hero__search', $search);
+        $this->assertStringContainsString('sf-home-hero__registration', $search);
+        $this->assertStringContainsString('sf-home-hero__submit', $search);
+        $this->assertStringNotContainsString('bg-white p-4 rounded-4 shadow-lg', $search);
+
+        foreach ([
+            '.sf-home-hero__layout',
+            '.sf-home-hero__title',
+            'font-size: clamp(3.75rem, 6.5vw, 8rem)',
+            '.sf-home-hero__search',
+            '.sf-home-hero__registration',
+            '.sf-home-hero__submit',
+        ] as $contract) {
+            $this->assertStringContainsString($contract, $css);
+        }
+    }
+
+    public function test_every_dvsa_vehicle_date_display_uses_the_shared_formatter(): void
+    {
+        foreach ([
+            'resources/views/components/modals/auto/auto-info.blade.php' => 3,
+            'resources/views/livewire/components/order/auto.blade.php' => 3,
+        ] as $template => $expectedCount) {
+            $source = $this->source($template);
+
+            $this->assertSame($expectedCount, substr_count($source, 'VehicleDate::format('), $template);
+            $this->assertDoesNotMatchRegularExpression('/\{\{\s*\$[^}]*?(?:registrationDate|expiryDate|motTestDueDate)\s*\}\}/', $source);
+        }
+    }
 }

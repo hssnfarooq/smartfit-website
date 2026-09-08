@@ -7,26 +7,24 @@
         Check these details relate to your vehicle. If they’re incorrect, press ‘Not my vehicle’ to re-enter your information.
     </p>   
     @else
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <h1 class="text-white fw-extrabold display-3 text-uppercase lh-1 mb-0" style="font-weight: 900; letter-spacing: 1px;">
-                    {!! $this->naslov ? $this->naslov : "LET'S GET YOU <br><span style='color:#ED1E24;'>ON THE ROAD</span>" !!}
+        <div class="sf-home-hero__layout">
+            <div class="sf-home-hero__copy">
+                <h1 class="sf-home-hero__title text-white text-uppercase">
+                    {!! $this->naslov ? $this->naslov : "<span class='sf-home-hero__line'>LET'S GET YOU</span><span class='sf-home-hero__line sf-home-hero__accent'>ON THE ROAD</span>" !!}
                 </h1>
             </div>
-            <div class="col-lg-5 mt-4 mt-lg-0">
-                <div class="bg-white p-4 rounded-4 shadow-lg text-center" style="max-width: 380px; margin-left: auto;">
-                    <div class="mb-3">
-                        <input type="search" name="registration" wire:model="registration" class="form-control smartfit_light_input form-control-lg border-secondary-subtle rounded-3 text-center text-uppercase fw-bold" placeholder="Enter Registration" style="height: 54px; font-size: 18px; letter-spacing: 1px;">
-                    </div>
-                    <button type="submit" class="btn btn-danger w-100 fw-bold text-uppercase d-flex align-items-center justify-content-center gap-2 sf-cta sf-cta--primary" wire:click="searchReg" style="background-color: #ED1E24; border-color: #ED1E24;">
+            <div class="sf-home-hero__search">
+                <form wire:submit.prevent="searchReg" class="sf-home-hero__form">
+                    <input type="search" name="registration" wire:model="registration" class="form-control smartfit_light_input sf-home-hero__registration text-center text-uppercase fw-bold" placeholder="Enter Registration" aria-label="Enter vehicle registration" autocomplete="off" spellcheck="false">
+                    <button type="submit" class="btn btn-danger w-100 fw-bold text-uppercase sf-cta sf-cta--primary sf-home-hero__submit">
                         <span>GET A QUOTE</span>
-                        <i class="fa-solid fa-arrow-right fs-6"></i>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </button>
-                </div>
+                </form>
             </div>
         </div>
-        @error('registracija')
-            <span class="text-danger mt-2 d-block fw-bold">{{$message}}</span>
+        @error('registration')
+            <span class="sf-home-hero__error mt-2 d-block fw-bold">{{$message}}</span>
         @enderror
     @endif
     
