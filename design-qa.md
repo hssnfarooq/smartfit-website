@@ -2,9 +2,10 @@
 
 - Source visual truth: `/var/folders/wj/7k74ngmx3yd9sl0y2cs50w680000gp/T/codex-clipboard-594bb726-34b0-4279-b2c3-ad4087276fb6.png`
 - Source asset: `/Users/hassangondal/Downloads/Hero section.jpg`
-- Implementation capture: `/private/tmp/smartfit-hero-1440x900.png`
-- Mobile implementation capture: `/private/tmp/smartfit-hero-mobile-regression.png`
-- Combined comparison: `/private/tmp/smartfit-hero-comparison.jpg`
+- Implementation capture: `/private/tmp/smartfit-hero-zoomed-out-1440x900.jpg`
+- Standard desktop capture: `/private/tmp/smartfit-hero-zoomed-out-1280x720.jpg`
+- Mobile implementation capture: `/private/tmp/smartfit-hero-zoomed-out-mobile.jpg`
+- Combined comparison: `/private/tmp/smartfit-hero-zoomed-out-comparison.jpg`
 - Comparison viewport: 1440 x 900 CSS px at 1x
 - Source pixels: 2880 x 1364, normalized to 1440 x 682 in the combined comparison
 - Implementation capture pixels: 1440 x 900 at 1x
@@ -13,7 +14,7 @@
 
 ## Full-view comparison evidence
 
-The source preview and final 1440 x 900 implementation were stacked in `/private/tmp/smartfit-hero-comparison.jpg` and opened together in one comparison pass. The supplied BMW remains the dominant subject, the floor is visible beneath it, and the expendable ceiling area is cropped before the car. The oversized white/red title and standalone registration controls retain the approved composition.
+The source preview and final 1440 x 900 implementation were stacked in `/private/tmp/smartfit-hero-zoomed-out-comparison.jpg` and opened together in one comparison pass. The desktop image now shows more surrounding garage and floor while retaining edge-to-edge coverage. The supplied BMW remains the dominant subject, and the oversized white/red title and standalone registration controls retain the approved composition.
 
 ## Focused region evidence
 
@@ -32,6 +33,8 @@ The source preview and final 1440 x 900 implementation were stacked in `/private
 4. Post-fix desktop and mobile captures show no clipping, overlap, unintended wrapping, or horizontal overflow.
 5. P1 user feedback: the desktop center crop hid too much of the main car and floor. Fixed by changing only the desktop hero anchor from `center center` to `center bottom`; the tablet and mobile position overrides were intentionally left unchanged.
 6. Post-fix 1280 x 720, 1440 x 900, and 390 x 844 captures confirm the main car and floor are visible on desktop and the approved mobile composition is preserved.
+7. P2 user feedback: the bottom-anchored desktop crop still felt too close. Fixed with a modest desktop-only zoom-out treatment using `background-size: 100% max(100%, 64vw)`; the tablet/mobile `cover` treatment remains unchanged.
+8. Post-fix desktop captures confirm the wider-feeling composition remains edge-to-edge with no empty bands, clipping, or control overlap.
 
 ## Required fidelity surfaces
 

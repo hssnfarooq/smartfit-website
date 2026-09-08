@@ -6986,7 +6986,7 @@ Responsive For Mobile & Tablet Devices
   overflow: hidden;
   background-position: center bottom;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% max(100%, 64vw);
 }
 
 .sf-main-page.sf-page-home .page_content .sf-home-hero__overlay {
@@ -7107,6 +7107,7 @@ Responsive For Mobile & Tablet Devices
     min-height: 720px;
     padding: 100px 0 64px;
     background-position: 48% center;
+    background-size: cover;
   }
 
   .sf-main-page.sf-page-home .page_content .sf-home-hero__layout {

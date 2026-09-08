@@ -438,7 +438,7 @@ class MainPageDesignSystemContractTest extends TestCase
         }
 
         $this->assertMatchesRegularExpression(
-            '/\.sf-main-page\.sf-page-home \.page_content \.sf-home-hero\s*\{[^}]*background-position:\s*center bottom;/s',
+            '/\.sf-main-page\.sf-page-home \.page_content \.sf-home-hero\s*\{[^}]*background-position:\s*center bottom;[^}]*background-size:\s*100% max\(100%, 64vw\);/s',
             $css
         );
     }
