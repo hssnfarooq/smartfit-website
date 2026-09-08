@@ -186,17 +186,22 @@ if (slickCss && slickCss.media !== 'all') {
 }
 if (window.jQuery && jQuery.fn.slick && jQuery('.home_brand_carousel').length) {
     if (!jQuery('.home_brand_carousel').hasClass('slick-initialized')) {
+        const prefersReducedMotion = window.matchMedia
+            && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         jQuery('.home_brand_carousel').slick({
             dots: false,
             arrows: false,
             infinite: true,
-            autoplay: true,
-            autoplaySpeed: 1800,
-            speed: 600,
+            autoplay: !prefersReducedMotion,
+            autoplaySpeed: 0,
+            speed: 10000,
+            cssEase: 'linear',
             slidesToShow: 5,
             slidesToScroll: 1,
-            pauseOnHover: true,
+            pauseOnHover: false,
             pauseOnFocus: false,
+            pauseOnDotsHover: false,
             swipeToSlide: true,
             responsive: [
                 {

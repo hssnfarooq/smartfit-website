@@ -387,4 +387,28 @@ class MainPageDesignSystemContractTest extends TestCase
         $css = $this->source('public/assets/css/style.css');
         $this->assertStringContainsString('.sf-main-page .page_content .sf-cta__icon', $css);
     }
+
+    public function test_homepage_brand_carousel_moves_continuously_without_pausing(): void
+    {
+        $view = $this->source('resources/views/frontend/index.blade.php');
+        $brandCarousel = strstr($view, 'function initHomeBrandSlider()');
+        $this->assertNotFalse($brandCarousel);
+        $brandCarousel = strstr($brandCarousel, 'if (document.readyState', true);
+        $this->assertNotFalse($brandCarousel);
+
+        foreach ([
+            'autoplaySpeed: 0',
+            'speed: 10000',
+            "cssEase: 'linear'",
+            'pauseOnHover: false',
+            'pauseOnFocus: false',
+            'pauseOnDotsHover: false',
+            "window.matchMedia('(prefers-reduced-motion: reduce)')",
+        ] as $contract) {
+            $this->assertStringContainsString($contract, $brandCarousel);
+        }
+
+        $this->assertStringNotContainsString('autoplaySpeed: 1800', $brandCarousel);
+        $this->assertStringNotContainsString('pauseOnHover: true', $brandCarousel);
+    }
 }
