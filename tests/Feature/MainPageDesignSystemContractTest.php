@@ -441,6 +441,10 @@ class MainPageDesignSystemContractTest extends TestCase
             '/\.sf-main-page\.sf-page-home \.page_content \.sf-home-hero\s*\{[^}]*background-position:\s*center bottom;[^}]*background-size:\s*100% max\(100%, 64vw\);/s',
             $css
         );
+        $this->assertMatchesRegularExpression(
+            '/@media \(max-width: 575\.98px\)\s*\{.*?\.sf-main-page\.sf-page-home \.page_content \.sf-home-hero\s*\{[^}]*background-position:\s*47% bottom;[^}]*background-size:\s*auto 110%;/s',
+            $css
+        );
     }
 
     public function test_every_dvsa_vehicle_date_display_uses_the_shared_formatter(): void

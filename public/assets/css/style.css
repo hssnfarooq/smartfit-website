@@ -7134,7 +7134,8 @@ Responsive For Mobile & Tablet Devices
   .sf-main-page.sf-page-home .page_content .sf-home-hero {
     min-height: 650px;
     padding: 76px 0 44px;
-    background-position: 47% center;
+    background-position: 47% bottom;
+    background-size: auto 110%;
   }
 
   .sf-main-page.sf-page-home .page_content .sf-home-hero__layout {

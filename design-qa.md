@@ -1,10 +1,13 @@
 # SmartFit Homepage Hero Design QA
 
 - Source visual truth: `/var/folders/wj/7k74ngmx3yd9sl0y2cs50w680000gp/T/codex-clipboard-594bb726-34b0-4279-b2c3-ad4087276fb6.png`
+- Mobile issue reference: `/var/folders/wj/7k74ngmx3yd9sl0y2cs50w680000gp/T/codex-clipboard-bb82912f-6ea6-4793-96f3-c222e11b68d1.png`
 - Source asset: `/Users/hassangondal/Downloads/Hero section.jpg`
 - Implementation capture: `/private/tmp/smartfit-hero-zoomed-out-1440x900.jpg`
 - Standard desktop capture: `/private/tmp/smartfit-hero-zoomed-out-1280x720.jpg`
 - Mobile implementation capture: `/private/tmp/smartfit-hero-zoomed-out-mobile.jpg`
+- Mobile car-position capture: `/private/tmp/smartfit-mobile-car-shifted.jpg`
+- Mobile before/after comparison: `/private/tmp/smartfit-mobile-car-comparison.jpg`
 - Combined comparison: `/private/tmp/smartfit-hero-zoomed-out-comparison.jpg`
 - Comparison viewport: 1440 x 900 CSS px at 1x
 - Source pixels: 2880 x 1364, normalized to 1440 x 682 in the combined comparison
@@ -35,6 +38,8 @@ The source preview and final 1440 x 900 implementation were stacked in `/private
 6. Post-fix 1280 x 720, 1440 x 900, and 390 x 844 captures confirm the main car and floor are visible on desktop and the approved mobile composition is preserved.
 7. P2 user feedback: the bottom-anchored desktop crop still felt too close. Fixed with a modest desktop-only zoom-out treatment using `background-size: 100% max(100%, 64vw)`; the tablet/mobile `cover` treatment remains unchanged.
 8. Post-fix desktop captures confirm the wider-feeling composition remains edge-to-edge with no empty bands, clipping, or control overlap.
+9. P2 user feedback: the mobile text and controls obscured too much of the car. Fixed by enlarging the mobile background to 110% height and anchoring it to the bottom, which moves the windshield, bonnet, and front wheel higher into the visible area without moving the content.
+10. The before/after comparison confirms materially more of the car is visible on mobile with no horizontal gaps, text collision, control clipping, or change to the desktop crop.
 
 ## Required fidelity surfaces
 
