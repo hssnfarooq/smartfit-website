@@ -2,26 +2,27 @@
 
 - Source visual truth: `/var/folders/wj/7k74ngmx3yd9sl0y2cs50w680000gp/T/codex-clipboard-594bb726-34b0-4279-b2c3-ad4087276fb6.png`
 - Source asset: `/Users/hassangondal/Downloads/Hero section.jpg`
-- Implementation capture: `/private/tmp/smartfit-home-implementation-2048x1047.png`
-- Mobile implementation capture: `/private/tmp/smartfit-hero-mobile-390x844.png`
-- Comparison viewport: 2048 x 1047 CSS px, with a measured 2048 x 972 CSS px hero region
-- Source pixels: 2048 x 972
-- Implementation capture pixels: 1875 x 1047 due to the in-app browser capture scale; layout geometry was verified at 2048 CSS px and compared against the source at its native aspect ratio
+- Implementation capture: `/private/tmp/smartfit-hero-1440x900.png`
+- Mobile implementation capture: `/private/tmp/smartfit-hero-mobile-regression.png`
+- Combined comparison: `/private/tmp/smartfit-hero-comparison.jpg`
+- Comparison viewport: 1440 x 900 CSS px at 1x
+- Source pixels: 2880 x 1364, normalized to 1440 x 682 in the combined comparison
+- Implementation capture pixels: 1440 x 900 at 1x
 - Mobile viewport and capture: 390 x 844 CSS px at 1x
 - State: initial homepage hero; mobile input-filled/focus behavior also verified
 
 ## Full-view comparison evidence
 
-The source preview and final implementation were opened together in one comparison pass. The implementation preserves the reference composition: the supplied BMW garage photograph fills the hero; an oversized white/red two-line title anchors the lower left; and a standalone white registration field plus red pill CTA align at the lower right. The implementation intentionally retains the production site header and uses the existing Montserrat/Mulish typography rather than reproducing the mock's condensed display face.
+The source preview and final 1440 x 900 implementation were stacked in `/private/tmp/smartfit-hero-comparison.jpg` and opened together in one comparison pass. The supplied BMW remains the dominant subject, the floor is visible beneath it, and the expendable ceiling area is cropped before the car. The oversized white/red title and standalone registration controls retain the approved composition.
 
 ## Focused region evidence
 
-- Desktop hero: measured at 2048 x 972 CSS px. Title bounds were x 164, y 591, width 1000, height 241. Form bounds were x 1384, y 642, width 500, height 190.
-- Default desktop: at 1280 x 720, the full two-line title, input, button, and BMW remain visible above the brand strip.
+- Wide desktop: at 1440 x 900, the complete BMW body and a clear strip of floor remain visible while the top of the garage absorbs the crop.
+- Default desktop: at 1280 x 720, the main car, its wheels, the floor, full two-line title, input, and button remain visible.
 - Mobile hero: measured at 390 x 650 CSS px within a 390 x 844 viewport. Title and form are 358 px wide with no horizontal overflow.
 - Supporting image: the supplied BMW steering image renders sharply in the reputation section with the existing crop and radius treatment.
 - Interaction: the registration field accepts and focuses correctly; submitting an empty value continues to the booking route as before.
-- Console: no JavaScript errors. One existing Livewire warning about multiple roots in `section.page_banner` remains outside this changed hero component.
+- Console: no browser log entries were reported during the final desktop/mobile checks.
 
 ## Comparison history
 
@@ -29,14 +30,16 @@ The source preview and final implementation were opened together in one comparis
 2. P2: At the wide reference viewport, the production container made the title and form too narrow and too far inward. Fixed with a 1720 px hero container, a responsive title up to 8rem, a 500 px form, and matched tall-viewport vertical alignment.
 3. P2: The form controls were too short relative to the wide mock. Fixed with responsive control heights and a larger tall-viewport gap while retaining the compact mobile dimensions.
 4. Post-fix desktop and mobile captures show no clipping, overlap, unintended wrapping, or horizontal overflow.
+5. P1 user feedback: the desktop center crop hid too much of the main car and floor. Fixed by changing only the desktop hero anchor from `center center` to `center bottom`; the tablet and mobile position overrides were intentionally left unchanged.
+6. Post-fix 1280 x 720, 1440 x 900, and 390 x 844 captures confirm the main car and floor are visible on desktop and the approved mobile composition is preserved.
 
 ## Required fidelity surfaces
 
 - Fonts and typography: passed. Existing Montserrat heading family retained; 900 weight, tight tracking, responsive scale, and two fixed display lines match the intended hierarchy.
-- Spacing and layout rhythm: passed. Title and form share a lower visual baseline on desktop, stack cleanly on mobile, and remain within the viewport.
+- Spacing and layout rhythm: passed. The desktop background now anchors to the bottom, retaining the floor and full car; title and form share a lower visual baseline and stack cleanly on mobile.
 - Colors and visual tokens: passed. SmartFit white, near-black, and `#ed1e24` red are preserved with accessible focus treatment.
 - Image quality and asset fidelity: passed. Both user-supplied JPEGs were converted to optimized WebP files; no placeholders or reconstructed artwork are used.
-- Copy and content: passed. Headline, registration placeholder, and CTA copy match the supplied direction.
+- Copy and content: passed. Headline, registration placeholder, and CTA copy match the supplied direction; shared DVSA dates now use UK numeric `dd/mm/yyyy` formatting.
 
 ## Findings
 

@@ -14,7 +14,7 @@ final class VehicleDate
         }
 
         try {
-            return CarbonImmutable::parse($date)->format('j F Y');
+            return CarbonImmutable::parse($date)->format('d/m/Y');
         } catch (Throwable) {
             return $date;
         }

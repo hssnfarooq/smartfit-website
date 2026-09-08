@@ -6984,7 +6984,7 @@ Responsive For Mobile & Tablet Devices
   min-height: clamp(620px, calc(100vh - 72px), 972px);
   padding: 100px 0 64px;
   overflow: hidden;
-  background-position: center center;
+  background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
 }

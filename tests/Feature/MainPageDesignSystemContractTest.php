@@ -436,6 +436,11 @@ class MainPageDesignSystemContractTest extends TestCase
         ] as $contract) {
             $this->assertStringContainsString($contract, $css);
         }
+
+        $this->assertMatchesRegularExpression(
+            '/\.sf-main-page\.sf-page-home \.page_content \.sf-home-hero\s*\{[^}]*background-position:\s*center bottom;/s',
+            $css
+        );
     }
 
     public function test_every_dvsa_vehicle_date_display_uses_the_shared_formatter(): void
