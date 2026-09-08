@@ -195,7 +195,7 @@ if (window.jQuery && jQuery.fn.slick && jQuery('.home_brand_carousel').length) {
             infinite: true,
             autoplay: !prefersReducedMotion,
             autoplaySpeed: 0,
-            speed: 10000,
+            speed: 7000,
             cssEase: 'linear',
             slidesToShow: 5,
             slidesToScroll: 1,
