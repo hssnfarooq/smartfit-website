@@ -398,7 +398,7 @@ class MainPageDesignSystemContractTest extends TestCase
 
         foreach ([
             'autoplaySpeed: 0',
-            'speed: 7000',
+            'speed: 5000',
             "cssEase: 'linear'",
             'pauseOnHover: false',
             'pauseOnFocus: false',
