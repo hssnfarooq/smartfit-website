@@ -347,6 +347,11 @@
     /* ==========================================================================
        MEGA-MENU EMBEDDED STYLES (DEPLOYMENT-SAFE FALLBACK)
        ========================================================================== */
+    .main_menu {
+        --mega-menu-title-size: 19px;
+        --mega-menu-item-size: 15px;
+    }
+
     .main_menu_list > li.dropdown_fleet_item > a,
     .main_menu_list > li.dropdown_services_item > a,
     .main_menu_list > li.dropdown_mot_item > a,
@@ -590,21 +595,6 @@
         gap: clamp(20px, 3.8vw, 70px) !important;
     }
 
-    .tyres_mega_menu_inner .fleet_col_title,
-    .repairs_mega_menu_inner .fleet_col_title {
-        font-size: 18px !important;
-        margin-bottom: 14px !important;
-    }
-
-    .tyres_mega_menu_inner .fleet_item,
-    .tyres_mega_menu_inner .services_menu_link,
-    .repairs_mega_menu_inner .fleet_item,
-    .repairs_mega_menu_inner .services_menu_link {
-        font-size: 14.5px !important;
-        line-height: 1.4 !important;
-        margin-bottom: 8px !important;
-    }
-
     .services_mega_menu_inner .fleet_col,
     .mot_mega_menu_inner .fleet_col,
     .tyres_mega_menu_inner .fleet_col,
@@ -644,9 +634,9 @@
         margin-left: auto;
     }
 
-    .fleet_col_title {
+    .main_menu_list .fleet_mega_menu_inner .fleet_col_title {
         font-family: var(--bs-font-heading, "Montserrat", sans-serif) !important;
-        font-size: 19px !important;
+        font-size: var(--mega-menu-title-size) !important;
         font-weight: 700 !important;
         color: #111111 !important;
         margin: 0 0 18px 0 !important;
@@ -670,17 +660,11 @@
         padding: 0 !important;
     }
 
-    .fleet_mega_menu li,
-    .services_mega_menu li,
-    .mot_mega_menu li,
-    .tyres_mega_menu li,
-    .repairs_mega_menu li,
-    .fleet_mega_menu_inner li,
-    .fleet_item {
+    .main_menu_list .fleet_mega_menu_inner .fleet_item {
         list-style: none !important;
         list-style-type: none !important;
         font-family: var(--bs-font-body, "Mulish", sans-serif) !important;
-        font-size: 15px !important;
+        font-size: var(--mega-menu-item-size) !important;
         font-weight: 400 !important;
         color: #2b2b2b !important;
         line-height: 1.5 !important;
@@ -697,12 +681,12 @@
         cursor: default !important;
     }
 
-    .services_menu_link {
-        font-family: var(--bs-font-body, "Mulish", sans-serif) !important;
-        font-size: 15px !important;
-        font-weight: 400 !important;
-        color: #2b2b2b !important;
-        line-height: 1.5 !important;
+    .main_menu_list .fleet_mega_menu_inner .services_menu_link {
+        font-family: inherit !important;
+        font-size: inherit !important;
+        font-weight: inherit !important;
+        color: inherit !important;
+        line-height: inherit !important;
         text-decoration: none !important;
         display: inline-block !important;
         transition: color 0.18s ease, transform 0.18s ease !important;
@@ -878,6 +862,11 @@
     }
 
     @media (max-width: 767.98px) {
+        .main_menu {
+            --mega-menu-title-size: 17px;
+            --mega-menu-item-size: 14px;
+        }
+
         .dropdown_fleet_item,
         .dropdown_services_item,
         .dropdown_mot_item,
@@ -930,12 +919,10 @@
         }
 
         .fleet_col_title {
-            font-size: 17px !important;
             margin-bottom: 12px !important;
         }
 
         .fleet_item {
-            font-size: 14px !important;
             margin-bottom: 9px !important;
             white-space: normal !important;
         }

@@ -238,4 +238,20 @@ class MenuStructureContractTest extends TestCase
             $this->assertStringContainsString($link, $footer);
         }
     }
+
+    public function test_mega_menu_typography_uses_shared_sizes_for_equivalent_text(): void
+    {
+        $menu = str_replace("\r\n", "\n", $this->source('resources/views/components/menu.blade.php'));
+
+        $this->assertStringContainsString('--mega-menu-title-size: 19px;', $menu);
+        $this->assertStringContainsString('--mega-menu-item-size: 15px;', $menu);
+        $this->assertStringContainsString('font-size: var(--mega-menu-title-size) !important;', $menu);
+        $this->assertStringContainsString('font-size: var(--mega-menu-item-size) !important;', $menu);
+        $this->assertStringContainsString("font-family: inherit !important;\n        font-size: inherit !important;", $menu);
+        $this->assertStringContainsString("--mega-menu-title-size: 17px;\n            --mega-menu-item-size: 14px;", $menu);
+
+        $this->assertStringNotContainsString('.tyres_mega_menu_inner .fleet_col_title,', $menu);
+        $this->assertStringNotContainsString('.tyres_mega_menu_inner .fleet_item,', $menu);
+        $this->assertStringNotContainsString('font-size: 14.5px !important;', $menu);
+    }
 }
