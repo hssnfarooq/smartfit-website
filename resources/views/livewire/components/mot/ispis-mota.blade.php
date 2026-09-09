@@ -847,89 +847,16 @@
         
         <div class="home_reviews_slider_wrap position-relative">
             <div class="home_reviews_carousel">
-                {{-- Review 1 --}}
-                <div class="px-2 h-100">
-                    <div class="p-4 border rounded-3 bg-white h-100 shadow-sm d-flex flex-column" style="min-height: 270px; border-color: #e5e7eb !important;">
-                        <div class="text-warning mb-3" style="font-size: 14px; letter-spacing: 2px;">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-secondary fs-5 mb-4 flex-grow-1" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; line-height: 1.55;">
-                            Fantastic work on my BMW. Needed an MOT and they fitted me in the same day. Got my car back within 2 hours after they sorted the tyres, so I was good to go.
-                        </p>
-                        <div class="fw-extrabold text-uppercase text-dark mt-auto" style="font-family: Montserrat;font-weight: 800;font-size: 17px;line-height: 28px;letter-spacing: 0.8px !important;vertical-align: middle;text-transform: uppercase !important;">
-                            AMINATOU SMART
-                        </div>
-                    </div>
-                </div>
-        
-                {{-- Review 2 --}}
-                <div class="px-2 h-100">
-                    <div class="p-4 border rounded-3 bg-white h-100 shadow-sm d-flex flex-column" style="min-height: 270px; border-color: #e5e7eb !important;">
-                        <div class="text-warning mb-3" style="font-size: 14px; letter-spacing: 2px;">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-secondary fs-5 mb-4 flex-grow-1" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; line-height: 1.55;">
-                            They're always so polite, professional and honest about their ability to help. They've even done small favours that have gone above and beyond what I would have expected.
-                        </p>
-                        <div class="fw-extrabold text-uppercase text-dark mt-auto" style="font-family: Montserrat;font-weight: 800;font-size: 17px;line-height: 28px;letter-spacing: 0.8px !important;vertical-align: middle;text-transform: uppercase !important;">
-                            ABE THOMAS
-                        </div>
-                    </div>
-                </div>
-        
-                {{-- Review 3 --}}
-                <div class="px-2 h-100">
-                    <div class="p-4 border rounded-3 bg-white h-100 shadow-sm d-flex flex-column" style="min-height: 270px; border-color: #e5e7eb !important;">
-                        <div class="text-warning mb-3" style="font-size: 14px; letter-spacing: 2px;">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-secondary fs-5 mb-4 flex-grow-1" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; line-height: 1.55;">
-                            Took my car in for an MOT, they were very accommodating and efficient with their work. Good prices and an overall top service.
-                        </p>
-                        <div class="fw-extrabold text-uppercase text-dark mt-auto" style="font-family: Montserrat;font-weight: 800;font-size: 17px;line-height: 28px;letter-spacing: 0.8px !important;vertical-align: middle;text-transform: uppercase !important;">
-                            ALEX GRIFFIN
-                        </div>
-                    </div>
-                </div>
-        
-                {{-- Review 4 --}}
-                <div class="px-2 h-100">
-                    <div class="p-4 border rounded-3 bg-white h-100 shadow-sm d-flex flex-column" style="min-height: 270px; border-color: #e5e7eb !important;">
-                        <div class="text-warning mb-3" style="font-size: 14px; letter-spacing: 2px;">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-secondary fs-5 mb-4 flex-grow-1" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; line-height: 1.55;">
-                            Excellent service from the team at Smartfit Autos. Booked full servicing and MOT online. Fast turnaround, transparent pricing, and polite staff.
-                        </p>
-                        <div class="fw-extrabold text-uppercase text-dark mt-auto" style="font-family: Montserrat;font-weight: 800;font-size: 17px;line-height: 28px;letter-spacing: 0.8px !important;vertical-align: middle;text-transform: uppercase !important;">
-                            DAVID MILLER
-                        </div>
-                    </div>
-                </div>
-        
-                {{-- Review 5 --}}
-                <div class="px-2 h-100">
-                    <div class="p-4 border rounded-3 bg-white h-100 shadow-sm d-flex flex-column" style="min-height: 270px; border-color: #e5e7eb !important;">
-                        <div class="text-warning mb-3" style="font-size: 14px; letter-spacing: 2px;">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-secondary fs-5 mb-4 flex-grow-1" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; line-height: 1.55;">
-                            Brilliant garage! Had brake repair and disc replacements completed on the same day without any hassle. Highly recommend their experienced technicians.
-                        </p>
-                        <div class="fw-extrabold text-uppercase text-dark mt-auto" style="font-family: Montserrat;font-weight: 800;font-size: 17px;line-height: 28px;letter-spacing: 0.8px !important;vertical-align: middle;text-transform: uppercase !important;">
-                            SARAH JENKINS
-                        </div>
-                    </div>
-                </div>
+                @include("site.partials.customer-review-slides")
             </div>
         </div>
         
         <div class="d-flex justify-content-end gap-2 mt-4">
-            <button type="button" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_left" style="width: 42px; height: 42px; border: 1px solid #ddd; background: #fff; cursor: pointer; transition: all 0.2s ease;">
-                <i class="fa-solid fa-arrow-left text-dark small"></i>
+            <button type="button" aria-label="Previous reviews" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_left" style="width: 42px; height: 42px; border: 1px solid #ddd; background: #fff; cursor: pointer; transition: all 0.2s ease;">
+                <span class="review-arrow-glyph text-dark" aria-hidden="true">←</span>
             </button>
-            <button type="button" class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_right" style="width: 42px; height: 42px; background-color: #ED1E24; border-color: #ED1E24; cursor: pointer; transition: all 0.2s ease;">
-                <i class="fa-solid fa-arrow-right text-white small"></i>
+            <button type="button" aria-label="Next reviews" class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_right" style="width: 42px; height: 42px; background-color: #ED1E24; border-color: #ED1E24; cursor: pointer; transition: all 0.2s ease;">
+                <span class="review-arrow-glyph text-white" aria-hidden="true">→</span>
             </button>
         </div>
         </div>

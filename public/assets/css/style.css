@@ -7160,9 +7160,118 @@ Responsive For Mobile & Tablet Devices
 /* Homepage service packages
 ================================================== */
 .sf-main-page.sf-page-home .page_content .sf-service-packages {
-  background: linear-gradient(180deg, #f4f5f7 0%, #e2e3e6 48%, #c4c6ca 100%);
+  background: linear-gradient(180deg, #cac6c6 0%, #6c6969 48%, #242222 100%);
 }
 
 .sf-main-page.sf-page-home .page_content .sf-service-packages .text-muted {
   color: #343434 !important;
+}
+
+/* Shared customer review cards and slider controls
+================================================== */
+.customer-review-card {
+  min-height: 270px;
+  border-color: #e5e7eb !important;
+}
+
+.customer-review-stars {
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.customer-review-text {
+  font-family: Mulish, sans-serif;
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: left !important;
+}
+
+.customer-review-name {
+  font-family: Montserrat, sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 28px;
+  letter-spacing: 0.8px !important;
+}
+
+.reviews_arrow_left,
+.reviews_arrow_right {
+  position: relative;
+  z-index: 2;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 46px !important;
+  min-width: 46px;
+  height: 46px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.14);
+}
+
+.review-arrow-glyph {
+  display: block;
+  font-family: Arial, sans-serif !important;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* About page banner and tyre manufacturer grid
+================================================== */
+.page_banner--about {
+  position: relative;
+  isolation: isolate;
+  background-blend-mode: normal !important;
+}
+
+.page_banner--about::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.72) 32%, rgba(255, 255, 255, 0.08) 70%);
+}
+
+.page_banner--about .page_title,
+.page_banner--about .breadcrumb_nav > li,
+.page_banner--about .breadcrumb_nav a {
+  color: #171717 !important;
+}
+
+.about_tyre_manufacturers .brand_logo_item {
+  width: 100%;
+  height: 105px !important;
+  min-height: 105px;
+  margin-top: 24px;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+.about_tyre_manufacturers .brand_logo_item:hover {
+  background-color: #ffffff;
+}
+
+.about_tyre_manufacturers .brand_logo_item img {
+  width: auto;
+  height: auto;
+  max-width: 82%;
+  max-height: 52px;
+  object-fit: contain;
+}
+
+.about_tyre_manufacturers .brand_logo_item img.brand_slide_logo--tall {
+  max-height: 68px;
+}
+
+@media screen and (max-width: 767px) {
+  .page_banner--about {
+    background-position: 62% center !important;
+  }
+
+  .page_banner--about::before {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.74) 55%, rgba(255, 255, 255, 0.2) 100%);
+  }
 }

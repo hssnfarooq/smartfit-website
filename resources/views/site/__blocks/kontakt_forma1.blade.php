@@ -3,8 +3,12 @@
       <div class="row">
         <div class="col-lg-7">
           <div class="section_heading">
-            <div class="outline_text">Contact Us</div>
-            <h3 class="heading_text wow" data-splitting>{!!html_entity_decode($block->input('title'))!!}</h3>
+            @if (request()->is('contacts-kennings-auto-centre'))
+              <h3 class="heading_text wow" data-splitting>CONTACT US</h3>
+            @else
+              <div class="outline_text">Contact Us</div>
+              <h3 class="heading_text wow" data-splitting>{!!html_entity_decode($block->input('title'))!!}</h3>
+            @endif
             <p class="heading_description mb-0">
               {!!html_entity_decode($block->input('description'))!!}
             </p>
@@ -62,5 +66,4 @@
       </form>
     </div>
 </section>
-
 
