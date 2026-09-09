@@ -459,4 +459,22 @@ class MainPageDesignSystemContractTest extends TestCase
             $this->assertDoesNotMatchRegularExpression('/\{\{\s*\$[^}]*?(?:registrationDate|expiryDate|motTestDueDate)\s*\}\}/', $source);
         }
     }
+
+    public function test_homepage_service_packages_use_a_balanced_readable_gradient(): void
+    {
+        $view = $this->source('resources/views/frontend/index.blade.php');
+        $css = $this->source('public/assets/css/style.css');
+
+        $this->assertStringContainsString('class="py-5 sf-service-packages"', $view);
+        $this->assertStringContainsString(
+            'linear-gradient(180deg, #f4f5f7 0%, #e2e3e6 48%, #c4c6ca 100%)',
+            $css
+        );
+        $this->assertStringContainsString('.sf-service-packages .text-muted', $css);
+        $this->assertGreaterThanOrEqual(
+            7.0,
+            $this->contrastRatio('#343434', '#c4c6ca'),
+            'Package supporting text must remain readable at the darkest gradient stop.'
+        );
+    }
 }

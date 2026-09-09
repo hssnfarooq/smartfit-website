@@ -400,7 +400,7 @@ $hmPackages = [
 ],
 ];
 @endphp
-<section class="py-5" style="background-color: #f4f5f7;">
+<section class="py-5 sf-service-packages">
 <div class="container py-4">
 <div class="text-center mb-0">
     <h2 class="display-4 fw-extrabold mb-0" style="color: #ED1E24;font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">

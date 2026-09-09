@@ -1,7 +1,8 @@
-# SmartFit Homepage Hero Design QA
+# SmartFit Homepage Design QA
 
 - Source visual truth: `/var/folders/wj/7k74ngmx3yd9sl0y2cs50w680000gp/T/codex-clipboard-594bb726-34b0-4279-b2c3-ad4087276fb6.png`
 - Mobile issue reference: `/var/folders/wj/7k74ngmx3yd9sl0y2cs50w680000gp/T/codex-clipboard-bb82912f-6ea6-4793-96f3-c222e11b68d1.png`
+- Service-packages gradient reference: `/var/folders/wj/7k74ngmx3yd9sl0y2cs50w680000gp/T/codex-clipboard-199e51b5-12db-44c5-a608-97a257562bde.png`
 - Source asset: `/Users/hassangondal/Downloads/Hero section.jpg`
 - Implementation capture: `/private/tmp/smartfit-hero-zoomed-out-1440x900.jpg`
 - Standard desktop capture: `/private/tmp/smartfit-hero-zoomed-out-1280x720.jpg`
@@ -9,6 +10,9 @@
 - Mobile car-position capture: `/private/tmp/smartfit-mobile-car-shifted.jpg`
 - Mobile before/after comparison: `/private/tmp/smartfit-mobile-car-comparison.jpg`
 - Combined comparison: `/private/tmp/smartfit-hero-zoomed-out-comparison.jpg`
+- Service-packages desktop capture: `/private/tmp/smartfit-packages-gradient-desktop.jpg`
+- Service-packages mobile capture: `/private/tmp/smartfit-packages-gradient-mobile.jpg`
+- Service-packages comparison: `/private/tmp/smartfit-packages-gradient-comparison.jpg`
 - Comparison viewport: 1440 x 900 CSS px at 1x
 - Source pixels: 2880 x 1364, normalized to 1440 x 682 in the combined comparison
 - Implementation capture pixels: 1440 x 900 at 1x
@@ -40,12 +44,13 @@ The source preview and final 1440 x 900 implementation were stacked in `/private
 8. Post-fix desktop captures confirm the wider-feeling composition remains edge-to-edge with no empty bands, clipping, or control overlap.
 9. P2 user feedback: the mobile text and controls obscured too much of the car. Fixed by enlarging the mobile background to 110% height and anchoring it to the bottom, which moves the windshield, bonnet, and front wheel higher into the visible area without moving the content.
 10. The before/after comparison confirms materially more of the car is visible on mobile with no horizontal gaps, text collision, control clipping, or change to the desktop crop.
+11. P2 request: replace the flat package-section background with a balanced light-to-dark gray shift. Added a three-stop `#f4f5f7` to `#c4c6ca` gradient and strengthened muted supporting text to `#343434`; desktop and mobile comparisons confirm the lower cards remain clearly readable.
 
 ## Required fidelity surfaces
 
 - Fonts and typography: passed. Existing Montserrat heading family retained; 900 weight, tight tracking, responsive scale, and two fixed display lines match the intended hierarchy.
 - Spacing and layout rhythm: passed. The desktop background now anchors to the bottom, retaining the floor and full car; title and form share a lower visual baseline and stack cleanly on mobile.
-- Colors and visual tokens: passed. SmartFit white, near-black, and `#ed1e24` red are preserved with accessible focus treatment.
+- Colors and visual tokens: passed. SmartFit white, near-black, and `#ed1e24` red are preserved; the package section now uses a restrained light-to-medium gray gradient with at least 7:1 contrast for its darkest supporting copy.
 - Image quality and asset fidelity: passed. Both user-supplied JPEGs were converted to optimized WebP files; no placeholders or reconstructed artwork are used.
 - Copy and content: passed. Headline, registration placeholder, and CTA copy match the supplied direction; shared DVSA dates now use UK numeric `dd/mm/yyyy` formatting.
 

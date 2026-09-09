@@ -7156,3 +7156,13 @@ Responsive For Mobile & Tablet Devices
     min-height: 58px;
   }
 }
+
+/* Homepage service packages
+================================================== */
+.sf-main-page.sf-page-home .page_content .sf-service-packages {
+  background: linear-gradient(180deg, #f4f5f7 0%, #e2e3e6 48%, #c4c6ca 100%);
+}
+
+.sf-main-page.sf-page-home .page_content .sf-service-packages .text-muted {
+  color: #343434 !important;
+}
