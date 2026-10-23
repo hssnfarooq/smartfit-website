@@ -101,6 +101,8 @@ class Cart extends Component
         CartPriceGuard::pruneCurrentCartLinesWithoutCurrencyPrices();
 
         $this->lines = $this->cartLines->map(function ($line) {
+            $isPriceOnRequest = CartPriceGuard::isPriceOnRequest($line->purchasable);
+
             return [
                 'id' => $line->id,
                 'identifier' => $line->purchasable->getIdentifier(),
@@ -110,8 +112,8 @@ class Cart extends Component
                 'option' => $line->purchasable->getOption(),
                 'options' => $line->purchasable->getOptions()->implode(' / '),
                 'sub_total' => $line->subTotal->formatted(),
-                'unit_price' => $line->unitPrice->formatted(),
-                'total' => $line->total->formatted(),
+                'unit_price' => $isPriceOnRequest ? 'Price on request' : $line->unitPrice->formatted(),
+                'total' => $isPriceOnRequest ? 'Price on request' : $line->total->formatted(),
                 'tax_amount' => $line->taxAmount->formatted(),
                 'product_id' => $line->purchasable->id,
                 'product_type_id' => $line->purchasable->getProductType(),

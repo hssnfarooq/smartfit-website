@@ -6,19 +6,20 @@ use App\Mail\FinishedAlertMail;
 use App\Mail\FinishedMail;
 use App\Models\ShopUser;
 use App\Models\Vehicles;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Livewire\ComponentConcerns\PerformsRedirects;
 use Lunar\Facades\CartSession;
-use Lunar\Models\Cart;
-use Lunar\Models\Order;
 use Lunar\Facades\Payments;
 use Lunar\Facades\ShippingManifest;
+use Lunar\Models\Cart;
 use Lunar\Models\Customer;
+use Lunar\Models\Order;
+use Lunar\Stripe\Facades\StripeFacade;
 
 class PaymentFinish extends Component
 {
-
     use PerformsRedirects;
 
     /**
@@ -60,81 +61,169 @@ class PaymentFinish extends Component
 
     public $payment_intent_client_secret = null;
 
-    public $paymentType = 'card';//'cash-in-hand';
+    public $paymentType = 'card'; //'cash-in-hand';
 
-    protected $redirekt = '';
+    public string $redirekt = '';
+
+    public string $paymentStatus = 'processing';
+
+    public string $paymentMessage = 'We are confirming your payment. Please do not close this page.';
+
     /**
      * {@inheritDoc}
      */
-
     public function mount()
     {
 
         if (! $this->cart = CartSession::current()) {
-            $this->redirekt = '/';//$this->redirect('/');
+            $this->redirekt = '/'; //$this->redirect('/');
 
             return;
         }
 
-        if(request()->input('cmd') != null)
-            if(request()->input('cmd') == 'finish'){
-                $this->zavrsiSve();
+        if (request()->input('cmd') === 'finish') {
+            $payment = request()->session()->get('payment');
+
+            if (! data_get($payment, 'success') || ! $this->cart->completedOrder) {
+                $this->markPaymentFailed();
+
                 return;
             }
-       
 
-        $this->zaveziUsera();
-        
-        //moja dopuna da se stvori odma i Payment instanca u lunaru
-        if ($this->payment_intent) {
- 
-            //kemija za adrese jer su potrebne za lunarphp, pa punim s fake adresama -> po potrebi će se to mjenjati ako če trebati
-           
+            $this->zavrsiSve();
+
+            return;
+        }
+
+        if (! $this->paymentIntentBelongsToCart()) {
+            Log::warning('Rejected a Stripe return that did not match the active cart.', [
+                'cart_id' => $this->cart->id,
+                'payment_intent' => $this->payment_intent,
+            ]);
+            $this->markPaymentFailed();
+
+            return;
+        }
+
+        try {
+            $intent = StripeFacade::fetchIntent($this->payment_intent);
+
+            if (! $this->paymentIntentMatchesCart($intent)) {
+                Log::warning('Rejected a Stripe return whose payment details did not match the active cart.', [
+                    'cart_id' => $this->cart->id,
+                    'payment_intent' => $this->payment_intent,
+                ]);
+                $this->markPaymentFailed();
+
+                return;
+            }
+
+            if ($intent->status === 'processing') {
+                $this->paymentStatus = 'pending';
+                $this->paymentMessage = 'Your payment is still processing. We will confirm your booking as soon as Stripe completes it.';
+
+                return;
+            }
+
+            if (! in_array($intent->status, ['succeeded', 'requires_capture'], true)) {
+                $this->markPaymentFailed();
+
+                return;
+            }
+
+            $this->zaveziUsera();
 
             $payment = Payments::driver($this->paymentType)->cart($this->cart)->withData([
                 'payment_intent_client_secret' => $this->payment_intent_client_secret,
                 'payment_intent' => $this->payment_intent,
             ])->authorize();
-            
-            
-            if ($payment->success) {
 
-                //$this->adreseKemija();
-
-                request()->session()->put('payment',  $payment);     
-
-                
-                /*if (! $this->cart || ! $this->cart->completedOrder) {
-                    $this->redirekt = '/';//$this->redirect('/');
-        
-                    return;
-                }*/                
-                
-                $this->redirekt = '?cmd=finish';//$this->redirect(env('STRIPE_SUCCESS_URL'));
+            if (! $payment->success) {
+                $this->markPaymentFailed();
 
                 return;
             }
+
+            request()->session()->put('payment', $payment);
+            $this->paymentStatus = 'success';
+            $this->paymentMessage = 'Payment confirmed. We are completing your booking.';
+            $this->redirekt = '?cmd=finish';
+        } catch (\Throwable $exception) {
+            report($exception);
+            $this->markPaymentFailed();
+        }
+    }
+
+    private function paymentIntentBelongsToCart(): bool
+    {
+        $meta = (array) $this->cart->meta;
+        $expectedIntent = (string) ($meta['payment_intent'] ?? '');
+        $returnedIntent = (string) $this->payment_intent;
+        $returnedSecret = (string) $this->payment_intent_client_secret;
+
+        return $expectedIntent !== ''
+            && $returnedIntent !== ''
+            && hash_equals($expectedIntent, $returnedIntent)
+            && str_starts_with($returnedSecret, $returnedIntent.'_secret_');
+    }
+
+    private function paymentIntentMatchesCart($intent): bool
+    {
+        if (! $intent) {
+            return false;
         }
 
+        return (int) $intent->amount === (int) $this->cart->total->value
+            && strtolower((string) $intent->currency) === strtolower((string) $this->cart->currency->code)
+            && hash_equals((string) $intent->client_secret, (string) $this->payment_intent_client_secret);
     }
 
-    private function zavrsiSve(){
+    private function markPaymentFailed(): void
+    {
+        $this->paymentStatus = 'failed';
+        $this->paymentMessage = 'Your payment was not completed. No booking has been confirmed. Please return to payment and try again.';
+    }
+
+    private function zavrsiSve()
+    {
         $order = $this->cart->completedOrder;
 
-        Mail::to(collect(request()->session()->get(env('INFO_KUKI')))['email'])->send(new FinishedMail($order, $order->id));
-        Mail::to(env('MAIL_TO_DEFAULT'))->send(new FinishedAlertMail($order, $order->id));//obavijest da je neko kupio
-/*
-        request()->session()->forget([env('TERMIN_KUKI')]);//env('AUTO_KUKI'), env('INFO_KUKI'), 
+        if (! $order) {
+            $this->markPaymentFailed();
+
+            return;
+        }
+
+        try {
+            $customerEmail = data_get(request()->session()->get(env('INFO_KUKI')), 'email');
+            if ($customerEmail) {
+                Mail::to($customerEmail)->send(new FinishedMail($order, $order->id));
+            }
+            Mail::to(env('MAIL_TO_DEFAULT'))->send(new FinishedAlertMail($order, $order->id));
+        } catch (\Throwable $exception) {
+            Log::error('Booking completed but confirmation email could not be sent.', [
+                'order_id' => $order->id,
+                'error' => $exception->getMessage(),
+            ]);
+        }
+
+        request()->session()->put('order', $order);
+        request()->session()->forget([
+            env('AUTO_KUKI'),
+            env('INFO_KUKI'),
+            env('TERMIN_KUKI'),
+            env('PAYMENT_KUKI'),
+            'payment',
+        ]);
         CartSession::forget();
-*/
-        request()->session()->flush();  
         $this->redirekt = env('STRIPE_SUCCESS_URL');
-                
+
     }
 
-    private function adreseKemija(){
+    private function adreseKemija()
+    {
         $address = [
-            'country_id' => 235,//'GB',//null,
+            'country_id' => 235, //'GB',//null,
             'title' => null,
             'first_name' => request()->session()->get(env('INFO_KUKI'))['name'],
             'last_name' => request()->session()->get(env('INFO_KUKI'))['last_name'],
@@ -153,8 +242,8 @@ class PaymentFinish extends Component
 
         $this->cart->setBillingAddress($address);
         $this->cart->setShippingAddress($address);
-        
-       // $option = $this->shippingOptions->first(fn ($option) => $option->getIdentifier() == $this->chosenShipping);
+
+        // $option = $this->shippingOptions->first(fn ($option) => $option->getIdentifier() == $this->chosenShipping);
         //$this->cart->setShippingOption($option);
     }
 
@@ -170,8 +259,8 @@ class PaymentFinish extends Component
         );
     }
 
-
-    private function zaveziUsera(){
+    private function zaveziUsera()
+    {
 
         $this->adreseKemija();
 
@@ -195,7 +284,7 @@ class PaymentFinish extends Component
             [
                 'name' => request()->session()->get(env('INFO_KUKI'))['name'],
                 'email' => request()->session()->get(env('INFO_KUKI'))['email'],
-                'password' => '-'
+                'password' => '-',
             ]
         );
         $customer = Customer::firstOrCreate(
@@ -240,8 +329,7 @@ class PaymentFinish extends Component
             ]
         );
 
-
-        $customer->users()->attach($user);
+        $customer->users()->syncWithoutDetaching([$user->id]);
 
         $this->cart->setCustomer($customer);
     }

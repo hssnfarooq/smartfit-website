@@ -327,45 +327,7 @@ $hmOffers = [
 </section>
 
 {{-- 5. FIND A GARAGE NEAR YOU --}}
-<section class="py-5 bg-white">
-<div class="container py-4">
-<div class="row align-items-center g-5">
-    <div class="col-lg-12 mt-0 text-center">
-        <h2 class="display-4 fw-extrabold text-dark mb-0" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
-            FIND A GARAGE NEAR YOU
-        </h2>
-    </div>
-    <div class="col-lg-6 mt-0 mt-lg-5">
-        <p class="text-dark fs-5 mb-4 fw-bold" style="font-family: Mulish;font-weight: 700;vertical-align: middle;text-align: left !important;">
-            Enter your registration number and postcode to find out what car servicing is available near you.
-        </p>
-        <form action="/booking/order" method="GET">
-            <div class="row g-3 mb-4">
-                <div class="col-md-6">
-                    <label class="form-label text-uppercase fw-bold text-muted small mb-1" style="font-size: 11px; letter-spacing: 0.5px;">REGISTRATION NUMBER</label>
-                    <input type="text" name="reg" class="form-control form-control-lg bg-light border-0 text-uppercase fw-bold" placeholder="AB12 CDE" style="height: 48px; font-size: 15px;">
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label text-uppercase fw-bold text-muted small mb-1" style="font-size: 11px; letter-spacing: 0.5px;">POSTCODE / LOCATION</label>
-                    <input type="text" name="postcode" class="form-control form-control-lg bg-light border-0 text-uppercase fw-bold" placeholder="PE1 3SA" style="height: 48px; font-size: 15px;">
-                </div>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-danger fw-bold text-uppercase d-inline-flex align-items-center gap-2 sf-cta sf-cta--primary" style="background-color: #ED1E24; border-color: #ED1E24;">
-                    <span>SEARCH GARAGES</span>
-                    <i class="fa-solid fa-arrow-right fs-6"></i>
-                </button>
-            </div>
-        </form>
-    </div>
-    <div class="col-lg-6">
-        <div class="overflow-hidden rounded-3 shadow-sm">
-            <img src="{{ asset('assets/images/home/garage-interior.webp') }}" alt="Garage Interior" class="img-fluid w-100 object-fit-cover" style="height: 320px; border-radius: 8px;" loading="lazy" decoding="async">
-        </div>
-    </div>
-</div>
-</div>
-</section>
+@include('site.partials.home-garage-finder')
 
 {{-- 6. SERVICES PACKAGES --}}
 @php
@@ -465,80 +427,7 @@ $hmPackages = [
 </section>
 
 {{-- 8. OUR GARAGES --}}
-<section class="py-5 bg-white">
-<div class="container py-4">
-<div class="row align-items-center g-4">
-    <div class="col-lg-4 position-relative">
-        <div class="" style="border-right: 2px solid #111;">
-            <h2 class="display-4 fw-extrabold text-dark mb-3" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
-                OUR GARAGES
-            </h2>
-            <p class="text-secondary fs-5 mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;">
-                Visit one of our local centres for MOTs, servicing, repairs and tyres.
-            </p>
-        </div>
-    </div>
-    <div class="col-lg-8">
-        <div class="row mx-1">
-            <div class="col-md-4 border" style="border-color: #e5e7eb !important;">
-                <div class="text-uppercase fw-bold text-muted mb-1" style="font-size: 10px; letter-spacing: 0.8px;">PETERBOROUGH</div>
-                <p class="fw-extrabold text-dark mb-1" style=" font-family: Montserrat;font-weight: 800;font-size: 20px;line-height: 28.25px;letter-spacing: -0.18px;vertical-align: middle;">
-                    Smartfit Auto Centre
-                </p>
-                <div class="text-secondary" style="font-size: 12px; line-height: 1.4; color: #666;">
-                    39 Northfield Rd,<br>Peterborough, PE1 3QQ
-                </div>
-            </div>
-           <div class="col-md-4 border" style="border-color: #e5e7eb !important;">
-                <div class="text-uppercase fw-bold text-muted mb-1" style="font-size: 10px; letter-spacing: 0.8px;">PETERBOROUGH</div>
-                <p class="fw-extrabold text-dark mb-1" style=" font-family: Montserrat;font-weight: 800;font-size: 20px;line-height: 28.25px;letter-spacing: -0.18px;vertical-align: middle;">
-                    Smartfit Auto Centre
-                </p>
-                <div class="text-secondary" style="font-size: 12px; line-height: 1.4; color: #666;">
-                    419 Lincoln Rd,<br>Peterborough, PE1 2PF
-                </div>
-            </div>
-            <div class="col-md-4 border" style="border-color: #e5e7eb !important;">
-                <div class="text-uppercase fw-bold text-muted mb-1" style="font-size: 10px; letter-spacing: 0.8px;">PETERBOROUGH</div>
-                <p class="fw-extrabold text-dark mb-1" style=" font-family: Montserrat;font-weight: 800;font-size: 20px;line-height: 28.25px;letter-spacing: -0.18px;vertical-align: middle;">
-                    Kennings Auto Centre
-                </p>
-                <div class="text-secondary" style="font-size: 12px; line-height: 1.4; color: #666;">
-                    343 Eastfield Rd,<br>Peterborough, PE1 4RA
-                </div>
-            </div>
-            <div class="col-md-4 border" style="border-color: #e5e7eb !important;">
-                <div class="text-uppercase fw-bold text-muted mb-1" style="font-size: 10px; letter-spacing: 0.8px;">DOGSTHORPE</div>
-                <p class="fw-extrabold text-dark mb-1" style=" font-family: Montserrat;font-weight: 800;font-size: 20px;line-height: 28.25px;letter-spacing: -0.18px;vertical-align: middle;">
-                    HiQ Tyres & Autocare
-                </p>
-                <div class="text-secondary" style="font-size: 12px; line-height: 1.4; color: #666;">
-                    7 Welland Rd, Dogsthorpe,<br>Peterborough, PE1 3SA
-                </div>
-            </div>
-            <div class="col-md-4 border" style="border-color: #e5e7eb !important;">
-                <div class="text-uppercase fw-bold text-muted mb-1" style="font-size: 10px; letter-spacing: 0.8px;">PETERBOROUGH</div>
-                <p class="fw-extrabold text-dark mb-1" style=" font-family: Montserrat;font-weight: 800;font-size: 20px;line-height: 28.25px;letter-spacing: -0.18px;vertical-align: middle;">
-                    HiQ Tyres & Autocare
-                </p>
-                <div class="text-secondary" style="font-size: 12px; line-height: 1.4; color: #666;">
-                    Unit 1 Maskew Avenue,<br>Peterborough, PE1 2AS
-                </div>
-            </div>
-            <div class="col-md-4 border" style="border-color: #e5e7eb !important;">
-                <div class="text-uppercase fw-bold text-muted mb-1" style="font-size: 10px; letter-spacing: 0.8px;">HUNTINGDON</div>
-                <p class="fw-extrabold text-dark mb-1" style=" font-family: Montserrat;font-weight: 800;font-size: 20px;line-height: 28.25px;letter-spacing: -0.18px;vertical-align: middle;">
-                    HiQ Tyres & Autocare
-                </p>
-                <div class="text-secondary" style="font-size: 12px; line-height: 1.4; color: #666;">
-                    Nursery Rd,<br>Huntingdon, PE29 3RJ
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</section>
+@include('site.partials.home-garages')
 
 {{-- 9. WHAT OUR CUSTOMERS SAY (SLIDER) --}}
 <section class="py-5" style="background: #F2F2F4 !important;">
@@ -555,14 +444,7 @@ $hmPackages = [
     </div>
 </div>
 
-<div class="d-flex justify-content-end gap-2 mt-4">
-    <button type="button" aria-label="Previous reviews" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_left" style="width: 42px; height: 42px; border: 1px solid #ddd; background: #fff; cursor: pointer; transition: all 0.2s ease;">
-        <span class="review-arrow-glyph text-dark" aria-hidden="true">←</span>
-    </button>
-    <button type="button" aria-label="Next reviews" class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_right" style="width: 42px; height: 42px; background-color: #ED1E24; border-color: #ED1E24; cursor: pointer; transition: all 0.2s ease;">
-        <span class="review-arrow-glyph text-white" aria-hidden="true">→</span>
-    </button>
-</div>
+@include("site.partials.customer-review-controls")
 </div>
 </section>
 
@@ -577,14 +459,6 @@ display: flex !important;
 .home_reviews_carousel .slick-slide > div {
 display: flex;
 width: 100%;
-}
-.reviews_arrow_left:hover {
-background: #f0f0f0 !important;
-border-color: #bbb !important;
-}
-.reviews_arrow_right:hover {
-background: #c41019 !important;
-border-color: #c41019 !important;
 }
 </style>
 
@@ -649,9 +523,9 @@ window.addEventListener('load', initReviewsSlider);
 <div class="row g-4">
     <div class="col-md-6">
         <div class="p-4 rounded-3 h-100" style="background-color: #EEF2F6;">
-            <div class="d-flex align-items-center gap-2 mb-2">
-                <span class="fw-extrabold" style="color: #ED1E24; font-size: 20px; font-weight: 900;">01</span>
-                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
+            <div class="d-flex align-items-center gap-2 mb-2 sf-numbered-card-heading">
+                <span class="fw-extrabold sf-numbered-card-number">01</span>
+                <h3 class="fw-bold text-dark mb-0 sf-numbered-card-title" style="text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     FAST TURNAROUND
                 </h3>
             </div>
@@ -663,9 +537,9 @@ window.addEventListener('load', initReviewsSlider);
 
     <div class="col-md-6">
         <div class="p-4 rounded-3 h-100" style="background-color: #EEF2F6;">
-            <div class="d-flex align-items-center gap-2 mb-2">
-                <span class="fw-extrabold" style="color: #ED1E24; font-size: 20px; font-weight: 900;">02</span>
-                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
+            <div class="d-flex align-items-center gap-2 mb-2 sf-numbered-card-heading">
+                <span class="fw-extrabold sf-numbered-card-number">02</span>
+                <h3 class="fw-bold text-dark mb-0 sf-numbered-card-title" style="text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     HIGH QUALITY
                 </h3>
             </div>
@@ -677,9 +551,9 @@ window.addEventListener('load', initReviewsSlider);
 
     <div class="col-md-6">
         <div class="p-4 rounded-3 h-100" style="background-color: #EEF2F6;">
-            <div class="d-flex align-items-center gap-2 mb-2">
-                <span class="fw-extrabold" style="color: #ED1E24; font-size: 20px; font-weight: 900;">03</span>
-                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
+            <div class="d-flex align-items-center gap-2 mb-2 sf-numbered-card-heading">
+                <span class="fw-extrabold sf-numbered-card-number">03</span>
+                <h3 class="fw-bold text-dark mb-0 sf-numbered-card-title" style="text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     PREMIUM SUPPORT
                 </h3>
             </div>
@@ -691,9 +565,9 @@ window.addEventListener('load', initReviewsSlider);
 
     <div class="col-md-6">
         <div class="p-4 rounded-3 h-100" style="background-color: #EEF2F6;">
-            <div class="d-flex align-items-center gap-2 mb-2">
-                <span class="fw-extrabold" style="color: #ED1E24; font-size: 15px; font-weight: 900;">04</span>
-                <h3 class="fw-bold text-dark mb-0" style="font-family: Mulish;font-weight: 800 !important;line-height: 30.4px;letter-spacing: -0.19px;text-align: center;vertical-align: middle;text-transform: uppercase !important;">
+            <div class="d-flex align-items-center gap-2 mb-2 sf-numbered-card-heading">
+                <span class="fw-extrabold sf-numbered-card-number">04</span>
+                <h3 class="fw-bold text-dark mb-0 sf-numbered-card-title" style="text-align: center;vertical-align: middle;text-transform: uppercase !important;">
                     AFFORDABLE RATES
                 </h3>
             </div>
@@ -789,9 +663,6 @@ FLEET PAGE — SCOPED STYLES (prefix fm-)
 .fm-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 50%,rgba(237,30,36,.22) 0%,rgba(237,30,36,.04) 45%,transparent 70%);pointer-events:none}
 .sf-main-page .page_content .fm-hero-title{letter-spacing:-.8px;text-transform:uppercase;color:#fff;margin-bottom:20px}
 .fm-hero-desc{color:rgba(255,255,255,.76);font-size:14.5px;line-height:1.72;max-width:580px;margin-bottom:28px}
-.fm-hero-feats{display:flex;gap:32px;flex-wrap:wrap;margin-top:24px}
-.fm-hero-feats span{color:rgba(255,255,255,.88);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
-.fm-hero-feats span i{color:#ED1E24;font-size:14px}
 
 /* HEALTH CARD */
 .fm-health-wrap{position:relative;display:inline-flex;justify-content:center;align-items:center}
@@ -842,9 +713,6 @@ border-radius: 50%;
 .fm-stepnum{width:42px;height:42px;border-radius:50%;border:2px solid #ED1E24;color:#ED1E24;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .fm-steptitle{font-size:15.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:9px;color:#111}
 .fm-stepdesc{font-size:13px;color:#666;line-height:1.65}
-.fm-hcta{background:#fff;border:1px solid #e4e4e4;border-radius:10px;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-top:50px}
-.fm-hcta-icon{width:44px;height:44px;border-radius:50%;background:rgba(237,30,36,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.fm-hcta-icon i{color:#ED1E24;font-size:17px}
 
 /* DARK CTA */
 .fm-dcta{position:relative;background:#111;padding:100px 0;overflow:hidden}
@@ -927,12 +795,11 @@ border-radius: 50%;
 
 /* SHARED */
 .fm-sec-title{font-size:clamp(1.75rem,3.5vw,2.65rem);font-weight:900;text-transform:uppercase;letter-spacing:-.3px;color:#111;line-height:1.08}
-.fm-sec-sub{font-size:15px;color:#666;max-width:680px;margin:14px auto 0;line-height:1.72}
+.fm-sec-sub{font-size:15px;color:#666;max-width:680px;margin:14px auto 0;line-height:1.72;text-align:center!important}
 
 @media(max-width:991px){
 .fm-hero{padding:40px 0;min-height:auto}
 .fm-card-health{margin-top:28px}
-.fm-hcta{flex-direction:column;text-align:center}
 .fm-rel-img{height:250px}
 .fm-dcta,.fm-fcta{padding:72px 0}
 }
@@ -956,9 +823,9 @@ SECTION 1 — FLEET HERO
   <a href="tel:01733569998" class="btn fm-btn-red text-uppercase sf-cta sf-cta--primary">CALL NOW 01733 569998</a>
   <a href="/booking/order" class="btn fm-btn-outline text-uppercase sf-cta sf-cta--outline-light">BOOK FLEET SERVICING <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
-<div class="fm-hero-feats">
-  <span class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;"><i class="fa-solid fa-check"></i>ALL MAKES &amp; MODELS</span>
-  <span class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;"><i class="fa-solid fa-check"></i>PRIORITY FLEET SCHEDULING</span>
+<div class="fm-hero-feats sf-hero-features">
+  <span class="sf-hero-feature"><i class="fa-solid fa-check" aria-hidden="true"></i>ALL MAKES &amp; MODELS</span>
+  <span class="sf-hero-feature"><i class="fa-solid fa-check" aria-hidden="true"></i>PRIORITY FLEET SCHEDULING</span>
 </div>
 </div>
 <div class="col-lg-4 text-center">
@@ -1002,7 +869,7 @@ SECTION 2 — OUR FLEET VEHICLE SERVICES
 <h2 class="display-4 fw-extrabold text-dark" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
   OUR FLEET VEHICLE SERVICES
 </h2>
-<p class="text-secondary fs-5 mb-4 w-75 fm-sec-sub" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;text-align:center;max-width:100%;">
+<p class="text-secondary fs-5 mb-4 w-75 fm-sec-sub" style="font-family: Mulish;font-weight: 400;vertical-align: middle;max-width:100%;">
     From routine maintenance to specialist repairs, we provide complete fleet servicing solutions to keep your business vehicles safe, reliable, and road-ready.
 </p>
 </div>
@@ -1121,19 +988,10 @@ SECTION 3 — HOW FLEET ACCOUNTS WORK
 </p>
 </div>
 </div>
-<div class="fm-hcta">
-<div class="d-flex align-items-center gap-3">
-<div class="fm-hcta-icon"><i class="fa-solid fa-phone"></i></div>
-<div>
-  <div style="font-weight:800;font-size:15px;color:#111">Ready when you are</div>
-  <div style="font-size:13px;color:#888">Speak to the Peterborough team directly.</div>
-</div>
-</div>
-<div class="d-flex flex-wrap gap-3 sf-cta-pair">
-<a href="tel:01733569998" class="btn fm-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
-<a href="/booking/order" class="btn fm-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR SERVICE</a>
-</div>
-</div>
+@include('site.partials.ready-when-you-are', [
+    'readyCtaBookingHref' => '/booking/order',
+    'readyCtaBookingLabel' => 'BOOK FLEET SERVICING',
+])
 </div>
 </section>
 
@@ -1198,7 +1056,7 @@ SECTION 6 — THE BENEFITS
             <h2 class="display-4 fw-extrabold text-dark mx-lg-3 mx-0" style=" font-family: Montserrat;font-weight: 800;letter-spacing: 0px;vertical-align: middle;text-transform: uppercase;">
                 The Benefits Of Our Fleet Maintenance Solutions
             </h2>
-            <p class="text-secondary fs-5 mb-4 w-75 fm-sec-sub" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important;text-align:center;max-width:100%;">
+            <p class="text-secondary fs-5 mb-4 w-75 fm-sec-sub" style="font-family: Mulish;font-weight: 400;vertical-align: middle;max-width:100%;">
                 Keep your fleet running efficiently with a service designed to save time, reduce costs, and simplify
                 vehicle maintenance for both your business and your drivers.
             </p>
@@ -1314,54 +1172,54 @@ SECTION 8 — WHY CHOOSE SMARTFIT AUTOS
 <div class="row g-3">
 <div class="col-md-6">
 <div class="fm-wcard">
-  <div class="fm-wheader">
-    <span class="fm-wnum" style="color: #ED1E24; font-size: 20px; font-weight: 900;">01</span>
-    <h3 class="fm-wtitle">EXPERIENCED VEHICLE TECHNICIANS</h3>
+  <div class="fm-wheader sf-numbered-card-heading">
+    <span class="fm-wnum sf-numbered-card-number">01</span>
+    <h3 class="fm-wtitle sf-numbered-card-title">EXPERIENCED VEHICLE TECHNICIANS</h3>
   </div>
   <p class="fm-wdesc">Our qualified technicians service and repair all types of cars, vans, and commercial vehicles using industry best practices and quality parts.</p>
 </div>
 </div>
 <div class="col-md-6">
 <div class="fm-wcard">
-  <div class="fm-wheader">
-    <span class="fm-wnum" style="color: #ED1E24; font-size: 20px; font-weight: 900;">02</span>
-    <h3 class="fm-wtitle">REDUCED VEHICLE DOWNTIME</h3>
+  <div class="fm-wheader sf-numbered-card-heading">
+    <span class="fm-wnum sf-numbered-card-number">02</span>
+    <h3 class="fm-wtitle sf-numbered-card-title">REDUCED VEHICLE DOWNTIME</h3>
   </div>
   <p class="fm-wdesc">Fast diagnostics, efficient repairs, and scheduled maintenance help keep your fleet on the road and your business operating without unnecessary delays.</p>
 </div>
 </div>
 <div class="col-md-6">
 <div class="fm-wcard">
-  <div class="fm-wheader">
-    <span class="fm-wnum" style="color: #ED1E24; font-size: 20px; font-weight: 900;">03</span>
-    <h3 class="fm-wtitle">FLEXIBLE FLEET SOLUTIONS</h3>
+  <div class="fm-wheader sf-numbered-card-heading">
+    <span class="fm-wnum sf-numbered-card-number">03</span>
+    <h3 class="fm-wtitle sf-numbered-card-title">FLEXIBLE FLEET SOLUTIONS</h3>
   </div>
   <p class="fm-wdesc">Whether you manage two vehicles or an entire fleet, we tailor servicing and maintenance plans to suit your business requirements.</p>
 </div>
 </div>
 <div class="col-md-6">
 <div class="fm-wcard">
-  <div class="fm-wheader">
-    <span class="fm-wnum" style="color: #ED1E24; font-size: 20px; font-weight: 900;">04</span>
-    <h3 class="fm-wtitle">TRANSPARENT PRICING</h3>
+  <div class="fm-wheader sf-numbered-card-heading">
+    <span class="fm-wnum sf-numbered-card-number">04</span>
+    <h3 class="fm-wtitle sf-numbered-card-title">TRANSPARENT PRICING</h3>
   </div>
   <p class="fm-wdesc">Receive clear, upfront quotations with no hidden costs, along with honest advice before any servicing or repair work begins.</p>
 </div>
 </div>
 <div class="col-md-6">
 <div class="fm-wcard">
-  <div class="fm-wheader">
-    <span class="fm-wnum" style="color: #ED1E24; font-size: 20px; font-weight: 900;">05</span>
-    <h3 class="fm-wtitle">PRIORITY FLEET SCHEDULING</h3>
+  <div class="fm-wheader sf-numbered-card-heading">
+    <span class="fm-wnum sf-numbered-card-number">05</span>
+    <h3 class="fm-wtitle sf-numbered-card-title">PRIORITY FLEET SCHEDULING</h3>
   </div>
   <p class="fm-wdesc">Fleet customers benefit from priority booking to minimise disruption and keep vehicles serviced and returned to operation quickly.</p>
 </div>
 </div>
 <div class="col-md-6">
 <div class="fm-wcard">
-  <div class="fm-wheader">
-    <span class="fm-wnum" style="color: #ED1E24; font-size: 20px; font-weight: 900;">06</span>
-    <h3 class="fm-wtitle">RELIABLE BUSINESS PARTNER</h3>
+  <div class="fm-wheader sf-numbered-card-heading">
+    <span class="fm-wnum sf-numbered-card-number">06</span>
+    <h3 class="fm-wtitle sf-numbered-card-title">RELIABLE BUSINESS PARTNER</h3>
   </div>
   <p class="fm-wdesc">Build a long-term partnership with a trusted garage committed to keeping your fleet safe, compliant, and performing at its best.</p>
 </div>
@@ -1369,51 +1227,15 @@ SECTION 8 — WHY CHOOSE SMARTFIT AUTOS
 </div>
 </div>
 </section>
-{{-- Load Leaflet from jsDelivr (reliable CDN) --}}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
-
 {{-- ================================================
 SECTION 9 — AREAS (Leaflet interactive map)
 ================================================ --}}
-<section class="fm-areas" style="background: #F2F2F4;">
-<div class="container">
-<div class="text-center mb-5">
-<h2 class="">Fleet Vehicle Servicing Across<br>Peterborough &amp; Surrounding Areas</h2>
-</div>
-<div style="">
-<div class="row g-5 align-items-center">
-<div class="col-lg-6">
-<p style="font-size:18px;color:#555;line-height:1.82;margin-bottom:26px">We provide professional fleet vehicle servicing and maintenance services across Peterborough and the surrounding areas. Whether you manage a small fleet or multiple commercial vehicles, our experienced team delivers reliable servicing, repairs, and maintenance to keep your business moving.</p>
-<div class="d-flex flex-wrap gap-2">
-  @php
-  $mapAreas = [
-      ['Peterborough', 52.5695, -0.2405],
-      ['Stamford',     52.6510, -0.4810],
-      ['Whittlesey',   52.5574, -0.1315],
-      ['Crowland',     52.6756, -0.1661],
-      ['Bourne',       52.7686, -0.3770],
-      ['Huntingdon',   52.3304, -0.1867],
-      ['Oundle',       52.4820, -0.4700],
-      ['Sawtry',       52.4370, -0.2830],
-      ['Ramsey',       52.4490, -0.1060],
-      ['St Ives',      52.3270, -0.0760]
-  ];
-  @endphp
-  @foreach($mapAreas as $idx => [$name, $lat, $lng])
-  <button type="button" class="fm-abtn {{ $idx === 0 ? 'active' : '' }}" onclick="fmGoTo({{ $idx }}, this)">{{ $name }}</button>
-  @endforeach
-</div>
-</div>
-<div class="col-lg-6">
-{{-- Map container: data-bs-theme="light" prevents Bootstrap dark mode from hiding tiles --}}
-<div id="fmAreaMap" data-bs-theme="light"
-  style="height:380px;border-radius:12px;overflow:hidden;border:1px solid #e4e4e4;">
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+@include('site.partials.service-area-map', [
+    'serviceAreaId' => 'fleet-service-area',
+    'serviceAreaTitle' => 'Fleet vehicle servicing across<br>Peterborough &amp; surrounding areas',
+    'serviceAreaDescription' => 'We provide professional fleet vehicle servicing and maintenance services across Peterborough and the surrounding areas. Whether you manage a small fleet or multiple commercial vehicles, our experienced team delivers reliable servicing, repairs, and maintenance to keep your business moving.',
+    'serviceAreaPopupLabel' => 'Smartfit Autos Fleet Servicing Area',
+])
 
 {{-- ================================================
 SECTION 10 — TESTIMONIALS
@@ -1432,18 +1254,7 @@ SECTION 10 — TESTIMONIALS
             </div>
         </div>
 
-        <div class="d-flex justify-content-end gap-2 mt-4">
-            <button type="button" aria-label="Previous reviews"
-                class="btn btn-light rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_left"
-                style="width: 42px; height: 42px; border: 1px solid #ddd; background: #fff; cursor: pointer; transition: all 0.2s ease;">
-                <span class="review-arrow-glyph text-dark" aria-hidden="true">←</span>
-            </button>
-            <button type="button" aria-label="Next reviews"
-                class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_right"
-                style="width: 42px; height: 42px; background-color: #ED1E24; border-color: #ED1E24; cursor: pointer; transition: all 0.2s ease;">
-                <span class="review-arrow-glyph text-white" aria-hidden="true">→</span>
-            </button>
-        </div>
+        @include("site.partials.customer-review-controls")
     </div>
 </section>
 
@@ -1462,15 +1273,6 @@ SECTION 10 — TESTIMONIALS
         width: 100%;
     }
 
-    .reviews_arrow_left:hover {
-        background: #f0f0f0 !important;
-        border-color: #bbb !important;
-    }
-
-    .reviews_arrow_right:hover {
-        background: #c41019 !important;
-        border-color: #c41019 !important;
-    }
 </style>
 
 <script>
@@ -1574,7 +1376,6 @@ SECTION 12 — FINAL CTA
 </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
 <script>
 /* ---- Fleet FAQ accordion ---- */
 function fmFaq(id){
@@ -1584,61 +1385,6 @@ document.querySelectorAll('.fm-fitem').forEach(function(i){i.classList.remove('o
 if(!was) el.classList.add('open');
 }
 
-/* ---- Fleet interactive map: Leaflet + CartoDB Voyager tiles ---- */
-(function(){
-var locs = [
-{name:"Peterborough", lat:52.5695, lng:-0.2405},
-{name:"Stamford",     lat:52.6510, lng:-0.4810},
-{name:"Whittlesey",   lat:52.5574, lng:-0.1315},
-{name:"Crowland",     lat:52.6756, lng:-0.1661},
-{name:"Bourne",       lat:52.7686, lng:-0.3770},
-{name:"Huntingdon",   lat:52.3304, lng:-0.1867},
-{name:"Oundle",       lat:52.4820, lng:-0.4700},
-{name:"Sawtry",       lat:52.4370, lng:-0.2830},
-{name:"Ramsey",       lat:52.4490, lng:-0.1060},
-{name:"St Ives",      lat:52.3270, lng:-0.0760}
-];
-var map, markers = [];
-function initFleetMap(){
-var el = document.getElementById('fmAreaMap');
-if(!el || el._leaflet_id || typeof L === 'undefined') return;
-map = L.map('fmAreaMap', {scrollWheelZoom: false, zoomControl: true}).setView([52.5695, -0.2405], 10);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-subdomains: 'abcd',
-maxZoom: 19
-}).addTo(map);
-var redPin = L.divIcon({
-className: 'fm-map-pin',
-html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 42" width="28" height="42"><path d="M14 0C8.48 0 4 4.48 4 10c0 7.5 10 26 10 26s10-18.5 10-26C24 4.48 19.52 0 14 0z" fill="#ED1E24"/><circle cx="14" cy="10" r="5.5" fill="#fff"/></svg>',
-iconSize:   [28, 42],
-iconAnchor: [14, 42],
-popupAnchor:[0, -42]
-});
-locs.forEach(function(l, i){
-var m = L.marker([l.lat, l.lng], {icon: redPin}).addTo(map)
-       .bindPopup('<b style="color:#ED1E24;font-size:15px;">'+l.name+'</b><br><small style="color:#555;">Smartfit Autos Fleet Servicing Area</small>');
-m.on('click', function(){
-var btns = document.querySelectorAll('.fm-abtn');
-btns.forEach(function(b){ b.classList.remove('active'); });
-if(btns[i]) btns[i].classList.add('active');
-});
-markers.push(m);
-});
-setTimeout(function(){ if(map) map.invalidateSize(); }, 300);
-}
-window.fmGoTo = function(idx, btn) {
-document.querySelectorAll('.fm-abtn').forEach(function(b){ b.classList.remove('active'); });
-if(btn) btn.classList.add('active');
-if(map && locs[idx]){
-map.flyTo([locs[idx].lat, locs[idx].lng], 12, {animate: true, duration: 0.8});
-if(markers[idx]) markers[idx].openPopup();
-}
-};
-if(document.readyState==='complete'){ setTimeout(initFleetMap, 150); }
-else { window.addEventListener('load', function(){ setTimeout(initFleetMap, 150); }); }
-window.addEventListener('resize', function(){ if(map) map.invalidateSize(); });
-})();
 </script>
 
 @elseif($currentSlug === 'repairs')
@@ -1672,8 +1418,6 @@ REPAIRS PAGE — SCOPED STYLES (prefix rp-)
 .rp-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 50%,rgba(237,30,36,.18) 0%,rgba(237,30,36,.04) 45%,transparent 70%);pointer-events:none}
 .rp-hero-title{font-size:clamp(2rem,3.2vw,3.4rem);font-weight:900;line-height:1.06;letter-spacing:-1px;text-transform:uppercase;color:#fff;margin-bottom:18px}
 .rp-hero-desc{color:rgba(255,255,255,.75);font-size:14.5px;line-height:1.74;max-width:490px;margin-bottom:26px}
-.rp-hero-feats{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px}
-.rp-hero-feats span{color:#ED1E24;font-weight:700;font-size:11.5px;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:6px}
 
 /* DIAG CARD */
 .rp-diag-wrap{position:relative;display:flex;justify-content:center;align-items:center}
@@ -1698,21 +1442,19 @@ REPAIRS PAGE — SCOPED STYLES (prefix rp-)
 .rp-stepnum{width:52px;height:52px;border-radius:50%;border:2px solid #ED1E24;color:#ED1E24;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0;background:#fff}
 .rp-steptitle{font-size:15.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:10px;color:#111}
 .rp-stepdesc{font-size:13.5px;color:#666;line-height:1.68}
-.rp-hcta{background:#fff;border:1px solid #e4e4e4;border-radius:12px;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-top:56px}
-.rp-hcta-icon{width:46px;height:46px;border-radius:50%;background:rgba(237,30,36,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.rp-hcta-icon i{color:#ED1E24;font-size:18px}
-.rp-hcta-phone{font-size:17px;font-weight:900;color:#111}
 
 /* EMERGENCY */
-.rp-emergency{background:#141416;padding:80px 0;position:relative;overflow:hidden}
-.rp-emg-title{font-size:clamp(1.8rem,3.2vw,2.8rem);font-weight:900;text-transform:uppercase;color:#fff;line-height:1.08;margin-bottom:20px}
-.rp-emg-desc{color:rgba(255,255,255,.7);font-size:14.5px;line-height:1.76;margin-bottom:18px;max-width:500px}
-.rp-emg-list{display:flex;flex-direction:column}
-.rp-emg-item{display:flex;align-items:center;gap:18px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.rp-emg-item:first-child{padding-top:10px}
-.rp-emg-item:last-child{border-bottom:none}
-.rp-emg-icon{width:36px;height:36px;border-radius:50%;background:rgba(237,30,36,.12);color:#ED1E24;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-.rp-emg-item-title{font-size:16.5px;font-weight:800;color:#fff;margin:0;letter-spacing:.2px}
+.rp-emergency{background:#17161a;padding:51px 0 47px;position:relative;overflow:hidden;min-height:666px}
+.rp-emergency__container{width:min(1780px,calc(100% - 144px));max-width:none;margin:0 auto;padding:0}
+.rp-emergency__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:105px;align-items:start}
+.sf-main-page .page_content h2.rp-emg-title{max-width:820px;margin:0 0 25px;color:#fff!important;font-family:Montserrat,sans-serif;font-size:clamp(3.25rem,3.75vw,4.5rem)!important;font-weight:800!important;line-height:1.2!important;letter-spacing:-1.2px;text-transform:uppercase}
+.sf-main-page .page_content p.rp-emg-desc{max-width:810px;margin:0 0 28px;color:#b9b6b1;font-family:Mulish,sans-serif;font-size:clamp(1.2rem,1.35vw,1.625rem)!important;font-weight:400;line-height:1.2!important;text-align:left!important}
+.rp-emergency .rp-emg-cta{display:inline-flex;min-width:312px;min-height:58px!important;align-items:center;justify-content:center;margin-top:7px;padding:14px 30px!important;border-radius:999px;font-family:Mulish,sans-serif;font-size:20px!important;font-weight:700;line-height:1!important;text-transform:none}
+.rp-emg-list{display:flex;flex-direction:column;padding-top:90px}
+.rp-emg-item{display:flex;min-height:141px;align-items:center;gap:18px;border-bottom:1px solid rgba(255,255,255,.1)}
+.rp-emg-item:first-child{border-top:1px solid rgba(255,255,255,.1)}
+.rp-emg-icon{display:flex;width:46px;height:46px;align-items:center;justify-content:center;flex-shrink:0;border-radius:50%;color:#ed1e24;background:rgba(237,30,36,.16);font-size:17px}
+.sf-main-page .page_content h4.rp-emg-item-title{margin:0;color:#fff;font-family:Montserrat,sans-serif;font-size:34px!important;font-weight:700!important;line-height:1.2!important;letter-spacing:-.3px;text-transform:none}
 
 /* LOCAL EXPERTS */
 .rp-local{background:#fff;padding:88px 0}
@@ -1779,16 +1521,25 @@ REPAIRS PAGE — SCOPED STYLES (prefix rp-)
 @media(max-width:991px){
 .rp-hero{padding:44px 0;min-height:auto}
 .rp-diag-card{margin-top:32px}
-.rp-hcta{flex-direction:column;text-align:center}
 .rp-local-img{height:300px;margin-top:30px}
 .rp-bookcta,.rp-fcta{padding:80px 0}
-.rp-emergency{padding:70px 0}
+.rp-emergency{padding:64px 0;min-height:0}
+.rp-emergency__container{width:calc(100% - 48px)}
+.rp-emergency__grid{grid-template-columns:1fr;gap:34px}
+.rp-emg-list{padding-top:0}
 }
 @media(max-width:767px){
 .rp-hero{min-height:auto;padding:48px 0}
 .rp-hero-title{font-size:2.1rem}
-.rp-hero-feats{gap:16px}
 .rp-local-img{height:240px}
+.rp-emergency{padding:52px 0 46px}
+.rp-emergency__container{width:calc(100% - 30px)}
+.sf-main-page .page_content h2.rp-emg-title{margin-bottom:24px;font-size:clamp(2.25rem,10.5vw,3rem)!important;line-height:1.08!important;letter-spacing:-.6px}
+.sf-main-page .page_content p.rp-emg-desc{margin-bottom:22px;font-size:1.05rem!important;line-height:1.55!important}
+.rp-emergency .rp-emg-cta{width:100%;min-width:0;min-height:54px!important;margin-top:2px;font-size:17px!important}
+.rp-emg-item{min-height:96px;gap:15px}
+.rp-emg-icon{width:42px;height:42px;font-size:15px}
+.sf-main-page .page_content h4.rp-emg-item-title{font-size:23px!important}
 }
 @media(max-width:575px){
 .rp-hero-title{font-size:1.75rem}
@@ -1802,20 +1553,20 @@ SECTION 1 — HERO
 <section class="rp-hero">
 <div class="container position-relative" style="z-index:2">
 <div class="row align-items-center g-5">
-<div class="col-lg-6">
+<div class="col-lg-7">
 <h1 class="fm-hero-title">CAR REPAIR<br>PETERBOROUGH</h1>
 <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px; color:#C7C4C0;">Need expert car repair in Peterborough? Smartfit Autos provides affordable and professional repair services for all vehicles. From minor issues to complex mechanical work, our experienced team uses advanced diagnostics to ensure quick, precise, and accurate results.</p>
 <div class="d-flex flex-wrap gap-3 mb-4 sf-cta-pair">
   <a href="tel:01733569998" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">CALL NOW 01733 569998</a>
   <a href="/booking/order" class="btn rp-btn-wh fw-bold text-uppercase sf-cta sf-cta--outline-light">BOOK MOT ONLINE <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
-<div class="rp-hero-feats">
-  <span><i class="fa-solid fa-check"></i>ADVANCED DIAGNOSTICS</span>
-  <span><i class="fa-solid fa-check"></i>ALL MAKES &amp; MODELS</span>
-  <span><i class="fa-solid fa-check"></i>SAME-DAY REPAIRS</span>
+<div class="rp-hero-feats sf-hero-features">
+  <span class="sf-hero-feature"><i class="fa-solid fa-check" aria-hidden="true"></i>ADVANCED DIAGNOSTICS</span>
+  <span class="sf-hero-feature"><i class="fa-solid fa-check" aria-hidden="true"></i>ALL MAKES &amp; MODELS</span>
+  <span class="sf-hero-feature"><i class="fa-solid fa-check" aria-hidden="true"></i>SAME-DAY REPAIRS</span>
 </div>
 </div>
-<div class="col-lg-5 offset-lg-1">
+<div class="col-lg-5">
 <div class="rp-diag-wrap">
   <img src="{{ $rpDiagImg }}" alt="Diagnostic Scan – Smartfit Autos Car Repair Peterborough">
 </div>
@@ -1915,19 +1666,10 @@ SECTION 3 — HOW OUR REPAIR PROCESS WORKS
 <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">Our skilled technicians complete all repairs with care and return your vehicle fully checked and ready for the road.</p>
 </div>
 </div>
-<div class="rp-hcta">
-<div class="d-flex align-items-center gap-3">
-<div class="rp-hcta-icon"><i class="fa-solid fa-phone"></i></div>
-<div>
-  <div style="font-weight:800;font-size:15px;color:#111">Ready when you are</div>
-  <div class="rp-hcta-phone">01733 569998</div>
-</div>
-</div>
-<div class="d-flex flex-wrap gap-3 sf-cta-pair">
-<a href="tel:01733569998" class="btn rp-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
-<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR REPAIR TODAY</a>
-</div>
-</div>
+@include('site.partials.ready-when-you-are', [
+    'readyCtaBookingHref' => '/booking/order',
+    'readyCtaBookingLabel' => 'BOOK YOUR CAR REPAIR',
+])
 </div>
 </section>
 
@@ -1935,15 +1677,15 @@ SECTION 3 — HOW OUR REPAIR PROCESS WORKS
 SECTION 4 — EMERGENCY & SAME DAY CAR REPAIRS
 ================================================ --}}
 <section class="rp-emergency">
-<div class="container position-relative" style="z-index:2">
-<div class="row align-items-center g-5">
-<div class="col-lg-6">
-<h2 class="">EMERGENCY &amp; SAME<br>DAY CAR REPAIRS</h2>
-<p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px; color:#B9B6B1;">When your vehicle breaks down unexpectedly, you need fast help you can trust. At Smartfit Autos, we provide same-day and urgent car repair services in Peterborough to get you back on the road as quickly as possible.</p>
-<p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px; color:#B9B6B1;">From warning lights and engine issues to brake faults and electrical problems, our team prioritises urgent repairs with quick diagnostics and efficient solutions. We aim to reduce downtime and get your vehicle safely moving again without delay</p>
-<a href="tel:01733569998" class="btn rp-btn-red fw-bold sf-cta sf-cta--primary">Call For Urgent Repair</a>
+<div class="rp-emergency__container">
+<div class="rp-emergency__grid">
+<div>
+<h2 class="rp-emg-title">EMERGENCY &amp; SAME<br>DAY CAR REPAIRS</h2>
+<p class="rp-emg-desc">When your vehicle breaks down unexpectedly, you need fast help you can trust. At Smartfit Autos, we provide same-day and urgent car repair services in Peterborough to get you back on the road as quickly as possible.</p>
+<p class="rp-emg-desc">From warning lights and engine issues to brake faults and electrical problems, our team prioritises urgent repairs with quick diagnostics and efficient solutions. We aim to reduce downtime and get your vehicle safely moving again without delay</p>
+<a href="tel:01733569998" class="btn rp-btn-red sf-cta sf-cta--primary rp-emg-cta">Call For Urgent Repair</a>
 </div>
-<div class="col-lg-5 offset-lg-1">
+<div>
 <div class="rp-emg-list">
   <div class="rp-emg-item">
     <div class="rp-emg-icon"><i class="fa-solid fa-bolt"></i></div>
@@ -1976,7 +1718,6 @@ SECTION 5 — LOCAL CAR REPAIR EXPERTS
   <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px; color:#101014;">Our team delivers car repair solutions in Peterborough, providing fast, reliable service with minimal disruption to your routine.</p>
  <p class="mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px; color:#101014;">For anyone looking for reliable car repair services in Peterborough, Smartfit Autos is your local choice for expert repairs, honest advice, and quality workmanship.</p>
 </div>
-<a href="/booking/order" class="btn rp-btn-red fw-bold text-uppercase mt-2 sf-cta sf-cta--primary">BOOK YOUR REPAIR TODAY</a>
 </div>
 <div class="col-lg-6">
 <div class="rp-local-img">
@@ -2015,54 +1756,54 @@ SECTION 7 — WHY CHOOSE SMARTFIT AUTOS
 <div class="row g-3">
 <div class="col-lg-6">
 <div class="rp-wcard">
-  <div class="rp-wheader">
-    <span class="rp-wnum">01</span>
-    <h3 class="rp-wtitle">EXPERIENCED MECHANICS</h3>
+  <div class="rp-wheader sf-numbered-card-heading">
+    <span class="rp-wnum sf-numbered-card-number">01</span>
+    <h3 class="rp-wtitle sf-numbered-card-title">EXPERIENCED MECHANICS</h3>
   </div>
  <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">Our skilled mechanics bring years of hands-on experience, handling all makes and models with precision, ensuring accurate diagnosis and high-quality repairs every time.</p>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="rp-wcard">
-  <div class="rp-wheader">
-    <span class="rp-wnum">02</span>
-    <h3 class="rp-wtitle">HONEST REPAIR ADVICE</h3>
+  <div class="rp-wheader sf-numbered-card-heading">
+    <span class="rp-wnum sf-numbered-card-number">02</span>
+    <h3 class="rp-wtitle sf-numbered-card-title">HONEST REPAIR ADVICE</h3>
   </div>
   <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">We only recommend what your vehicle truly needs. No upselling or hidden extras, just clear explanations and honest guidance to keep your car safe and reliable.</p>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="rp-wcard">
-  <div class="rp-wheader">
-    <span class="rp-wnum">03</span>
-    <h3 class="rp-wtitle">TRANSPARENT PRICING</h3>
+  <div class="rp-wheader sf-numbered-card-heading">
+    <span class="rp-wnum sf-numbered-card-number">03</span>
+    <h3 class="rp-wtitle sf-numbered-card-title">TRANSPARENT PRICING</h3>
   </div>
   <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">We offer fair, upfront pricing with no surprises. Every job is quoted clearly so you know exactly what you're paying for before any work begins.</p>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="rp-wcard">
-  <div class="rp-wheader">
-    <span class="rp-wnum">04</span>
-    <h3 class="rp-wtitle">FAST TURNAROUND TIMES</h3>
+  <div class="rp-wheader sf-numbered-card-heading">
+    <span class="rp-wnum sf-numbered-card-number">04</span>
+    <h3 class="rp-wtitle sf-numbered-card-title">FAST TURNAROUND TIMES</h3>
   </div>
   <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">We understand the importance of your vehicle, so we aim to complete repairs quickly without compromising on quality, getting you back on the road sooner.</p>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="rp-wcard">
-  <div class="rp-wheader">
-    <span class="rp-wnum">05</span>
-    <h3 class="rp-wtitle">QUALITY PARTS</h3>
+  <div class="rp-wheader sf-numbered-card-heading">
+    <span class="rp-wnum sf-numbered-card-number">05</span>
+    <h3 class="rp-wtitle sf-numbered-card-title">QUALITY PARTS</h3>
   </div>
   <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">We use reliable, high-quality parts and follow industry standard repair practices to ensure long lasting performance and safety for your vehicle.</p>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="rp-wcard">
-  <div class="rp-wheader">
-    <span class="rp-wnum">06</span>
-    <h3 class="rp-wtitle">ADVANCED DIAGNOSTIC TECHNOLOGY</h3>
+  <div class="rp-wheader sf-numbered-card-heading">
+    <span class="rp-wnum sf-numbered-card-number">06</span>
+    <h3 class="rp-wtitle sf-numbered-card-title">ADVANCED DIAGNOSTIC TECHNOLOGY</h3>
   </div>
  <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">We use modern diagnostic equipment to quickly and accurately identify vehicle issues, helping reduce guesswork and ensure precise, efficient repairs.</p>
 </div>
@@ -2071,48 +1812,15 @@ SECTION 7 — WHY CHOOSE SMARTFIT AUTOS
 </div>
 </section>
 
-{{-- Load Leaflet from jsDelivr (shared with fleet page, safe to include again) --}}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
-
 {{-- ================================================
 SECTION 8 — WE SERVE PETERBOROUGH & SURROUNDING AREAS
 ================================================ --}}
-<section class="rp-areas">
-<div class="container">
-<div class="text-center mb-5">
-<h2 class="" style="color:#111">WE SERVE PETERBOROUGH AND<br>SURROUNDING AREAS</h2>
-</div>
-<div class="row g-5 align-items-center">
-<div class="col-lg-5">
-<p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">At Smartfit Autos, we provide professional car repair services in Peterborough and nearby locations. Our local garage is trusted by drivers who need fast, reliable, and affordable vehicle repairs close to home.</p>
-<div class="d-flex flex-wrap gap-2">
-  @php
-  $mapAreas = [
-      ['Peterborough', 52.5695, -0.2405],
-      ['Stamford',     52.6510, -0.4810],
-      ['Whittlesey',   52.5574, -0.1315],
-      ['Crowland',     52.6756, -0.1661],
-      ['Bourne',       52.7686, -0.3770],
-      ['Huntingdon',   52.3304, -0.1867],
-      ['Oundle',       52.4820, -0.4700],
-      ['Sawtry',       52.4370, -0.2830],
-      ['Ramsey',       52.4490, -0.1060],
-      ['St Ives',      52.3270, -0.0760]
-  ];
-  @endphp
-  @foreach($mapAreas as $idx => [$name, $lat, $lng])
-  <button type="button" class="rp-abtn {{ $idx === 0 ? 'active' : '' }}" onclick="rpGoTo({{ $idx }}, this)">{{ $name }}</button>
-  @endforeach
-</div>
-</div>
-<div class="col-lg-7">
-<div id="rpAreaMap" data-bs-theme="light"
-  style="height:380px;border-radius:12px;overflow:hidden;border:1px solid #e4e4e4;">
-</div>
-</div>
-</div>
-</div>
-</section>
+@include('site.partials.service-area-map', [
+    'serviceAreaId' => 'repairs-service-area',
+    'serviceAreaTitle' => 'We serve Peterborough and<br>surrounding areas',
+    'serviceAreaDescription' => 'At Smartfit Autos, we provide professional car repair services in Peterborough and nearby locations. Our local garage is trusted by drivers who need fast, reliable, and affordable vehicle repairs close to home.',
+    'serviceAreaPopupLabel' => 'Smartfit Autos Car Repairs Area',
+])
 
 {{-- ================================================
 SECTION 9 — CUSTOMER REVIEWS
@@ -2131,14 +1839,7 @@ SECTION 9 — CUSTOMER REVIEWS
     </div>
 </div>
 
-<div class="d-flex justify-content-end gap-2 mt-4">
-    <button type="button" aria-label="Previous reviews" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_left" style="width: 42px; height: 42px; border: 1px solid #ddd; background: #fff; cursor: pointer; transition: all 0.2s ease;">
-        <span class="review-arrow-glyph text-dark" aria-hidden="true">←</span>
-    </button>
-    <button type="button" aria-label="Next reviews" class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_right" style="width: 42px; height: 42px; background-color: #ED1E24; border-color: #ED1E24; cursor: pointer; transition: all 0.2s ease;">
-        <span class="review-arrow-glyph text-white" aria-hidden="true">→</span>
-    </button>
-</div>
+@include("site.partials.customer-review-controls")
 </div>
 </section>
 
@@ -2153,14 +1854,6 @@ display: flex !important;
 .home_reviews_carousel .slick-slide > div {
 display: flex;
 width: 100%;
-}
-.reviews_arrow_left:hover {
-background: #f0f0f0 !important;
-border-color: #bbb !important;
-}
-.reviews_arrow_right:hover {
-background: #c41019 !important;
-border-color: #c41019 !important;
 }
 </style>
 
@@ -2272,7 +1965,6 @@ SECTION 11 — FINAL CTA
 </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
 <script>
 /* ---- Repairs FAQ accordion ---- */
 function rpFaq(id){
@@ -2281,62 +1973,6 @@ var was=el.classList.contains('open');
 document.querySelectorAll('.rp-fitem').forEach(function(i){i.classList.remove('open')});
 if(!was) el.classList.add('open');
 }
-
-/* ---- Repairs interactive map: Leaflet + CartoDB Voyager tiles ---- */
-(function(){
-var locs = [
-{name:"Peterborough", lat:52.5695, lng:-0.2405},
-{name:"Stamford",     lat:52.6510, lng:-0.4810},
-{name:"Whittlesey",   lat:52.5574, lng:-0.1315},
-{name:"Crowland",     lat:52.6756, lng:-0.1661},
-{name:"Bourne",       lat:52.7686, lng:-0.3770},
-{name:"Huntingdon",   lat:52.3304, lng:-0.1867},
-{name:"Oundle",       lat:52.4820, lng:-0.4700},
-{name:"Sawtry",       lat:52.4370, lng:-0.2830},
-{name:"Ramsey",       lat:52.4490, lng:-0.1060},
-{name:"St Ives",      lat:52.3270, lng:-0.0760}
-];
-var map, markers = [];
-function initRepairsMap(){
-var el = document.getElementById('rpAreaMap');
-if(!el || el._leaflet_id || typeof L === 'undefined') return;
-map = L.map('rpAreaMap', {scrollWheelZoom: false, zoomControl: true}).setView([52.5695, -0.2405], 10);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-subdomains: 'abcd',
-maxZoom: 19
-}).addTo(map);
-var redPin = L.divIcon({
-className: 'rp-map-pin',
-html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 42" width="28" height="42"><path d="M14 0C8.48 0 4 4.48 4 10c0 7.5 10 26 10 26s10-18.5 10-26C24 4.48 19.52 0 14 0z" fill="#ED1E24"/><circle cx="14" cy="10" r="5.5" fill="#fff"/></svg>',
-iconSize:   [28, 42],
-iconAnchor: [14, 42],
-popupAnchor:[0, -42]
-});
-locs.forEach(function(l, i){
-var m = L.marker([l.lat, l.lng], {icon: redPin}).addTo(map)
-       .bindPopup('<b style="color:#ED1E24;font-size:15px;">'+l.name+'</b><br><small style="color:#555;">Smartfit Autos Car Repair Area</small>');
-m.on('click', function(){
-var btns = document.querySelectorAll('.rp-abtn');
-btns.forEach(function(b){ b.classList.remove('active'); });
-if(btns[i]) btns[i].classList.add('active');
-});
-markers.push(m);
-});
-setTimeout(function(){ if(map) map.invalidateSize(); }, 300);
-}
-window.rpGoTo = function(idx, btn) {
-document.querySelectorAll('.rp-abtn').forEach(function(b){ b.classList.remove('active'); });
-if(btn) btn.classList.add('active');
-if(map && locs[idx]){
-map.flyTo([locs[idx].lat, locs[idx].lng], 12, {animate: true, duration: 0.8});
-if(markers[idx]) markers[idx].openPopup();
-}
-};
-if(document.readyState==='complete'){ setTimeout(initRepairsMap, 150); }
-else { window.addEventListener('load', function(){ setTimeout(initRepairsMap, 150); }); }
-window.addEventListener('resize', function(){ if(map) map.invalidateSize(); });
-})();
 </script>
 
 @elseif($currentSlug === 'car-servicing')
@@ -2373,9 +2009,6 @@ CAR SERVICING PAGE — SCOPED STYLES (prefix sv-)
 .sv-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 50%,rgba(237,30,36,.22) 0%,rgba(237,30,36,.04) 45%,transparent 70%);pointer-events:none}
 .sv-hero-title{font-size:clamp(1.6rem,2.8vw,2.8rem);font-weight:900;line-height:1.1;letter-spacing:-.8px;text-transform:uppercase;color:#fff;margin-bottom:20px;white-space:nowrap}
 .sv-hero-desc{color:rgba(255,255,255,.76);font-size:14.5px;line-height:1.72;max-width:580px;margin-bottom:28px}
-.sv-hero-feats{display:flex;gap:32px;flex-wrap:wrap;margin-top:24px}
-.sv-hero-feats span{color:rgba(255,255,255,.88);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
-.sv-hero-feats span i{color:#ED1E24;font-size:14px}
 
 .sv-diag-wrap{position:relative;display:inline-flex;justify-content:center;align-items:center}
 .sv-diag-wrap::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;border:1px dashed rgba(255,255,255,.14);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
@@ -2398,10 +2031,6 @@ CAR SERVICING PAGE — SCOPED STYLES (prefix sv-)
 .sv-stepnum{width:52px;height:52px;border-radius:50%;border:2px solid #ED1E24;color:#ED1E24;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0;background:#fff}
 .sv-steptitle{font-size:15.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:10px;color:#111}
 .sv-stepdesc{font-size:13.5px;color:#666;line-height:1.68}
-.sv-hcta{background:#fff;border:1px solid #e4e4e4;border-radius:12px;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-top:56px}
-.sv-hcta-icon{width:46px;height:46px;border-radius:50%;background:rgba(237,30,36,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sv-hcta-icon i{color:#ED1E24;font-size:18px}
-.sv-hcta-phone{font-size:17px;font-weight:900;color:#111}
 
 /* IMPORTANCE */
 .sv-importance{background:#fff;padding:80px 0}
@@ -2477,14 +2106,12 @@ CAR SERVICING PAGE — SCOPED STYLES (prefix sv-)
 @media(max-width:991px){
 .sv-hero{padding:44px 0;min-height:auto}
 .sv-diag-wrap{margin-top:32px}
-.sv-hcta{flex-direction:column;text-align:center}
 .sv-local-img{height:300px;margin-top:30px}
 .sv-bookcta,.sv-fcta{padding:80px 0}
 }
 @media(max-width:767px){
 .sv-hero{padding:44px 0}
 .sv-hero-title{font-size:2.1rem}
-.sv-hero-feats{gap:16px}
 .sv-local-img{height:240px}
 }
 @media(max-width:575px){
@@ -2506,9 +2133,9 @@ SECTION 1 — HERO
   <a href="tel:01733569998" class="btn sv-btn-red text-uppercase sf-cta sf-cta--primary">CALL NOW 01733 569998</a>
   <a href="/booking/order" class="btn sv-btn-outline text-uppercase sf-cta sf-cta--outline-light">BOOK YOUR CAR SERVICE <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
 </div>
-<div class="sv-hero-feats">
-  <span><i class="fa-solid fa-check"></i>ALL MAKES &amp; MODELS</span>
-  <span><i class="fa-solid fa-check"></i>QUICK TURNAROUND</span>
+<div class="sv-hero-feats sf-hero-features">
+  <span class="sf-hero-feature"><i class="fa-solid fa-check" aria-hidden="true"></i>ALL MAKES &amp; MODELS</span>
+  <span class="sf-hero-feature"><i class="fa-solid fa-check" aria-hidden="true"></i>QUICK TURNAROUND</span>
 </div>
 </div>
 <div class="col-lg-5 text-center">
@@ -2600,19 +2227,10 @@ SECTION 3 — EASY STEPS TO GET YOUR CAR SERVICED
  <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">Every vehicle goes through a detailed final quality and safety check to ensure it is fully road-ready and reliable.</p>
 </div>
 </div>
-<div class="sv-hcta">
-<div class="d-flex align-items-center gap-3">
-<div class="sv-hcta-icon"><i class="fa-solid fa-phone"></i></div>
-<div>
-  <div style="font-weight:800;font-size:15px;color:#111">Ready when you are</div>
-  <div style="font-size:13px;color:#666">Speak to the Peterborough team directly</div>
-</div>
-</div>
-<div class="d-flex flex-wrap gap-3 sf-cta-pair">
-<a href="tel:01733569998" class="btn sv-btn-dk fw-bold text-uppercase sf-cta sf-cta--outline-dark">CALL NOW 01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
-<a href="/booking/order" class="btn sv-btn-red fw-bold text-uppercase sf-cta sf-cta--primary">BOOK YOUR CAR SERVICE</a>
-</div>
-</div>
+@include('site.partials.ready-when-you-are', [
+    'readyCtaBookingHref' => '/booking/order',
+    'readyCtaBookingLabel' => 'BOOK YOUR CAR SERVICE',
+])
 </div>
 </section>
 
@@ -2713,54 +2331,54 @@ SECTION 7 — WHY CHOOSE SMARTFIT AUTOS FOR CAR SERVICING
 <div class="row g-3">
 <div class="col-lg-6">
 <div class="sv-wcard">
-  <div class="sv-wheader">
-    <span class="sv-wnum">01</span>
-    <h3 class="sv-wtitle">EXPERT MECHANICS</h3>
+  <div class="sv-wheader sf-numbered-card-heading">
+    <span class="sv-wnum sf-numbered-card-number">01</span>
+    <h3 class="sv-wtitle sf-numbered-card-title">EXPERT MECHANICS</h3>
   </div>
    <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">Our trained mechanics have years of experience handling all types of vehicles, ensuring accurate diagnosis and dependable repairs every time.</p>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="sv-wcard">
-  <div class="sv-wheader">
-    <span class="sv-wnum">02</span>
-    <h3 class="sv-wtitle">AFFORDABLE CAR SERVICING PACKAGES</h3>
+  <div class="sv-wheader sf-numbered-card-heading">
+    <span class="sv-wnum sf-numbered-card-number">02</span>
+    <h3 class="sv-wtitle sf-numbered-card-title">AFFORDABLE CAR SERVICING PACKAGES</h3>
   </div>
    <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">We provide cost-effective service packages designed to suit different budgets while maintaining high standards of quality and safety.</p>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="sv-wcard">
-  <div class="sv-wheader">
-    <span class="sv-wnum">03</span>
-    <h3 class="sv-wtitle">ADVANCED DIAGNOSTIC EQUIPMENT</h3>
+  <div class="sv-wheader sf-numbered-card-heading">
+    <span class="sv-wnum sf-numbered-card-number">03</span>
+    <h3 class="sv-wtitle sf-numbered-card-title">ADVANCED DIAGNOSTIC EQUIPMENT</h3>
   </div>
    <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">We use modern diagnostic tools to quickly identify issues, allowing for precise repairs and reduced downtime for your vehicle.</p>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="sv-wcard">
-  <div class="sv-wheader">
-    <span class="sv-wnum">04</span>
-    <h3 class="sv-wtitle">ALL MAKES &amp; MODELS SERVICED</h3>
+  <div class="sv-wheader sf-numbered-card-heading">
+    <span class="sv-wnum sf-numbered-card-number">04</span>
+    <h3 class="sv-wtitle sf-numbered-card-title">ALL MAKES &amp; MODELS SERVICED</h3>
   </div>
    <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">From small cars to SUVs and commercial vehicles, we offer expert servicing for all makes and models with complete care.</p>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="sv-wcard">
-  <div class="sv-wheader">
-    <span class="sv-wnum">05</span>
-    <h3 class="sv-wtitle">QUICK TURNAROUND TIMES</h3>
+  <div class="sv-wheader sf-numbered-card-heading">
+    <span class="sv-wnum sf-numbered-card-number">05</span>
+    <h3 class="sv-wtitle sf-numbered-card-title">QUICK TURNAROUND TIMES</h3>
   </div>
    <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">We work efficiently to complete services on time, helping you get back on the road without unnecessary delays.</p>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="sv-wcard">
-  <div class="sv-wheader">
-    <span class="sv-wnum">06</span>
-    <h3 class="sv-wtitle">TRUSTED LOCAL GARAGE</h3>
+  <div class="sv-wheader sf-numbered-card-heading">
+    <span class="sv-wnum sf-numbered-card-number">06</span>
+    <h3 class="sv-wtitle sf-numbered-card-title">TRUSTED LOCAL GARAGE</h3>
   </div>
    <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">We are a reliable local garage in Peterborough, known for honest service, quality workmanship, and long-term customer trust.</p>
 </div>
@@ -2769,48 +2387,15 @@ SECTION 7 — WHY CHOOSE SMARTFIT AUTOS FOR CAR SERVICING
 </div>
 </section>
 
-{{-- Load Leaflet from jsDelivr --}}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
-
 {{-- ================================================
 SECTION 8 — WE SERVE PETERBOROUGH AND SURROUNDING AREAS
 ================================================ --}}
-<section class="sv-areas">
-<div class="container">
-<div class="text-center mb-5">
-<h2 class="" style="color:#111">WE SERVE PETERBOROUGH AND<br>SURROUNDING AREAS</h2>
-</div>
-<div class="row g-5 align-items-center">
-<div class="col-lg-5">
-<p style="font-size:14px;color:#555;line-height:1.82;margin-bottom:26px">Trusted car service in Peterborough and nearby areas. Smartfit Autos offers fast, reliable and affordable vehicle servicing and repairs. We handle routine maintenance and urgent repairs with expert care and quick turnaround times you can trust.</p>
-<div class="d-flex flex-wrap gap-2">
-  @php
-  $mapAreas = [
-      ['Peterborough', 52.5695, -0.2405],
-      ['Stamford',     52.6510, -0.4810],
-      ['Whittlesey',   52.5574, -0.1315],
-      ['Crowland',     52.6756, -0.1661],
-      ['Bourne',       52.7686, -0.3770],
-      ['Huntingdon',   52.3304, -0.1867],
-      ['Oundle',       52.4820, -0.4700],
-      ['Sawtry',       52.4370, -0.2830],
-      ['Ramsey',       52.4490, -0.1060],
-      ['St Ives',      52.3270, -0.0760]
-  ];
-  @endphp
-  @foreach($mapAreas as $idx => [$name, $lat, $lng])
-  <button type="button" class="sv-abtn {{ $idx === 0 ? 'active' : '' }}" onclick="svGoTo({{ $idx }}, this)">{{ $name }}</button>
-  @endforeach
-</div>
-</div>
-<div class="col-lg-7">
-<div id="svAreaMap" data-bs-theme="light"
-  style="height:380px;border-radius:12px;overflow:hidden;border:1px solid #e4e4e4;">
-</div>
-</div>
-</div>
-</div>
-</section>
+@include('site.partials.service-area-map', [
+    'serviceAreaId' => 'servicing-service-area',
+    'serviceAreaTitle' => 'We serve Peterborough and<br>surrounding areas',
+    'serviceAreaDescription' => 'Trusted car service in Peterborough and nearby areas. Smartfit Autos offers fast, reliable and affordable vehicle servicing and repairs. We handle routine maintenance and urgent repairs with expert care and quick turnaround times you can trust.',
+    'serviceAreaPopupLabel' => 'Smartfit Autos Car Servicing Area',
+])
 
 {{-- ================================================
 SECTION 9 — WHAT OUR CUSTOMERS SAY
@@ -2829,14 +2414,7 @@ SECTION 9 — WHAT OUR CUSTOMERS SAY
     </div>
 </div>
 
-<div class="d-flex justify-content-end gap-2 mt-4">
-    <button type="button" aria-label="Previous reviews" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_left" style="width: 42px; height: 42px; border: 1px solid #ddd; background: #fff; cursor: pointer; transition: all 0.2s ease;">
-        <span class="review-arrow-glyph text-dark" aria-hidden="true">←</span>
-    </button>
-    <button type="button" aria-label="Next reviews" class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_right" style="width: 42px; height: 42px; background-color: #ED1E24; border-color: #ED1E24; cursor: pointer; transition: all 0.2s ease;">
-        <span class="review-arrow-glyph text-white" aria-hidden="true">→</span>
-    </button>
-</div>
+@include("site.partials.customer-review-controls")
 </div>
 </section>
 
@@ -2851,14 +2429,6 @@ display: flex !important;
 .home_reviews_carousel .slick-slide > div {
 display: flex;
 width: 100%;
-}
-.reviews_arrow_left:hover {
-background: #f0f0f0 !important;
-border-color: #bbb !important;
-}
-.reviews_arrow_right:hover {
-background: #c41019 !important;
-border-color: #c41019 !important;
 }
 </style>
 
@@ -2963,7 +2533,6 @@ SECTION 11 — FINAL CTA
 </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
 <script>
 /* ---- Servicing FAQ accordion ---- */
 function svFaq(id){
@@ -2972,62 +2541,6 @@ var was=el.classList.contains('open');
 document.querySelectorAll('.sv-fitem').forEach(function(i){i.classList.remove('open')});
 if(!was) el.classList.add('open');
 }
-
-/* ---- Servicing interactive map: Leaflet + CartoDB Voyager tiles ---- */
-(function(){
-var locs = [
-{name:"Peterborough", lat:52.5695, lng:-0.2405},
-{name:"Stamford",     lat:52.6510, lng:-0.4810},
-{name:"Whittlesey",   lat:52.5574, lng:-0.1315},
-{name:"Crowland",     lat:52.6756, lng:-0.1661},
-{name:"Bourne",       lat:52.7686, lng:-0.3770},
-{name:"Huntingdon",   lat:52.3304, lng:-0.1867},
-{name:"Oundle",       lat:52.4820, lng:-0.4700},
-{name:"Sawtry",       lat:52.4370, lng:-0.2830},
-{name:"Ramsey",       lat:52.4490, lng:-0.1060},
-{name:"St Ives",      lat:52.3270, lng:-0.0760}
-];
-var map, markers = [];
-function initServicingMap(){
-var el = document.getElementById('svAreaMap');
-if(!el || el._leaflet_id || typeof L === 'undefined') return;
-map = L.map('svAreaMap', {scrollWheelZoom: false, zoomControl: true}).setView([52.5695, -0.2405], 10);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-subdomains: 'abcd',
-maxZoom: 19
-}).addTo(map);
-var redPin = L.divIcon({
-className: 'sv-map-pin',
-html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 42" width="28" height="42"><path d="M14 0C8.48 0 4 4.48 4 10c0 7.5 10 26 10 26s10-18.5 10-26C24 4.48 19.52 0 14 0z" fill="#ED1E24"/><circle cx="14" cy="10" r="5.5" fill="#fff"/></svg>',
-iconSize:   [28, 42],
-iconAnchor: [14, 42],
-popupAnchor:[0, -42]
-});
-locs.forEach(function(l, i){
-var m = L.marker([l.lat, l.lng], {icon: redPin}).addTo(map)
-       .bindPopup('<b style="color:#ED1E24;font-size:15px;">'+l.name+'</b><br><small style="color:#555;">Smartfit Autos Car Servicing Area</small>');
-m.on('click', function(){
-var btns = document.querySelectorAll('.sv-abtn');
-btns.forEach(function(b){ b.classList.remove('active'); });
-if(btns[i]) btns[i].classList.add('active');
-});
-markers.push(m);
-});
-setTimeout(function(){ if(map) map.invalidateSize(); }, 300);
-}
-window.svGoTo = function(idx, btn) {
-document.querySelectorAll('.sv-abtn').forEach(function(b){ b.classList.remove('active'); });
-if(btn) btn.classList.add('active');
-if(map && locs[idx]){
-map.flyTo([locs[idx].lat, locs[idx].lng], 12, {animate: true, duration: 0.8});
-if(markers[idx]) markers[idx].openPopup();
-}
-};
-if(document.readyState==='complete'){ setTimeout(initServicingMap, 150); }
-else { window.addEventListener('load', function(){ setTimeout(initServicingMap, 150); }); }
-window.addEventListener('resize', function(){ if(map) map.invalidateSize(); });
-})();
 </script>
 
 @elseif($currentSlug === 'mot' || $currentSlug === 'mot-peterborough' || $currentSlug === 'mots')
@@ -3035,7 +2548,7 @@ window.addEventListener('resize', function(){ if(map) map.invalidateSize(); });
 
 @else
 {{-- All other CMS pages render normally --}}
-{!! $item->renderBlocks() !!}
+{!! \App\Support\PhoneNumber::normalizeHtml($item->renderBlocks()) !!}
 @endif
 @endif
 

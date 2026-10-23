@@ -1,10 +1,25 @@
 @if ($this->ispis == 'radio')
 
-    <div class="col-sm-6">
-        <!--checked: {{$this->checked}}  => obrisan_proizvod: {{$this->obrisan_proizvod}} => servis->id: {{$this->servis->id}} => grupa_session: {{request()->session()->get('grupa_'.$this->grupa)}} => grupa: {{$this->grupa}}-->
-        <x-servis-item-radio :servis="$this->servis" :grupa="$this->grupa" :checked="$this->checked" />
+    @php($isCompactBookingOption = in_array((int) $this->grupa, [2, 3], true))
+    <div class="{{ $isCompactBookingOption ? 'col-md-4 booking-compact-option' : 'col-sm-6' }}{{ (int) $this->grupa === 3 ? ' booking-mot-option' : '' }}{{ (int) $this->grupa === 2 ? ' booking-servicing-option' : '' }}">
+        <x-servis-item-radio
+            :servis-id="$this->servisId"
+            :servis-name="$this->servisName"
+            :servis-description="$this->servisDescription"
+            :price-label="$this->priceLabel"
+            :grupa="$this->grupa"
+            :checked="$this->checked"
+        />
     </div>
 
 @else
-    <x-servis-item-chkbox :servis="$this->servis" :checked="$this->checked" />
+    <x-servis-item-chkbox
+        :servis-id="$this->servisId"
+        :servis-name="$this->servisName"
+        :servis-description="$this->servisDescription"
+        :price-label="$this->priceLabel"
+        :price-value="$this->priceValue"
+        :grupa="$this->grupa"
+        :checked="$this->checked"
+    />
 @endif

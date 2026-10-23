@@ -9,6 +9,9 @@ use Lunar\Models\ProductVariant;
 
 class CartPriceGuard
 {
+    private const PRICE_ON_REQUEST_SKU_PREFIX = 'SMARTFIT-BRAKE-QUOTE-';
+    private const COMPLIMENTARY_PRODUCT_TYPE_ID = 9;
+
     private static function table(string $name): string
     {
         return config('lunar.database.table_prefix').$name;
@@ -39,11 +42,32 @@ class CartPriceGuard
             return false;
         }
 
+        $minimumPrice = self::isPriceOnRequest($purchasable) || self::isComplimentaryFreeCheck($purchasable) ? 0 : 1;
+
         return DB::table(self::table('prices'))
             ->where('priceable_type', ProductVariant::class)
             ->where('priceable_id', $purchasable->id)
             ->where('currency_id', $currencyId)
-            ->where('price', '>', 0)
+            ->where('price', '>=', $minimumPrice)
+            ->exists();
+    }
+
+    public static function isPriceOnRequest(?Purchasable $purchasable): bool
+    {
+        return $purchasable instanceof ProductVariant
+            && str_starts_with((string) $purchasable->sku, self::PRICE_ON_REQUEST_SKU_PREFIX);
+    }
+
+    public static function isComplimentaryFreeCheck(?Purchasable $purchasable): bool
+    {
+        if (! $purchasable instanceof ProductVariant) {
+            return false;
+        }
+
+        return DB::table(self::table('product_variants').' as variants')
+            ->join(self::table('products').' as products', 'products.id', '=', 'variants.product_id')
+            ->where('variants.id', $purchasable->id)
+            ->where('products.product_type_id', self::COMPLIMENTARY_PRODUCT_TYPE_ID)
             ->exists();
     }
 
@@ -63,17 +87,40 @@ class CartPriceGuard
 
         $cartLinesTable = self::table('cart_lines');
         $pricesTable = self::table('prices');
+        $variantsTable = self::table('product_variants');
+        $productsTable = self::table('products');
 
         return DB::table($cartLinesTable)
             ->where('cart_id', $cartId)
             ->where('purchasable_type', ProductVariant::class)
-            ->whereNotExists(function ($query) use ($cartLinesTable, $pricesTable, $currencyId) {
+            ->whereNotExists(function ($query) use ($cartLinesTable, $pricesTable, $variantsTable, $productsTable, $currencyId) {
                 $query->select(DB::raw(1))
                     ->from($pricesTable)
                     ->where('priceable_type', ProductVariant::class)
                     ->whereColumn($pricesTable.'.priceable_id', $cartLinesTable.'.purchasable_id')
                     ->where('currency_id', $currencyId)
-                    ->where('price', '>', 0);
+                    ->where(function ($priceQuery) use ($pricesTable, $variantsTable, $productsTable, $cartLinesTable) {
+                        $priceQuery->where($pricesTable.'.price', '>', 0)
+                            ->orWhere(function ($zeroPriceQuery) use ($pricesTable, $variantsTable, $productsTable, $cartLinesTable) {
+                                $zeroPriceQuery
+                                    ->where($pricesTable.'.price', 0)
+                                    ->whereExists(function ($variantQuery) use ($variantsTable, $productsTable, $cartLinesTable) {
+                                        $variantQuery->select(DB::raw(1))
+                                            ->from($variantsTable)
+                                            ->whereColumn($variantsTable.'.id', $cartLinesTable.'.purchasable_id')
+                                            ->where(function ($eligibleVariantQuery) use ($variantsTable, $productsTable) {
+                                                $eligibleVariantQuery
+                                                    ->where($variantsTable.'.sku', 'like', self::PRICE_ON_REQUEST_SKU_PREFIX.'%')
+                                                    ->orWhereExists(function ($productQuery) use ($variantsTable, $productsTable) {
+                                                        $productQuery->select(DB::raw(1))
+                                                            ->from($productsTable)
+                                                            ->whereColumn($productsTable.'.id', $variantsTable.'.product_id')
+                                                            ->where($productsTable.'.product_type_id', self::COMPLIMENTARY_PRODUCT_TYPE_ID);
+                                                    });
+                                            });
+                                    });
+                            });
+                    });
             })
             ->delete();
     }

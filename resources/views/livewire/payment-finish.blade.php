@@ -1,35 +1,66 @@
-@if (!empty($this->redirekt)) 
-@push('scripts')
-  <script>document.location = '{{$this->redirekt}}';</script>
-@endpush
-@endif
-<section class="page_banner" style="background-image: url('assets/images/shapes/tyre_print_3.svg');">
+<div class="payment-page">
+  <section class="payment-hero">
     <div class="container">
-      <ul class="breadcrumb_nav unordered_list">
-        <li><a href="/">Home</a></li><li>Booking Payment</li>
-      </ul>
-      <h1 class="page_title wow" data-splitting>Booking Payment</h1>
+      <nav class="payment-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="/booking/order">Booking</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Payment status</span>
+      </nav>
+      <p class="payment-eyebrow">Secure checkout</p>
+      <h1>Booking Payment</h1>
+      <p>We are checking your payment and booking status.</p>
     </div>
   </section>
-  
-  
-  
-  
-  <section class="details_section section_space_lg pb-10">
-    <div class="container ">
-      <div class="row ">
-  
-        <div class="col-md-6">
-            <button class="btn btn-primary" type="button" disabled>
-            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-            <span role="status">Processing...</span>
-            </button>
+
+  <section class="payment-section">
+    <div class="container">
+      @if ($paymentStatus === 'failed')
+        <div class="payment-status-card payment-status-card--error" role="alert">
+          <span class="payment-status-icon" aria-hidden="true">!</span>
+          <div>
+            <h2>Payment Not Completed</h2>
+            <p>{{ $paymentMessage }}</p>
+            <a class="payment-primary-link" href="/booking/payment">Return to payment</a>
+          </div>
         </div>
-  
-        <div class="col-md-4">
-          
+      @elseif ($paymentStatus === 'success')
+        <div class="payment-status-card payment-status-card--success" role="status">
+          <span class="payment-status-icon" aria-hidden="true">✓</span>
+          <div>
+            <h2>Payment Confirmed</h2>
+            <p>{{ $paymentMessage }}</p>
+          </div>
         </div>
-  
-      </div>
+      @elseif ($paymentStatus === 'pending')
+        <div class="payment-status-card payment-status-card--pending" role="status">
+          <span class="payment-status-icon" aria-hidden="true">…</span>
+          <div>
+            <h2>Payment Processing</h2>
+            <p>{{ $paymentMessage }}</p>
+            <a class="payment-primary-link" href="/">Return to homepage</a>
+          </div>
+        </div>
+      @else
+        <div class="payment-status-card" role="status" aria-live="polite">
+          <span class="payment-status-icon" aria-hidden="true">
+            <span class="payment-spinner"></span>
+          </span>
+          <div>
+            <h2>Confirming Your Payment</h2>
+            <p>{{ $paymentMessage }}</p>
+          </div>
+        </div>
+      @endif
     </div>
   </section>
+
+  @if (!empty($redirekt))
+    @push('scripts')
+      <script>
+        window.location.replace(@json($redirekt));
+      </script>
+    @endpush
+  @endif
+</div>

@@ -6831,6 +6831,90 @@ Responsive For Mobile & Tablet Devices
   letter-spacing: -0.01em;
 }
 
+/* Shared numbered-card heading treatment (Why Choose sections). */
+.sf-main-page .page_content .sf-numbered-card-heading {
+  font-family: var(--bs-font-heading) !important;
+  font-size: var(--sf-type-h3) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.sf-main-page .page_content .sf-numbered-card-heading > .sf-numbered-card-number,
+.sf-main-page .page_content .sf-numbered-card-heading > .sf-numbered-card-title {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+.sf-main-page .page_content .sf-numbered-card-heading > .sf-numbered-card-number {
+  flex: 0 0 auto;
+  color: #ed1e24 !important;
+}
+
+/* Shared hero feature bullets: MOT, Repairs, Car Servicing, and Fleet. */
+.sf-main-page .page_content .sf-hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: clamp(28px, 3vw, 42px);
+  row-gap: 14px;
+  margin-top: 26px;
+}
+
+.sf-main-page .page_content .sf-hero-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 !important;
+  color: rgba(255, 255, 255, 0.58) !important;
+  font-family: var(--bs-font-heading) !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase;
+}
+
+.sf-main-page .page_content .sf-hero-feature > i {
+  flex: 0 0 auto;
+  margin: 0 !important;
+  color: #ed1e24 !important;
+  font-size: 0.875rem !important;
+  line-height: 1;
+}
+
+/* Keep the three Repairs hero benefits together on full desktop layouts. */
+@media (min-width: 1200px) {
+  .sf-main-page .page_content .rp-hero-feats.sf-hero-features {
+    flex-wrap: nowrap;
+    column-gap: clamp(18px, 2vw, 32px);
+  }
+
+  .sf-main-page .page_content .rp-hero-feats .sf-hero-feature {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sf-main-page .page_content .sf-hero-features {
+    column-gap: 22px;
+    row-gap: 12px;
+    margin-top: 22px;
+  }
+
+  .sf-main-page .page_content .sf-hero-feature {
+    gap: 8px;
+    font-size: 0.875rem !important;
+  }
+
+  .sf-main-page .page_content .sf-hero-feature > i {
+    font-size: 0.8125rem !important;
+  }
+}
+
 .sf-main-page .page_content h4 {
   font-family: var(--bs-font-heading) !important;
   font-size: var(--sf-type-h4) !important;
@@ -6968,6 +7052,108 @@ Responsive For Mobile & Tablet Devices
   cursor: not-allowed;
   pointer-events: none;
   transform: none;
+}
+
+/* Shared "Ready When You Are" CTA: MOT, Repairs, Car Servicing, and Fleet. */
+.sf-main-page .page_content .sf-ready-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 28px;
+  margin-top: 36px;
+  padding: 22px 30px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.sf-main-page .page_content .sf-ready-cta__message,
+.sf-main-page .page_content .sf-ready-cta__actions {
+  display: flex;
+  align-items: center;
+}
+
+.sf-main-page .page_content .sf-ready-cta__message {
+  min-width: 0;
+  gap: 16px;
+}
+
+.sf-main-page .page_content .sf-ready-cta__icon {
+  display: inline-flex;
+  flex: 0 0 44px;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: #ed1e24;
+  border-radius: 50%;
+  background: #fde8e8;
+}
+
+.sf-main-page .page_content .sf-ready-cta__title {
+  margin: 0 0 3px;
+  color: #111;
+  font-family: var(--bs-font-heading);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.sf-main-page .page_content .sf-ready-cta__subtitle {
+  margin: 0;
+  color: #666;
+  font-family: Mulish, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.sf-main-page .page_content .sf-ready-cta__actions {
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.sf-main-page .page_content .sf-ready-cta .sf-cta {
+  min-height: 48px;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+}
+
+.sf-main-page .page_content .sf-ready-cta .sf-cta::before,
+.sf-main-page .page_content .sf-ready-cta .sf-cta::after {
+  display: none !important;
+  content: none !important;
+}
+
+@media (max-width: 991.98px) {
+  .sf-main-page .page_content .sf-ready-cta {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sf-main-page .page_content .sf-ready-cta__actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .sf-main-page .page_content .sf-ready-cta {
+    align-items: stretch;
+    padding: 22px 18px;
+  }
+
+  .sf-main-page .page_content .sf-ready-cta__message {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .sf-main-page .page_content .sf-ready-cta__actions,
+  .sf-main-page .page_content .sf-ready-cta .sf-cta {
+    width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -7171,7 +7357,14 @@ Responsive For Mobile & Tablet Devices
 ================================================== */
 .customer-review-card {
   min-height: 270px;
-  border-color: #e5e7eb !important;
+  border-color: #e7e7e7 !important;
+  border-radius: 4px;
+  box-shadow: none !important;
+}
+
+.customer-review-slide {
+  width: 100%;
+  padding: 0 12px;
 }
 
 .customer-review-stars {
@@ -7181,17 +7374,27 @@ Responsive For Mobile & Tablet Devices
 
 .customer-review-text {
   font-family: Mulish, sans-serif;
+  color: #323232;
+  font-size: 15px;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.6;
   text-align: left !important;
 }
 
 .customer-review-name {
   font-family: Montserrat, sans-serif;
-  font-size: 17px;
+  padding-top: 14px;
+  border-top: 1px solid #e5e5e5;
+  font-size: 13px;
   font-weight: 800;
-  line-height: 28px;
-  letter-spacing: 0.8px !important;
+  line-height: 1.35;
+  letter-spacing: 0.35px !important;
+}
+
+.customer-review-controls {
+  align-items: center;
+  gap: 21px;
+  margin-top: 27px;
 }
 
 .reviews_arrow_left,
@@ -7201,43 +7404,76 @@ Responsive For Mobile & Tablet Devices
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  width: 46px !important;
-  min-width: 46px;
-  height: 46px !important;
   padding: 0 !important;
-  border-radius: 50% !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
   visibility: visible !important;
   opacity: 1 !important;
-  box-shadow: 0 4px 12px rgba(17, 17, 17, 0.14);
+  box-shadow: none !important;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.review-arrow-glyph {
+.reviews_arrow_left {
+  width: 51px !important;
+  min-width: 51px;
+  height: 51px !important;
+}
+
+.reviews_arrow_right {
+  width: 43px !important;
+  min-width: 43px;
+  height: 43px !important;
+}
+
+.reviews_arrow_left:focus-visible,
+.reviews_arrow_right:focus-visible {
+  outline: 2px solid #171717;
+  outline-offset: 3px;
+}
+
+.reviews_arrow_left img,
+.reviews_arrow_right img {
   display: block;
-  font-family: Arial, sans-serif !important;
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1;
+  width: 100%;
+  height: 100%;
 }
 
-/* About page banner and tyre manufacturer grid
+@media screen and (max-width: 767px) {
+  .customer-review-slide {
+    padding: 0 6px;
+  }
+
+  .customer-review-card {
+    min-height: 250px;
+  }
+}
+
+/* Shared readable page banner and About page tyre manufacturer grid
 ================================================== */
-.page_banner--about {
+.page_banner {
   position: relative;
   isolation: isolate;
   background-blend-mode: normal !important;
 }
 
-.page_banner--about::before {
+.page_banner::before {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
   content: "";
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.72) 32%, rgba(255, 255, 255, 0.08) 70%);
 }
 
-.page_banner--about .page_title,
-.page_banner--about .breadcrumb_nav > li,
-.page_banner--about .breadcrumb_nav a {
+.page_banner > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page_banner .page_title,
+.page_banner .breadcrumb_nav > li,
+.page_banner .breadcrumb_nav a {
   color: #171717 !important;
 }
 
@@ -7271,7 +7507,7 @@ Responsive For Mobile & Tablet Devices
     background-position: 62% center !important;
   }
 
-  .page_banner--about::before {
+  .page_banner::before {
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.74) 55%, rgba(255, 255, 255, 0.2) 100%);
   }
 }

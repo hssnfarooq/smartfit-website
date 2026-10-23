@@ -73,23 +73,6 @@
             transition: border-color .2s;
         }
         .mot-btn-outline:hover { border-color: #fff; color: #fff; }
-        .mot-hero .features {
-            display: flex;
-            gap: 22px;
-            margin-top: 26px;
-            flex-wrap: wrap;
-        }
-        .mot-hero .features div {
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            color: #888;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: .5px;
-        }
-        .mot-hero .features div i { color: #e72b37; margin-right: 7px; }
-
         /* hero card */
         .mot-card-wrap {
             position: relative;
@@ -179,7 +162,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
-            margin-bottom: 36px;
+            margin-bottom: 0;
         }
         .mot-step-item .step-num {
             width: 32px;
@@ -208,41 +191,6 @@
             line-height: 1.5;
             margin-bottom: 0;
         }
-        .mot-contact-box {
-            background: #fff;
-            border-radius: 6px;
-            border: 1px solid #e5e7eb;
-            padding: 22px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        .mot-contact-box .phone-icon {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
-            background: #fde8e8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 16px;
-        }
-        .mot-contact-box h5 {
-            margin: 0 0 2px 0;
-            font-weight: 800;
-            font-size: 15.5px;
-            color: #111;
-        }
-        .mot-contact-box p {
-            margin: 0;
-            color: #6b7280;
-            font-size: 13px;
-        }
-
         /* ── PRICING CARDS ────────────────────────────────────────────── */
         .mot-options-section { padding: 80px 0; background: #fff; }
         .mot-options-section h2 {
@@ -372,7 +320,7 @@
             gap: 18px;
         }
         .mot-why-card { background: #f4f5f7; padding: 28px; border-radius: 8px; }
-        .mot-why-card h4 {
+        .mot-why-card h3 {
             font-weight: 800;
             font-size: 15px;
             margin-bottom: 12px;
@@ -381,25 +329,81 @@
             align-items: center;
             color: #111;
         }
-        .mot-why-card h4 .num { color: #E31837; margin-right: 10px; font-weight: 800; }
+        .mot-why-card h3 .num { color: #E31837; margin-right: 10px; }
         .mot-why-card p { color: #666; margin: 0; font-size: 13.5px; line-height: 1.65; }
 
         /* ── MOT DUE ──────────────────────────────────────────────────── */
         .mot-due-section { padding: 80px 0; background: #fff; }
 
         /* ── AREAS ────────────────────────────────────────────────────── */
-        .mot-areas-section { padding: 80px 0; background: #f8f9fa; }
+        .mot-areas-section {
+            padding: 72px 0 60px;
+            background: #f2f2f4;
+        }
+        .mot-areas-container {
+            width: min(1780px, calc(100% - 48px));
+            max-width: none;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .sf-main-page .page_content h2.mot-areas-title {
+            max-width: 1360px;
+            margin: 0 auto 43px;
+            color: #17171b;
+            font-family: Montserrat, sans-serif;
+            font-size: clamp(3rem, 4.25vw, 4.5rem) !important;
+            font-weight: 800 !important;
+            line-height: 1.18 !important;
+            letter-spacing: -1.4px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .mot-areas-card {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            min-height: 536px;
+            overflow: hidden;
+            border: 1px solid #ddd8d1;
+            border-radius: 14px;
+            background: #fff;
+        }
+        .mot-areas-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 64px 72px 62px;
+        }
+        .sf-main-page .page_content p.mot-areas-copy {
+            max-width: 700px;
+            margin: 0 0 37px;
+            color: #716e6a;
+            font-family: Mulish, sans-serif;
+            font-size: clamp(1.25rem, 1.4vw, 1.625rem) !important;
+            font-weight: 400;
+            line-height: 1.5 !important;
+            text-align: left !important;
+        }
+        .mot-areas-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 14px;
+        }
         .mot-abtn {
-            display: inline-block;
-            padding: 8px 20px;
-            border: 1.5px solid #ddd;
-            border-radius: 30px;
-            font-size: 13px;
+            display: inline-flex;
+            min-height: 64px;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border: 1.5px solid #ded9d2;
+            border-radius: 999px;
+            font-family: Montserrat, sans-serif;
+            font-size: 20px;
             font-weight: 600;
-            color: #555 !important;
+            line-height: 1;
+            color: #4e4d4d !important;
             background: #fff !important;
             cursor: pointer;
-            transition: all .2s;
+            transition: color .2s ease, background-color .2s ease, border-color .2s ease;
             text-decoration: none;
             -webkit-clip-path: none !important;
             clip-path: none !important;
@@ -412,16 +416,20 @@
         }
         #motAreaMap {
             background: #e8e0d8 !important;
-            height: 380px;
+            min-height: 536px;
+            height: 100%;
             width: 100%;
-            border-radius: 0 12px 12px 0;
-        }
-        @media (max-width: 991px) {
-            #motAreaMap { border-radius: 0 0 12px 12px; height: 300px; }
+            border-radius: 0;
         }
         #motAreaMap img, #motAreaMap canvas { filter: none !important; max-width: none !important; }
         #motAreaMap .leaflet-tile-container img { filter: none !important; display: block !important; }
-        .mot-map-pin svg { display: block; }
+        .mot-map-pin {
+            color: #ed1e24;
+            font-size: 64px;
+            line-height: 1;
+            text-align: center;
+            filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .16));
+        }
 
         /* ── TESTIMONIALS ─────────────────────────────────────────────── */
         .mot-testi-section { padding: 80px 0; background: #fff; }
@@ -523,10 +531,34 @@
             .mot-check-grid { grid-template-columns: repeat(2, 1fr); }
             .mot-steps-grid { grid-template-columns: repeat(2, 1fr); }
             .mot-why-grid { grid-template-columns: 1fr; }
+            .mot-areas-card { grid-template-columns: 1fr; }
+            .mot-areas-content { padding: 48px 44px; }
+            #motAreaMap { min-height: 380px; height: 380px; }
         }
         @media (max-width: 767px) {
             .mot-check-grid { grid-template-columns: 1fr; }
             .mot-steps-grid { grid-template-columns: 1fr; }
+            .mot-areas-section { padding: 54px 0 46px; }
+            .mot-areas-container { width: calc(100% - 30px); }
+            .sf-main-page .page_content h2.mot-areas-title {
+                margin-bottom: 34px;
+                font-size: clamp(2.1rem, 10vw, 3rem) !important;
+                line-height: 1.08 !important;
+                letter-spacing: -.7px;
+            }
+            .mot-areas-content { padding: 34px 24px 38px; }
+            .sf-main-page .page_content p.mot-areas-copy {
+                margin-bottom: 28px;
+                font-size: 1.05rem !important;
+                line-height: 1.55 !important;
+            }
+            .mot-areas-buttons { gap: 10px 8px; }
+            .mot-abtn {
+                min-height: 48px;
+                padding: 11px 18px;
+                font-size: 14px;
+            }
+            #motAreaMap { min-height: 320px; height: 320px; }
         }
     </style>
 
@@ -551,10 +583,10 @@
                         <a href="tel:01733569998" class="mot-btn-red sf-cta sf-cta--primary">CALL NOW 01733 569998</a>
                         <a href="#book-mot" class="mot-btn-outline sf-cta sf-cta--outline-light">BOOK MOT ONLINE <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
                     </div>
-                    <div class="features">
-                        <div><i class="fas fa-check"></i> SAME-DAY SLOTS</div>
-                        <div><i class="fas fa-check"></i> CLASS 4 &amp; CLASS 7</div>
-                        <div><i class="fas fa-check"></i> TRANSPARENT PRICING</div>
+                    <div class="features sf-hero-features">
+                        <div class="sf-hero-feature"><i class="fa-solid fa-check" aria-hidden="true"></i>SAME-DAY SLOTS</div>
+                        <div class="sf-hero-feature"><i class="fa-solid fa-check" aria-hidden="true"></i>CLASS 4 &amp; CLASS 7</div>
+                        <div class="sf-hero-feature"><i class="fa-solid fa-check" aria-hidden="true"></i>TRANSPARENT PRICING</div>
                     </div>
                 </div>
                 <div class="col-lg-5 d-none d-lg-block text-center text-lg-end" style="position:relative;">
@@ -625,23 +657,10 @@
                 @endforeach
             </div>
 
-            <div class="mot-contact-box">
-                <div class="d-flex align-items-center">
-                    <div class="phone-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="#ED1E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <div style="font-weight:800;font-size: 15px;color:#111">Ready when you are</div>
-                        <div style="font-size: 15px;color:#666">Speak to the Peterborough team directly</div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center gap-3 flex-wrap sf-cta-pair">
-                    <a href="tel:01733569998" class="sf-cta sf-cta--outline-dark" style="border-color:#111;font-weight:800;color:#111;text-decoration:none;text-transform:uppercase;-webkit-clip-path:none!important;clip-path:none!important;">CALL NOW &nbsp;01733 569998 <i class="fa-solid fa-arrow-right sf-cta__icon" aria-hidden="true"></i></a>
-                    <a href="#book-mot" class="sf-cta sf-cta--primary" style="background:#ED1E24;border-color:#ED1E24;font-weight:800;color:#fff;text-decoration:none;text-transform:uppercase;-webkit-clip-path:none!important;clip-path:none!important;">BOOK MOT ONLINE</a>
-                </div>
-            </div>
+            @include('site.partials.ready-when-you-are', [
+                'readyCtaBookingHref' => '#book-mot',
+                'readyCtaBookingLabel' => 'BOOK MOT ONLINE',
+            ])
         </div>
     </section>
 
@@ -714,7 +733,7 @@
                     ['06','Locally Trusted Garage', 'Proudly trusted by drivers across Peterborough for reliable MOT services, honest advice, and consistent high-quality workmanship you can depend on.'],
                 ] as [$num,$title,$desc])
                 <div class="mot-why-card">
-                    <h3><span class="num" style="color: #ED1E24; font-size: 20px; font-weight: 900;"> {{ $num }} </span> {{ strtoupper($title) }}</h3>
+                    <h3 class="sf-numbered-card-heading"><span class="num sf-numbered-card-number">{{ $num }}</span>{{ strtoupper($title) }}</h3>
                     <p class="text-secondary mb-4" style="font-family: Mulish;font-weight: 400;vertical-align: middle;text-align: left !important; font-size: 18px;">{{ $desc }}</p>
                 </div>
                 @endforeach
@@ -743,96 +762,12 @@
     {{-- ══════════════════════════════════════════════════════════
          8. AREAS WE SERVE + MAP
     ══════════════════════════════════════════════════════════ --}}
-    <section class="mot-areas-section">
-        <div class="container">
-            <div class="text-center">
-                <h2>We serve Peterborough and<br>surrounding areas</h2>
-            </div>
-
-            <div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.07);display:flex;flex-wrap:wrap;">
-                <div style="flex:1;padding:36px;min-width:280px;">
-                    <p style="color:#666;line-height:1.65;margin-bottom:24px;font-size:14.5px;">We proudly serve drivers across Peterborough and nearby areas with fast, reliable MOT testing. Visit Smartfit Autos for convenient local service you can trust.</p>
-                    <div style="display:flex;flex-wrap:wrap;gap:8px;">
-                        @php
-                        $areas = [
-                            [0,'Peterborough'], [1,'Stamford'],   [2,'Whittlesey'],
-                            [3,'Crowland'],     [4,'Bourne'],     [5,'Huntingdon'],
-                            [6,'Oundle'],       [7,'Sawtry'],     [8,'Ramsey'],     [9,'St Ives'],
-                        ];
-                        @endphp
-                        @foreach($areas as [$idx,$name])
-                        <button type="button"
-                                class="mot-abtn {{ $idx===0 ? 'active' : '' }}"
-                                onclick="motGoTo({{ $idx }},this)">
-                            {{ $name }}
-                        </button>
-                        @endforeach
-                    </div>
-                </div>
-                <div style="flex:1;min-width:280px;position:relative;">
-                    <div id="motAreaMap" style="min-height: 380px; height: 100%;"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- Leaflet map --}}
-    <script>
-    (function(){
-      var locs = [
-        {name:"Peterborough", lat:52.5695, lng:-0.2405},
-        {name:"Stamford",     lat:52.6510, lng:-0.4810},
-        {name:"Whittlesey",   lat:52.5574, lng:-0.1315},
-        {name:"Crowland",     lat:52.6756, lng:-0.1661},
-        {name:"Bourne",       lat:52.7686, lng:-0.3770},
-        {name:"Huntingdon",   lat:52.3304, lng:-0.1867},
-        {name:"Oundle",       lat:52.4820, lng:-0.4700},
-        {name:"Sawtry",       lat:52.4370, lng:-0.2830},
-        {name:"Ramsey",       lat:52.4490, lng:-0.1060},
-        {name:"St Ives",      lat:52.3270, lng:-0.0760}
-      ];
-      var map, markers = [];
-      function initMOTMap(){
-        var el = document.getElementById('motAreaMap');
-        if(!el || el._leaflet_id || typeof L === 'undefined') return;
-        map = L.map('motAreaMap',{zoomControl:true,scrollWheelZoom:false}).setView([52.5695,-0.2405],10);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
-          attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-          subdomains: 'abcd',
-          maxZoom:19
-        }).addTo(map);
-        var redPin = L.divIcon({
-          className:'mot-map-pin',
-          html:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 42" width="28" height="42"><path d="M14 0C8.48 0 4 4.48 4 10c0 7.5 10 26 10 26s10-18.5 10-26C24 4.48 19.52 0 14 0z" fill="#ED1E24"/><circle cx="14" cy="10" r="5.5" fill="#fff"/></svg>',
-          iconSize:[28,42],
-          iconAnchor:[14,42],
-          popupAnchor:[0,-42]
-        });
-        locs.forEach(function(l, i){
-          var m = L.marker([l.lat,l.lng],{icon:redPin}).addTo(map)
-                   .bindPopup('<b style="color:#ED1E24;font-size:15px;">'+l.name+'</b><br><small style="color:#555;">Smartfit Autos MOT & Servicing Area</small>');
-          m.on('click', function(){
-            var btns = document.querySelectorAll('.mot-abtn');
-            btns.forEach(function(b){ b.classList.remove('active'); });
-            if(btns[i]) btns[i].classList.add('active');
-          });
-          markers.push(m);
-        });
-        setTimeout(function(){ if(map) map.invalidateSize(); }, 300);
-      }
-      window.motGoTo = function(idx,btn){
-        document.querySelectorAll('.mot-abtn').forEach(function(b){ b.classList.remove('active'); });
-        if(btn) btn.classList.add('active');
-        if(map && locs[idx]){
-          map.flyTo([locs[idx].lat,locs[idx].lng],12,{duration:0.8});
-          if(markers[idx]) markers[idx].openPopup();
-        }
-      };
-      if(document.readyState==='complete'){ setTimeout(initMOTMap,150); }
-      else { window.addEventListener('load',function(){ setTimeout(initMOTMap,150); }); }
-      window.addEventListener('resize', function(){ if(map) map.invalidateSize(); });
-    })();
-    </script>
+    @include('site.partials.service-area-map', [
+        'serviceAreaId' => 'mot-service-area',
+        'serviceAreaTitle' => 'We serve Peterborough and<br>surrounding areas',
+        'serviceAreaDescription' => 'We proudly serve drivers across Peterborough and nearby areas with fast, reliable MOT testing. Visit Smartfit Autos for convenient local service you can trust.',
+        'serviceAreaPopupLabel' => 'Smartfit Autos MOT & Servicing Area',
+    ])
 
     {{-- ══════════════════════════════════════════════════════════
          9. CUSTOMER REVIEWS
@@ -851,14 +786,7 @@
             </div>
         </div>
         
-        <div class="d-flex justify-content-end gap-2 mt-4">
-            <button type="button" aria-label="Previous reviews" class="btn btn-light rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_left" style="width: 42px; height: 42px; border: 1px solid #ddd; background: #fff; cursor: pointer; transition: all 0.2s ease;">
-                <span class="review-arrow-glyph text-dark" aria-hidden="true">←</span>
-            </button>
-            <button type="button" aria-label="Next reviews" class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center p-0 reviews_arrow_right" style="width: 42px; height: 42px; background-color: #ED1E24; border-color: #ED1E24; cursor: pointer; transition: all 0.2s ease;">
-                <span class="review-arrow-glyph text-white" aria-hidden="true">→</span>
-            </button>
-        </div>
+        @include("site.partials.customer-review-controls")
         </div>
     </section>
         
@@ -873,14 +801,6 @@
         .home_reviews_carousel .slick-slide > div {
         display: flex;
         width: 100%;
-        }
-        .reviews_arrow_left:hover {
-        background: #f0f0f0 !important;
-        border-color: #bbb !important;
-        }
-        .reviews_arrow_right:hover {
-        background: #c41019 !important;
-        border-color: #c41019 !important;
         }
         </style>
         

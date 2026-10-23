@@ -54,19 +54,44 @@ class CustomerReviewsContractTest extends TestCase
     {
         $frontend = $this->source('resources/views/frontend/index.blade.php');
         $mot = $this->source('resources/views/livewire/components/mot/ispis-mota.blade.php');
+        $controls = $this->source('resources/views/site/partials/customer-review-controls.blade.php');
         $css = $this->source('public/assets/css/style.css');
 
+        $this->assertSame(4, substr_count($frontend, '@include("site.partials.customer-review-controls")'));
+        $this->assertSame(1, substr_count($mot, '@include("site.partials.customer-review-controls")'));
+        $this->assertStringContainsString('aria-label="Previous reviews"', $controls);
+        $this->assertStringContainsString('aria-label="Next reviews"', $controls);
+        $this->assertStringContainsString('reviews-arrow-previous.svg', $controls);
+        $this->assertStringContainsString('reviews-arrow-next.svg', $controls);
+        $this->assertStringNotContainsString('review-arrow-glyph', $controls);
+
         foreach ([$frontend, $mot] as $template) {
-            $this->assertStringContainsString('aria-label="Previous reviews"', $template);
-            $this->assertStringContainsString('aria-label="Next reviews"', $template);
-            $this->assertStringContainsString('review-arrow-glyph text-dark', $template);
-            $this->assertStringContainsString('review-arrow-glyph text-white', $template);
-            $this->assertStringNotContainsString('fa-arrow-left text-dark small', $template);
-            $this->assertStringNotContainsString('fa-arrow-right text-white small', $template);
+            $this->assertStringNotContainsString('.reviews_arrow_right:hover', $template);
+            $this->assertStringNotContainsString('.reviews_arrow_left:hover', $template);
         }
 
-        foreach (['visibility: visible !important', 'opacity: 1 !important', 'font-family: Arial, sans-serif !important'] as $contract) {
+        foreach ([
+            'gap: 21px;',
+            'margin-top: 27px;',
+            'width: 51px !important',
+            'width: 43px !important',
+            'box-shadow: none !important',
+        ] as $contract) {
             $this->assertStringContainsString($contract, $css);
         }
+
+        $this->assertFileExists(public_path('assets/images/icons/reviews-arrow-previous.svg'));
+        $this->assertFileExists(public_path('assets/images/icons/reviews-arrow-next.svg'));
+    }
+
+    public function test_review_cards_follow_the_figma_divider_and_flat_card_treatment(): void
+    {
+        $slides = $this->source('resources/views/site/partials/customer-review-slides.blade.php');
+        $css = $this->source('public/assets/css/style.css');
+
+        $this->assertStringContainsString('customer-review-slide', $slides);
+        $this->assertStringNotContainsString('shadow-sm', $slides);
+        $this->assertStringContainsString('border-top: 1px solid #e5e5e5;', $css);
+        $this->assertStringContainsString('font-size: 13px;', $css);
     }
 }

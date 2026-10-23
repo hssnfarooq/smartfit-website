@@ -341,19 +341,29 @@ class ProductController extends Controller
         }
 
         //PRICES su vezane uz VARIANT, pa to ide odvojeni loop
-        $variants_old = ProductVariant::where('csv_import', '=', 0)->get();
-
+        // Match each copied variant to its source by SKU. The backup table is
+        // populated in product order, which is not guaranteed to match the
+        // source variant ID order. Pairing the two collections by position can
+        // therefore attach a service price to the wrong card.
+        $variants_old = ProductVariant::where('csv_import', '=', 0)->get()->keyBy('sku');
         $variants = DB::table('lunar_product_variants_ORIG')->get();
-        
-        for($i=0;$i<count($variants);$i++)
+
+        foreach ($variants as $variant) {
+            $sourceVariant = $variants_old->get($variant->sku);
+
+            if (! $sourceVariant) {
+                continue;
+            }
+
             $this->kopiraj(
                 'lunar_prices', 
                 'lunar_prices_ORIG', 
                 $columns_prices, 
-                ' WHERE priceable_id = '.$variants_old[$i]->id,
+                ' WHERE priceable_id = '.$sourceVariant->id,
                 'priceable_id , ',
-                $variants[$i]->id.', '
+                $variant->id.', '
             );
+        }
 
         die('INITIAL VALUES ARE PREPARED..');
     }

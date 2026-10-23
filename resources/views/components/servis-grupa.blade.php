@@ -1,30 +1,7 @@
 @php
     $i = $grupa->id;
-    $currencyId = App\Support\CartPriceGuard::currentCurrencyId();
-
-    $servisi = Lunar\Models\Product::query()
-        ->where('product_type_id', $i)
-        ->where('status', 'published')
-        ->whereHas('variants.prices', function ($query) use ($currencyId) {
-            $query->where('currency_id', $currencyId)
-                ->where('price', '>', 0);
-        })
-        ->with([
-            'prices' => function ($query) use ($currencyId) {
-                $query->where('currency_id', $currencyId)
-                    ->where('price', '>', 0);
-            },
-            'variants' => function ($query) use ($currencyId) {
-                $query->whereHas('prices', function ($priceQuery) use ($currencyId) {
-                    $priceQuery->where('currency_id', $currencyId)
-                        ->where('price', '>', 0);
-                })->with(['prices' => function ($priceQuery) use ($currencyId) {
-                    $priceQuery->where('currency_id', $currencyId)
-                        ->where('price', '>', 0);
-                }]);
-            },
-        ])
-        ->get();
+    $isBrakeGroup = (int) $i === 5;
+    $servisi = App\Support\BookingServiceOptions::forGroup((int) $i);
     
 @endphp
 <div class="accordion" id="faq_accordion{{$i}}" style="margin-bottom: 30px">
@@ -36,7 +13,7 @@
       </div>
       <div id="collapseOne{{$i}}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faq_accordion{{$i}}">
         <div class="accordion-body pt-0 harmonika_bodi">
-            <div class="row">
+            <div class="row{{ in_array((int) $i, [2, 3], true) ? ' booking-compact-options' : '' }}{{ $i === 3 ? ' booking-mot-options' : '' }}{{ $i === 2 ? ' booking-servicing-options' : '' }}{{ $isBrakeGroup ? ' booking-checkbox-options booking-brake-options' : '' }}">
 @php
     /*@if ($ispis == 'radio')
                 <livewire:components.servis.add-to-cart :grupa="$i" :ispis="$ispis">
@@ -45,11 +22,17 @@
               
 
               @foreach ($servisi as $servis)
-                @php($variant = $servis->variants->first())
-
-                @if ($variant)
-                  <livewire:components.servis.add-to-cart :purchasable="$variant" :wire:key="$variant->id" :ispis="$ispis" :servis="$servis" :grupa="$i">
-                @endif
+                <livewire:components.servis.add-to-cart
+                  :purchasable-id="$servis['variant_id']"
+                  :servis-id="$servis['product_id']"
+                  :servis-name="$servis['name']"
+                  :servis-description="$servis['description']"
+                  :price-label="$servis['price_label']"
+                  :price-value="$servis['price_value']"
+                  :wire:key="$servis['variant_id']"
+                  :ispis="$ispis"
+                  :grupa="$i"
+                />
               @endforeach
              
             </div>

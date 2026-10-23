@@ -59,12 +59,8 @@
         <x-servis-grupa :grupa="$this->dajServisGrupu(6)" :ispis="'chkbox'" />
         <!-- Engine Treatments -->
         <x-servis-grupa :grupa="$this->dajServisGrupu(7)" :ispis="'chkbox'" />
-        <!-- Diagnostics -->
-        <x-servis-grupa :grupa="$this->dajServisGrupu(8)" :ispis="'chkbox'" />
         <!-- Complimentary FREE Checks -->
         <x-servis-grupa :grupa="$this->dajServisGrupu(9)" :ispis="'chkbox'" />
-        <!-- Additional Services -->
-        <x-servis-grupa :grupa="$this->dajServisGrupu(10)" :ispis="'chkbox'" />
 
       </div>
 
@@ -96,4 +92,3 @@
     </div>
   </div>
 </section>
-

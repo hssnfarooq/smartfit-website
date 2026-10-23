@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageDisplayController;
+use App\Http\Controllers\GarageFinderController;
 use App\Http\Livewire\ProizvodOpsirno;
 use App\Repositories\PageRepository;
 use Illuminate\Support\Facades\Route;
@@ -78,6 +79,12 @@ Route::get('/assets/{path}', function ($path) {
 })->where('path', '.*');
 
 Route::redirect('/services', '/car-servicing', 301);
+
+Route::prefix('garage-finder')->name('garage-finder.')->group(function () {
+    Route::get('/postcodes', [GarageFinderController::class, 'postcodes'])->name('postcodes');
+    Route::get('/nearest', [GarageFinderController::class, 'nearest'])->name('nearest');
+    Route::post('/select', [GarageFinderController::class, 'select'])->name('select');
+});
 
 Route::post('{slug}', [\App\Http\Controllers\PageDisplayController::class, 'kontaktForma']);
 

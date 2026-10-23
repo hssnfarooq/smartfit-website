@@ -3,16 +3,19 @@
 namespace App\Http\Livewire\Components\Servis;
 
 use App\Support\CartPriceGuard;
-use Exception;
 use Livewire\Component;
-use Lunar\Base\Purchasable;
 use Lunar\Exceptions\MissingCurrencyPriceException;
 use Lunar\Facades\CartSession;
-use Lunar\Models\Product;
+use Lunar\Models\ProductVariant;
 
 class AddToCart extends Component
 {
-    public ?Purchasable $purchasable = null;
+    public int $purchasableId;
+    public int $servisId;
+    public string $servisName;
+    public string $servisDescription = '';
+    public ?string $priceLabel = null;
+    public ?int $priceValue = null;
     public $quantity = 1;
     public $ispis = null;
     public $grupa;
@@ -22,11 +25,30 @@ class AddToCart extends Component
     //ovo je za dodavanje van košarice -> pa da redirekta na booking
     public $redirekt = false;
 
-    public Product $servis;
-
     protected $listeners = [
         'obrisanRed',
     ];
+
+    public function mount(
+        int $purchasableId,
+        int $servisId,
+        string $servisName,
+        string $servisDescription = '',
+        ?string $priceLabel = null,
+        ?int $priceValue = null
+    ): void {
+        $this->purchasableId = $purchasableId;
+        $this->servisId = $servisId;
+        $this->servisName = $servisName;
+        $this->servisDescription = $servisDescription;
+        $this->priceLabel = $priceLabel;
+        $this->priceValue = $priceValue;
+    }
+
+    private function resolvePurchasable()
+    {
+        return ProductVariant::find($this->purchasableId);
+    }
     
     public function obrisanRed($proizvod){
         $this->obrisan_proizvod = $proizvod;
@@ -47,8 +69,8 @@ class AddToCart extends Component
         }
 
         foreach($cart->lines as $line)
-            if($line->purchasable_id == $this->purchasable?->id){
-                $this->emit('remove-line', $line->id, $this->purchasable->id);
+            if($line->purchasable_id == $this->purchasableId){
+                $this->emit('remove-line', $line->id, $this->purchasableId);
                 break;
             }
     }
@@ -59,7 +81,7 @@ class AddToCart extends Component
         CartPriceGuard::pruneCurrentCartLinesWithoutCurrencyPrices();
 
         if (! $cart = CartSession::current()) {
-            request()->session()->put('grupa_'.$this->grupa, $this->purchasable->id);
+            request()->session()->put('grupa_'.$this->grupa, $this->purchasableId);
             return;
         }
 
@@ -72,8 +94,9 @@ class AddToCart extends Component
     public function addToCart()
     {
         CartPriceGuard::pruneCurrentCartLinesWithoutCurrencyPrices();
+        $purchasable = $this->resolvePurchasable();
 
-        if (! CartPriceGuard::purchasableHasCurrencyPrice($this->purchasable)) {
+        if (! CartPriceGuard::purchasableHasCurrencyPrice($purchasable)) {
             request()->session()->forget('grupa_'.$this->grupa);
             return;
         }
@@ -86,7 +109,7 @@ class AddToCart extends Component
             }
 
         try {
-            CartSession::manager()->add($this->purchasable, $this->quantity);
+            CartSession::manager()->add($purchasable, $this->quantity);
         } catch (MissingCurrencyPriceException) {
             CartPriceGuard::pruneCurrentCartLinesWithoutCurrencyPrices();
             request()->session()->forget('grupa_'.$this->grupa);
@@ -95,7 +118,7 @@ class AddToCart extends Component
 
         //$this->emitTo('order.summary', 'test');
         if(!$this->redirekt)
-            $this->emit('add-to-cart', $this->purchasable->id);
+            $this->emit('add-to-cart', $this->purchasableId);
         else
             redirect()->to('/booking/order');
     }
@@ -105,7 +128,7 @@ class AddToCart extends Component
 
         if($cart = CartSession::current()){
             foreach($cart->lines as $line)
-                if($line->purchasable_id == $this->purchasable?->id){
+                if($line->purchasable_id == $this->purchasableId){
                     return true;
                 }
             return false;
@@ -115,7 +138,7 @@ class AddToCart extends Component
     public function render()
     {        
         if($this->ispis == 'radio')
-            $this->checked = isset($this->purchasable->id) && $this->purchasable->id == request()->session()->get('grupa_'.$this->grupa) ? true : false;
+            $this->checked = $this->purchasableId == request()->session()->get('grupa_'.$this->grupa) ? true : false;
         else
             $this->checked = $this->chkBoxCheck();
         
