@@ -1804,6 +1804,24 @@ svg {
     box-shadow: 0 0 0 0.2rem rgba(237, 30, 36, 0.2);
 }
 
+.booking-service-info,
+.booking-service-info:hover,
+.booking-service-info:focus {
+    color: #ed1e24;
+}
+
+.booking-service-info {
+    font-size: 1.1rem;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.booking-service-info:focus-visible {
+    border-radius: 50%;
+    outline: 2px solid #ed1e24;
+    outline-offset: 3px;
+}
+
 @media (max-width: 575.98px) {
     .booking-service-option {
         display: grid;

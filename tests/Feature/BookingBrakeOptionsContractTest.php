@@ -67,8 +67,11 @@ class BookingBrakeOptionsContractTest extends TestCase
         $css = file_get_contents(public_path('assets/css/moj.css'));
 
         $this->assertStringContainsString('booking-service-toggle', $checkbox);
+        $this->assertStringContainsString('booking-service-info', $checkbox);
         $this->assertStringContainsString('fa-circle-exclamation', $checkbox);
         $this->assertStringNotContainsString('>?</', $checkbox);
         $this->assertStringContainsString('.booking-service-toggle', $css);
+        $this->assertStringContainsString('.booking-service-info', $css);
+        $this->assertStringContainsString('color: #ed1e24;', $css);
     }
 }

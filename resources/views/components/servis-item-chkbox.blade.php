@@ -10,7 +10,7 @@
           {{$servisName}}
       </label>
       @if (!empty($servisDescription))
-        <button type="button" class="btn btn-link p-0 ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{$servisId}}" aria-label="More information about {{$servisName}}">
+        <button type="button" class="btn btn-link booking-service-info p-0 ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{$servisId}}" aria-label="More information about {{$servisName}}">
           <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
         </button>
       @endif
