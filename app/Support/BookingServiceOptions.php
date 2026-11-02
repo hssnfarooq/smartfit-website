@@ -12,6 +12,7 @@ class BookingServiceOptions
 {
     private const PRODUCT_ORDER = [
         2 => [140, 20, 110],
+        4 => [3],
     ];
 
     private const MOT_SKUS = [
