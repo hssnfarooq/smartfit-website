@@ -12,7 +12,12 @@ class BookingServiceOptions
 {
     private const PRODUCT_ORDER = [
         2 => [140, 20, 110],
-        3 => [2, 5],
+    ];
+
+    private const MOT_SKUS = [
+        'SMARTFIT-MOT-CLASS-4',
+        'SMARTFIT-MOT-CLASS-5',
+        'SMARTFIT-MOT-CLASS-7',
     ];
 
     private const BRAKE_SKUS = [
@@ -54,6 +59,7 @@ class BookingServiceOptions
                     ->where('prices.currency_id', $currencyId);
             })
             ->whereIn('variants.product_id', $products->pluck('id'))
+            ->when($groupId === 3, fn ($query) => $query->whereIn('variants.sku', self::MOT_SKUS))
             ->when($groupId === 5, fn ($query) => $query->whereIn('variants.sku', self::BRAKE_SKUS))
             ->where('prices.price', $allowsZeroPrice ? '>=' : '>', 0)
             ->whereNull('variants.deleted_at')
@@ -113,8 +119,8 @@ class BookingServiceOptions
                 ->values();
         }
 
-        if ($groupId === 5) {
-            $positions = array_flip(self::BRAKE_SKUS);
+        if (in_array($groupId, [3, 5], true)) {
+            $positions = array_flip($groupId === 3 ? self::MOT_SKUS : self::BRAKE_SKUS);
 
             return $options
                 ->sortBy(fn (array $option) => $positions[$option['sku']] ?? PHP_INT_MAX)

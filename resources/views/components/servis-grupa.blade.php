@@ -1,9 +1,9 @@
 @php
     $i = $grupa->id;
-    $isBrakeGroup = (int) $i === 5;
     $servisi = App\Support\BookingServiceOptions::forGroup((int) $i);
     
 @endphp
+@if($servisi->isNotEmpty())
 <div class="accordion" id="faq_accordion{{$i}}" style="margin-bottom: 30px">
     <div class="accordion-item">
       <div class="accordion-header" id="headingOne{{$i}}">
@@ -13,7 +13,7 @@
       </div>
       <div id="collapseOne{{$i}}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faq_accordion{{$i}}">
         <div class="accordion-body pt-0 harmonika_bodi">
-            <div class="row{{ in_array((int) $i, [2, 3], true) ? ' booking-compact-options' : '' }}{{ $i === 3 ? ' booking-mot-options' : '' }}{{ $i === 2 ? ' booking-servicing-options' : '' }}{{ $isBrakeGroup ? ' booking-checkbox-options booking-brake-options' : '' }}">
+            <div class="row{{ in_array((int) $i, [2, 3], true) ? ' booking-compact-options' : '' }}{{ $i === 3 ? ' booking-mot-options' : '' }}{{ $i === 2 ? ' booking-servicing-options' : '' }}">
 @php
     /*@if ($ispis == 'radio')
                 <livewire:components.servis.add-to-cart :grupa="$i" :ispis="$ispis">
@@ -40,3 +40,4 @@
       </div>
     </div>   
 </div>
+@endif

@@ -4,36 +4,18 @@
     $isComplimentaryCheck = (int) ($grupa ?? 0) === 9;
   @endphp
 
-  @if ($isBrakeOption)
-    <div class="booking-checkbox-option">
-      <input class="booking-checkbox-option__control" type="checkbox" id="chbox{{$servisId}}" wire:click="{{$checked ? 'makniServis' : 'addToCart'}}"{{$checked ? ' checked' : ''}}>
-      <div class="booking-checkbox-option__content">
-        <span class="booking-checkbox-option__name">
-          <label class="booking-checkbox-option__label" for="chbox{{$servisId}}">
-            {{$servisName}}
-          </label>
-          @if (!empty($servisDescription))
-            <button type="button" class="booking-checkbox-option__help" data-bs-toggle="modal" data-bs-target="#exampleModal{{$servisId}}" aria-label="More information about {{$servisName}}">
-              <i class="fa-solid fa-question" aria-hidden="true"></i>
-            </button>
-          @endif
-        </span>
-        <strong class="booking-checkbox-option__price">Price on request</strong>
-      </div>
-    </div>
-  @else
-    <div class="form-check form-switch" style="padding: 0 0 10px 50px; margin:10px 0 0 0; border-bottom:1px dotted #ccc;">
-      <input class="form-check-input" type="checkbox" role="switch" id="chbox{{$servisId}}" wire:click="{{$checked ? 'makniServis' : 'addToCart'}}"{{$checked ? ' checked' : ''}}>
+    <div class="form-check form-switch booking-service-option">
+      <input class="form-check-input booking-service-toggle" type="checkbox" role="switch" id="chbox{{$servisId}}" wire:click="{{$checked ? 'makniServis' : 'addToCart'}}"{{$checked ? ' checked' : ''}}>
       <label class="form-check-label" for="chbox{{$servisId}}" style="width: fit-content">
           {{$servisName}}
       </label>
       @if (!empty($servisDescription))
         <button type="button" class="btn btn-link p-0 ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{$servisId}}" aria-label="More information about {{$servisName}}">
-          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
         </button>
       @endif
       <strong class="float-end">
-        @if (!$priceLabel)
+        @if ($isBrakeOption || !$priceLabel)
           Price on request
         @elseif ($isComplimentaryCheck)
           {{$priceLabel}}
@@ -44,7 +26,6 @@
         @endif
       </strong>
     </div>
-  @endif
 
 @if (!empty($servisDescription))
   <!-- Modal -->

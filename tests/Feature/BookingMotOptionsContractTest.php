@@ -17,6 +17,8 @@ class BookingMotOptionsContractTest extends TestCase
             'MOT Class 7',
             'Goods vehicles/vans over 3,000kg and up to 3,500kg',
             "'price' => '£55'",
+            'MOT Class 5',
+            'Larger passenger vehicles, generally with 13+ passenger seats',
             'card-header',
             'card-body',
             'card-footer',
@@ -57,5 +59,18 @@ class BookingMotOptionsContractTest extends TestCase
         $this->assertStringContainsString("'price' => 3500", $migration);
         $this->assertStringContainsString("'price' => 5500", $migration);
         $this->assertStringContainsString("->where('priceable_type', 'Lunar\\\\Models\\\\ProductVariant')", $migration);
+    }
+
+    public function test_mot_class_five_is_created_as_a_real_checkout_option(): void
+    {
+        $migrationPath = database_path('migrations/2026_11_02_000001_add_booking_mot_class_5.php');
+
+        $this->assertFileExists($migrationPath);
+
+        $migration = file_get_contents($migrationPath);
+
+        $this->assertStringContainsString('SMARTFIT-MOT-CLASS-5', $migration);
+        $this->assertStringContainsString("'price' => 5500", $migration);
+        $this->assertStringContainsString('Larger passenger vehicles, generally with 13+ passenger seats', $migration);
     }
 }

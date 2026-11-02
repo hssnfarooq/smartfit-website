@@ -1,171 +1,79 @@
-<table width="100%" cellpadding="0" cellspacing="0" border="0" class="backgroundTable main-temp" style="background-color: #f2f2f2; font-family:Arial, Helvetica, sans-serif">
-  <tbody>
-      <tr>
-          <td>
+@php
+    $meta = (array) $order->meta;
+    $vehicle = (array) ($meta['vehicle'] ?? []);
+    $location = (array) ($meta['service_location'] ?? []);
+    $appointments = (array) ($meta['preferred_appointments'] ?? []);
+@endphp
+<!doctype html>
+<html lang="en">
+<body style="margin:0; padding:24px; background:#f3f4f6; color:#202124; font-family:Arial, Helvetica, sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td align="center">
+            <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; width:100%; background:#ffffff; border:1px solid #e4e5e7; border-radius:10px; overflow:hidden;">
+                <tr>
+                    <td style="padding:28px 32px; text-align:center; border-bottom:4px solid #ed1e24;">
+                        <a href="{{ env('APP_URL') }}"><img src="{{ env('APP_URL').env('INVOICE_LOGO') }}" alt="Smartfit Autos" style="max-width:180px; height:auto;"></a>
+                        <h1 style="margin:24px 0 8px; font-size:26px;">Your booking is confirmed</h1>
+                        <p style="margin:0; color:#60646c;">Thank you, {{ $order->billingAddress?->fullName }}. We have received your booking and payment.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:26px 32px;">
+                        <table role="presentation" width="100%" cellpadding="7" cellspacing="0" border="0" style="font-size:15px;">
+                            <tr><td style="color:#60646c;">Booking reference</td><td align="right"><strong>{{ $order->reference }}</strong></td></tr>
+                            <tr><td style="color:#60646c;">Payment status</td><td align="right"><strong>Paid</strong></td></tr>
+                            <tr><td style="color:#60646c;">Total paid</td><td align="right"><strong>{{ $order->total->formatted }}</strong></td></tr>
+                        </table>
 
-            
-              <table width="600" align="center" cellpadding="15" cellspacing="0" border="0" class="devicewidth" style="background-color: #ffffff; margin-bottom:30px; margin-top:30px">
-                  <tbody>
-                      <!-- Start header Section -->
-                      <tr>
-                          <td style="padding-top: 30px;">
+                        <h2 style="margin:28px 0 12px; font-size:19px;">Vehicle</h2>
+                        <table role="presentation" width="100%" cellpadding="7" cellspacing="0" border="0" style="font-size:15px; background:#f7f7f8; border-radius:8px;">
+                            <tr><td style="color:#60646c;">Registration</td><td align="right"><strong>{{ $vehicle['registration'] ?? 'Not provided' }}</strong></td></tr>
+                            <tr><td style="color:#60646c;">Make and model</td><td align="right">{{ trim(($vehicle['make'] ?? '').' '.($vehicle['model'] ?? '')) ?: 'Not provided' }}</td></tr>
+                            @if(!empty($vehicle['fuel_type']))
+                                <tr><td style="color:#60646c;">Fuel type</td><td align="right">{{ $vehicle['fuel_type'] }}</td></tr>
+                            @endif
+                        </table>
 
-                              <table width="560" align="center" cellpadding="0" cellspacing="0" border="0" class="devicewidthinner" style="border-bottom: 1px solid #eeeeee; text-align: center;">
-                                  <tbody>
-                                      <tr>
-                                          <td style="padding-bottom: 10px;">
-                                              <a href="{{env('APP_URL')}}"><img src="{{env('APP_URL').env('INVOICE_LOGO')}}" /></a>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="font-size: 14px; line-height: 18px; color: #666666; text-align:center">
-                                            {{env('PDF_ORDER_NAME')}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 14px; line-height: 18px; color: #666666;">
-                                            {{env('FIZICKA_ADRESA')}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="font-size: 14px; line-height: 18px; color: #666666; padding-bottom:15px">
-                                            <strong>Phone:</strong> {{env('OPCENITO_TELEFON')}} | <strong>Email:</strong> {{env('OPCENITO_EMAIL')}}
-                                        </td>
-                                    </tr>
-                                  </tbody>
-                              </table>
- 
-                              <div style="width: 560px">
-                                <h2>Dear  
-                                    {{ $order->billingAddress->fullName }}
-                                    @if($order->billingAddress->company_name)
-                                        ({{ $order->billingAddress->company_name }})
-                                    @endif
-                                </h2>
-                            
-                                <div>{!!nl2br($tekst)!!}</div>
-                            </div>
-                
+                        <h2 style="margin:28px 0 12px; font-size:19px;">Service centre</h2>
+                        <p style="margin:0; font-size:15px; line-height:1.6;">
+                            <strong>{{ $location['title'] ?? 'Smartfit Autos' }}</strong><br>
+                            {{ $location['address'] ?? '7 Welland Rd, Dogsthorpe, Peterborough, PE1 3SA' }}
+                            @if(!empty($location['phone']))<br>{{ $location['phone'] }}@endif
+                        </p>
 
-                          </td>
-                      </tr>
+                        <h2 style="margin:28px 0 12px; font-size:19px;">Preferred appointments</h2>
+                        @forelse($appointments as $appointment)
+                            <p style="margin:0 0 6px; font-size:15px;">{{ $appointment['date'] ?? '' }}{{ !empty($appointment['time_of_day']) ? ' — '.$appointment['time_of_day'] : '' }}</p>
+                        @empty
+                            <p style="margin:0; font-size:15px; color:#60646c;">The garage will contact you to confirm your appointment time.</p>
+                        @endforelse
 
-                      <tr>
-                        <td colspan="4">
-                            <hr color="#f2f2f2">
-                        </td>
-                    </tr>
-
-                      
-                      <!-- Start product Section -->
-                      <tr>
-                        <td align="left">
-                            <strong>Invoice:</strong> {{ @$order->reference }} 
-                        </td>
-                     </tr>
-                      <tr>
-                          <td style="padding-top: 0;">
-                            <table cellpadding="0" cellspacing="0" width="100%" class="lines" style="font-size: 14px">
-                                <thead class="lines-heading">
-                                    <tr>
-                                        <td colspan="4">
-                                            <hr>
-                                        </td>
-                                    </tr>
-                                    <tr width="100%" style="text-align: left">
-                                        <th>
-                                            Product
-                                        </th>
-                                        
-                                        <th width="80" style="text-align: center">
-                                            Price
-                                        </th>
-                                        <th width="20" style="text-align: center">
-                                            Qty
-                                        </th>
-                                        <th width="80" style="text-align: right">
-                                            Total
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4">
-                                            <hr>
-                                        </td>
-                                    </tr>
-                                </thead>
-                                <tbody class="lines-body">
-                                    @php
-                                        $br = 0;
-                                    @endphp
-                                  @foreach($order->digitalLines as $line)
-                                    @php
-                                        $br++;
-                                    @endphp
-                                    @if ($br > 1)
-                                    <tr>
-                                        <td colspan="4">
-                                            <hr color="#f2f2f2">
-                                        </td>
-                                    </tr>
-                                    @endif
-                                    <tr>
-                                      <td style="text-align: left; padding-right:15px">
-                                        {{ $line->description }} <br>                                       
-                                        SKU: <strong>{{$line->identifier}}</strong> 
-                                      </td>
-                                      <td style="text-align: center">
-                                        {{ $line->unit_price->formatted }}
-                                      </td>
-                                      <td style="text-align: center">
-                                        {{ $line->quantity }}
-                                      </td>
-                                      <td style="text-align: right">
-                                        {{ $line->sub_total->formatted }}
-                                      </td>
-                                 
-                                    </tr>
-                                  @endforeach
-                                </tbody>
-                                <tfoot class="lines-footer">
-                                    <tr>
-                                        <td colspan="4">
-                                            <hr>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="2" style="text-align: right"><strong>Sub Total</strong></td>
-                                        <td style="text-align: right">{{ $order->sub_total->formatted }}</td>
-                                    </tr>
-                                    @foreach($order->shippingLines as $line)
-                                      <tr>
-                                        <td></td>
-                                        <td colspan="2" style="text-align: right">
-                                          <strong>Shipping</strong><br>
-                                          <small>{{ strip_tags($line->description) }}</small>
-                                        </td>
-                                        <td style="text-align: right">{{ $line->sub_total->formatted }}</td>
-                                      </tr>
-                                    @endforeach
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="2" style="text-align: right"><strong>Tax</strong></td>
-                                        <td style="text-align: right">{{ $order->tax_total->formatted }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="2" style="text-align: right"><strong>Total</strong></td>
-                                        <td style="text-align: right">{{ $order->total->formatted }}</td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                          </td>
-                      </tr>
-
-
-                  </tbody>
-              </table>
-          </td>
-      </tr>
-  </tbody>
+                        <h2 style="margin:28px 0 12px; font-size:19px;">Services</h2>
+                        <table role="presentation" width="100%" cellpadding="9" cellspacing="0" border="0" style="font-size:15px; border-collapse:collapse;">
+                            @foreach($order->digitalLines as $line)
+                                <tr style="border-bottom:1px solid #e4e5e7;">
+                                    <td>{{ $line->description }}</td>
+                                    <td align="right"><strong>{{ $line->sub_total->formatted }}</strong></td>
+                                </tr>
+                            @endforeach
+                            <tr>
+                                <td style="padding-top:14px;"><strong>Total paid</strong></td>
+                                <td align="right" style="padding-top:14px;"><strong>{{ $order->total->formatted }}</strong></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:20px 32px; background:#18191c; color:#ffffff; text-align:center; font-size:13px; line-height:1.6;">
+                        {{ env('PDF_ORDER_NAME') }}<br>
+                        7 Welland Rd, Dogsthorpe, Peterborough, PE1 3SA<br>
+                        01733 569998
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
 </table>
+</body>
+</html>

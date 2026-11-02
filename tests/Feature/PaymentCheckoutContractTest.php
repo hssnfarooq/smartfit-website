@@ -49,4 +49,44 @@ class PaymentCheckoutContractTest extends TestCase
 
         $this->assertStringContainsString("'payment_intent' => env('LUNAR_STRIPE_WEBHOOK_SECRET')", $services);
     }
+
+    public function test_checkout_persists_booking_details_before_stripe_creates_the_intent(): void
+    {
+        $paymentPage = file_get_contents(app_path('Http/Livewire/PaymentPage.php'));
+        $details = file_get_contents(app_path('Support/BookingCheckoutDetails.php'));
+
+        $preparePosition = strpos($paymentPage, 'BookingCheckoutDetails::prepare($this->cart)');
+        $intentPosition = strpos($paymentPage, 'StripeFacade::createIntent($this->cart)');
+
+        $this->assertNotFalse($preparePosition);
+        $this->assertNotFalse($intentPosition);
+        $this->assertLessThan($intentPosition, $preparePosition);
+        $this->assertStringContainsString('$meta[\'vehicle\']', $details);
+        $this->assertStringContainsString('$meta[\'service_location\']', $details);
+        $this->assertStringContainsString('$meta[\'preferred_appointments\']', $details);
+    }
+
+    public function test_successful_browser_return_and_webhook_share_an_idempotent_confirmation_sender(): void
+    {
+        $finish = file_get_contents(app_path('Http/Livewire/PaymentFinish.php'));
+        $listener = file_get_contents(app_path('Listeners/SendBookingConfirmation.php'));
+        $events = file_get_contents(app_path('Providers/EventServiceProvider.php'));
+        $sender = file_get_contents(app_path('Support/BookingConfirmationSender.php'));
+
+        $this->assertStringContainsString('BookingConfirmationSender::send($order)', $finish);
+        $this->assertStringContainsString('PaymentAttemptEvent::class', $events);
+        $this->assertStringContainsString('SendBookingConfirmation::class', $events);
+        $this->assertStringContainsString('BookingConfirmationSender::send($order)', $listener);
+        $this->assertStringContainsString("'customer_confirmation_sent_at'", $sender);
+        $this->assertStringContainsString('$order->billingAddress?->contact_email', $sender);
+    }
+
+    public function test_customer_email_contains_the_complete_booking_details(): void
+    {
+        $mail = file_get_contents(resource_path('views/mail/finished-mail.blade.php'));
+
+        foreach (['Booking reference', 'Vehicle', 'Service centre', 'Preferred appointments', 'Services', 'Total paid'] as $label) {
+            $this->assertStringContainsString($label, $mail);
+        }
+    }
 }

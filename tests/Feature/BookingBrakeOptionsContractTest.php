@@ -22,8 +22,8 @@ class BookingBrakeOptionsContractTest extends TestCase
         $checkbox = file_get_contents(resource_path('views/components/servis-item-chkbox.blade.php'));
 
         $this->assertStringContainsString('type="checkbox"', $checkbox);
-        $this->assertStringContainsString('booking-checkbox-option__control', $checkbox);
-        $this->assertStringContainsString('booking-checkbox-option__help', $checkbox);
+        $this->assertStringContainsString('form-check form-switch booking-service-option', $checkbox);
+        $this->assertStringContainsString('booking-service-toggle', $checkbox);
         $this->assertStringContainsString('Price on request', $checkbox);
         $this->assertStringContainsString('wire:click="{{$checked ? \'makniServis\' : \'addToCart\'}}"', $checkbox);
     }
@@ -34,13 +34,9 @@ class BookingBrakeOptionsContractTest extends TestCase
         $loader = file_get_contents(app_path('Support/BookingServiceOptions.php'));
         $css = file_get_contents(public_path('assets/css/moj.css'));
 
-        foreach (['booking-checkbox-options', 'booking-brake-options'] as $content) {
-            $this->assertStringContainsString($content, $group);
-        }
-
         $this->assertStringContainsString('SMARTFIT-BRAKE-QUOTE-FLUID', $loader);
 
-        foreach (['.booking-checkbox-option', '.booking-checkbox-option__control', '.booking-checkbox-option__help', '@media (max-width: 575.98px)'] as $selector) {
+        foreach (['.booking-service-option', '.booking-service-toggle', '@media (max-width: 575.98px)'] as $selector) {
             $this->assertStringContainsString($selector, $css);
         }
     }
@@ -49,10 +45,9 @@ class BookingBrakeOptionsContractTest extends TestCase
     {
         $css = file_get_contents(public_path('assets/css/moj.css'));
 
-        $this->assertStringContainsString('appearance: none;', $css);
-        $this->assertStringContainsString('background-color: #ffffff !important;', $css);
-        $this->assertStringContainsString('.booking-checkbox-option__control:checked', $css);
-        $this->assertStringContainsString('background-color: #ed1e24 !important;', $css);
+        $this->assertStringContainsString('background-color: #ffffff;', $css);
+        $this->assertStringContainsString('.booking-service-toggle:checked', $css);
+        $this->assertStringContainsString('background-color: #ed1e24;', $css);
     }
 
     public function test_price_on_request_brake_lines_are_allowed_and_preserved(): void
@@ -64,5 +59,16 @@ class BookingBrakeOptionsContractTest extends TestCase
         $this->assertStringContainsString('public static function isPriceOnRequest', $guard);
         $this->assertStringContainsString("'unit_price' => \$isPriceOnRequest ? 'Price on request'", $cart);
         $this->assertStringContainsString("'total' => \$isPriceOnRequest ? 'Price on request'", $cart);
+    }
+
+    public function test_brake_rows_use_the_existing_toggle_and_exclamation_help_pattern(): void
+    {
+        $checkbox = file_get_contents(resource_path('views/components/servis-item-chkbox.blade.php'));
+        $css = file_get_contents(public_path('assets/css/moj.css'));
+
+        $this->assertStringContainsString('booking-service-toggle', $checkbox);
+        $this->assertStringContainsString('fa-circle-exclamation', $checkbox);
+        $this->assertStringNotContainsString('>?</', $checkbox);
+        $this->assertStringContainsString('.booking-service-toggle', $css);
     }
 }

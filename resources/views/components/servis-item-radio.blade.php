@@ -4,12 +4,17 @@
         $isServicingOption = (int) $grupa === 2;
         $isCompactBookingOption = $isMotOption || $isServicingOption;
         $motOptions = [
-            2 => [
+            'mot class 4' => [
                 'name' => 'MOT Class 4',
                 'description' => 'Most cars, taxis, ambulances, motor caravans and small vans up to 3,000kg',
                 'price' => '£35',
             ],
-            5 => [
+            'mot class 5' => [
+                'name' => 'MOT Class 5',
+                'description' => 'Larger passenger vehicles, generally with 13+ passenger seats',
+                'price' => '£55',
+            ],
+            'mot class 7' => [
                 'name' => 'MOT Class 7',
                 'description' => 'Goods vehicles/vans over 3,000kg and up to 3,500kg',
                 'price' => '£55',
@@ -32,7 +37,7 @@
                 'price' => '£194.95',
             ],
         ];
-        $motOption = $isMotOption ? ($motOptions[$servisId] ?? null) : null;
+        $motOption = $isMotOption ? ($motOptions[strtolower(trim($servisName))] ?? null) : null;
         $servicingOption = $isServicingOption ? ($servicingOptions[$servisId] ?? null) : null;
         $bookingOption = $motOption ?? $servicingOption;
     @endphp

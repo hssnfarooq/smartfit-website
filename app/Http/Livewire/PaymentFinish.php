@@ -2,19 +2,14 @@
 
 namespace App\Http\Livewire;
 
-use App\Mail\FinishedAlertMail;
-use App\Mail\FinishedMail;
-use App\Models\ShopUser;
-use App\Models\Vehicles;
+use App\Support\BookingCheckoutDetails;
+use App\Support\BookingConfirmationSender;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Livewire\ComponentConcerns\PerformsRedirects;
 use Lunar\Facades\CartSession;
 use Lunar\Facades\Payments;
-use Lunar\Facades\ShippingManifest;
 use Lunar\Models\Cart;
-use Lunar\Models\Customer;
 use Lunar\Models\Order;
 use Lunar\Stripe\Facades\StripeFacade;
 
@@ -131,7 +126,7 @@ class PaymentFinish extends Component
                 return;
             }
 
-            $this->zaveziUsera();
+            BookingCheckoutDetails::prepare($this->cart);
 
             $payment = Payments::driver($this->paymentType)->cart($this->cart)->withData([
                 'payment_intent_client_secret' => $this->payment_intent_client_secret,
@@ -194,18 +189,7 @@ class PaymentFinish extends Component
             return;
         }
 
-        try {
-            $customerEmail = data_get(request()->session()->get(env('INFO_KUKI')), 'email');
-            if ($customerEmail) {
-                Mail::to($customerEmail)->send(new FinishedMail($order, $order->id));
-            }
-            Mail::to(env('MAIL_TO_DEFAULT'))->send(new FinishedAlertMail($order, $order->id));
-        } catch (\Throwable $exception) {
-            Log::error('Booking completed but confirmation email could not be sent.', [
-                'order_id' => $order->id,
-                'error' => $exception->getMessage(),
-            ]);
-        }
+        BookingConfirmationSender::send($order);
 
         request()->session()->put('order', $order);
         request()->session()->forget([
@@ -217,121 +201,6 @@ class PaymentFinish extends Component
         ]);
         CartSession::forget();
         $this->redirekt = env('STRIPE_SUCCESS_URL');
-
-    }
-
-    private function adreseKemija()
-    {
-        $address = [
-            'country_id' => 235, //'GB',//null,
-            'title' => null,
-            'first_name' => request()->session()->get(env('INFO_KUKI'))['name'],
-            'last_name' => request()->session()->get(env('INFO_KUKI'))['last_name'],
-            'company_name' => null,
-            'line_one' => '-',
-            'line_two' => null,
-            'line_three' => null,
-            'city' => '-',
-            'state' => null,
-            'postcode' => '-',
-            'delivery_instructions' => null,
-            'contact_email' => request()->session()->get(env('INFO_KUKI'))['email'],
-            'contact_phone' => request()->session()->get(env('INFO_KUKI'))['telephone'],
-            'meta' => null,
-        ];
-
-        $this->cart->setBillingAddress($address);
-        $this->cart->setShippingAddress($address);
-
-        // $option = $this->shippingOptions->first(fn ($option) => $option->getIdentifier() == $this->chosenShipping);
-        //$this->cart->setShippingOption($option);
-    }
-
-    /**
-     * Return available shipping options.
-     *
-     * @return \Illuminate\Support\Collection
-     */
-    public function getShippingOptionsProperty()
-    {
-        return ShippingManifest::getOptions(
-            $this->cart
-        );
-    }
-
-    private function zaveziUsera()
-    {
-
-        $this->adreseKemija();
-
-        $vehicle = Vehicles::firstOrCreate(
-            ['registration' => request()->session()->get(env('AUTO_KUKI'))->registration],
-            [
-                'registration' => request()->session()->get(env('AUTO_KUKI'))->registration,
-                'meta' => json_encode([
-                    'account_no' => request()->session()->get(env('AUTO_KUKI'))->registration,
-                    'registration' => request()->session()->get(env('AUTO_KUKI'))->registration,
-                    'model' => request()->session()->get(env('AUTO_KUKI'))->model,
-                    'make' => request()->session()->get(env('AUTO_KUKI'))->make,
-                    'registration_date' => request()->session()->get(env('AUTO_KUKI'))->registrationDate,
-                    'fuel_type' => request()->session()->get(env('AUTO_KUKI'))->fuelType,
-                    'mot_due_date' => isset(request()->session()->get(env('AUTO_KUKI'))->motTests) ? request()->session()->get(env('AUTO_KUKI'))->motTests[0]->expiryDate : request()->session()->get(env('AUTO_KUKI'))->motTestDueDate,
-                ]),
-            ]
-        );
-        $user = ShopUser::firstOrCreate(
-            ['email' => collect(request()->session()->get(env('INFO_KUKI')))['email']],
-            [
-                'name' => request()->session()->get(env('INFO_KUKI'))['name'],
-                'email' => request()->session()->get(env('INFO_KUKI'))['email'],
-                'password' => '-',
-            ]
-        );
-        $customer = Customer::firstOrCreate(
-            //['account_ref' => request()->session()->get(env('AUTO_KUKI'))->registration],
-            [
-                'title' => request()->session()->get(env('INFO_KUKI'))['title'],
-                'first_name' => request()->session()->get(env('INFO_KUKI'))['name'],
-                'last_name' => request()->session()->get(env('INFO_KUKI'))['last_name'],
-                'company_name' => '',
-                'vat_no' => '',
-                'account_ref' => request()->session()->get(env('AUTO_KUKI'))->registration,
-                'meta' => [
-                    'future_communications' => request()->session()->get(env('INFO_KUKI'))['futureCommunications'],
-                    'vehicle_id' => $vehicle->id,
-                    'account_no' => request()->session()->get(env('AUTO_KUKI'))->registration,
-                    'registration' => request()->session()->get(env('AUTO_KUKI'))->registration,
-                    'model' => request()->session()->get(env('AUTO_KUKI'))->model,
-                    'make' => request()->session()->get(env('AUTO_KUKI'))->make,
-                    'registration_date' => request()->session()->get(env('AUTO_KUKI'))->registrationDate,
-                    'fuel_type' => request()->session()->get(env('AUTO_KUKI'))->fuelType,
-                    'mot_due_date' => isset(request()->session()->get(env('AUTO_KUKI'))->motTests) ? request()->session()->get(env('AUTO_KUKI'))->motTests[0]->expiryDate : request()->session()->get(env('AUTO_KUKI'))->motTestDueDate,
-                ],
-            ],
-            [
-                'title' => request()->session()->get(env('INFO_KUKI'))['title'],
-                'first_name' => request()->session()->get(env('INFO_KUKI'))['name'],
-                'last_name' => request()->session()->get(env('INFO_KUKI'))['last_name'],
-                'company_name' => '',
-                'vat_no' => '',
-                'account_ref' => request()->session()->get(env('AUTO_KUKI'))->registration,
-                'meta' => [
-                    'future_communications' => request()->session()->get(env('INFO_KUKI'))['futureCommunications'],
-                    'vehicle_id' => $vehicle->id,
-                    'account_no' => request()->session()->get(env('AUTO_KUKI'))->registration,
-                    'registration' => request()->session()->get(env('AUTO_KUKI'))->registration,
-                    'model' => request()->session()->get(env('AUTO_KUKI'))->model,
-                    'make' => request()->session()->get(env('AUTO_KUKI'))->make,
-                    'registration_date' => request()->session()->get(env('AUTO_KUKI'))->registrationDate,
-                    'fuel_type' => request()->session()->get(env('AUTO_KUKI'))->fuelType,
-                    'mot_due_date' => isset(request()->session()->get(env('AUTO_KUKI'))->motTests) ? request()->session()->get(env('AUTO_KUKI'))->motTests[0]->expiryDate : request()->session()->get(env('AUTO_KUKI'))->motTestDueDate,
-                ],
-            ]
-        );
-
-        $customer->users()->syncWithoutDetaching([$user->id]);
-
-        $this->cart->setCustomer($customer);
     }
 
     public function render()

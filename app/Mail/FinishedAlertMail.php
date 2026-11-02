@@ -4,7 +4,6 @@ namespace App\Mail;
 
 use App\Http\Controllers\PageDisplayController;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -16,19 +15,16 @@ class FinishedAlertMail extends Mailable
     use Queueable, SerializesModels;
 
     public $chunker;
+
     public Order $order;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(Order $order = null, int $order_id = 0)
+    public function __construct(Order $order, int $order_id = 0)
     {
-        if($order_id > 0){
-            $this->order = Order::find($order_id);
-        }else{
-            $this->order = $order;
-        }
-        
+        $this->order = $order_id > 0 ? Order::findOrFail($order_id) : $order;
+
         $this->chunker = PageDisplayController::dajChunker();
     }
 
@@ -50,9 +46,9 @@ class FinishedAlertMail extends Mailable
         return new Content(
             view: 'mail.finished-alert-mail',
             with: [
-                'order' => $this->order, 
-                ]
-            
+                'order' => $this->order,
+            ]
+
         );
     }
 

@@ -9,26 +9,21 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Lunar\Models\Order;
-use Ramsey\Uuid\Type\Integer;
 
 class FinishedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $chunker;
+
     public $order;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(Order $order = null, int $order_id = 0)
+    public function __construct(Order $order, int $order_id = 0)
     {
-        
-        if($order_id > 0){
-            $this->order = Order::find($order_id);
-        }else{
-            $this->order = $order;
-        }
+        $this->order = $order_id > 0 ? Order::findOrFail($order_id) : $order;
         $this->chunker = PageDisplayController::dajChunker();
     }
 
@@ -51,9 +46,9 @@ class FinishedMail extends Mailable
             view: 'mail.finished-mail',
             with: [
                 'tekst' => $this->chunker['order_mail_text'],
-                'order' => $this->order, 
-                ]
-            
+                'order' => $this->order,
+            ]
+
         );
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Support\BookingCheckoutDetails;
 use App\Support\CartPriceGuard;
 use Livewire\Component;
 use Lunar\Facades\CartSession;
@@ -83,6 +84,9 @@ class PaymentPage extends Component
 
             return;
         }
+
+        BookingCheckoutDetails::prepare($this->cart);
+        $this->cart = $this->cart->refresh()->calculate();
 
         Stripe::setApiKey(config('services.stripe.key'));
         $this->policy = config('stripe.policy', 'capture');

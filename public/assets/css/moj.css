@@ -1777,150 +1777,44 @@ svg {
     }
 }
 
-/* Booking page: Brakes price-on-request checkbox rows. */
-.booking-checkbox-options {
-    --booking-checkbox-border: #dedfe1;
-    --booking-checkbox-blue: #00a7df;
-    display: grid;
-    gap: 12px;
-    margin: 0;
+/* Booking page: shared switch rows, including Brakes and Wheel Alignment. */
+.booking-service-option {
+    min-height: 58px;
+    margin: 10px 0 0;
+    padding: 14px 0 14px 50px;
+    border-bottom: 1px dotted #ccc;
 }
 
-.booking-checkbox-options > div {
-    padding: 0;
-}
-
-.booking-checkbox-option {
-    display: grid;
-    grid-template-columns: 42px minmax(0, 1fr);
-    align-items: center;
-    gap: 16px;
-    min-height: 82px;
-    padding: 16px 20px;
-    color: #18191c;
-    background: #ffffff;
-    border: 1px solid var(--booking-checkbox-border);
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(24, 25, 28, 0.04);
-}
-
-.booking-checkbox-option__control {
-    -webkit-appearance: none;
-    appearance: none;
-    box-sizing: border-box;
-    width: 42px;
-    height: 42px;
-    margin: 0;
-    background-color: #ffffff !important;
-    background-image: none;
-    border: 2px solid #5f6267;
-    border-radius: 5px;
+.booking-service-toggle {
+    width: 2.5rem;
+    height: 1.35rem;
+    margin-left: -3.1rem !important;
+    background-color: #ffffff;
+    border: 1px solid #777;
     cursor: pointer;
-    transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.booking-checkbox-option__control:checked {
-    background-color: #ed1e24 !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M3.5 9.2 7.2 13 14.8 5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 62%;
+.booking-service-toggle:checked {
+    background-color: #ed1e24;
     border-color: #ed1e24;
 }
 
-.booking-checkbox-option__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    min-width: 0;
-}
-
-.booking-checkbox-option__name {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 0;
-}
-
-.booking-checkbox-option__label,
-.booking-checkbox-option__price {
-    width: auto;
-    margin: 0;
-    color: #18191c;
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.35;
-}
-
-.booking-checkbox-option__label {
-    cursor: pointer;
-}
-
-.booking-checkbox-option__price {
-    flex: 0 0 auto;
-    text-align: right;
-}
-
-.booking-checkbox-option__help {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    color: #ffffff;
-    background: var(--booking-checkbox-blue);
-    border: 0;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.booking-checkbox-option__help:hover,
-.booking-checkbox-option__help:focus-visible {
-    color: #ffffff;
-    background: #008fbe;
-}
-
-.booking-checkbox-option__help:focus-visible,
-.booking-checkbox-option__control:focus-visible {
-    outline: 3px solid rgba(237, 30, 36, 0.28);
-    outline-offset: 3px;
+.booking-service-toggle:focus {
+    border-color: #ed1e24;
+    box-shadow: 0 0 0 0.2rem rgba(237, 30, 36, 0.2);
 }
 
 @media (max-width: 575.98px) {
-    .booking-checkbox-option {
-        grid-template-columns: 34px minmax(0, 1fr);
-        gap: 12px;
-        min-height: 76px;
-        padding: 14px;
+    .booking-service-option {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px 12px;
+        padding-left: 48px;
     }
 
-    .booking-checkbox-option__control {
-        width: 34px;
-        height: 34px;
-    }
-
-    .booking-checkbox-option__content {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .booking-checkbox-option__name {
-        gap: 8px;
-    }
-
-    .booking-checkbox-option__help {
-        width: 24px;
-        height: 24px;
-        font-size: 0.8rem;
-    }
-
-    .booking-checkbox-option__label,
-    .booking-checkbox-option__price {
-        font-size: 0.95rem;
-        text-align: left;
+    .booking-service-option > strong {
+        grid-column: 1 / -1;
+        justify-self: start;
+        float: none !important;
     }
 }

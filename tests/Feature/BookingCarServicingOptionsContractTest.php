@@ -32,7 +32,7 @@ class BookingCarServicingOptionsContractTest extends TestCase
         $item = file_get_contents(resource_path('views/livewire/components/servis/add-to-cart.blade.php'));
         $css = file_get_contents(public_path('assets/css/moj.css'));
 
-        $this->assertStringContainsString("2 => [140, 20, 110]", $loader);
+        $this->assertStringContainsString('2 => [140, 20, 110]', $loader);
         $this->assertStringContainsString('booking-servicing-options', $group);
         $this->assertStringContainsString('col-md-4 booking-compact-option', $item);
         $this->assertStringContainsString('booking-servicing-option', $item);
@@ -76,5 +76,12 @@ class BookingCarServicingOptionsContractTest extends TestCase
         $this->assertStringContainsString("->keyBy('sku')", $controller);
         $this->assertStringContainsString('$variants_old->get($variant->sku)', $controller);
         $this->assertStringNotContainsString('$variants_old[$i]->id', $controller);
+    }
+
+    public function test_servicing_selection_does_not_write_to_an_undeclared_livewire_property(): void
+    {
+        $component = file_get_contents(app_path('Http/Livewire/Components/Servis/AddToCart.php'));
+
+        $this->assertStringNotContainsString('$this->purchasable->', $component);
     }
 }
