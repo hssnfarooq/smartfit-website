@@ -17,15 +17,3 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function(){
-
-    Route::get('products/importCSV', ['uses' => 'ProductController@importCSV']);
-    Route::get('products/prepareStatic', ['uses' => 'ProductController@prepareStatic']);
-    //Route::apiResource('products', ProductController::class);
-    //Route::apiResource('customers', CustomerController::class);
-    //Route::apiResource('orders', OrderController::class);
-    
-
-    //Route::post('orders/bulk', ['uses' => 'OrderController@bulkStore']);
-});

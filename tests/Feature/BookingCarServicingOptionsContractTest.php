@@ -55,7 +55,7 @@ class BookingCarServicingOptionsContractTest extends TestCase
         }
     }
 
-    public function test_servicing_prices_are_repaired_and_static_catalog_matches_variants_by_sku(): void
+    public function test_servicing_prices_are_repaired_and_supplier_import_preserves_static_catalog(): void
     {
         $repairMigration = database_path('migrations/2026_10_23_000004_repair_booking_car_servicing_prices.php');
 
@@ -73,9 +73,10 @@ class BookingCarServicingOptionsContractTest extends TestCase
             $this->assertStringContainsString($content, $repair);
         }
 
-        $this->assertStringContainsString("->keyBy('sku')", $controller);
-        $this->assertStringContainsString('$variants_old->get($variant->sku)', $controller);
-        $this->assertStringNotContainsString('$variants_old[$i]->id', $controller);
+        $this->assertStringContainsString('SupplierCatalogueCleaner', $controller);
+        $this->assertStringContainsString('$this->supplierCatalogueCleaner->clear()', $controller);
+        $this->assertStringNotContainsString("DB::table('lunar_products')->truncate()", $controller);
+        $this->assertStringNotContainsString("DB::table('lunar_prices')->truncate()", $controller);
     }
 
     public function test_servicing_selection_does_not_write_to_an_undeclared_livewire_property(): void

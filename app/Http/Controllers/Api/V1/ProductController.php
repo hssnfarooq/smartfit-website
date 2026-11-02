@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use A17\Twill\Models\Model;
 use App\Http\Controllers\Controller;
 use App\Models\Import;
+use App\Support\SupplierCatalogueCleaner;
 use Illuminate\Http\Request;
 
 use Lunar\FieldTypes\Text;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Lunar\Models\Brand;
-use Lunar\Models\Price;
 use Lunar\Models\Product;
 use Lunar\Models\ProductVariant;
-use Lunar\Models\Url;
 use phpseclib3\Net\SFTP;
+use RuntimeException;
 
 ini_set('max_execution_time', 3000);
 
@@ -39,6 +37,10 @@ class ProductController extends Controller
         'M' => 27.50,
         'B' => 22.50,
     ];
+
+    public function __construct(private SupplierCatalogueCleaner $supplierCatalogueCleaner)
+    {
+    }
 
     public function index(Request $request){
       return Product::paginate();
@@ -106,77 +108,34 @@ class ProductController extends Controller
 
     }
 
-    private function obrisiStaro(){
-
-        /* $deleted = DB::table('lunar_prices')->where('csv_import', '=', 1)   //2194 je zadnja usluga sve poslje će biti gume     
-             ->delete();
- 
-         //lunar_product_variants
-         $deleted = DB::table('lunar_product_variants')->where('csv_import', '=', 1)   //2194 je zadnja usluga sve poslje će biti gume     
-             ->delete();
-         
-         $deleted = DB::table('lunar_products')->where('csv_import', '=', 1)            
-             ->where('t_import_json', 'IS', NULL)
-             ->delete();
- 
-         $deleted = DB::table('lunar_urls')->where('element_id', '>', 2195)      //2194 je zadnja usluga sve poslje će biti gume           
-             ->where('element_type', 'Lunar\Models\Product')
-             ->delete();
- 
- */
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-
-        DB::table('activity_log')->truncate();
-        DB::table('lunar_channelables')->truncate();
-        DB::table('search_index')->truncate();
-        
-        //prices
-        DB::table('lunar_prices')->truncate();
-        DB::statement("INSERT INTO lunar_prices SELECT * FROM lunar_prices_ORIG");
-
-        //lunar_product_variants
-        DB::table('lunar_product_variants')->truncate();
-        DB::statement("INSERT INTO lunar_product_variants SELECT * FROM lunar_product_variants_ORIG");
-
-        //lunar_urls
-        DB::table('lunar_urls')->truncate();
-        DB::statement("INSERT INTO lunar_urls SELECT * FROM lunar_urls_ORIG");
-
-        //lunar_products
-        DB::table('lunar_products')->truncate();
-        DB::statement("INSERT INTO lunar_products SELECT * FROM lunar_products_ORIG");
-
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-
-         return true;
-     }
- 
-
-    public function importCSV()//Request $request - kad i ako se bude uploadao kroz formu
+    public function importCSV(): string
     {
         
         $import = Import::where('gotov', 1)->whereDate('created_at', date('Y-m-d'))->first();
         if(!$import){
-            //prvo sve obrisat
-            if($this->obrisiStaro()){
+            $importFile = base_path('import/'.env('IMPORT_PARTNER').'/'.env('IMPORT_FILE'));
 
-                //spojit se na FTP server za slike - STAPLETONS
-                if(env('IMPORT_PARTNER') === 'stapletons') 
-                    $this->sftpConnect();
+            if (! is_readable($importFile)) {
+                throw new RuntimeException('Supplier import file is not readable.');
+            }
 
-                //import
-                $this->startImport();
+            if (env('IMPORT_PARTNER') === 'stapletons') {
+                $this->sftpConnect();
+            }
+
+            if ($this->supplierCatalogueCleaner->clear() >= 0) {
+                return $this->startImport($importFile);
 
             }else 
-                die('Delete ERROR');
+                return 'Delete ERROR';
 
         }else{
-            die('Imported '.$import->title);
+            return 'Imported '.$import->title;
         }
             
     }
     
-    private function startImport()//Request $request - kad i ako se bude uploadao kroz formu
+    private function startImport(string $importFile): string
     {
         $import = Import::create([
             'title' => date("d-m-Y H:i:s"),
@@ -190,17 +149,17 @@ class ProductController extends Controller
         $file = $request->file('import_csv');
         $handle = fopen($file->path(), 'r');
 */
-        $handle = fopen('import/'.env('IMPORT_PARTNER').'/'.env('IMPORT_FILE'), 'r');
+        $handle = fopen($importFile, 'r');
         //echo 'import/'.env('IMPORT_PARTNER').'/'.env('IMPORT_FILE').'<br>';
 
-        if ($handle !== FALSE) {
-            $i = 0;
-            while (($data = fgetcsv($handle)) !== FALSE) {
-                $i++;
-                $this->spremiProizvod($data, $i);
+        if ($handle === false) {
+            throw new RuntimeException('Supplier import file could not be opened.');
+        }
 
-                //echo $i.'.) '.($data[0]).'<br>';
-            }
+        $i = 0;
+        while (($data = fgetcsv($handle)) !== false) {
+            $i++;
+            $this->spremiProizvod($data, $i);
         }
 
         fclose($handle);
@@ -211,9 +170,7 @@ class ProductController extends Controller
 
         $import->save();
 
-        echo 'Products imported: '.$import->title;
-
-        die();
+        return 'Products imported: '.$import->title;
     }
 
     private function spremiProizvod($data, $red){
@@ -296,105 +253,4 @@ class ProductController extends Controller
 
     }
 
-    ////////////////////////////////////////
-    /// Priprema Statičnih proizvoda //////
-    public function prepareStatic(){
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('lunar_prices_ORIG')->truncate();
-        DB::table('lunar_product_variants_ORIG')->truncate();
-        DB::table('lunar_urls_ORIG')->truncate();
-        DB::table('lunar_products_ORIG')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-
-        //lunar_products
-        $proizvodi = Product::where('csv_import', '=', 0)->get();
-        $model = new Product();
-        $columns_products = $this->withoutColumn(['id'], $model);
-        
-        $columns_product_variants = $this->withoutColumn(['id', 'product_id'], new ProductVariant());
-        $columns_prices = $this->withoutColumn(['id', 'priceable_id'], new Price());//priceable_id <- product_variant
-        $columns_urls = $this->withoutColumn(['id', 'element_id', 'default'], new Url());//element_id <- product_id
-
-        $br = 0;
-        foreach($proizvodi as $proizvod){
-            $br++;
-            $this->kopiraj('lunar_products', 'lunar_products_ORIG', $columns_products, ' WHERE id = '.$proizvod['id']);
-
-            //lunar_product_variants
-            $this->kopiraj(
-                'lunar_product_variants', 
-                'lunar_product_variants_ORIG', 
-                $columns_product_variants, 
-                ' WHERE product_id = '.$proizvod['id'],
-                'product_id ,',
-                $br.', '
-            );
-
-            //lunar_urls
-            $this->kopiraj('lunar_urls', 
-                'lunar_urls_ORIG', 
-                $columns_urls, 
-                ' WHERE element_id = '.$proizvod['id'],
-                'element_id ,',
-                $br.', '
-            );
-        }
-
-        //PRICES su vezane uz VARIANT, pa to ide odvojeni loop
-        // Match each copied variant to its source by SKU. The backup table is
-        // populated in product order, which is not guaranteed to match the
-        // source variant ID order. Pairing the two collections by position can
-        // therefore attach a service price to the wrong card.
-        $variants_old = ProductVariant::where('csv_import', '=', 0)->get()->keyBy('sku');
-        $variants = DB::table('lunar_product_variants_ORIG')->get();
-
-        foreach ($variants as $variant) {
-            $sourceVariant = $variants_old->get($variant->sku);
-
-            if (! $sourceVariant) {
-                continue;
-            }
-
-            $this->kopiraj(
-                'lunar_prices', 
-                'lunar_prices_ORIG', 
-                $columns_prices, 
-                ' WHERE priceable_id = '.$sourceVariant->id,
-                'priceable_id , ',
-                $variant->id.', '
-            );
-        }
-
-        die('INITIAL VALUES ARE PREPARED..');
-    }
-       
-    /**
-     * Get all columns of model
-     *
-     * @return Array
-     */
-    private function getTableColumns($model) {
-        //$model = new Product();
-        return $model->getConnection()
-            ->getSchemaBuilder()
-            ->getColumnListing($model->getTable());
-    }
-
-    /**
-     * Return model's columns without given columns
-     *
-     * @param Array $without_columns, $model
-     * @return Array
-     */
-    private function withoutColumn(Array $without_columns, $model) {
-        return array_diff($this->getTableColumns($model), $without_columns);
-    }
-
-    public function kopiraj($tbl_from, $tbl_to, $columns, $where, $dodatna_polja = '', $dodatne_vrijednosti = '') {
-        
-        $columns = implode(',', $columns);
-        $tmp = DB::statement('INSERT INTO '.$tbl_to.' ('.$dodatna_polja.$columns.') (SELECT '.$dodatne_vrijednosti.$columns.' FROM '.$tbl_from.$where.')');
-
-        //return Response::HTTP_OK;
-    }
 }
