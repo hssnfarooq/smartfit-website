@@ -61,17 +61,17 @@ class BookingBrakeOptionsContractTest extends TestCase
         $this->assertStringContainsString("'total' => \$isPriceOnRequest ? 'Price on request'", $cart);
     }
 
-    public function test_brake_rows_use_the_existing_toggle_and_exclamation_help_pattern(): void
+    public function test_brake_rows_use_the_shared_toggle_and_blue_information_pattern(): void
     {
         $checkbox = file_get_contents(resource_path('views/components/servis-item-chkbox.blade.php'));
         $css = file_get_contents(public_path('assets/css/moj.css'));
 
         $this->assertStringContainsString('booking-service-toggle', $checkbox);
         $this->assertStringContainsString('booking-service-info', $checkbox);
-        $this->assertStringContainsString('fa-circle-exclamation', $checkbox);
-        $this->assertStringNotContainsString('>?</', $checkbox);
+        $this->assertStringContainsString('<span aria-hidden="true">i</span>', $checkbox);
+        $this->assertStringNotContainsString('fa-circle-exclamation', $checkbox);
         $this->assertStringContainsString('.booking-service-toggle', $css);
         $this->assertStringContainsString('.booking-service-info', $css);
-        $this->assertStringContainsString('color: #ed1e24;', $css);
+        $this->assertStringContainsString('background-color: #087ff5;', $css);
     }
 }

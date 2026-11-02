@@ -2,6 +2,9 @@
   @php
     $isBrakeOption = (int) ($grupa ?? 0) === 5;
     $isComplimentaryCheck = (int) ($grupa ?? 0) === 9;
+    $informationContent = trim(strip_tags(html_entity_decode($servisDescription))) !== ''
+      ? html_entity_decode($servisDescription)
+      : 'Please contact our team for more information about this option.';
   @endphp
 
     <div class="form-check form-switch booking-service-option">
@@ -9,11 +12,9 @@
       <label class="form-check-label" for="chbox{{$servisId}}" style="width: fit-content">
           {{$servisName}}
       </label>
-      @if (!empty($servisDescription))
-        <button type="button" class="btn btn-link booking-service-info p-0 ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{$servisId}}" aria-label="More information about {{$servisName}}">
-          <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-        </button>
-      @endif
+      <button type="button" class="booking-service-info ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{$servisId}}" aria-label="More information about {{$servisName}}">
+        <span aria-hidden="true">i</span>
+      </button>
       <strong class="float-end">
         @if ($isBrakeOption || !$priceLabel)
           Price on request
@@ -27,7 +28,6 @@
       </strong>
     </div>
 
-@if (!empty($servisDescription))
   <!-- Modal -->
   <div class="modal fade" id="exampleModal{{$servisId}}" tabindex="-1" aria-labelledby="exampleModalLabel{{$servisId}}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -37,10 +37,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            {!!html_entity_decode($servisDescription)!!}
+            {!!$informationContent!!}
         </div>
       </div>
     </div>
   </div>
-@endif
 </div>
