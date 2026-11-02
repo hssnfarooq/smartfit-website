@@ -1815,10 +1815,10 @@ svg {
     border-radius: 50%;
     background-color: #087ff5;
     color: #ffffff;
-    font-family: Arial, sans-serif;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 13px;
     font-weight: 700;
-    font-style: normal;
+    font-style: italic;
     line-height: 1;
     text-transform: none;
     vertical-align: middle;

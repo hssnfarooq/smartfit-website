@@ -32,5 +32,6 @@ class BookingServiceInformationIconContractTest extends TestCase
         $this->assertStringContainsString('background-color: #087ff5;', $css);
         $this->assertStringContainsString('color: #ffffff;', $css);
         $this->assertStringContainsString('border-radius: 50%;', $css);
+        $this->assertStringContainsString('font-style: italic;', $css);
     }
 }
