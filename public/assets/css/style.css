@@ -7399,6 +7399,8 @@ Responsive For Mobile & Tablet Devices
 
 .reviews_arrow_left,
 .reviews_arrow_right {
+  --review-arrow-background: #d9d9db;
+  --review-arrow-glyph: #b1afaf;
   position: relative;
   z-index: 2;
   display: inline-flex !important;
@@ -7411,28 +7413,19 @@ Responsive For Mobile & Tablet Devices
   visibility: visible !important;
   opacity: 1 !important;
   box-shadow: none !important;
-  color: #b1afaf !important;
   cursor: pointer;
-  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  width: 51px !important;
+  min-width: 51px;
+  height: 51px !important;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .reviews_arrow_left:hover,
 .reviews_arrow_right:hover,
 .reviews_arrow_left:focus-visible,
 .reviews_arrow_right:focus-visible {
-  color: #e4222a !important;
-}
-
-.reviews_arrow_left {
-  width: 51px !important;
-  min-width: 51px;
-  height: 51px !important;
-}
-
-.reviews_arrow_right {
-  width: 43px !important;
-  min-width: 43px;
-  height: 43px !important;
+  --review-arrow-background: #e4222a;
+  --review-arrow-glyph: #ffffff;
 }
 
 .reviews_arrow_left:focus-visible,
@@ -7446,6 +7439,20 @@ Responsive For Mobile & Tablet Devices
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.customer-review-arrow__background {
+  fill: var(--review-arrow-background);
+  transition: fill 0.2s ease;
+}
+
+.customer-review-arrow__glyph {
+  fill: none;
+  stroke: var(--review-arrow-glyph);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.2s ease;
 }
 
 @media screen and (max-width: 767px) {

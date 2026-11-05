@@ -62,8 +62,10 @@ class CustomerReviewsContractTest extends TestCase
         $this->assertStringContainsString('aria-label="Previous reviews"', $controls);
         $this->assertStringContainsString('aria-label="Next reviews"', $controls);
         $this->assertSame(2, substr_count($controls, 'class="customer-review-arrow"'));
-        $this->assertSame(3, substr_count($controls, 'fill="currentColor"'));
-        $this->assertStringNotContainsString('review-arrow-glyph', $controls);
+        $this->assertSame(2, substr_count($controls, 'width="51" height="51" viewBox="0 0 51 51"'));
+        $this->assertSame(2, substr_count($controls, 'class="customer-review-arrow__background"'));
+        $this->assertSame(2, substr_count($controls, 'class="customer-review-arrow__glyph"'));
+        $this->assertStringNotContainsString('opacity="0.4"', $controls);
 
         foreach ([$frontend, $mot] as $template) {
             $this->assertStringNotContainsString('.reviews_arrow_right:hover', $template);
@@ -74,10 +76,13 @@ class CustomerReviewsContractTest extends TestCase
             'gap: 21px;',
             'margin-top: 27px;',
             'width: 51px !important',
-            'width: 43px !important',
             'box-shadow: none !important',
-            'color: #b1afaf !important;',
-            'color: #e4222a !important;',
+            '--review-arrow-background: #d9d9db;',
+            '--review-arrow-glyph: #b1afaf;',
+            '--review-arrow-background: #e4222a;',
+            '--review-arrow-glyph: #ffffff;',
+            '.customer-review-arrow__background',
+            '.customer-review-arrow__glyph',
             '.reviews_arrow_left:hover,',
             '.reviews_arrow_right:hover,',
         ] as $contract) {
