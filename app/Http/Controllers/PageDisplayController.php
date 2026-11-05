@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\Chunker;
 use App\Models\ContactForm;
 use App\Models\Import;
-use App\Models\Location;
+use App\Support\BookingLocation;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
@@ -21,7 +21,7 @@ class PageDisplayController extends Controller
 {
     use SetsMetadata;
 
-    public function index(PageRepository $pageRepository)
+    public function index(PageRepository $pageRepository, BookingLocation $bookingLocation)
     {
 
         //Mail::to('igpetrovic@gmail.com')->send(new FinishedMail(null, 15));
@@ -35,10 +35,7 @@ class PageDisplayController extends Controller
         //if(request()->input('lok') != null)
         //    if($this->dolazakHandle(request()->input('lok'))) return redirect()->to('/booking/order');
 
-        if (!request()->session()->exists(env('LOKACIJA_KUKI'))) {
-            $lokacija_data = Location::findOrFail(2);
-            request()->session()->put(env('LOKACIJA_KUKI'), $lokacija_data);
-        }
+        $bookingLocation->ensureSelected();
         
         $page = $pageRepository->forSlug('home-page');
 
@@ -46,7 +43,7 @@ class PageDisplayController extends Controller
 
     }
 
-    public function page(string $slug, PageRepository $pageRepository): View
+    public function page(string $slug, PageRepository $pageRepository, BookingLocation $bookingLocation): View
     {
         $page = $pageRepository->forSlug($slug);
         
@@ -56,22 +53,16 @@ class PageDisplayController extends Controller
         
         $this->setMetadata($page);
 
-        if (!request()->session()->exists(env('LOKACIJA_KUKI'))) {
-            $lokacija_data = Location::findOrFail(2);
-            request()->session()->put(env('LOKACIJA_KUKI'), $lokacija_data);
-        }
+        $bookingLocation->ensureSelected();
         
         return view('frontend.index', ['item' => $page, 'header' => 'crno', 'chunker' => $this->dajChunker()]);
     }
 
-    public function shop(PageRepository $pageRepository): View
+    public function shop(PageRepository $pageRepository, BookingLocation $bookingLocation): View
     {
         $page = $pageRepository->forSlug('our-shop');
 
-        if (!request()->session()->exists(env('LOKACIJA_KUKI'))) {
-            $lokacija_data = Location::findOrFail(2);
-            request()->session()->put(env('LOKACIJA_KUKI'), $lokacija_data);
-        }
+        $bookingLocation->ensureSelected();
 
         return view('frontend.shop', ['item' => $page, 'header' => 'crno', 'chunker' => $this->dajChunker()]);
     }
@@ -82,8 +73,10 @@ class PageDisplayController extends Controller
         return view('frontend.index', ['slug' => $slug, 'header' => 'crno', 'chunker' => $this->dajChunker(), 'lw' => 'proizvod-opsirno']);
     }
 
-    public function bookingStranica()
+    public function bookingStranica(BookingLocation $bookingLocation)
     {
+        $bookingLocation->ensureSelected();
+
         $slug = '';
         return view('frontend.index', ['slug' => $slug, 'header' => 'crno', 'chunker' => $this->dajChunker(), 'lw' => 'booking-stranica']);
     }
