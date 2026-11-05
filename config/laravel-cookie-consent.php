@@ -224,7 +224,6 @@ return [
         'analytics' => [
             'enabled' => env('COOKIE_CONSENT_ANALYTICS', false),
             'locked' => false,
-            'js_action' => 'loadGoogleAnalytics',
             'title' => 'Analytics Cookies',
             'description' => 'These cookies help us understand how visitors interact with our website.',
         ],
@@ -262,4 +261,3 @@ return [
         ],*/
     ],
 ];
-

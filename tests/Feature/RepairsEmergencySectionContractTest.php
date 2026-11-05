@@ -18,7 +18,8 @@ class RepairsEmergencySectionContractTest extends TestCase
         $this->assertStringContainsString('<h2 class="rp-emg-title">EMERGENCY &amp; SAME<br>DAY CAR REPAIRS</h2>', $source);
         $this->assertStringContainsString('h2.rp-emg-title', $source);
         $this->assertStringContainsString('color:#fff!important', $source);
-        $this->assertStringContainsString('font-size:clamp(3.25rem,3.75vw,4.5rem)!important', $source);
+        $this->assertStringContainsString('font-size:var(--sf-type-h2)!important', $source);
+        $this->assertStringNotContainsString('font-size:clamp(3.25rem,3.75vw,4.5rem)!important', $source);
     }
 
     public function test_emergency_repair_section_matches_the_figma_layout_contract(): void
@@ -46,7 +47,7 @@ class RepairsEmergencySectionContractTest extends TestCase
             );
         }
 
-        $this->assertStringContainsString('width:min(1780px,calc(100% - 144px))', $source);
+        $this->assertStringContainsString('max-width:1390px', $source);
         $this->assertStringContainsString('min-height:666px', $source);
         $this->assertStringContainsString('min-height:141px', $source);
         $this->assertStringContainsString('min-width:312px', $source);
@@ -57,7 +58,7 @@ class RepairsEmergencySectionContractTest extends TestCase
         $source = $this->source();
 
         $this->assertStringContainsString('.rp-emergency__grid{grid-template-columns:1fr;gap:34px}', $source);
-        $this->assertStringContainsString('.rp-emergency__container{width:calc(100% - 30px)}', $source);
+        $this->assertStringContainsString('.rp-emergency__container{width:100%}', $source);
         $this->assertStringContainsString('.rp-emergency .rp-emg-cta{width:100%;min-width:0;', $source);
         $this->assertStringContainsString('.rp-emg-item{min-height:96px;', $source);
     }

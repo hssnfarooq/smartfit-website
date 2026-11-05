@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="dark">
 <head>
+@include('frontend.inc.google-tag')
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -1445,9 +1446,9 @@ REPAIRS PAGE — SCOPED STYLES (prefix rp-)
 
 /* EMERGENCY */
 .rp-emergency{background:#17161a;padding:51px 0 47px;position:relative;overflow:hidden;min-height:666px}
-.rp-emergency__container{width:min(1780px,calc(100% - 144px));max-width:none;margin:0 auto;padding:0}
+.rp-emergency__container{width:100%;max-width:1390px;margin:0 auto;padding:0 15px}
 .rp-emergency__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:105px;align-items:start}
-.sf-main-page .page_content h2.rp-emg-title{max-width:820px;margin:0 0 25px;color:#fff!important;font-family:Montserrat,sans-serif;font-size:clamp(3.25rem,3.75vw,4.5rem)!important;font-weight:800!important;line-height:1.2!important;letter-spacing:-1.2px;text-transform:uppercase}
+.sf-main-page .page_content h2.rp-emg-title{max-width:820px;margin:0 0 25px;color:#fff!important;font-family:Montserrat,sans-serif;font-size:var(--sf-type-h2)!important;font-weight:800!important;line-height:1.14!important;letter-spacing:-.015em;text-transform:uppercase}
 .sf-main-page .page_content p.rp-emg-desc{max-width:810px;margin:0 0 28px;color:#b9b6b1;font-family:Mulish,sans-serif;font-size:clamp(1.2rem,1.35vw,1.625rem)!important;font-weight:400;line-height:1.2!important;text-align:left!important}
 .rp-emergency .rp-emg-cta{display:inline-flex;min-width:312px;min-height:58px!important;align-items:center;justify-content:center;margin-top:7px;padding:14px 30px!important;border-radius:999px;font-family:Mulish,sans-serif;font-size:20px!important;font-weight:700;line-height:1!important;text-transform:none}
 .rp-emg-list{display:flex;flex-direction:column;padding-top:90px}
@@ -1524,7 +1525,7 @@ REPAIRS PAGE — SCOPED STYLES (prefix rp-)
 .rp-local-img{height:300px;margin-top:30px}
 .rp-bookcta,.rp-fcta{padding:80px 0}
 .rp-emergency{padding:64px 0;min-height:0}
-.rp-emergency__container{width:calc(100% - 48px)}
+.rp-emergency__container{width:100%}
 .rp-emergency__grid{grid-template-columns:1fr;gap:34px}
 .rp-emg-list{padding-top:0}
 }
@@ -1533,8 +1534,8 @@ REPAIRS PAGE — SCOPED STYLES (prefix rp-)
 .rp-hero-title{font-size:2.1rem}
 .rp-local-img{height:240px}
 .rp-emergency{padding:52px 0 46px}
-.rp-emergency__container{width:calc(100% - 30px)}
-.sf-main-page .page_content h2.rp-emg-title{margin-bottom:24px;font-size:clamp(2.25rem,10.5vw,3rem)!important;line-height:1.08!important;letter-spacing:-.6px}
+.rp-emergency__container{width:100%}
+.sf-main-page .page_content h2.rp-emg-title{margin-bottom:24px}
 .sf-main-page .page_content p.rp-emg-desc{margin-bottom:22px;font-size:1.05rem!important;line-height:1.55!important}
 .rp-emergency .rp-emg-cta{width:100%;min-width:0;min-height:54px!important;margin-top:2px;font-size:17px!important}
 .rp-emg-item{min-height:96px;gap:15px}
