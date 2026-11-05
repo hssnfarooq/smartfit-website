@@ -1454,7 +1454,7 @@ REPAIRS PAGE — SCOPED STYLES (prefix rp-)
 .rp-emg-item{display:flex;min-height:141px;align-items:center;gap:18px;border-bottom:1px solid rgba(255,255,255,.1)}
 .rp-emg-item:first-child{border-top:1px solid rgba(255,255,255,.1)}
 .rp-emg-icon{display:flex;width:46px;height:46px;align-items:center;justify-content:center;flex-shrink:0;border-radius:50%;color:#ed1e24;background:rgba(237,30,36,.16);font-size:17px}
-.sf-main-page .page_content h4.rp-emg-item-title{margin:0;color:#fff;font-family:Montserrat,sans-serif;font-size:34px!important;font-weight:700!important;line-height:1.2!important;letter-spacing:-.3px;text-transform:none}
+.sf-main-page .page_content .rp-emg-item-title{margin:0;color:#fff;font-family:Montserrat,sans-serif;font-size:34px!important;font-weight:700!important;line-height:1.2!important;letter-spacing:-.3px;text-transform:none}
 
 /* LOCAL EXPERTS */
 .rp-local{background:#fff;padding:88px 0}
@@ -1539,7 +1539,7 @@ REPAIRS PAGE — SCOPED STYLES (prefix rp-)
 .rp-emergency .rp-emg-cta{width:100%;min-width:0;min-height:54px!important;margin-top:2px;font-size:17px!important}
 .rp-emg-item{min-height:96px;gap:15px}
 .rp-emg-icon{width:42px;height:42px;font-size:15px}
-.sf-main-page .page_content h4.rp-emg-item-title{font-size:23px!important}
+.sf-main-page .page_content .rp-emg-item-title{font-size:23px!important}
 }
 @media(max-width:575px){
 .rp-hero-title{font-size:1.75rem}
@@ -1676,7 +1676,7 @@ SECTION 3 — HOW OUR REPAIR PROCESS WORKS
 {{-- ================================================
 SECTION 4 — EMERGENCY & SAME DAY CAR REPAIRS
 ================================================ --}}
-<section class="rp-emergency">
+<section id="repairs-emergency" class="rp-emergency">
 <div class="rp-emergency__container">
 <div class="rp-emergency__grid">
 <div>
@@ -1689,15 +1689,15 @@ SECTION 4 — EMERGENCY & SAME DAY CAR REPAIRS
 <div class="rp-emg-list">
   <div class="rp-emg-item">
     <div class="rp-emg-icon"><i class="fa-solid fa-bolt"></i></div>
-    <h4 class="rp-emg-item-title">Fast Response</h4>
+    <span class="rp-emg-item-title">Fast Response</span>
   </div>
   <div class="rp-emg-item">
     <div class="rp-emg-icon"><i class="fa-solid fa-desktop"></i></div>
-    <h4 class="rp-emg-item-title">Quick Diagnostics</h4>
+    <span class="rp-emg-item-title">Quick Diagnostics</span>
   </div>
   <div class="rp-emg-item">
     <div class="rp-emg-icon"><i class="fa-solid fa-check"></i></div>
-    <h4 class="rp-emg-item-title">Reliable Repairs</h4>
+    <span class="rp-emg-item-title">Reliable Repairs</span>
   </div>
 </div>
 </div>

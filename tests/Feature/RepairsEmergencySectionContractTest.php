@@ -38,6 +38,14 @@ class RepairsEmergencySectionContractTest extends TestCase
             $this->assertStringContainsString($class, $source);
         }
 
+        foreach (['Fast Response', 'Quick Diagnostics', 'Reliable Repairs'] as $label) {
+            $this->assertStringContainsString('<span class="rp-emg-item-title">'.$label.'</span>', $source);
+            $this->assertDoesNotMatchRegularExpression(
+                '/<h[1-6][^>]*>\s*'.preg_quote($label, '/').'\s*<\/h[1-6]>/i',
+                $source
+            );
+        }
+
         $this->assertStringContainsString('width:min(1780px,calc(100% - 144px))', $source);
         $this->assertStringContainsString('min-height:666px', $source);
         $this->assertStringContainsString('min-height:141px', $source);

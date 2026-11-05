@@ -61,8 +61,8 @@ class CustomerReviewsContractTest extends TestCase
         $this->assertSame(1, substr_count($mot, '@include("site.partials.customer-review-controls")'));
         $this->assertStringContainsString('aria-label="Previous reviews"', $controls);
         $this->assertStringContainsString('aria-label="Next reviews"', $controls);
-        $this->assertStringContainsString('reviews-arrow-previous.svg', $controls);
-        $this->assertStringContainsString('reviews-arrow-next.svg', $controls);
+        $this->assertSame(2, substr_count($controls, 'class="customer-review-arrow"'));
+        $this->assertSame(3, substr_count($controls, 'fill="currentColor"'));
         $this->assertStringNotContainsString('review-arrow-glyph', $controls);
 
         foreach ([$frontend, $mot] as $template) {
@@ -76,12 +76,13 @@ class CustomerReviewsContractTest extends TestCase
             'width: 51px !important',
             'width: 43px !important',
             'box-shadow: none !important',
+            'color: #b1afaf !important;',
+            'color: #e4222a !important;',
+            '.reviews_arrow_left:hover,',
+            '.reviews_arrow_right:hover,',
         ] as $contract) {
             $this->assertStringContainsString($contract, $css);
         }
-
-        $this->assertFileExists(public_path('assets/images/icons/reviews-arrow-previous.svg'));
-        $this->assertFileExists(public_path('assets/images/icons/reviews-arrow-next.svg'));
     }
 
     public function test_review_cards_follow_the_figma_divider_and_flat_card_treatment(): void

@@ -7411,8 +7411,16 @@ Responsive For Mobile & Tablet Devices
   visibility: visible !important;
   opacity: 1 !important;
   box-shadow: none !important;
+  color: #b1afaf !important;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.reviews_arrow_left:hover,
+.reviews_arrow_right:hover,
+.reviews_arrow_left:focus-visible,
+.reviews_arrow_right:focus-visible {
+  color: #e4222a !important;
 }
 
 .reviews_arrow_left {
@@ -7433,8 +7441,8 @@ Responsive For Mobile & Tablet Devices
   outline-offset: 3px;
 }
 
-.reviews_arrow_left img,
-.reviews_arrow_right img {
+.reviews_arrow_left .customer-review-arrow,
+.reviews_arrow_right .customer-review-arrow {
   display: block;
   width: 100%;
   height: 100%;

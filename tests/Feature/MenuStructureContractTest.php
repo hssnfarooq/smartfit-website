@@ -254,4 +254,24 @@ class MenuStructureContractTest extends TestCase
         $this->assertStringNotContainsString('.tyres_mega_menu_inner .fleet_item,', $menu);
         $this->assertStringNotContainsString('font-size: 14.5px !important;', $menu);
     }
+
+    public function test_promotional_menu_messages_are_not_document_headings(): void
+    {
+        $menu = file_get_contents(resource_path('views/components/menu.blade.php'));
+
+        foreach ([
+            'KEEP YOUR FLEET MOVING',
+            'KEEP YOUR VEHICLE PERFORMING AT ITS BEST',
+            'MOT due?',
+        ] as $message) {
+            $this->assertStringContainsString(
+                '<p class="fleet_promo_heading">'.$message.'</p>',
+                $menu
+            );
+            $this->assertDoesNotMatchRegularExpression(
+                '/<h[1-6][^>]*>\s*'.preg_quote($message, '/').'\s*<\/h[1-6]>/i',
+                $menu
+            );
+        }
+    }
 }

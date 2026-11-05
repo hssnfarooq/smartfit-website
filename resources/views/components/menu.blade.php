@@ -127,7 +127,7 @@
                                 <!-- Column 4: Promotional Content -->
                                 <div class="fleet_col fleet_col_4 fleet_promo_col">
                                     <div class="fleet_promo_content">
-                                        <h3 class="fleet_promo_heading">KEEP YOUR FLEET MOVING</h3>
+                                        <p class="fleet_promo_heading">KEEP YOUR FLEET MOVING</p>
                                         <p class="fleet_promo_desc">Reliable main tenancy and repair solutions for business and commercial vehicles</p>
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@
                                 <!-- Column 4: Promotional Content -->
                                 <div class="fleet_col fleet_col_4 fleet_promo_col">
                                     <div class="fleet_promo_content">
-                                        <h3 class="fleet_promo_heading">KEEP YOUR VEHICLE PERFORMING AT ITS BEST</h3>
+                                        <p class="fleet_promo_heading">KEEP YOUR VEHICLE PERFORMING AT ITS BEST</p>
                                         <p class="fleet_promo_desc">Routine servicing and maintenance for all makes and models</p>
                                     </div>
                                 </div>
@@ -223,7 +223,7 @@
                                 <!-- Column 4: Promotional Content -->
                                 <div class="fleet_col fleet_col_4 fleet_promo_col">
                                     <div class="fleet_promo_content">
-                                        <h3 class="fleet_promo_heading">MOT due?</h3>
+                                        <p class="fleet_promo_heading">MOT due?</p>
                                         <p class="fleet_promo_desc">Fast and reliable MOT testing available</p>
                                     </div>
                                 </div>
