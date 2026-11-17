@@ -66,6 +66,53 @@ final result: passed
 
 ---
 
+# Service Centre Picker Design QA
+
+## Source visual truth
+
+- Reported native-browser control: `/var/folders/wj/7k74ngmx3yd9sl0y2cs50w680000gp/T/codex-clipboard-475f7060-b469-4f00-a233-7de4f2e7adb0.png`
+- Source pixels: 1404 x 984 at 1x.
+- Intended outcome: preserve all six service-centre choices while replacing the operating-system dropdown with a SmartFit-styled in-modal selector.
+
+## Implementation evidence
+
+- Browser-rendered desktop capture: `/Users/hassangondal/Downloads/smartfit website/design-qa-service-centre-desktop.png`
+- Desktop capture pixels and CSS viewport: 1280 x 720 at 1x.
+- Responsive check: 390 x 844 CSS viewport at 1x; modal measured 374px wide with the mobile rules active.
+- State: selector open with Smartfit Northfield Road selected.
+- Full-view comparison: the supplied native select screenshot and the browser-rendered custom picker were opened together in one comparison pass.
+- Focused region comparison: the modal itself was large enough in both artifacts to judge type, spacing, selected state, icon treatment, footer visibility, and surrounding overlay; no additional crop was required.
+
+## Findings
+
+- The browser-native menu is fully removed. Each garage is now a full-width selectable card inside the modal.
+- The selected garage uses the existing SmartFit red, a pale red surface, a red location icon, and a Font Awesome confirmation icon.
+- Unselected garages use the site's neutral gray surfaces and maintain clear name/address hierarchy.
+- The list scrolls within the modal and the modal itself is scrollable, keeping Close and Save visible at shorter viewport heights.
+- Keyboard focus receives a visible red focus ring, and all options remain semantic radio controls within a named radio group.
+- Selecting a different card updates the address preview; Save persisted the selection and closed the modal.
+- Browser console contained no errors during selection and save verification.
+
+## Comparison history
+
+1. P0 source issue: macOS rendered the native select popup outside the site's visual system. Replaced the select with branded radio cards.
+2. P1 initial implementation: the longer list plus garage details pushed the modal footer below a 720px viewport. Added Bootstrap's scrollable-dialog behavior and recaptured the modal with both action buttons visible.
+3. Post-fix desktop and responsive checks found no actionable P0, P1, or P2 issues.
+
+## Required fidelity surfaces
+
+- Fonts and typography: passed. Existing Mulish body type and the site's bold uppercase modal hierarchy are retained.
+- Spacing and layout rhythm: passed. Cards use consistent 9px gaps, 10px radii, compact two-line content, and a fixed scroll region.
+- Colors and visual tokens: passed. SmartFit red `#ed1e24`, near-black copy, neutral gray cards, and a light selected tint match the existing booking UI.
+- Image quality and asset fidelity: passed. The existing Font Awesome icon library supplies the location and selection icons; no placeholder or hand-drawn assets are used.
+- Copy and content: passed. All six configured service-centre names and addresses are preserved.
+
+No actionable P0, P1, or P2 findings remain.
+
+final result: passed
+
+---
+
 # Payment Page CSS Delivery QA
 
 ## Source of truth

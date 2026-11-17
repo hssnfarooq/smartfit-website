@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="dark">
+<html lang="en-GB" data-bs-theme="dark">
 <head>
 @include('frontend.inc.google-tag')
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-{!! SEO::generate() !!}
+@include('frontend.inc.seo')
 @include('frontend.inc.meta')
 
 <style>
@@ -1449,7 +1449,7 @@ REPAIRS PAGE — SCOPED STYLES (prefix rp-)
 .rp-emergency__container{width:100%;max-width:1390px;margin:0 auto;padding:0 15px}
 .rp-emergency__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:105px;align-items:start}
 .sf-main-page .page_content h2.rp-emg-title{max-width:820px;margin:0 0 25px;color:#fff!important;font-family:Montserrat,sans-serif;font-size:var(--sf-type-h2)!important;font-weight:800!important;line-height:1.14!important;letter-spacing:-.015em;text-transform:uppercase}
-.sf-main-page .page_content p.rp-emg-desc{max-width:810px;margin:0 0 28px;color:#b9b6b1;font-family:Mulish,sans-serif;font-size:clamp(1.2rem,1.35vw,1.625rem)!important;font-weight:400;line-height:1.2!important;text-align:left!important}
+.sf-main-page .page_content p.rp-emg-desc{max-width:810px;margin:0 0 28px;color:#b9b6b1;font-family:Mulish,sans-serif;font-size:var(--sf-type-body)!important;font-weight:400;line-height:1.65!important;text-align:left!important}
 .rp-emergency .rp-emg-cta{display:inline-flex;min-width:312px;min-height:58px!important;align-items:center;justify-content:center;margin-top:7px;padding:14px 30px!important;border-radius:999px;font-family:Mulish,sans-serif;font-size:20px!important;font-weight:700;line-height:1!important;text-transform:none}
 .rp-emg-list{display:flex;flex-direction:column;padding-top:90px}
 .rp-emg-item{display:flex;min-height:141px;align-items:center;gap:18px;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -1536,7 +1536,7 @@ REPAIRS PAGE — SCOPED STYLES (prefix rp-)
 .rp-emergency{padding:52px 0 46px}
 .rp-emergency__container{width:100%}
 .sf-main-page .page_content h2.rp-emg-title{margin-bottom:24px}
-.sf-main-page .page_content p.rp-emg-desc{margin-bottom:22px;font-size:1.05rem!important;line-height:1.55!important}
+.sf-main-page .page_content p.rp-emg-desc{margin-bottom:22px;font-size:var(--sf-type-body)!important;line-height:1.65!important}
 .rp-emergency .rp-emg-cta{width:100%;min-width:0;min-height:54px!important;margin-top:2px;font-size:17px!important}
 .rp-emg-item{min-height:96px;gap:15px}
 .rp-emg-icon{width:42px;height:42px;font-size:15px}
@@ -1678,7 +1678,7 @@ SECTION 3 — HOW OUR REPAIR PROCESS WORKS
 SECTION 4 — EMERGENCY & SAME DAY CAR REPAIRS
 ================================================ --}}
 <section id="repairs-emergency" class="rp-emergency">
-<div class="rp-emergency__container">
+<div class="container rp-emergency__container">
 <div class="rp-emergency__grid">
 <div>
 <h2 class="rp-emg-title">EMERGENCY &amp; SAME<br>DAY CAR REPAIRS</h2>

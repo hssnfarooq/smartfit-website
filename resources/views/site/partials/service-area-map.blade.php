@@ -28,10 +28,7 @@
         background: #f2f2f4;
     }
     .sf-service-area__container {
-        width: min(1780px, calc(100% - 48px));
-        max-width: none;
-        margin: 0 auto;
-        padding: 0;
+        width: 100%;
     }
     .sf-main-page .page_content h2.sf-service-area__title {
         max-width: 1360px;
@@ -65,9 +62,9 @@
         margin: 0 0 37px;
         color: #716e6a;
         font-family: Mulish, sans-serif;
-        font-size: clamp(1.25rem, 1.4vw, 1.625rem) !important;
+        font-size: var(--sf-type-body) !important;
         font-weight: 400;
-        line-height: 1.5 !important;
+        line-height: 1.65 !important;
         text-align: left !important;
     }
     .sf-service-area__buttons {
@@ -77,16 +74,16 @@
     }
     .sf-service-area__button {
         display: inline-flex;
-        min-height: 64px;
+        min-height: 52px;
         align-items: center;
         justify-content: center;
-        padding: 14px 28px;
+        padding: 10px 22px;
         border: 1.5px solid #ded9d2 !important;
         border-radius: 999px;
         color: #4e4d4d !important;
         background: #fff !important;
         font-family: Montserrat, sans-serif;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 600;
         line-height: 1;
         cursor: pointer;
@@ -128,7 +125,7 @@
     }
     .sf-service-area__pin {
         color: #ed1e24;
-        font-size: 64px;
+        font-size: 48px;
         line-height: 1;
         text-align: center;
         filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .16));
@@ -141,15 +138,14 @@
     }
     @media (max-width: 767px) {
         .sf-service-area { padding: 54px 0 46px; }
-        .sf-service-area__container { width: calc(100% - 30px); }
         .sf-main-page .page_content h2.sf-service-area__title {
             margin-bottom: 34px;
         }
         .sf-service-area__content { padding: 34px 24px 38px; }
         .sf-main-page .page_content p.sf-service-area__copy {
             margin-bottom: 28px;
-            font-size: 1.05rem !important;
-            line-height: 1.55 !important;
+            font-size: var(--sf-type-body) !important;
+            line-height: 1.65 !important;
         }
         .sf-service-area__buttons { gap: 10px 8px; }
         .sf-service-area__button {
@@ -164,7 +160,7 @@
 @endonce
 
 <section class="sf-service-area" data-service-area="{{ $serviceAreaId }}">
-    <div class="sf-service-area__container">
+    <div class="container sf-service-area__container">
         <h2 class="sf-service-area__title">{!! $serviceAreaTitle !!}</h2>
 
         <div class="sf-service-area__card">
@@ -238,9 +234,9 @@
         var pin = L.divIcon({
             className: 'sf-service-area__pin',
             html: '<i class="fa-solid fa-location-dot" aria-hidden="true"></i>',
-            iconSize: [58, 72],
-            iconAnchor: [29, 72],
-            popupAnchor: [0, -68]
+            iconSize: [44, 56],
+            iconAnchor: [22, 56],
+            popupAnchor: [0, -52]
         });
         marker = L.marker([locations[0].lat, locations[0].lng], { icon: pin }).addTo(map)
             .bindPopup(popupContent(locations[0]));

@@ -33,6 +33,7 @@ class Termin extends Component
         $this->emit('terminDodan');
         $this->reset();
         $this->zatvori = true;
+        $this->dispatchBrowserEvent('booking-modal-saved', ['modalId' => 'terminModal']);
     }
 
     public function render()

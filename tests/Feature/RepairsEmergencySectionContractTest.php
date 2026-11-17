@@ -48,6 +48,9 @@ class RepairsEmergencySectionContractTest extends TestCase
         }
 
         $this->assertStringContainsString('max-width:1390px', $source);
+        $this->assertStringContainsString('<div class="container rp-emergency__container">', $source);
+        $this->assertStringContainsString('p.rp-emg-desc{max-width:810px;margin:0 0 28px;color:#b9b6b1;font-family:Mulish,sans-serif;font-size:var(--sf-type-body)!important', $source);
+        $this->assertStringNotContainsString('font-size:clamp(1.2rem,1.35vw,1.625rem)!important', $source);
         $this->assertStringContainsString('min-height:666px', $source);
         $this->assertStringContainsString('min-height:141px', $source);
         $this->assertStringContainsString('min-width:312px', $source);

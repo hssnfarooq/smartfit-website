@@ -78,6 +78,167 @@
   --bs-transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Booking service-centre picker */
+#lokacijaModal .modal-dialog {
+  max-width: 640px;
+}
+
+#lokacijaModal .service-centre-picker {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#lokacijaModal .service-centre-picker__legend {
+  margin: 0 0 12px;
+  color: #19181d;
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+#lokacijaModal .service-centre-picker__options {
+  display: grid;
+  gap: 9px;
+  max-height: 350px;
+  padding: 2px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: #b9b9bd #f2f2f3;
+  scrollbar-width: thin;
+}
+
+#lokacijaModal .service-centre-option {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+#lokacijaModal .service-centre-option__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#lokacijaModal .service-centre-option__card {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 24px;
+  gap: 13px;
+  align-items: center;
+  min-height: 74px;
+  padding: 13px 15px;
+  border: 1px solid #dedee1;
+  border-radius: 10px;
+  background: #f7f7f8;
+  box-shadow: 0 2px 8px rgba(25, 24, 29, .03);
+  transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+#lokacijaModal .service-centre-option__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #e8e8ea;
+  color: #68676d;
+  font-size: 17px;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+#lokacijaModal .service-centre-option__copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  color: #19181d;
+  font-family: "Mulish", sans-serif;
+}
+
+#lokacijaModal .service-centre-option__copy strong {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+#lokacijaModal .service-centre-option__copy > span {
+  color: #68676d;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+#lokacijaModal .service-centre-option__selected {
+  color: #ed1e24;
+  font-size: 20px;
+  opacity: 0;
+  transform: scale(.8);
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+#lokacijaModal .service-centre-option:hover .service-centre-option__card {
+  border-color: #b9b9bd;
+  background: #fff;
+  box-shadow: 0 7px 18px rgba(25, 24, 29, .08);
+  transform: translateY(-1px);
+}
+
+#lokacijaModal .service-centre-option__input:focus-visible + .service-centre-option__card {
+  outline: 3px solid rgba(237, 30, 36, .22);
+  outline-offset: 2px;
+}
+
+#lokacijaModal .service-centre-option__input:checked + .service-centre-option__card {
+  border-color: #ed1e24;
+  background: #fff5f5;
+  box-shadow: 0 7px 20px rgba(237, 30, 36, .1);
+}
+
+#lokacijaModal .service-centre-option__input:checked + .service-centre-option__card .service-centre-option__icon {
+  background: #ed1e24;
+  color: #fff;
+}
+
+#lokacijaModal .service-centre-option__input:checked + .service-centre-option__card .service-centre-option__selected {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (max-width: 575px) {
+  #lokacijaModal .service-centre-picker__options {
+    max-height: 310px;
+  }
+
+  #lokacijaModal .service-centre-option__card {
+    grid-template-columns: 36px minmax(0, 1fr) 20px;
+    gap: 10px;
+    min-height: 68px;
+    padding: 11px 12px;
+  }
+
+  #lokacijaModal .service-centre-option__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  #lokacijaModal .service-centre-option__copy strong {
+    font-size: 14px;
+  }
+
+  #lokacijaModal .service-centre-option__copy > span {
+    font-size: 12px;
+  }
+}
+
 :root,
 [data-bs-theme=dark] {
   color-scheme: dark;

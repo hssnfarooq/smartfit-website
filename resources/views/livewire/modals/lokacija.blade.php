@@ -1,5 +1,5 @@
 <div class="modal fade" id="lokacijaModal" tabindex="-1" aria-labelledby="lokacijaModalLabel" aria-hidden="true" data-bs-backdrop="static" wire:ignore.self>
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="lokacijaModalLabel">{{$this->modal_title}}</h1>
@@ -7,17 +7,36 @@
         </div>
         <div class="modal-body">
            
-            <div class="input-group mb-3">
-                <label>Select service location</label>
-            
-                <select class="form-select" wire:model="lokacija">
-                   <option value="0">-- please select --</option>
+            <fieldset class="service-centre-picker mb-3">
+                <legend class="service-centre-picker__legend">Select service location</legend>
+
+                <div class="service-centre-picker__options" role="radiogroup" aria-label="Select service location">
                     @foreach ($lokacije as $item)
-                        <option value="{{$item->id}}">{{$item->title}}</option>
+                        <label class="service-centre-option" wire:key="service-centre-{{ $item['slug'] }}">
+                            <input
+                                class="service-centre-option__input"
+                                type="radio"
+                                name="service-centre"
+                                value="{{ $item['slug'] }}"
+                                wire:model="lokacija"
+                            >
+                            <span class="service-centre-option__card">
+                                <span class="service-centre-option__icon" aria-hidden="true">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </span>
+                                <span class="service-centre-option__copy">
+                                    <strong>{{ $item['name'] }}</strong>
+                                    <span>{{ $item['address'] }}</span>
+                                </span>
+                                <span class="service-centre-option__selected" aria-hidden="true">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </span>
+                            </span>
+                        </label>
                     @endforeach
-                </select>
-            </div>
-            @error('date1')
+                </div>
+            </fieldset>
+            @error('lokacija')
                 <span class="text-danger">{{$message}}</span>
             @enderror
 

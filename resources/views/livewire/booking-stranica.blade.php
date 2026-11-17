@@ -8,6 +8,18 @@
   </div>
 </section>
 
+@push('scripts')
+<script>
+    window.addEventListener('booking-modal-saved', function (event) {
+        var modal = document.getElementById(event.detail.modalId);
+
+        if (modal && window.bootstrap && bootstrap.Modal) {
+            bootstrap.Modal.getOrCreateInstance(modal).hide();
+        }
+    });
+</script>
+@endpush
+
 <section class="details_section section_space_lg pb-0">
   <div class="container">
     <div class="row">
@@ -78,9 +90,7 @@
             </span>
           </a>
     
-          @php
-              //<livewire:components.order.lokacija>
-          @endphp
+          <livewire:components.order.lokacija>
           <livewire:components.order.auto>
 
           <livewire:components.order.termin>

@@ -21,9 +21,9 @@ class User extends Component
 
     public function mount()
     {
-        if (request()->session()->exists(env('INFO_KUKI'))){
+        if (session()->exists(env('INFO_KUKI'))){
             $this->modal_title = 'Change Your Contact Informations';
-            $user_data = request()->session()->get(env('INFO_KUKI'));
+            $user_data = session()->get(env('INFO_KUKI'));
             $this->name = $user_data['name'];
             $this->title = $user_data['title'];   
             $this->last_name = $user_data['last_name'];      
@@ -51,10 +51,11 @@ class User extends Component
             'terms' => $this->terms,
         ];
 
-        request()->session()->put(env('INFO_KUKI'), $tmp);
+        session()->put(env('INFO_KUKI'), $tmp);
         $this->emit('infoDodan');
        // $this->reset();
         $this->zatvori = true;
+        $this->dispatchBrowserEvent('booking-modal-saved', ['modalId' => 'userModal']);
     }
 
     

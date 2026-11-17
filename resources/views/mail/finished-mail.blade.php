@@ -1,8 +1,10 @@
 @php
     $meta = (array) $order->meta;
     $vehicle = (array) ($meta['vehicle'] ?? []);
-    $location = (array) ($meta['service_location'] ?? []);
+    $location = \App\Support\BookingInvoiceDetails::location($order);
     $appointments = (array) ($meta['preferred_appointments'] ?? []);
+    $createdDate = \App\Support\BookingInvoiceDetails::formatDate($order->placed_at);
+    $paidOnline = \App\Support\BookingInvoiceDetails::isPaidOnline($order);
 @endphp
 <!doctype html>
 <html lang="en">
@@ -22,7 +24,8 @@
                     <td style="padding:26px 32px;">
                         <table role="presentation" width="100%" cellpadding="7" cellspacing="0" border="0" style="font-size:15px;">
                             <tr><td style="color:#60646c;">Booking reference</td><td align="right"><strong>{{ $order->reference }}</strong></td></tr>
-                            <tr><td style="color:#60646c;">Payment status</td><td align="right"><strong>Paid</strong></td></tr>
+                            <tr><td style="color:#60646c;">Booking date</td><td align="right"><strong>{{ $createdDate }}</strong></td></tr>
+                            <tr><td style="color:#60646c;">Payment status</td><td align="right"><strong>{{ $paidOnline ? 'PAID ONLINE' : 'Payment confirmed' }}</strong></td></tr>
                             <tr><td style="color:#60646c;">Total paid</td><td align="right"><strong>{{ $order->total->formatted }}</strong></td></tr>
                         </table>
 
@@ -44,7 +47,7 @@
 
                         <h2 style="margin:28px 0 12px; font-size:19px;">Preferred appointments</h2>
                         @forelse($appointments as $appointment)
-                            <p style="margin:0 0 6px; font-size:15px;">{{ $appointment['date'] ?? '' }}{{ !empty($appointment['time_of_day']) ? ' — '.$appointment['time_of_day'] : '' }}</p>
+                            <p style="margin:0 0 6px; font-size:15px;">{{ \App\Support\BookingInvoiceDetails::formatDate($appointment['date'] ?? null) }}{{ !empty($appointment['time_of_day']) ? ' — '.$appointment['time_of_day'] : '' }}</p>
                         @empty
                             <p style="margin:0; font-size:15px; color:#60646c;">The garage will contact you to confirm your appointment time.</p>
                         @endforelse
@@ -66,9 +69,9 @@
                 </tr>
                 <tr>
                     <td style="padding:20px 32px; background:#18191c; color:#ffffff; text-align:center; font-size:13px; line-height:1.6;">
-                        {{ env('PDF_ORDER_NAME') }}<br>
-                        7 Welland Rd, Dogsthorpe, Peterborough, PE1 3SA<br>
-                        01733 569998
+                        {{ $location['title'] }}<br>
+                        {{ $location['address'] }}<br>
+                        {{ $location['phone'] }}
                     </td>
                 </tr>
             </table>

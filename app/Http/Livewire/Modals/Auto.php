@@ -49,6 +49,7 @@ class Auto extends Component
         $this->emit('autoDodan');
         $this->reset();
         $this->zatvori = true;
+        $this->dispatchBrowserEvent('booking-modal-saved', ['modalId' => 'autoModal']);
     }
 
     public function render()

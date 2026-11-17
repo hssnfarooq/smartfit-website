@@ -1,3 +1,8 @@
+@php
+    $invoiceLocation = \App\Support\BookingInvoiceDetails::location($order);
+    $createdDate = \App\Support\BookingInvoiceDetails::formatDate($order->placed_at);
+    $paidOnline = \App\Support\BookingInvoiceDetails::isPaidOnline($order);
+@endphp
 <table width="100%" cellpadding="0" cellspacing="0" border="0" class="backgroundTable main-temp" style="background-color: #f2f2f2; font-family:Arial, Helvetica, sans-serif">
     <tbody>
         <tr>
@@ -19,17 +24,17 @@
                                         </tr>
                                         <tr>
                                           <td style="font-size: 14px; line-height: 18px; color: #666666; text-align:center">
-                                            {{env('PDF_ORDER_NAME')}}
+                                            {{ $invoiceLocation['title'] }}
                                           </td>
                                       </tr>
                                       <tr>
                                           <td style="font-size: 14px; line-height: 18px; color: #666666;">
-                                            {{env('FIZICKA_ADRESA')}}
+                                            {{ $invoiceLocation['address'] }}
                                           </td>
                                       </tr>
                                       <tr>
                                           <td style="font-size: 14px; line-height: 18px; color: #666666; padding-bottom:15px">
-                                              <strong>Phone:</strong> {{env('OPCENITO_TELEFON')}} | <strong>Email:</strong> {{env('OPCENITO_EMAIL')}}
+                                              <strong>Phone:</strong> {{ $invoiceLocation['phone'] }} | <strong>Email:</strong> {{ $invoiceLocation['email'] }}
                                           </td>
                                       </tr>
                                     </tbody>
@@ -44,7 +49,10 @@
                         <!-- Start product Section -->
                         <tr>
                           <td align="left">
-                              <strong>Invoice:</strong> {{ @$order->reference }} 
+                              <strong>Invoice:</strong> {{ @$order->reference }}
+                              @if($paidOnline)
+                                <span style="margin-left:12px; color:#16803c; font-weight:bold;">PAID ONLINE</span>
+                              @endif
                           </td>
                        </tr>
                         <tr>
@@ -78,7 +86,8 @@
                     
                                                     <td align="right" width="50%">
                                                       Invoice: {{ @$order->reference }} <br>
-                                                        Created: {{ $order->placed_at }}<br>
+                                                        Created: {{ $createdDate }}<br>
+                                                        @if($paidOnline)<strong style="color:#16803c;">Payment: PAID ONLINE</strong><br>@endif
                                                     </td>
                     
                                                 </tr>

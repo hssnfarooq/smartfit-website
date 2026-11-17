@@ -63,6 +63,11 @@
 </head>
 
 <body>
+    @php
+        $invoiceLocation = \App\Support\BookingInvoiceDetails::location($order);
+        $createdDate = \App\Support\BookingInvoiceDetails::formatDate($order->placed_at);
+        $paidOnline = \App\Support\BookingInvoiceDetails::isPaidOnline($order);
+    @endphp
     <div class="content">
         <div class="invoice-box">
 
@@ -76,8 +81,8 @@
                                 </td>
                                 <td align="right" width="50%">
                                     
-                                    {{env('PDF_ORDER_NAME')}} <br>
-                                    {{env('FIZICKA_ADRESA')}}<br> <strong>Phone:</strong> {{env('OPCENITO_TELEFON')}} | <strong>Email:</strong> {{env('OPCENITO_EMAIL')}}
+                                    {{ $invoiceLocation['title'] }} <br>
+                                    {{ $invoiceLocation['address'] }}<br> <strong>Phone:</strong> {{ $invoiceLocation['phone'] }} | <strong>Email:</strong> {{ $invoiceLocation['email'] }}
 
                                 </td>
                             </tr>
@@ -115,7 +120,8 @@
 
                                 <td align="right" width="50%">
                                   Invoice: {{ @$order->reference }} <br>
-                                    Created: {{ $order->placed_at }}<br>
+                                    Created: {{ $createdDate }}<br>
+                                    @if($paidOnline)<strong style="color:#16803c;">Payment: PAID ONLINE</strong><br>@endif
                                 </td>
 
                             </tr>

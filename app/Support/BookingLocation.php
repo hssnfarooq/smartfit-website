@@ -2,6 +2,8 @@
 
 namespace App\Support;
 
+use InvalidArgumentException;
+
 class BookingLocation
 {
     private const DEFAULT_GARAGE_SLUG = 'hiq-welland-road';
@@ -10,23 +12,47 @@ class BookingLocation
     {
         $sessionKey = env('LOKACIJA_KUKI', 'lokacija');
 
-        if (request()->session()->exists($sessionKey)) {
+        if (session()->exists($sessionKey)) {
             return;
         }
 
-        $garage = GarageCatalog::find(self::DEFAULT_GARAGE_SLUG);
+        $this->select(self::DEFAULT_GARAGE_SLUG);
+    }
+
+    public function all(): array
+    {
+        return GarageCatalog::all();
+    }
+
+    public function find(string $slug): ?object
+    {
+        $garage = GarageCatalog::find($slug);
+
+        return $garage ? $this->toSessionGarage($garage) : null;
+    }
+
+    public function select(string $slug): object
+    {
+        $garage = $this->find($slug);
 
         if ($garage === null) {
-            throw new \LogicException('The default SmartFit booking garage is not configured.');
+            throw new InvalidArgumentException('The selected SmartFit garage is not configured.');
         }
 
-        request()->session()->put($sessionKey, (object) [
+        session()->put(env('LOKACIJA_KUKI', 'lokacija'), $garage);
+
+        return $garage;
+    }
+
+    private function toSessionGarage(array $garage): object
+    {
+        return (object) [
             'slug' => $garage['slug'],
             'title' => $garage['name'],
             'address' => $garage['address'],
             'postcode' => $garage['postcode'],
             'phone' => $garage['phone'],
             'email' => $garage['email'],
-        ]);
+        ];
     }
 }
